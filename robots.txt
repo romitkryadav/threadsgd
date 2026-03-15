@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Sitemap: https://threads-downloader.com/sitemap.xml
+
+# Disallow test/dev pages
+# Disallow: /test/
+# Disallow: /debug/

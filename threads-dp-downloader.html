@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://threadsgrab.com/threads-dp-downloader.html">
+    <title>Threads DP Downloader - Download Threads Profile Pictures</title>
+    <meta name="description" content="Threads DP downloader to save profile pictures from Threads profiles. Copy the profile link and download the full size Threads profile photo..">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://threadsgrab.com/threads-dp-downloader.html" />
+    <meta property="og:title" content="Threads DP Downloader - Download Threads Profile Pictures" />
+    <meta property="og:description" content="Threads DP downloader to save profile pictures from Threads profiles. Copy the profile link and download the full size Threads profile photo.." />
+    <meta property="og:image" content="https://threadsgrab.com/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ThreadsGrab" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "ThreadsGrab - Profile Picture Downloader",
+      "url": "https://threadsgrab.com/threads-dp-downloader.html",
+      "description": "Download Threads profile pictures fast with ThreadsGrab DP downloader."
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="romit.min.css">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Threads DP Downloader",
+      "url": "https://threads-downloader.com",
+      "description": "Download profile pictures from Threads easily.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All"
+    }
+    </script>
+</head>
+<body class="bg-black text-white font-sans">
+    <!-- Header/Nav -->
+    <nav class="relative bg-black border-b border-white/10 py-4 shadow-lg z-50">
+        <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
+            <a href="./index.html" class="text-2xl font-bold tracking-tighter text-white">ThreadsGrab</a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                <a href="./threads-video-downloader.html" class="desktop-menu-link hover:text-white">Video Downloader</a>
+                <a href="./threads-image-downloader.html" class="desktop-menu-link hover:text-white">Image Downloader</a>
+                <a href="./threads-dp-downloader.html" class="desktop-menu-link hover:text-white">Profile Downloader</a>
+                <a href="./about.html" class="desktop-menu-link hover:text-white">About Us</a>
+                <a href="./blog.html" class="desktop-menu-link hover:text-white">Blog</a>
+                <a href="./contact.html" class="desktop-menu-link hover:text-white">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-white focus:outline-none p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobileMenu" class="fixed top-0 right-0 h-full bg-black border-l border-white/10 shadow-2xl z-[60] transform translate-x-full transition-transform duration-300 ease-in-out md:hidden overflow-y-auto w-72 sm:w-80 max-w-[80vw]">
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-8">
+                    <span class="text-xl font-bold tracking-tighter text-white">ThreadsGrab</span>
+                    <button id="closeMenuBtn" class="text-white focus:outline-none p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex flex-col space-y-4">
+                    <a href="./index.html" class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">Home</a>
+                    <a href="./threads-video-downloader.html" class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">Video Downloader</a>
+                    <a href="./threads-image-downloader.html" class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">Image Downloader</a>
+                    <a href="./threads-dp-downloader.html" class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">Profile Downloader</a>
+                    <a href="./about.html" class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">About Us</a>
+                    <a href="./blog.html" class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">Blog</a>
+                    <a href="./contact.html" class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="py-16 px-4 text-center bg-black">
+        <h1 class="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight text-white">Threads DP Downloader</h1>
+
+        <!-- Downloader Box -->
+        <div class="max-w-3xl mx-auto bg-black/90 p-6 rounded-2xl shadow-2xl border border-white/20">
+            <div class="flex flex-col md:flex-row gap-3">
+                <input 
+                    type="text" 
+                    id="threadsUrl" 
+                    placeholder="Paste Threads profile link here (e.g., https://www.threads.net/@user)" 
+                    class="flex-1 px-4 py-4 rounded-xl border border-white/20 bg-black text-white outline-none focus:ring-2 focus:ring-white/40 transition-all shadow-lg placeholder:text-slate-400"
+                >
+                <button 
+                    id="downloadBtn" 
+                    class="bg-black text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-all shadow-lg active:scale-95 border border-white/20"
+                >
+                    Download HD Profile Picture
+                </button>
+            </div>
+            <div id="statusMessage" class="mt-4 text-sm hidden"></div>
+        </div>
+    </header>
+
+    <!-- Result Section -->
+    <section id="resultSection" class="max-w-3xl mx-auto px-4 py-8 hidden">
+        <div class="bg-black/90 p-6 rounded-2xl shadow-2xl border border-white/20 text-center">
+            <h2 class="text-xl font-bold mb-4 text-white">Your Media is Ready</h2>
+            <div id="previewContainer" class="mb-6 rounded-lg overflow-hidden bg-slate-900 flex justify-center items-center min-h-[200px]"></div>
+            <a id="finalDownloadBtn" href="#" target="_blank" class="inline-block bg-black text-white px-10 py-4 rounded-xl font-bold hover:bg-white/10 transition-all shadow-lg">
+                Save to Device
+            </a>
+        </div>
+    </section>
+
+    <!-- How to Use -->
+    <section class="max-w-6xl mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-8 text-white">How to Download Threads Profile Pictures?</h2>
+        <div class="mb-10 flex justify-center">
+            <img src="https://raw.githubusercontent.com/romit1815/thread/main/dp%20down.gif" alt="Threads DP download demo" class="max-w-full h-auto rounded-xl border border-white/20 shadow-lg" />
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="step-card">
+                <div class="step-badge">1</div>
+                <h3 class="step-title text-center">Copy Profile Link</h3>
+                <p class="step-text text-center">Open Threads and copy the URL of the profile you want to download.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-badge">2</div>
+                <h3 class="step-title text-center">Paste Link</h3>
+                <p class="step-text text-center">Paste the link into the input box at the top of this page.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-badge">3</div>
+                <h3 class="step-title text-center">Download</h3>
+                <p class="step-text text-center">Click download and save the profile picture to your device.</p>
+            </div>
+        </div>
+    </section>
+    <!-- SEO Blog Explanation -->
+    <section class="max-w-6xl mx-auto px-4 py-16">
+        <h2 class="text-2xl font-bold text-center mb-8 text-white">What is ThreadsGrab?</h2>
+        <p class="max-w-3xl mx-auto text-white/80 text-center">Threadsgrab is a free online tool that allows you to download videos, images, and profile pictures from Threads quickly and easily. Simply copy the link of the Threads post, paste it into our downloader, and save the media directly to your device in seconds. No login or app installation is required, and the tool works on all devices including mobile phones, tablets, and desktop computers.</p>
+        <h2 class="text-2xl font-bold text-center mt-12 mb-8 text-white">Why use ThreadsGrab?</h2>
+        <p class="max-w-3xl mx-auto text-white/80 text-center">Threads users share millions of videos and images every day, and many of them are worth saving for later. However, Threads does not provide a direct option to download media from posts to your device.
+
+ThreadsGrab solves this problem by providing a simple and fast Threads downloader that allows you to save videos and images from public Threads posts. Just copy the link of the Threads post, paste it into the downloader, and download the media in seconds.
+
+With ThreadsGrab, you can easily download Threads videos, images, and profile pictures without installing any app or creating an account. The tool works directly in your browser and supports all devices, including smartphones, tablets, and desktop computers.</p>
+        <h2 class="text-2xl font-bold text-center mt-12 mb-8 text-white">Why People Want to Download Threads Videos and Images?</h2>
+        <p class="max-w-3xl mx-auto text-white/80 text-center">Threads is full of creative videos and images shared by users every day. While browsing, many people find posts they want to keep for later. However, Threads does not offer a built-in option to download media, which is why users look for a Threads video downloader or Threads image downloader.
+
+Many users want to download Threads videos so they can watch them offline without needing an internet connection. Others save images and videos as inspiration, especially creators, designers, and marketers who collect visual ideas for future projects.
+
+Downloading media also makes it easier to share videos or images with friends outside the platform. In addition, posts on social media can be deleted anytime, so saving the content ensures it remains available later.
+
+Using a Threads media downloader allows users to quickly save Threads videos online in their original quality without taking screenshots or recording the screen.</p>
+    <!-- FAQ Section -->
+    <section class="bg-black py-16">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                <div class="border-b border-white/20 pb-4 shadow-md">
+                    <h3 class="font-bold text-lg mb-2 text-white">Can I download Threads DP in HD quality?</h3>
+                    <p class="text-white">Yes. The downloader fetches the highest available profile picture quality from the Threads profile, so you can save the image in clear resolution.</p>
+                </div>
+                <div class="border-b border-white/20 pb-4 shadow-md">
+                    <h3 class="font-bold text-lg mb-2 text-white">Can I download profile pictures from private Threads accounts?</h3>
+                    <p class="text-white">No. The downloader only works with public Threads profiles. Profile pictures from private accounts cannot be accessed.</p>
+                </div>
+                <div class="border-b border-white/20 pb-4 shadow-md">
+                    <h3 class="font-bold text-lg mb-2 text-white">Does the tool store or save downloaded profile pictures?</h3>
+                    <p class="text-white">No. The downloader does not store any images. It only processes the profile link and provides a temporary option to download the profile picture.</p>
+                </div>
+                <div class="border-b border-white/20 pb-4 shadow-md">
+                    <h3 class="font-bold text-lg mb-2 text-white">Can I view the Threads profile picture before downloading it?</h3>
+                    <p class="text-white">Yes. After processing the profile link, the tool shows a preview of the full-size Threads DP, so you can check it before downloading.</p>
+                </div>
+                <div class="border-b border-white/20 pb-4 shadow-md">
+                   <h3 class="font-bold text-lg mb-2 text-white">Can I use the downloaded profile picture anywhere?</h3>
+                    <p class="text-white">You should only use downloaded images for personal use. If you want to repost or reuse someone’s profile picture, it is better to ask for permission from the original owner.</p>
+            </div>
+                  <div class="border-b border-white/20 pb-4 shadow-md">
+                 <h3 class="font-bold text-lg mb-2 text-white">Why is the Threads profile picture showing small even after download?</h3>
+                    <p class="text-white">Sometimes Threads only provides a limited resolution for profile pictures. If the original image uploaded by the user is small, the downloaded version may also appear small.</p>
+                     </div>
+                    <div class="border-b border-white/20 pb-4 shadow-md">
+                 <h3 class="font-bold text-lg mb-2 text-white">Why does the download button sometimes not appear?</h3>
+                    <p class="text-white">If the tool cannot detect the profile picture, the download button may not appear. This can happen with private accounts or invalid links.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#000] text-white py-12 px-4">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-8">
+            <div class="col-span-2">
+                <h3 class="text-white text-xl font-bold mb-4">ThreadsGrab</h3>
+                <p class="text-sm text-white">The fastest way to download profile pictures from Threads. We are not affiliated with Meta or Threads.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="/about.html" class="hover:text-white">About Us</a></li>
+                    <li><a href="/contact.html" class="hover:text-white">Contact</a></li>
+                    <li><a href="./privacy-policy.html" class="hover:text-white">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Tools</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="/threads-video-downloader.html" class="hover:text-white">Video Downloader</a></li>
+                    <li><a href="/threads-image-downloader.html" class="hover:text-white">Image Downloader</a></li>
+                    <li><a href="/threads-dp-downloader.html" class="hover:text-white">Profile Picture Downloader</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto mt-12 pt-8 border-t border-white/20 text-center text-xs">
+            &copy; 2026 ThreadsGrab. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="./dp.min.js"></script>
+    <script src="./menu.min.js"></script>
+</body>
+</html>
+
