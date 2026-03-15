@@ -1,19 +1,6 @@
 User-agent: *
 Allow: /
 
-# Block unnecessary system paths
 Disallow: /cdn-cgi/
-Disallow: /api/
-Disallow: /worker/
-Disallow: /private/
-Disallow: /temp/
 
-# Allow important assets
-Allow: /*.css$
-Allow: /*.js$
-Allow: /*.png$
-Allow: /*.jpg$
-Allow: /*.webp$
-
-# Sitemap
-Sitemap: https://www.threadsgrab.com/sitemap.xml
+Sitemap: https://threadsgrab.com/sitemap.xml
