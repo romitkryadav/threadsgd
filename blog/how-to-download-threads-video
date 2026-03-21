@@ -16,7 +16,7 @@
     <meta name="twitter:site" content="@ThreadsGrab" />
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="romit.min.css">
+    <link rel="stylesheet" href="https://threadsgrab.com/romit.min.css">
 </head>
 <body class="bg-black text-white font-sans">
     <!-- Header/Nav -->
@@ -120,7 +120,7 @@ Below each post you will see a share icon. Click on this icon and choose the opt
 <h3 class="text-xl font-semibold mt-6 mb-2">Step 3: Open the ThreadsGrab Downloader</h3>
 
 <p>
-Next, open the <a href="/" class="text-cyan-300 underline">ThreadsGrab homepage</a> in your browser. On the homepage you will see a simple input box where you can paste the link.
+Next, open the <a href="https://threadsgrab.com" class="text-cyan-300 underline">ThreadsGrab homepage</a> in your browser. On the homepage you will see a simple input box where you can paste the link.
 </p>
 
 <p>
@@ -251,7 +251,7 @@ By copying the post link, pasting it into the downloader, and saving the generat
             &copy; 2026 ThreadsGrab. All rights reserved.
         </div>
     </footer>
-    <script src="./vi.min.js"></script>
-    <script src="./menu.min.js"></script>
+    <script src="https://threadsgrab.com/vi.min.js"></script>
+    <script src="https://threadsgrab.com/menu.min.js"></script>
 </body>
 </html>
