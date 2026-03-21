@@ -16,7 +16,7 @@
     <meta name="twitter:site" content="@ThreadsGrab" />
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="romit.min.css">
+    <link rel="stylesheet" href="https://threadsgrab.com/romit.min.css">
 </head>
 <body class="bg-black text-white font-sans">
     <!-- Header/Nav -->
@@ -247,7 +247,7 @@ By using tools like ThreadsGrab, you can easily download videos by copying the p
             &copy; 2026 ThreadsGrab. All rights reserved.
         </div>
     </footer>
-    <script src="./vi.min.js"></script>
-    <script src="./menu.min.js"></script>
+    <script src="https://threadsgrab.com/vi.min.js"></script>
+    <script src="https://threadsgrab.com/menu.min.js"></script>
 </body>
 </html>
