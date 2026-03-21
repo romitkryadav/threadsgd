@@ -22,7 +22,7 @@
     <!-- Header/Nav -->
     <nav class="relative bg-black border-b border-white/10 py-4 shadow-lg z-50">
         <div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
-            <a href="./index.html" class="text-2xl font-bold tracking-tighter text-white">ThreadsGrab</a>
+            <a href="https://threadsgrab.com/index.html" class="text-2xl font-bold tracking-tighter text-white">ThreadsGrab</a>
 
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
