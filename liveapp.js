@@ -83,8 +83,20 @@ elements.vsPic2.onerror = () => {
     elements.vsPic2.src = "https://www.threads.net/favicon.ico";
 };
 
-// Initialize Chart.js
+// Initialize Chart.js - defer until Chart library is loaded
 function initChart() {
+    // If Chart.js is not loaded, wait for it
+    if (typeof Chart === 'undefined') {
+        console.log('Chart.js loading...');
+        setTimeout(initChart, 100);
+        return;
+    }
+    
+    if (!elements.chartCanvas) {
+        console.error('Chart canvas not found');
+        return;
+    }
+    
     const ctx = elements.chartCanvas.getContext('2d');
     state.chart = new Chart(ctx, {
         type: 'line',
@@ -193,21 +205,25 @@ function updateUI() {
     
     // Handle Compare Mode Toggle
     if (state.compareMode) {
-        elements.compareContainer.classList.remove('hidden');
-        elements.toggleCompareBtn.innerHTML = `
+        if (elements.compareContainer) elements.compareContainer.classList.remove('hidden');
+        if (elements.toggleCompareBtn) {
+            elements.toggleCompareBtn.innerHTML = `
             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             Exit Comparison Mode
         `;
-        elements.singleView.classList.add('hidden');
-        elements.versusView.classList.remove('hidden');
+        }
+        if (elements.singleView) elements.singleView.classList.add('hidden');
+        if (elements.versusView) elements.versusView.classList.remove('hidden');
     } else {
-        elements.compareContainer.classList.add('hidden');
-        elements.toggleCompareBtn.innerHTML = `
+        if (elements.compareContainer) elements.compareContainer.classList.add('hidden');
+        if (elements.toggleCompareBtn) {
+            elements.toggleCompareBtn.innerHTML = `
             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
             Toggle Comparison Mode
         `;
-        elements.singleView.classList.remove('hidden');
-        elements.versusView.classList.add('hidden');
+        }
+        if (elements.singleView) elements.singleView.classList.remove('hidden');
+        if (elements.versusView) elements.versusView.classList.add('hidden');
     }
 
     // Handle Error
@@ -337,23 +353,69 @@ function animateValue(obj, start, end, duration) {
     if (obj.dataset.target === String(end)) return;
     obj.dataset.target = end;
 
-    if (obj.dataset.animationId) {
-        cancelAnimationFrame(parseInt(obj.dataset.animationId));
+    const startStr = start.toLocaleString();
+    const endStr = end.toLocaleString();
+
+    // Add CSS animations if not already added
+    if (!document.getElementById('digit-scroll-styles')) {
+        const style = document.createElement('style');
+        style.id = 'digit-scroll-styles';
+        style.textContent = `
+            .digit-container {
+                display: inline-block;
+                position: relative;
+                overflow: hidden;
+                vertical-align: baseline;
+                width: 0.6em;
+                height: 1.2em;
+            }
+            .digit-current {
+                display: block;
+                position: relative;
+                z-index: 2;
+                animation: digit-scroll-in 0.6s ease-out;
+            }
+            .digit-old {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 1;
+                animation: digit-scroll-out 0.6s ease-out forwards;
+            }
+            @keyframes digit-scroll-in {
+                from { transform: translateY(-1.2em); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+            @keyframes digit-scroll-out {
+                from { transform: translateY(0); opacity: 1; }
+                to { transform: translateY(1.2em); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
     }
 
-    let startTimestamp = null;
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        const current = Math.floor(progress * (end - start) + start);
-        obj.textContent = current.toLocaleString();
-        if (progress < 1) {
-            obj.dataset.animationId = window.requestAnimationFrame(step);
+    // Split into individual digits
+    let html = '';
+    for (let i = 0; i < endStr.length; i++) {
+        const oldChar = startStr[i] || '';
+        const newChar = endStr[i];
+        const isChanged = oldChar !== newChar;
+
+        if (isChanged && oldChar !== '') {
+            // Digit changed - create container with animation
+            html += `<span class="digit-container"><span class="digit-old">${oldChar}</span><span class="digit-current">${newChar}</span></span>`;
+        } else if (isChanged && oldChar === '') {
+            // New digit appeared (number grew)
+            html += `<span class="digit-container"><span class="digit-current">${newChar}</span></span>`;
         } else {
-            delete obj.dataset.animationId;
+            // Digit stayed the same
+            html += newChar;
         }
-    };
-    obj.dataset.animationId = window.requestAnimationFrame(step);
+    }
+
+    obj.innerHTML = html;
 }
 
 // Fetch Data Directly from Worker
@@ -473,55 +535,66 @@ elements.compareForm.addEventListener('submit', (e) => {
     }
 });
 
-elements.toggleCompareBtn.addEventListener('click', () => {
-    state.compareMode = !state.compareMode;
-    localStorage.setItem("threads_tracker_compare", state.compareMode);
-    
-    if (state.chart) {
-        state.chart.options.plugins.legend.display = state.compareMode;
-        state.chart.data.datasets[1].hidden = !state.compareMode;
-        state.chart.update();
-    }
-    
-    updateUI();
-});
-
-elements.autoRefreshBtn.addEventListener('click', () => {
-    state.autoRefresh = !state.autoRefresh;
-    updateUI();
-});
-
-elements.autoGoalBtn.addEventListener('click', () => {
-    if (!state.data) return;
-    const current = state.data.followers;
-    if (current <= 0) return;
-    
-    // Calculate next milestone
-    // e.g. 850 -> 900, 1200 -> 2000
-    const magnitude = Math.pow(10, Math.floor(Math.log10(current)));
-    const next = Math.ceil((current + 1) / magnitude) * magnitude;
-    
-    state.goal = next;
-    localStorage.setItem("threads_tracker_goal", next);
-    elements.goalInput.value = next;
-    updateUI();
-});
-
-elements.setGoalBtn.addEventListener('click', () => {
-    const val = parseInt(elements.goalInput.value);
-    if (val && val > 0) {
-        state.goal = val;
-        localStorage.setItem("threads_tracker_goal", val);
+if (elements.toggleCompareBtn) {
+    elements.toggleCompareBtn.addEventListener('click', () => {
+        state.compareMode = !state.compareMode;
+        localStorage.setItem("threads_tracker_compare", state.compareMode);
+        
+        if (state.chart) {
+            state.chart.options.plugins.legend.display = state.compareMode;
+            state.chart.data.datasets[1].hidden = !state.compareMode;
+            state.chart.update();
+        }
+        
         updateUI();
-    }
-});
+    });
+}
 
-elements.clearGoalBtn.addEventListener('click', () => {
-    state.goal = null;
-    localStorage.removeItem("threads_tracker_goal");
-    elements.goalInput.value = "";
-    updateUI();
-});
+if (elements.autoRefreshBtn) {
+    elements.autoRefreshBtn.addEventListener('click', () => {
+        state.autoRefresh = !state.autoRefresh;
+        updateUI();
+    });
+}
+
+if (elements.autoGoalBtn) {
+    elements.autoGoalBtn.addEventListener('click', () => {
+        if (!state.data) return;
+        const current = state.data.followers;
+        if (current <= 0) return;
+        
+        // Calculate next milestone
+        // e.g. 850 -> 900, 1200 -> 2000
+        const magnitude = Math.pow(10, Math.floor(Math.log10(current)));
+        const next = Math.ceil((current + 1) / magnitude) * magnitude;
+        
+        state.goal = next;
+        localStorage.setItem("threads_tracker_goal", next);
+        if (elements.goalInput) elements.goalInput.value = next;
+        updateUI();
+    });
+}
+
+if (elements.setGoalBtn) {
+    elements.setGoalBtn.addEventListener('click', () => {
+        if (!elements.goalInput) return;
+        const val = parseInt(elements.goalInput.value);
+        if (val && val > 0) {
+            state.goal = val;
+            localStorage.setItem("threads_tracker_goal", val);
+            updateUI();
+        }
+    });
+}
+
+if (elements.clearGoalBtn) {
+    elements.clearGoalBtn.addEventListener('click', () => {
+        state.goal = null;
+        localStorage.removeItem("threads_tracker_goal");
+        if (elements.goalInput) elements.goalInput.value = "";
+        updateUI();
+    });
+}
 
 // Init
 document.addEventListener('DOMContentLoaded', () => {
@@ -537,4 +610,4 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.compareInput.value = state.username2;
         fetchFollowers(state.username2, false, true);
     }
-});
+});       
