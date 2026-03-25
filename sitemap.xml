@@ -32,6 +32,10 @@
     <loc>https://threadsgrab.com/threads-dp-downloader.html</loc>
     <priority>0.90</priority>
   </url>
+   <url>
+    <loc>https://threadsgrab.com/live-threads-followers-counter.html</loc>
+    <priority>0.90</priority>
+  </url>
   <url>
     <loc>https://threadsgrab.com/privacy-policy.html</loc>
     <priority>0.60</priority>
@@ -44,9 +48,6 @@
     <loc>https://threadsgrab.com/blog/how-to-download-threads-images-in-original-quality</loc>
     <priority>0.70</priority>
   </url>
-   <url>
-    <loc>https://threadsgrab.com/blog/why-threads-videos-cant-be-downloaded-easy-solution-guide</loc>
-    <priority>0.70</priority>
-  </url>
+  
   
 </urlset>
