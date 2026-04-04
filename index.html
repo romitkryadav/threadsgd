@@ -2,30 +2,6 @@
 <html lang="en">
 <head>
 
-<script>
-(function() {
-  const lastShown = localStorage.getItem("adShownTime");
-  const now = Date.now();
-
-  // 24 hours = 86400000 ms
-  if (!lastShown || (now - lastShown) > 86400000) {
-    
-    // Save current time
-    localStorage.setItem("adShownTime", now);
-
-    // Load ad script
-    var s = document.createElement('script');
-    s.src = 'https://n6wxm.com/vignette.min.js';
-    s.dataset.zone = '10831789';
-    document.body.appendChild(s);
-  }
-})();
-</script>
-
-
-    
-
-
     
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SP0ZHQ7HRQ"></script>
