@@ -5,43 +5,43 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://threadsgrab.com/index.html</loc>
+    <loc>https://threadsgrab.com</loc>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://threadsgrab.com/about.html</loc>
+    <loc>https://threadsgrab.com/about</loc>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://threadsgrab.com/contact.html</loc>
+    <loc>https://threadsgrab.com/contact</loc>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://threadsgrab.com/blog.html</loc>
+    <loc>https://threadsgrab.com/blog</loc>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://threadsgrab.com/threads-video-downloader.html</loc>
+    <loc>https://threadsgrab.com/threads-video-downloader</loc>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://threadsgrab.com/threads-image-downloader.html</loc>
+    <loc>https://threadsgrab.com/threads-image-downloader</loc>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://threadsgrab.com/threads-dp-downloader.html</loc>
+    <loc>https://threadsgrab.com/threads-dp-downloader</loc>
     <priority>0.90</priority>
   </url>
    <url>
-    <loc>https://threadsgrab.com/live-threads-followers-counter.html</loc>
+    <loc>https://threadsgrab.com/live-threads-followers-counter</loc>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://threadsgrab.com/privacy-policy.html</loc>
+    <loc>https://threadsgrab.com/privacy-policy</loc>
     <priority>0.60</priority>
   </url>
   <url>
-    <loc>https://threadsgrab.com/terms.html</loc>
+    <loc>https://threadsgrab.com/terms</loc>
     <priority>0.60</priority>
   </url>
    <url>
