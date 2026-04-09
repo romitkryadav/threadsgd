@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Block unnecessary system paths
+
+Disallow: /api/
+Disallow: /private/
+Disallow: /tmp/
+
+# Block URL parameters (avoid duplicate content)
+Disallow: /*?*
+Allow: /*?page=
+
+# Allow important static assets
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.webp$
+Allow: /*.svg$
+
+# Sitemap
+Sitemap: https://threadsgrab.com/sitemap.xml
