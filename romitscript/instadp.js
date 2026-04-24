@@ -1,7 +1,3 @@
-/**
- * Vanilla JavaScript logic for Instagram Profile Picture Downloader
- */
-
 const WORKER_URL = 'https://instadp.romitkr361.workers.dev/';
 
 // DOM Elements
@@ -24,82 +20,74 @@ const downloadBtn = document.getElementById('downloadBtn');
 const previewBtn = document.getElementById('previewBtn');
 const igLink = document.getElementById('igLink');
 
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const mobileMenu = document.getElementById('mobileMenu');
-const closeMenuBtn = document.getElementById('closeMenuBtn');
-
 let currentResult = null;
 
-// Helper: Parse username from input
+// ---------------- USERNAME CLEAN ----------------
 function getCleanUsername(input) {
     let clean = input.trim();
-    
+
     try {
         if (clean.includes('instagram.com')) {
             const url = new URL(clean.startsWith('http') ? clean : `https://${clean}`);
-            const pathParts = url.pathname.split('/').filter(part => part.length > 0);
-            if (pathParts.length > 0) {
-                clean = pathParts[0];
-            }
+            const parts = url.pathname.split('/').filter(Boolean);
+            if (parts.length > 0) clean = parts[0];
         }
-    } catch (err) {
-        // Fallback to original
-    }
+    } catch {}
 
-    if (clean.startsWith('@')) {
-        clean = clean.substring(1);
-    }
-    
+    if (clean.startsWith('@')) clean = clean.slice(1);
+
     return clean;
 }
 
-// Handle Form Submission
+// ---------------- FORM SUBMIT ----------------
 searchForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     const username = getCleanUsername(usernameInput.value);
     if (!username) return;
 
-    // Reset UI
+    resetUI();
     setLoading(true);
-    errorState.classList.add('hidden');
-    resultSection.classList.add('hidden');
-    currentResult = null;
 
     try {
-        const response = await fetch(`${WORKER_URL}?username=${username}`);
-        
-        if (!response.ok) {
-            const errorData = await response.json().catch(() => ({}));
-            throw new Error(errorData.message || `Server error: ${response.status}`);
-        }
+        const res = await fetch(`${WORKER_URL}?username=${username}`);
+        const data = await res.json();
 
-        const data = await response.json();
-
+        // SUCCESS
         if (data.status === 'success' && data.image) {
             displayResult(data);
-        } else {
-            showError(data.message || "Failed to fetch profile picture. The user might be private or doesn't exist.");
         }
-    } catch (err) {
-        showError(err.message || 'An error occurred while fetching the data. Please try again.');
-    } finally {
-        setLoading(false);
+
+        // PARTIAL
+        else if (data.status === 'partial' && data.image) {
+            displayPartial(data, username);
+        }
+
+        // ERROR
+        else {
+            showError(data.message || "Failed to fetch profile picture.");
+        }
+
+    } catch {
+        showError("Network error. Try again.");
     }
+
+    setLoading(false);
 });
 
-function setLoading(isLoading) {
-    if (isLoading) {
-        submitBtn.disabled = true;
-        btnText.classList.add('hidden');
-        loadingIcon.classList.remove('hidden');
-        loadingState.classList.remove('hidden');
-    } else {
-        submitBtn.disabled = false;
-        btnText.classList.remove('hidden');
-        loadingIcon.classList.add('hidden');
-        loadingState.classList.add('hidden');
-    }
+// ---------------- UI HELPERS ----------------
+function setLoading(state) {
+    submitBtn.disabled = state;
+    btnText.classList.toggle('hidden', state);
+    loadingIcon.classList.toggle('hidden', !state);
+    loadingState.classList.toggle('hidden', !state);
+}
+
+function resetUI() {
+    errorState.classList.add('hidden');
+    resultSection.classList.add('hidden');
+    profileImg.style.display = "block";
+    currentResult = null;
 }
 
 function showError(msg) {
@@ -107,78 +95,80 @@ function showError(msg) {
     errorState.classList.remove('hidden');
 }
 
+// ---------------- SUCCESS DISPLAY ----------------
 function displayResult(data) {
     currentResult = data;
-    
-    // Update UI
-    const proxiedUrl = `${WORKER_URL}?proxy=${encodeURIComponent(data.image)}`;
-    
-    // Set up the load event before setting the src
+
+    const proxy = `${WORKER_URL}?proxy=${encodeURIComponent(data.image)}`;
+
+    profileImg.style.display = "block";
+    profileImg.src = proxy;
+
     profileImg.onload = () => {
-        resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        resultSection.scrollIntoView({ behavior: 'smooth' });
     };
 
-    profileImg.src = proxiedUrl;
+    profileImg.onerror = () => {
+        profileImg.style.display = "none";
+
+        errorMessage.textContent =
+            "Preview blocked. Use buttons below.";
+        errorState.classList.remove('hidden');
+    };
+
     resUsername.textContent = `@${data.username}`;
-    resFullName.textContent = data.full_name || 'Instagram User';
-    resBio.textContent = data.biography || '';
+    resFullName.textContent = data.full_name || "Instagram User";
+    resBio.textContent = data.biography || "";
     igLink.href = `https://instagram.com/${data.username}`;
-    
+
+    setupButtons(proxy, data.image);
+
     resultSection.classList.remove('hidden');
 }
 
-// Download Logic
-downloadBtn.addEventListener('click', async () => {
-    if (!currentResult?.image) return;
-    
-    try {
-        const proxiedUrl = `${WORKER_URL}?proxy=${encodeURIComponent(currentResult.image)}`;
-        const response = await fetch(proxiedUrl);
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = `instagram_${currentResult.username}_dp.jpg`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        window.URL.revokeObjectURL(url);
-    } catch (err) {
-        const proxiedUrl = `${WORKER_URL}?proxy=${encodeURIComponent(currentResult.image)}`;
-        window.open(proxiedUrl, '_blank');
-    }
-});
+// ---------------- PARTIAL DISPLAY ----------------
+function displayPartial(data, username) {
+    currentResult = data;
 
-// Preview Logic
-previewBtn.addEventListener('click', () => {
-    if (!currentResult?.image) return;
-    const proxiedUrl = `${WORKER_URL}?proxy=${encodeURIComponent(currentResult.image)}`;
-    window.open(proxiedUrl, '_blank');
-});
+    profileImg.style.display = "none";
 
-// Handle Image Errors
-profileImg.onerror = () => {
-    showError("If the image could not be loaded. This often happens due to Instagram's security restrictions. Try the 'Preview Full Size' button.");
-};
+    resUsername.textContent = `@${username}`;
+    resFullName.textContent = "Preview not available";
+    resBio.textContent = "Instagram blocked direct image.";
 
-// Mobile Menu Toggle
-if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
+    igLink.href = data.image;
+
+    setupButtons(data.image, data.image);
+
+    resultSection.classList.remove('hidden');
 }
 
-if (closeMenuBtn && mobileMenu) {
-    closeMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-    });
-}
+// ---------------- BUTTON LOGIC ----------------
+function setupButtons(proxyUrl, originalUrl) {
+    // DOWNLOAD
+    downloadBtn.onclick = async () => {
+        try {
+            const res = await fetch(proxyUrl);
+            const blob = await res.blob();
 
-document.addEventListener('click', (e) => {
-    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-        const target = e.target;
-        if (!mobileMenu.contains(target) && mobileMenuBtn && !mobileMenuBtn.contains(target)) {
-            mobileMenu.classList.add('hidden');
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+
+            a.href = url;
+            a.download = 'instagram_dp.jpg';
+            document.body.appendChild(a);
+            a.click();
+
+            a.remove();
+            window.URL.revokeObjectURL(url);
+
+        } catch {
+            window.open(originalUrl, '_blank');
         }
-    }
-});
+    };
+
+    // PREVIEW
+    previewBtn.onclick = () => {
+        window.open(proxyUrl, '_blank');
+    };
+}
