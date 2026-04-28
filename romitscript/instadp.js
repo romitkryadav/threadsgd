@@ -4,7 +4,8 @@
 
 const WORKERS = [
   'https://instadp1.romitkr361.workers.dev',
- 
+  'https://instadp2.romitkr361.workers.dev',
+  'https://instadp3.romitkr361.workers.dev'
 ];
 
 const workerCooldown = {};
