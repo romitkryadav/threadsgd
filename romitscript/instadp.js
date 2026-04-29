@@ -1,14 +1,18 @@
 /**
- * FINAL MERGED SYSTEM (UI + MULTI WORKER + DP PROCESSING)
+ * OPTIMIZED INSTAGRAM DP DOWNLOADER (STABLE VERSION)
  */
 
+// =========================
+// CONFIG
+// =========================
 const WORKERS = [
   'https://instadp1.romitkr361.workers.dev',
   'https://instadp2.romitkr361.workers.dev',
   'https://instadp3.romitkr361.workers.dev'
 ];
 
-const workerCooldown = {};
+const cache = new Map();
+let currentResult = null;
 
 // =========================
 // DOM
@@ -32,8 +36,6 @@ const downloadBtn = document.getElementById('downloadBtn');
 const previewBtn = document.getElementById('previewBtn');
 const igLink = document.getElementById('igLink');
 
-let currentResult = null;
-
 // =========================
 // CLEAN USERNAME
 // =========================
@@ -53,16 +55,23 @@ function getCleanUsername(input) {
 }
 
 // =========================
+// VALIDATE USERNAME
+// =========================
+function isValidUsername(username) {
+  return /^[a-zA-Z0-9._]{2,30}$/.test(username);
+}
+
+// =========================
 // UI LOADING
 // =========================
 function setLoading(state) {
+  submitBtn.disabled = state;
+
   if (state) {
-    submitBtn.disabled = true;
     btnText.classList.add('hidden');
     loadingIcon.classList.remove('hidden');
     loadingState.classList.remove('hidden');
   } else {
-    submitBtn.disabled = false;
     btnText.classList.remove('hidden');
     loadingIcon.classList.add('hidden');
     loadingState.classList.add('hidden');
@@ -70,22 +79,9 @@ function setLoading(state) {
 }
 
 // =========================
-// IMAGE EFFECTS
-// =========================
-function setImageLoading() {
-  profileImg.style.opacity = "0.3";
-  profileImg.style.filter = "blur(8px)";
-}
-
-function setImageLoaded() {
-  profileImg.style.opacity = "1";
-  profileImg.style.filter = "none";
-}
-
-// =========================
 // FETCH WITH TIMEOUT
 // =========================
-function fetchWithTimeout(url, timeout = 4000) {
+function fetchWithTimeout(url, timeout = 8000) {
   const controller = new AbortController();
   const id = setTimeout(() => controller.abort(), timeout);
 
@@ -94,59 +90,59 @@ function fetchWithTimeout(url, timeout = 4000) {
 }
 
 // =========================
-// PARALLEL WORKER RACE
+// SINGLE WORKER FETCH
 // =========================
-async function fetchRace(username) {
-  const now = Date.now();
+async function fetchOne(username) {
+  const shuffled = [...WORKERS].sort(() => Math.random() - 0.5);
 
-  const activeWorkers = WORKERS.filter(w =>
-    !workerCooldown[w] || now - workerCooldown[w] > 8000
-  );
+  for (const worker of shuffled) {
+    try {
+      const res = await fetchWithTimeout(`${worker}?username=${username}`);
 
-  const workersToUse = activeWorkers.length ? activeWorkers : WORKERS;
+      if (!res.ok) continue;
 
-  const shuffled = workersToUse.sort(() => Math.random() - 0.5);
+      const data = await res.json();
 
-  return new Promise((resolve, reject) => {
-    let done = false;
-    let failCount = 0;
+      if (
+        data &&
+        data.status === "success" &&
+        typeof data.image === "string" &&
+        data.image.startsWith("http")
+      ) {
+        return { data, worker };
+      }
+    } catch {}
+  }
 
-    shuffled.forEach(worker => {
-      fetchWithTimeout(`${worker}?username=${username}`)
-        .then(res => {
-          if (!res.ok) throw new Error();
-
-          return res.json().then(data => {
-            if (done) return;
-
-            if (data.status === "success" && data.image) {
-              done = true;
-              resolve({ data, worker });
-            } else throw new Error();
-          });
-        })
-        .catch(() => {
-          workerCooldown[worker] = Date.now();
-          failCount++;
-
-          if (failCount === shuffled.length && !done) {
-            reject();
-          }
-        });
-    });
-  });
+  throw new Error("All workers failed");
 }
 
 // =========================
-// RETRY SYSTEM
+// SMART FETCH (WITH RETRY)
 // =========================
 async function fetchSmart(username) {
   try {
-    return await fetchRace(username);
+    return await fetchOne(username);
   } catch {
-    await new Promise(r => setTimeout(r, 1000));
-    return await fetchRace(username);
+    await new Promise(r => setTimeout(r, 1500));
+    return await fetchOne(username);
   }
+}
+
+// =========================
+// CACHE WRAPPER
+// =========================
+async function fetchWithCache(username) {
+  if (cache.has(username)) {
+    return cache.get(username);
+  }
+
+  const result = await fetchSmart(username);
+  cache.set(username, result);
+
+  setTimeout(() => cache.delete(username), 120000); // 2 min cache
+
+  return result;
 }
 
 // =========================
@@ -156,7 +152,11 @@ searchForm.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const username = getCleanUsername(usernameInput.value);
-  if (!username) return;
+
+  if (!username || !isValidUsername(username)) {
+    showError("Invalid username");
+    return;
+  }
 
   setLoading(true);
   errorState.classList.add('hidden');
@@ -164,10 +164,14 @@ searchForm.addEventListener('submit', async (e) => {
   currentResult = null;
 
   try {
-    const { data, worker } = await fetchSmart(username);
+    const { data, worker } = await fetchWithCache(username);
     displayResult(data, worker);
-  } catch {
-    showError("All servers busy. Try again.");
+  } catch (err) {
+    if (err.name === "AbortError") {
+      showError("Server slow. Try again.");
+    } else {
+      showError("User not found or blocked by Instagram.");
+    }
   } finally {
     setLoading(false);
   }
@@ -179,18 +183,28 @@ searchForm.addEventListener('submit', async (e) => {
 function displayResult(data, worker) {
   currentResult = { ...data, worker };
 
-  const proxied = `${worker}?proxy=${encodeURIComponent(data.image)}`;
+  // SAFE IMAGE LOAD
+  profileImg.style.opacity = "0.3";
+  profileImg.style.filter = "blur(8px)";
 
-  setImageLoading();
+  const img = new Image();
 
-  profileImg.onload = () => {
-    setImageLoaded();
+  img.onload = () => {
+    profileImg.src = data.image;
+    profileImg.style.opacity = "1";
+    profileImg.style.filter = "none";
+
     resultSection.scrollIntoView({ behavior: "smooth" });
   };
 
-  profileImg.onerror = () => retryImage(data.image);
+  img.onerror = () => {
+    // fallback to proxy
+    profileImg.src = `${worker}?proxy=${encodeURIComponent(data.image)}`;
+    profileImg.style.opacity = "1";
+    profileImg.style.filter = "none";
+  };
 
-  profileImg.src = proxied;
+  img.src = data.image;
 
   resUsername.textContent = `@${data.username}`;
   resFullName.textContent = data.full_name || "Instagram User";
@@ -201,42 +215,23 @@ function displayResult(data, worker) {
 }
 
 // =========================
-// IMAGE FAILOVER
-// =========================
-function retryImage(imageUrl) {
-  for (const worker of WORKERS) {
-    const test = new Image();
-    const url = `${worker}?proxy=${encodeURIComponent(imageUrl)}`;
-
-    test.src = url;
-
-    test.onload = () => {
-      profileImg.src = url;
-    };
-  }
-
-  showError("Image blocked. Retrying...");
-}
-
-// =========================
 // DOWNLOAD
 // =========================
 downloadBtn.addEventListener('click', async () => {
   if (!currentResult?.image) return;
 
-  const worker = currentResult.worker;
-  const url = `${worker}?proxy=${encodeURIComponent(currentResult.image)}`;
+  const { worker, image, username } = currentResult;
 
   try {
-    const res = await fetch(url);
+    const res = await fetch(`${worker}?proxy=${encodeURIComponent(image)}`);
     const blob = await res.blob();
 
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
-    link.download = `instagram_${currentResult.username}.jpg`;
+    link.download = `instagram_${username}.jpg`;
     link.click();
   } catch {
-    window.open(url, "_blank");
+    window.open(image, "_blank");
   }
 });
 
@@ -245,10 +240,7 @@ downloadBtn.addEventListener('click', async () => {
 // =========================
 previewBtn.addEventListener('click', () => {
   if (!currentResult?.image) return;
-
-  const worker = currentResult.worker;
-  const url = `${worker}?proxy=${encodeURIComponent(currentResult.image)}`;
-  window.open(url, "_blank");
+  window.open(currentResult.image, "_blank");
 });
 
 // =========================
@@ -257,4 +249,4 @@ previewBtn.addEventListener('click', () => {
 function showError(msg) {
   errorMessage.textContent = msg;
   errorState.classList.remove('hidden');
-}
+                     }
