@@ -1,20 +1,16 @@
 /**
- * ULTRA SAFE INSTAGRAM DP DOWNLOADER
- * (High success rate, low failure, scalable)
- */
 
-// =========================
-// CONFIG
-// =========================
+FINAL MERGED SYSTEM (UI + MULTI WORKER + DP PROCESSING)
+*/
+
+
 const WORKERS = [
-  'https://instadp1.romitkr361.workers.dev',
-  'https://instadp2.romitkr361.workers.dev',
-  'https://instadp3.romitkr361.workers.dev'
+'https://instadp1.romitkr361.workers.dev',
+'https://instadp2.romitkr361.workers.dev',
+'https://instadp3.romitkr361.workers.dev'
 ];
 
-const cache = new Map();
-const pending = {}; // request dedupe
-let currentResult = null;
+const workerCooldown = {};
 
 // =========================
 // DOM
@@ -38,231 +34,233 @@ const downloadBtn = document.getElementById('downloadBtn');
 const previewBtn = document.getElementById('previewBtn');
 const igLink = document.getElementById('igLink');
 
-// =========================
-// UTIL
-// =========================
-function delay(ms) {
-  return new Promise(r => setTimeout(r, ms));
-}
+let currentResult = null;
 
 // =========================
-// USERNAME CLEAN + VALIDATE
+// CLEAN USERNAME
 // =========================
 function getCleanUsername(input) {
-  let clean = input.trim();
+let clean = input.trim();
 
-  try {
-    if (clean.includes('instagram.com')) {
-      const url = new URL(clean.startsWith('http') ? clean : `https://${clean}`);
-      const parts = url.pathname.split('/').filter(Boolean);
-      if (parts.length) clean = parts[0];
-    }
-  } catch {}
-
-  if (clean.startsWith('@')) clean = clean.slice(1);
-  return clean;
+try {
+if (clean.includes('instagram.com')) {
+const url = new URL(clean.startsWith('http') ? clean : https://${clean});
+const parts = url.pathname.split('/').filter(Boolean);
+if (parts.length) clean = parts[0];
 }
+} catch {}
 
-function isValidUsername(username) {
-  return /^[a-zA-Z0-9._]{2,30}$/.test(username);
+if (clean.startsWith('@')) clean = clean.slice(1);
+return clean;
 }
 
 // =========================
-// UI
+// UI LOADING
 // =========================
 function setLoading(state) {
-  submitBtn.disabled = state;
-
-  if (state) {
-    btnText.classList.add('hidden');
-    loadingIcon.classList.remove('hidden');
-    loadingState.classList.remove('hidden');
-  } else {
-    btnText.classList.remove('hidden');
-    loadingIcon.classList.add('hidden');
-    loadingState.classList.add('hidden');
-  }
+if (state) {
+submitBtn.disabled = true;
+btnText.classList.add('hidden');
+loadingIcon.classList.remove('hidden');
+loadingState.classList.remove('hidden');
+} else {
+submitBtn.disabled = false;
+btnText.classList.remove('hidden');
+loadingIcon.classList.add('hidden');
+loadingState.classList.add('hidden');
+}
 }
 
-function showError(msg) {
-  errorMessage.textContent = msg;
-  errorState.classList.remove('hidden');
+// =========================
+// IMAGE EFFECTS
+// =========================
+function setImageLoading() {
+profileImg.style.opacity = "0.3";
+profileImg.style.filter = "blur(8px)";
+}
+
+function setImageLoaded() {
+profileImg.style.opacity = "1";
+profileImg.style.filter = "none";
 }
 
 // =========================
 // FETCH WITH TIMEOUT
 // =========================
-function fetchWithTimeout(url, timeout = 8000) {
-  const controller = new AbortController();
-  const id = setTimeout(() => controller.abort(), timeout);
+function fetchWithTimeout(url, timeout = 4000) {
+const controller = new AbortController();
+const id = setTimeout(() => controller.abort(), timeout);
 
-  return fetch(url, { signal: controller.signal })
-    .finally(() => clearTimeout(id));
+return fetch(url, { signal: controller.signal })
+.finally(() => clearTimeout(id));
 }
 
 // =========================
-// SINGLE WORKER TRY
+// PARALLEL WORKER RACE
 // =========================
-async function fetchOne(username) {
-  const shuffled = [...WORKERS].sort(() => Math.random() - 0.5);
+async function fetchRace(username) {
+const now = Date.now();
 
-  for (const worker of shuffled) {
-    try {
-      const res = await fetchWithTimeout(`${worker}?username=${username}`);
-      if (!res.ok) continue;
+const activeWorkers = WORKERS.filter(w =>
+!workerCooldown[w] || now - workerCooldown[w] > 8000
+);
 
-      const data = await res.json();
+const workersToUse = activeWorkers.length ? activeWorkers : WORKERS;
 
-      if (
-        data &&
-        data.status === "success" &&
-        typeof data.image === "string" &&
-        data.image.startsWith("http")
-      ) {
-        return { data, worker };
-      }
-    } catch {}
-  }
+const shuffled = workersToUse.sort(() => Math.random() - 0.5);
 
-  throw new Error("Workers failed");
+return new Promise((resolve, reject) => {
+let done = false;
+let failCount = 0;
+
+shuffled.forEach(worker => {  
+  fetchWithTimeout(`${worker}?username=${username}`)  
+    .then(res => {  
+      if (!res.ok) throw new Error();  
+
+      return res.json().then(data => {  
+        if (done) return;  
+
+        if (data.status === "success" && data.image) {  
+          done = true;  
+          resolve({ data, worker });  
+        } else throw new Error();  
+      });  
+    })  
+    .catch(() => {  
+      workerCooldown[worker] = Date.now();  
+      failCount++;  
+
+      if (failCount === shuffled.length && !done) {  
+        reject();  
+      }  
+    });  
+});
+
+});
 }
 
 // =========================
-// ULTRA RETRY (3 attempts)
+// RETRY SYSTEM
 // =========================
-async function fetchUltraSafe(username) {
-  for (let i = 0; i < 3; i++) {
-    try {
-      return await fetchOne(username);
-    } catch {
-      await delay(1000 + i * 500);
-    }
-  }
-
-  throw new Error("Final failure");
+async function fetchSmart(username) {
+try {
+return await fetchRace(username);
+} catch {
+await new Promise(r => setTimeout(r, 1000));
+return await fetchRace(username);
 }
-
-// =========================
-// CACHE + DEDUPE (CRITICAL)
-// =========================
-async function fetchWithDedupe(username) {
-
-  // cache hit
-  if (cache.has(username)) {
-    return cache.get(username);
-  }
-
-  // request already running
-  if (pending[username]) {
-    return pending[username];
-  }
-
-  // create request
-  const promise = fetchUltraSafe(username);
-  pending[username] = promise;
-
-  try {
-    const result = await promise;
-
-    cache.set(username, result);
-
-    // cache expire 5 min
-    setTimeout(() => cache.delete(username), 300000);
-
-    return result;
-
-  } finally {
-    delete pending[username];
-  }
 }
 
 // =========================
 // FORM SUBMIT
 // =========================
 searchForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
+e.preventDefault();
 
-  const username = getCleanUsername(usernameInput.value);
+const username = getCleanUsername(usernameInput.value);
+if (!username) return;
 
-  if (!username || !isValidUsername(username)) {
-    showError("Invalid username");
-    return;
-  }
+setLoading(true);
+errorState.classList.add('hidden');
+resultSection.classList.add('hidden');
+currentResult = null;
 
-  setLoading(true);
-  errorState.classList.add('hidden');
-  resultSection.classList.add('hidden');
-  currentResult = null;
-
-  try {
-    const { data, worker } = await fetchWithDedupe(username);
-    displayResult(data, worker);
-  } catch {
-    showError("Temporary issue. Please try again.");
-  } finally {
-    setLoading(false);
-  }
+try {
+const { data, worker } = await fetchSmart(username);
+displayResult(data, worker);
+} catch {
+showError("All servers busy. Try again.");
+} finally {
+setLoading(false);
+}
 });
 
 // =========================
 // DISPLAY RESULT
 // =========================
 function displayResult(data, worker) {
-  currentResult = { ...data, worker };
+currentResult = { ...data, worker };
 
-  profileImg.style.opacity = "0.3";
-  profileImg.style.filter = "blur(8px)";
+const proxied = ${worker}?proxy=${encodeURIComponent(data.image)};
 
-  const img = new Image();
+setImageLoading();
 
-  img.onload = () => {
-    profileImg.src = data.image;
-    profileImg.style.opacity = "1";
-    profileImg.style.filter = "none";
-    resultSection.scrollIntoView({ behavior: "smooth" });
-  };
+profileImg.onload = () => {
+setImageLoaded();
+resultSection.scrollIntoView({ behavior: "smooth" });
+};
 
-  img.onerror = () => {
-    profileImg.src = `${worker}?proxy=${encodeURIComponent(data.image)}`;
-    profileImg.style.opacity = "1";
-    profileImg.style.filter = "none";
-  };
+profileImg.onerror = () => retryImage(data.image);
 
-  img.src = data.image;
+profileImg.src = proxied;
 
-  resUsername.textContent = `@${data.username}`;
-  resFullName.textContent = data.full_name || "Instagram User";
-  resBio.textContent = data.biography || "";
-  igLink.href = `https://instagram.com/${data.username}`;
+resUsername.textContent = @${data.username};
+resFullName.textContent = data.full_name || "Instagram User";
+resBio.textContent = data.biography || "";
+igLink.href = https://instagram.com/${data.username};
 
-  resultSection.classList.remove('hidden');
+resultSection.classList.remove('hidden');
+}
+
+// =========================
+// IMAGE FAILOVER
+// =========================
+function retryImage(imageUrl) {
+for (const worker of WORKERS) {
+const test = new Image();
+const url = ${worker}?proxy=${encodeURIComponent(imageUrl)};
+
+test.src = url;  
+
+test.onload = () => {  
+  profileImg.src = url;  
+};
+
+}
+
+showError("Image blocked. Retrying...");
 }
 
 // =========================
 // DOWNLOAD
 // =========================
 downloadBtn.addEventListener('click', async () => {
-  if (!currentResult?.image) return;
+if (!currentResult?.image) return;
 
-  const { worker, image, username } = currentResult;
+const worker = currentResult.worker;
+const url = ${worker}?proxy=${encodeURIComponent(currentResult.image)};
 
-  try {
-    const res = await fetch(`${worker}?proxy=${encodeURIComponent(image)}`);
-    const blob = await res.blob();
+try {
+const res = await fetch(url);
+const blob = await res.blob();
 
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = `instagram_${username}.jpg`;
-    link.click();
-  } catch {
-    window.open(image, "_blank");
-  }
+const link = document.createElement('a');  
+link.href = URL.createObjectURL(blob);  
+link.download = `instagram_${currentResult.username}.jpg`;  
+link.click();
+
+} catch {
+window.open(url, "_blank");
+}
 });
 
 // =========================
 // PREVIEW
 // =========================
 previewBtn.addEventListener('click', () => {
-  if (!currentResult?.image) return;
-  window.open(currentResult.image, "_blank");
+if (!currentResult?.image) return;
+
+const worker = currentResult.worker;
+const url = ${worker}?proxy=${encodeURIComponent(currentResult.image)};
+window.open(url, "_blank");
 });
+
+// =========================
+// ERROR
+// =========================
+function showError(msg) {
+errorMessage.textContent = msg;
+errorState.classList.remove('hidden');
+}
+
