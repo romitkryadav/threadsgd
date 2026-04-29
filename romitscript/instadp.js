@@ -1,18 +1,15 @@
 /**
- * OPTIMIZED INSTAGRAM DP DOWNLOADER (STABLE VERSION)
- */
 
-// =========================
-// CONFIG
-// =========================
+FINAL MERGED SYSTEM (UI + MULTI WORKER + DP PROCESSING)
+*/
+
+
 const WORKERS = [
-  'https://instadp1.romitkr361.workers.dev',
-  'https://instadp2.romitkr361.workers.dev',
-  'https://instadp3.romitkr361.workers.dev'
+'https://instadp1.romitkr361.workers.dev',
+
 ];
 
-const cache = new Map();
-let currentResult = null;
+const workerCooldown = {};
 
 // =========================
 // DOM
@@ -36,217 +33,234 @@ const downloadBtn = document.getElementById('downloadBtn');
 const previewBtn = document.getElementById('previewBtn');
 const igLink = document.getElementById('igLink');
 
+let currentResult = null;
+
 // =========================
 // CLEAN USERNAME
 // =========================
 function getCleanUsername(input) {
-  let clean = input.trim();
+let clean = input.trim();
 
-  try {
-    if (clean.includes('instagram.com')) {
-      const url = new URL(clean.startsWith('http') ? clean : `https://${clean}`);
-      const parts = url.pathname.split('/').filter(Boolean);
-      if (parts.length) clean = parts[0];
-    }
-  } catch {}
-
-  if (clean.startsWith('@')) clean = clean.slice(1);
-  return clean;
+try {
+if (clean.includes('instagram.com')) {
+const url = new URL(clean.startsWith('http') ? clean : https://${clean});
+const parts = url.pathname.split('/').filter(Boolean);
+if (parts.length) clean = parts[0];
 }
+} catch {}
 
-// =========================
-// VALIDATE USERNAME
-// =========================
-function isValidUsername(username) {
-  return /^[a-zA-Z0-9._]{2,30}$/.test(username);
+if (clean.startsWith('@')) clean = clean.slice(1);
+return clean;
 }
 
 // =========================
 // UI LOADING
 // =========================
 function setLoading(state) {
-  submitBtn.disabled = state;
+if (state) {
+submitBtn.disabled = true;
+btnText.classList.add('hidden');
+loadingIcon.classList.remove('hidden');
+loadingState.classList.remove('hidden');
+} else {
+submitBtn.disabled = false;
+btnText.classList.remove('hidden');
+loadingIcon.classList.add('hidden');
+loadingState.classList.add('hidden');
+}
+}
 
-  if (state) {
-    btnText.classList.add('hidden');
-    loadingIcon.classList.remove('hidden');
-    loadingState.classList.remove('hidden');
-  } else {
-    btnText.classList.remove('hidden');
-    loadingIcon.classList.add('hidden');
-    loadingState.classList.add('hidden');
-  }
+// =========================
+// IMAGE EFFECTS
+// =========================
+function setImageLoading() {
+profileImg.style.opacity = "0.3";
+profileImg.style.filter = "blur(8px)";
+}
+
+function setImageLoaded() {
+profileImg.style.opacity = "1";
+profileImg.style.filter = "none";
 }
 
 // =========================
 // FETCH WITH TIMEOUT
 // =========================
-function fetchWithTimeout(url, timeout = 8000) {
-  const controller = new AbortController();
-  const id = setTimeout(() => controller.abort(), timeout);
+function fetchWithTimeout(url, timeout = 4000) {
+const controller = new AbortController();
+const id = setTimeout(() => controller.abort(), timeout);
 
-  return fetch(url, { signal: controller.signal })
-    .finally(() => clearTimeout(id));
+return fetch(url, { signal: controller.signal })
+.finally(() => clearTimeout(id));
 }
 
 // =========================
-// SINGLE WORKER FETCH
+// PARALLEL WORKER RACE
 // =========================
-async function fetchOne(username) {
-  const shuffled = [...WORKERS].sort(() => Math.random() - 0.5);
+async function fetchRace(username) {
+const now = Date.now();
 
-  for (const worker of shuffled) {
-    try {
-      const res = await fetchWithTimeout(`${worker}?username=${username}`);
+const activeWorkers = WORKERS.filter(w =>
+!workerCooldown[w] || now - workerCooldown[w] > 8000
+);
 
-      if (!res.ok) continue;
+const workersToUse = activeWorkers.length ? activeWorkers : WORKERS;
 
-      const data = await res.json();
+const shuffled = workersToUse.sort(() => Math.random() - 0.5);
 
-      if (
-        data &&
-        data.status === "success" &&
-        typeof data.image === "string" &&
-        data.image.startsWith("http")
-      ) {
-        return { data, worker };
-      }
-    } catch {}
-  }
+return new Promise((resolve, reject) => {
+let done = false;
+let failCount = 0;
 
-  throw new Error("All workers failed");
+shuffled.forEach(worker => {  
+  fetchWithTimeout(`${worker}?username=${username}`)  
+    .then(res => {  
+      if (!res.ok) throw new Error();  
+
+      return res.json().then(data => {  
+        if (done) return;  
+
+        if (data.status === "success" && data.image) {  
+          done = true;  
+          resolve({ data, worker });  
+        } else throw new Error();  
+      });  
+    })  
+    .catch(() => {  
+      workerCooldown[worker] = Date.now();  
+      failCount++;  
+
+      if (failCount === shuffled.length && !done) {  
+        reject();  
+      }  
+    });  
+});
+
+});
 }
 
 // =========================
-// SMART FETCH (WITH RETRY)
+// RETRY SYSTEM
 // =========================
 async function fetchSmart(username) {
-  try {
-    return await fetchOne(username);
-  } catch {
-    await new Promise(r => setTimeout(r, 1500));
-    return await fetchOne(username);
-  }
+try {
+return await fetchRace(username);
+} catch {
+await new Promise(r => setTimeout(r, 1000));
+return await fetchRace(username);
 }
-
-// =========================
-// CACHE WRAPPER
-// =========================
-async function fetchWithCache(username) {
-  if (cache.has(username)) {
-    return cache.get(username);
-  }
-
-  const result = await fetchSmart(username);
-  cache.set(username, result);
-
-  setTimeout(() => cache.delete(username), 120000); // 2 min cache
-
-  return result;
 }
 
 // =========================
 // FORM SUBMIT
 // =========================
 searchForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
+e.preventDefault();
 
-  const username = getCleanUsername(usernameInput.value);
+const username = getCleanUsername(usernameInput.value);
+if (!username) return;
 
-  if (!username || !isValidUsername(username)) {
-    showError("Invalid username");
-    return;
-  }
+setLoading(true);
+errorState.classList.add('hidden');
+resultSection.classList.add('hidden');
+currentResult = null;
 
-  setLoading(true);
-  errorState.classList.add('hidden');
-  resultSection.classList.add('hidden');
-  currentResult = null;
-
-  try {
-    const { data, worker } = await fetchWithCache(username);
-    displayResult(data, worker);
-  } catch (err) {
-    if (err.name === "AbortError") {
-      showError("Server slow. Try again.");
-    } else {
-      showError("User not found or blocked by Instagram.");
-    }
-  } finally {
-    setLoading(false);
-  }
+try {
+const { data, worker } = await fetchSmart(username);
+displayResult(data, worker);
+} catch {
+showError("All servers busy. Try again.");
+} finally {
+setLoading(false);
+}
 });
 
 // =========================
 // DISPLAY RESULT
 // =========================
 function displayResult(data, worker) {
-  currentResult = { ...data, worker };
+currentResult = { ...data, worker };
 
-  // SAFE IMAGE LOAD
-  profileImg.style.opacity = "0.3";
-  profileImg.style.filter = "blur(8px)";
+const proxied = ${worker}?proxy=${encodeURIComponent(data.image)};
 
-  const img = new Image();
+setImageLoading();
 
-  img.onload = () => {
-    profileImg.src = data.image;
-    profileImg.style.opacity = "1";
-    profileImg.style.filter = "none";
+profileImg.onload = () => {
+setImageLoaded();
+resultSection.scrollIntoView({ behavior: "smooth" });
+};
 
-    resultSection.scrollIntoView({ behavior: "smooth" });
-  };
+profileImg.onerror = () => retryImage(data.image);
 
-  img.onerror = () => {
-    // fallback to proxy
-    profileImg.src = `${worker}?proxy=${encodeURIComponent(data.image)}`;
-    profileImg.style.opacity = "1";
-    profileImg.style.filter = "none";
-  };
+profileImg.src = proxied;
 
-  img.src = data.image;
+resUsername.textContent = @${data.username};
+resFullName.textContent = data.full_name || "Instagram User";
+resBio.textContent = data.biography || "";
+igLink.href = https://instagram.com/${data.username};
 
-  resUsername.textContent = `@${data.username}`;
-  resFullName.textContent = data.full_name || "Instagram User";
-  resBio.textContent = data.biography || "";
-  igLink.href = `https://instagram.com/${data.username}`;
+resultSection.classList.remove('hidden');
+}
 
-  resultSection.classList.remove('hidden');
+// =========================
+// IMAGE FAILOVER
+// =========================
+function retryImage(imageUrl) {
+for (const worker of WORKERS) {
+const test = new Image();
+const url = ${worker}?proxy=${encodeURIComponent(imageUrl)};
+
+test.src = url;  
+
+test.onload = () => {  
+  profileImg.src = url;  
+};
+
+}
+
+showError("Image blocked. Retrying...");
 }
 
 // =========================
 // DOWNLOAD
 // =========================
 downloadBtn.addEventListener('click', async () => {
-  if (!currentResult?.image) return;
+if (!currentResult?.image) return;
 
-  const { worker, image, username } = currentResult;
+const worker = currentResult.worker;
+const url = ${worker}?proxy=${encodeURIComponent(currentResult.image)};
 
-  try {
-    const res = await fetch(`${worker}?proxy=${encodeURIComponent(image)}`);
-    const blob = await res.blob();
+try {
+const res = await fetch(url);
+const blob = await res.blob();
 
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = `instagram_${username}.jpg`;
-    link.click();
-  } catch {
-    window.open(image, "_blank");
-  }
+const link = document.createElement('a');  
+link.href = URL.createObjectURL(blob);  
+link.download = `instagram_${currentResult.username}.jpg`;  
+link.click();
+
+} catch {
+window.open(url, "_blank");
+}
 });
 
 // =========================
 // PREVIEW
 // =========================
 previewBtn.addEventListener('click', () => {
-  if (!currentResult?.image) return;
-  window.open(currentResult.image, "_blank");
+if (!currentResult?.image) return;
+
+const worker = currentResult.worker;
+const url = ${worker}?proxy=${encodeURIComponent(currentResult.image)};
+window.open(url, "_blank");
 });
 
 // =========================
 // ERROR
 // =========================
 function showError(msg) {
-  errorMessage.textContent = msg;
-  errorState.classList.remove('hidden');
-                     }
+errorMessage.textContent = msg;
+errorState.classList.remove('hidden');
+}
+
+Is there is limit par user
