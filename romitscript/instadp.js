@@ -1,10 +1,22 @@
-   /** 
- * Vanilla JavaScript logic for Instagram Profile Picture Downloader
+/**
+ * OPTIMIZED INSTAGRAM DP DOWNLOADER (STABLE VERSION)
  */
 
-const WORKER_URL = 'https://instadp2.romitkr361.workers.dev/';
+// =========================
+// CONFIG
+// =========================
+const WORKERS = [
+  'https://instadp1.romitkr361.workers.dev',
+  'https://instadp2.romitkr361.workers.dev',
+  'https://instadp3.romitkr361.workers.dev'
+];
 
-// DOM Elements
+const cache = new Map();
+let currentResult = null;
+
+// =========================
+// DOM
+// =========================
 const searchForm = document.getElementById('searchForm');
 const usernameInput = document.getElementById('usernameInput');
 const submitBtn = document.getElementById('submitBtn');
@@ -24,135 +36,217 @@ const downloadBtn = document.getElementById('downloadBtn');
 const previewBtn = document.getElementById('previewBtn');
 const igLink = document.getElementById('igLink');
 
-let currentResult = null;
-
-// Helper: Parse username from input
+// =========================
+// CLEAN USERNAME
+// =========================
 function getCleanUsername(input) {
-    let clean = input.trim();
-    
-    try {
-        if (clean.includes('instagram.com')) {
-            const url = new URL(clean.startsWith('http') ? clean : `https://${clean}`);
-            const pathParts = url.pathname.split('/').filter(part => part.length > 0);
-            if (pathParts.length > 0) {
-                clean = pathParts[0];
-            }
-        }
-    } catch (err) {
-        // Fallback to original
-    }
+  let clean = input.trim();
 
-    if (clean.startsWith('@')) {
-        clean = clean.substring(1);
+  try {
+    if (clean.includes('instagram.com')) {
+      const url = new URL(clean.startsWith('http') ? clean : `https://${clean}`);
+      const parts = url.pathname.split('/').filter(Boolean);
+      if (parts.length) clean = parts[0];
     }
-    
-    return clean;
+  } catch {}
+
+  if (clean.startsWith('@')) clean = clean.slice(1);
+  return clean;
 }
 
-// Handle Form Submission
+// =========================
+// VALIDATE USERNAME
+// =========================
+function isValidUsername(username) {
+  return /^[a-zA-Z0-9._]{2,30}$/.test(username);
+}
+
+// =========================
+// UI LOADING
+// =========================
+function setLoading(state) {
+  submitBtn.disabled = state;
+
+  if (state) {
+    btnText.classList.add('hidden');
+    loadingIcon.classList.remove('hidden');
+    loadingState.classList.remove('hidden');
+  } else {
+    btnText.classList.remove('hidden');
+    loadingIcon.classList.add('hidden');
+    loadingState.classList.add('hidden');
+  }
+}
+
+// =========================
+// FETCH WITH TIMEOUT
+// =========================
+function fetchWithTimeout(url, timeout = 8000) {
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), timeout);
+
+  return fetch(url, { signal: controller.signal })
+    .finally(() => clearTimeout(id));
+}
+
+// =========================
+// SINGLE WORKER FETCH
+// =========================
+async function fetchOne(username) {
+  const shuffled = [...WORKERS].sort(() => Math.random() - 0.5);
+
+  for (const worker of shuffled) {
+    try {
+      const res = await fetchWithTimeout(`${worker}?username=${username}`);
+
+      if (!res.ok) continue;
+
+      const data = await res.json();
+
+      if (
+        data &&
+        data.status === "success" &&
+        typeof data.image === "string" &&
+        data.image.startsWith("http")
+      ) {
+        return { data, worker };
+      }
+    } catch {}
+  }
+
+  throw new Error("All workers failed");
+}
+
+// =========================
+// SMART FETCH (WITH RETRY)
+// =========================
+async function fetchSmart(username) {
+  try {
+    return await fetchOne(username);
+  } catch {
+    await new Promise(r => setTimeout(r, 1500));
+    return await fetchOne(username);
+  }
+}
+
+// =========================
+// CACHE WRAPPER
+// =========================
+async function fetchWithCache(username) {
+  if (cache.has(username)) {
+    return cache.get(username);
+  }
+
+  const result = await fetchSmart(username);
+  cache.set(username, result);
+
+  setTimeout(() => cache.delete(username), 120000); // 2 min cache
+
+  return result;
+}
+
+// =========================
+// FORM SUBMIT
+// =========================
 searchForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const username = getCleanUsername(usernameInput.value);
-    if (!username) return;
+  e.preventDefault();
 
-    // Reset UI
-    setLoading(true);
-    errorState.classList.add('hidden');
-    resultSection.classList.add('hidden');
-    currentResult = null;
+  const username = getCleanUsername(usernameInput.value);
 
-    try {
-        const response = await fetch(`${WORKER_URL}?username=${username}`);
-        
-        if (!response.ok) {
-            const errorData = await response.json().catch(() => ({}));
-            throw new Error(errorData.message || `Server error: ${response.status}`);
-        }
+  if (!username || !isValidUsername(username)) {
+    showError("Invalid username");
+    return;
+  }
 
-        const data = await response.json();
+  setLoading(true);
+  errorState.classList.add('hidden');
+  resultSection.classList.add('hidden');
+  currentResult = null;
 
-        if (data.status === 'success' && data.image) {
-            displayResult(data);
-        } else {
-            showError(data.message || "Failed to fetch profile picture. The user might be private or doesn't exist.");
-        }
-    } catch (err) {
-        showError(err.message || 'An error occurred while fetching the data. Please try again.');
-    } finally {
-        setLoading(false);
-    }
-});
-
-function setLoading(isLoading) {
-    if (isLoading) {
-        submitBtn.disabled = true;
-        btnText.classList.add('hidden');
-        loadingIcon.classList.remove('hidden');
-        loadingState.classList.remove('hidden');
+  try {
+    const { data, worker } = await fetchWithCache(username);
+    displayResult(data, worker);
+  } catch (err) {
+    if (err.name === "AbortError") {
+      showError("Server slow. Try again.");
     } else {
-        submitBtn.disabled = false;
-        btnText.classList.remove('hidden');
-        loadingIcon.classList.add('hidden');
-        loadingState.classList.add('hidden');
+      showError("User not found or blocked by Instagram.");
     }
+  } finally {
+    setLoading(false);
+  }
+});
+
+// =========================
+// DISPLAY RESULT
+// =========================
+function displayResult(data, worker) {
+  currentResult = { ...data, worker };
+
+  // SAFE IMAGE LOAD
+  profileImg.style.opacity = "0.3";
+  profileImg.style.filter = "blur(8px)";
+
+  const img = new Image();
+
+  img.onload = () => {
+    profileImg.src = data.image;
+    profileImg.style.opacity = "1";
+    profileImg.style.filter = "none";
+
+    resultSection.scrollIntoView({ behavior: "smooth" });
+  };
+
+  img.onerror = () => {
+    // fallback to proxy
+    profileImg.src = `${worker}?proxy=${encodeURIComponent(data.image)}`;
+    profileImg.style.opacity = "1";
+    profileImg.style.filter = "none";
+  };
+
+  img.src = data.image;
+
+  resUsername.textContent = `@${data.username}`;
+  resFullName.textContent = data.full_name || "Instagram User";
+  resBio.textContent = data.biography || "";
+  igLink.href = `https://instagram.com/${data.username}`;
+
+  resultSection.classList.remove('hidden');
 }
 
-function showError(msg) {
-    errorMessage.textContent = msg;
-    errorState.classList.remove('hidden');
-}
-
-function displayResult(data) {
-    currentResult = data;
-    
-    // Update UI
-    const proxiedUrl = `${WORKER_URL}?proxy=${encodeURIComponent(data.image)}`;
-    
-    // Set up the load event before setting the src
-    profileImg.onload = () => {
-        resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
-
-    profileImg.src = proxiedUrl;
-    resUsername.textContent = `@${data.username}`;
-    resFullName.textContent = data.full_name || 'Instagram User';
-    resBio.textContent = data.biography || '';
-    igLink.href = `https://instagram.com/${data.username}`;
-    
-    resultSection.classList.remove('hidden');
-}
-
-// Download Logic
+// =========================
+// DOWNLOAD
+// =========================
 downloadBtn.addEventListener('click', async () => {
-    if (!currentResult?.image) return;
-    
-    try {
-        const proxiedUrl = `${WORKER_URL}?proxy=${encodeURIComponent(currentResult.image)}`;
-        const response = await fetch(proxiedUrl);
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = `instagram_${currentResult.username}_dp.jpg`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        window.URL.revokeObjectURL(url);
-    } catch (err) {
-        const proxiedUrl = `${WORKER_URL}?proxy=${encodeURIComponent(currentResult.image)}`;
-        window.open(proxiedUrl, '_blank');
-    }
+  if (!currentResult?.image) return;
+
+  const { worker, image, username } = currentResult;
+
+  try {
+    const res = await fetch(`${worker}?proxy=${encodeURIComponent(image)}`);
+    const blob = await res.blob();
+
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `instagram_${username}.jpg`;
+    link.click();
+  } catch {
+    window.open(image, "_blank");
+  }
 });
 
-// Preview Logic
+// =========================
+// PREVIEW
+// =========================
 previewBtn.addEventListener('click', () => {
-    if (!currentResult?.image) return;
-    const proxiedUrl = `${WORKER_URL}?proxy=${encodeURIComponent(currentResult.image)}`;
-    window.open(proxiedUrl, '_blank');
+  if (!currentResult?.image) return;
+  window.open(currentResult.image, "_blank");
 });
 
-// Handle Image Errors
-profileImg.onerror = () => {
-    showError("The image could not be loaded. This often happens due to Instagram's security restrictions. Try the 'Preview Full Size' button.");
-};          
+// =========================
+// ERROR
+// =========================
+function showError(msg) {
+  errorMessage.textContent = msg;
+  errorState.classList.remove('hidden');
+}
