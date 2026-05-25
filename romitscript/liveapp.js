@@ -366,7 +366,7 @@ async function fetchFollowers(user, isAuto = false, isSecondUser = false) {
     state.error = null;
 
     try {
-        const workerUrl = `https://threadslive.romitkr361.workers.dev/?user=${user}`;
+        const workerUrl =`https://threadslive.romitkr361.workers.dev/?user=${user}`;
         const response = await fetch(workerUrl);
         
         if (!response.ok) {
