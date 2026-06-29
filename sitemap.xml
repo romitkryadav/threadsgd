@@ -7,10 +7,6 @@
     <loc>https://threadsgrab.com/about</loc>
   </url>
   <url>
-     
-    <loc>https://threadsgrab.com/404.html</loc>
-  </url>
-  <url>
     <loc>https://threadsgrab.com/blog</loc>
   </url>
   <url>
@@ -28,9 +24,6 @@
   <url>
     <loc>https://threadsgrab.com/threads-follower-counter</loc>
   </url>
-   <url>
-    <loc>https://threadsgrab.com/instagram-dp-downloader</loc>
-  </url>
   <url>
     <loc>https://threadsgrab.com/threads-image-downloader</loc>
   </url>
@@ -40,13 +33,16 @@
   <url>
     <loc>https://threadsgrab.com/threads-video-downloader</loc>
   </url>
-<url>
-    <loc>https://www.threadsgrab.com/instagram-dp-downloader</loc>
-  </url>
-     <url>
-    <loc>https://threadsgrab.com/id/threads-video-downloader</loc>
-  </url>
   <url>
     <loc>https://threadsgrab.com/blog/how-to-download-threads-video</loc>
+  </url>
+ <url>
+    <loc>https://threadsgrab.com/instagram-dp-downloader</loc>
+  </url>
+  <url>
+    <loc>https://threadsgrab.com/id/threads-video-downloader</loc>
+  </url>
+   <url>
+    <loc>https://threadsgrab.com/id</loc>
   </url>
 </urlset>
