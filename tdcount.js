@@ -8,7 +8,8 @@ const TICK_MS = 100;
 // no other code changes needed.
 const WORKER_URLS = [
   "https://liveapp.romitkryadav.workers.dev/",
-  "https://tdlivecount.romitkr5539.workers.dev/"
+  "https://tdlivecount.romitkr5539.workers.dev/",
+  "https://tdlive3.romitkr361.workers.dev/"
   // "https://your-next-worker.workers.dev/",
 ];
 
