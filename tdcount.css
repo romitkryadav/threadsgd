@@ -228,3 +228,30 @@ input{font-family:inherit;}
   #mobileMenuBtn { display: none !important; }
   #mobileMenu { display: none !important; }
 }
+
+/* ---------- style.css integration overrides ---------- */
+/* When idp-card is used directly inside hero container after tool-tabs */
+.hero-section .container > .idp-card {
+  margin-top: 16px;
+}
+
+/* idp-discover is now wrapped inside style.css .container - remove duplicate constraints */
+.container > .idp-discover {
+  max-width: none;
+  margin: 0;
+  padding: 40px 0 80px;
+}
+
+/* Content/blog panels inside container */
+.info-section .container .tg-blog {
+  max-width: none;
+  margin: 0;
+}
+
+/* Body background from tdcount.css takes priority when both stylesheets loaded */
+body {
+  background:
+    radial-gradient(circle at 20px 20px, rgba(255,255,255,0.035) 1px, transparent 1px) 0 0/22px 22px,
+    radial-gradient(ellipse 900px 500px at 50% 0%, rgba(225,48,108,0.08), transparent),
+    #0A0A0A !important;
+}
