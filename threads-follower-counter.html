@@ -1,162 +1,367 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Threads Follower Counter - Live Follower Count Tracker Free Online</title>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SP0ZHQ7HRQ"></script>
-<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-SP0ZHQ7HRQ")</script>
+  <!-- Performance Resource Hints -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+  <link rel="dns-prefetch" href="https://threadsgrab.com" />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Threads Follower Counter - Track Live Follower Count Online</title>
-<meta name="description" content="Track Threads follower count with live updates. Enter any public profile link and see follower changes without refreshing.">
-<meta name="keywords" content="threads follower counter, track threads followers, live follower count, threads analytics, threads growth tracker">
-<meta name="author" content="ThreadsGrab">
-<meta name="language" content="en">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://threadsgrab.com/threads-follower-counter">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://threadsgrab.com/threads-follower-counter">
-<meta property="og:title" content="Threads Follower Counter - Track Live Follower Count Online">
-<meta property="og:description" content="Track Threads follower count with live updates. Enter any public profile link and see follower changes without refreshing.">
-<meta property="og:image" content="https://threadsgrab.com/og-image.png">
-<meta property="og:image:alt" content="ThreadsGrab follower counter preview">
-<meta property="og:site_name" content="ThreadsGrab">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://threadsgrab.com/threads-follower-counter">
-<meta name="twitter:title" content="Threads Follower Counter - Track Live Follower Count Online">
-<meta name="twitter:description" content="Track Threads follower count with live updates. Enter any public profile link and see follower changes without refreshing.">
-<meta name="twitter:image" content="https://threadsgrab.com/og-image.png">
-<meta name="twitter:image:alt" content="ThreadsGrab follower counter preview">
-<meta name="twitter:site" content="@ThreadsGrab">
-<meta name="theme-color" content="#000000">
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script  defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<link rel="stylesheet" href="/romitkrweb.css" />
-<link rel="icon" type="image/png" href="https://threadsgrab.com/threadsgrab-logo.png" />
-<link rel="stylesheet" href="/tdcount.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Threads Follower Counter",
-  "url": "https://threadsgrab.com/threads-follower-counter",
-  "description": "Track Threads follower count with live updates. Enter any public profile link and see follower changes without refreshing.",
-  "applicationCategory": "UtilityApplication",
-  "operatingSystem": "All",
-  "author": {
-    "@type": "Organization",
-    "name": "ThreadsGrab",
-    "url": "https://threadsgrab.com"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "ratingCount": "256"
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Free Threads Follower Counter online. Track live follower counts for any public Threads account in real time. Get growth analytics, session delta, trend sparkline, and auto-refreshing stats." />
+  <meta name="keywords" content="Threads Follower Counter, Track Threads Followers, Live Follower Count, Threads Analytics, Threads Growth Tracker, Real-time Threads Followers, Threads Follower Checker, Threads Stats Monitor, Threads Audience Tracker, Free Threads Counter Online" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1" />
+  <meta name="author" content="ThreadsGrab" />
+  <link rel="canonical" href="https://threadsgrab.com/threads-follower-counter" />
+  <link rel="alternate" hreflang="x-default" href="https://threadsgrab.com/threads-follower-counter" />
+  <link rel="alternate" hreflang="en" href="https://threadsgrab.com/threads-follower-counter" />
+
+  <!-- Additional SEO / Mobile Tags -->
+  <meta name="theme-color" content="#4f46e5" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://threadsgrab.com/threads-follower-counter" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Threads Follower Counter - Live Follower Count Tracker Free Online" />
+  <meta property="og:description" content="Free Threads Follower Counter online. Track live follower counts for any public Threads account in real time. Get growth analytics, session delta, trend sparkline, and auto-refreshing stats. No login required." />
+  <meta property="og:image" content="https://threadsgrab.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:site_name" content="ThreadsGrab" />
+  <meta property="og:image:alt" content="ThreadsGrab follower counter preview — track live Threads follower counts" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ThreadsGrab" />
+  <meta name="twitter:creator" content="@ThreadsGrab" />
+  <meta name="twitter:url" content="https://threadsgrab.com/threads-follower-counter" />
+  <meta name="twitter:title" content="Threads Follower Counter - Live Follower Count Tracker Free Online" />
+  <meta name="twitter:description" content="Free Threads Follower Counter online. Track live follower counts for any public Threads account in real time. Get growth analytics, session delta, trend sparkline, and auto-refreshing stats. No login required." />
+  <meta name="twitter:image" content="https://threadsgrab.com/og-image.jpg" />
+  <meta name="twitter:image:width" content="1200" />
+  <meta name="twitter:image:height" content="630" />
+  <meta name="twitter:image:alt" content="ThreadsGrab follower counter preview — track live Threads follower counts" />
+
+  <!-- Page-Specific Assets -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/romitkrweb.css" />
+  <link rel="icon" type="image/png" href="https://threadsgrab.com/threadsgrab-logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://threadsgrab.com/threadsgrab-logo.png" />
+  <link rel="stylesheet" href="/tdcount.css" />
+
+  <!-- WebGraph Schema JSON-LD (WebPage + WebSite + Organization + HowTo + Breadcrumb + ImageObject) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://threadsgrab.com/threads-follower-counter/#webpage",
+        "url": "https://threadsgrab.com/threads-follower-counter",
+        "name": "Threads Follower Counter - Live Follower Count Tracker Free Online",
+        "description": "Free Threads Follower Counter online. Track live follower counts for any public Threads account in real time. Get growth analytics, session delta, trend sparkline, and auto-refreshing stats. No login required.",
+        "inLanguage": "en-US",
+        "datePublished": "2026-01-01T00:00:00+00:00",
+        "dateModified": "2026-08-02T00:00:00+00:00",
+        "isPartOf": {
+          "@id": "https://threadsgrab.com/#website"
+        },
+        "primaryImageOfPage": {
+          "@id": "https://threadsgrab.com/threads-follower-counter/#primaryimage"
+        },
+        "breadcrumb": {
+          "@id": "https://threadsgrab.com/threads-follower-counter/#breadcrumb"
+        },
+        "potentialAction": [
+          {
+            "@type": "ReadAction",
+            "target": [
+              "https://threadsgrab.com/threads-follower-counter"
+            ]
+          }
+        ]
+      },
+      {
+        "@type": "ImageObject",
+        "inLanguage": "en-US",
+        "@id": "https://threadsgrab.com/threads-follower-counter/#primaryimage",
+        "url": "https://threadsgrab.com/og-image.jpg",
+        "contentUrl": "https://threadsgrab.com/og-image.jpg",
+        "width": 1200,
+        "height": 630,
+        "caption": "ThreadsGrab Threads Follower Counter"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://threadsgrab.com/#website",
+        "url": "https://threadsgrab.com/",
+        "name": "ThreadsGrab",
+        "description": "Free online tools to download Threads videos, images, profile pictures and track follower counts.",
+        "inLanguage": "en-US",
+        "publisher": {
+          "@id": "https://threadsgrab.com/#organization"
+        },
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://threadsgrab.com/?s={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://threadsgrab.com/#organization",
+        "name": "ThreadsGrab",
+        "url": "https://threadsgrab.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "inLanguage": "en-US",
+          "@id": "https://threadsgrab.com/#logo",
+          "url": "https://threadsgrab.com/threadsgrab-logo.png",
+          "contentUrl": "https://threadsgrab.com/threadsgrab-logo.png",
+          "width": 180,
+          "height": 180,
+          "caption": "ThreadsGrab Logo"
+        },
+        "image": {
+          "@id": "https://threadsgrab.com/#logo"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "contact.themistero@gmail.com",
+          "contactType": "customer support",
+          "availableLanguage": ["English"]
+        },
+        "sameAs": []
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://threadsgrab.com/threads-follower-counter/#webapp",
+        "name": "Threads Follower Counter",
+        "url": "https://threadsgrab.com/threads-follower-counter",
+        "description": "Free Threads Follower Counter online. Track live follower counts for any public Threads account in real time. Get growth analytics, session delta, trend sparkline, and auto-refreshing stats. No login required.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "author": {
+          "@id": "https://threadsgrab.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "256"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://threadsgrab.com/threads-follower-counter/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://threadsgrab.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Threads Follower Counter",
+            "item": "https://threadsgrab.com/threads-follower-counter"
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://threadsgrab.com/threads-follower-counter/#howto",
+        "name": "How to Track Threads Follower Count Live",
+        "description": "Follow 3 simple steps to track live follower counts for any public Threads account using ThreadsGrab.",
+        "totalTime": "PT1M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "USD",
+          "value": "0"
+        },
+        "supply": [
+          {
+            "@type": "HowToSupply",
+            "name": "Threads profile URL or @username"
+          }
+        ],
+        "tool": [
+          {
+            "@type": "HowToTool",
+            "name": "ThreadsGrab Threads Follower Counter",
+            "url": "https://threadsgrab.com/threads-follower-counter"
+          }
+        ],
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Enter Username",
+            "text": "Type the Threads username (with or without the @ symbol) into the input box at the top of the counter tool.",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://threadsgrab.com/media/download-threads-dp.jpg",
+              "width": 60,
+              "height": 60
+            },
+            "url": "https://threadsgrab.com/threads-follower-counter/#downloader"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Click Track",
+            "text": "Press the Track button and ThreadsGrab will immediately start fetching the latest follower count from the public Threads profile.",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://threadsgrab.com/media/threads-downloader-dp.jpg",
+              "width": 60,
+              "height": 60
+            },
+            "url": "https://threadsgrab.com/threads-follower-counter/#downloader"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Watch in Real Time",
+            "text": "Keep the page open and watch the follower count update automatically every few seconds, complete with session delta, poll iterations, and an in-session trend sparkline chart.",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://threadsgrab.com/media/threads-profile-downloader.jpg",
+              "width": 60,
+              "height": 60
+            },
+            "url": "https://threadsgrab.com/threads-follower-counter/#howitworks"
+          }
+        ]
+      }
+    ]
   }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://threadsgrab.com"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Threads Follower Counter",
-      "item": "https://threadsgrab.com/threads-follower-counter"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the accuracy of the Threads follower counter?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Its accuracy is based on how the tool retrieves and updates data from Meta Platforms. Since Meta does not have an official API for this information, many tools depend on what is publicly available, so while this information is typically valid, it may not always represent current changes in followers on Threads as there can be slight delays with these updates, especially where the tool employs a caching method to enhance speed."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why does the follower counter sometimes freeze or stop updating?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sometimes, the follower counter could become frozen or stop updating because of intermittent network connectivity or delays in data updates. It relies on data updates from the data source. If there was any delay in the source updating its information, the follower counter would not have the current count of followers and therefore will appear to be frozen until it has the new information."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why is there a delay between my counter and my Threads profile?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Both your Threads profile and counter receive their data from the same source, and therefore they can be out of sync with each other during refresh intervals; this can result in a small lapse in time where both counters do not display equal numbers."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why is the follower count not updating instantly?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Follower counts may not update instantly because most tools use caching or refresh data at intervals to improve performance. Additionally, since the data is not coming from an official API, there can be slight delays in fetching the latest numbers. This does not mean the tool is broken\u2014it is a normal limitation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is it safe to use a Threads follower counter?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, it is safe as long as the tool does not ask for your login details. A proper follower counter only requires a username and does not interact with your account. You should avoid any tool that requests sensitive information, as it is unnecessary for checking public data."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is it possible to track follower count of a private Threads account?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Tracking followers of private accounts is not possible because follower counters depend upon publicly available information. Therefore, if the Threads account you are attempting to track is private, the follower count is not revealed."
-      }
-    }
-  ]
-}
-</script>
+  </script>
 
+  <!-- FAQPage Schema JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/threads-follower-counter/#faq-1",
+        "name": "How accurate is the Threads follower counter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ThreadsGrab pulls follower data directly from publicly available Threads profile information. Since Meta does not expose a real-time official API for follower counts, numbers are typically accurate within the platform's own caching window. Small delays may occur when the source has not yet propagated a change, but our tool refreshes far more frequently than the default Threads profile view."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/threads-follower-counter/#faq-2",
+        "name": "Why does the follower counter sometimes freeze or stop updating?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Freezes or pauses are almost always caused by temporary network issues or upstream rate-limiting on the data source, not by the counter itself. If the upstream source delays publishing an update, the counter appears frozen until the new data is available. You can click the Track button again to force a fresh poll."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/threads-follower-counter/#faq-3",
+        "name": "Why is there a delay between my counter and the Threads app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both the Threads app and ThreadsGrab read from the same underlying public data, but they refresh on independent intervals. During the gap between refresh cycles, the two numbers may temporarily differ. This is normal behavior for any third-party analytics tool and the values will converge after the next poll."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/threads-follower-counter/#faq-4",
+        "name": "Why is the follower count not updating instantly?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Instant updates are not possible because Threads aggregates follower counts into periodic caching batches to manage server load. ThreadsGrab minimizes the delay by polling on short intervals, but very rapid follow/unfollow events can still take a short time to propagate. This is a normal platform-level limitation, not a tool bug."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/threads-follower-counter/#faq-5",
+        "name": "Is it safe to use a Threads follower counter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. ThreadsGrab only reads publicly available profile information and never asks for your username, password, or any login credentials. There is no account interaction, no permissions requested, and nothing is ever posted back to Threads. For full details, review our Privacy Policy and Disclaimer pages."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/threads-follower-counter/#faq-6",
+        "name": "Can I track the follower count of a private Threads account?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Threads follower counters rely on publicly available profile data. If an account is set to private, its follower count is not exposed to public crawlers and therefore cannot be tracked. ThreadsGrab respects user privacy settings and will never attempt to bypass them."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SP0ZHQ7HRQ"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SP0ZHQ7HRQ');
+  </script>
 </head>
 <body>
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
 
   <!-- Header & Navigation -->
-  <header class="header" id="siteHeader">
+  <header class="header" id="siteHeader" role="banner">
     <div class="container header-inner">
-      <a href="/" class="logo" id="siteLogo">
-        <img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" alt="ThreadsGrab Logo" /><span>ThreadsGrab</span>
+      <a href="/" class="logo" id="siteLogo" aria-label="ThreadsGrab Home">
+        <img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" alt="ThreadsGrab Logo" width="40" height="40" loading="lazy" decoding="async" />
+        <span>ThreadsGrab</span>
       </a>
 
       <!-- Desktop Navigation Links -->
-      <nav class="nav-desktop" id="desktopNav">
+      <nav class="nav-desktop" id="desktopNav" role="navigation" aria-label="Primary">
         <a href="/threads-video-downloader" class="nav-link" id="navVideo">Video Downloader</a>
         <a href="/threads-image-downloader" class="nav-link" id="navImage">Image Downloader</a>
         <a href="/threads-profile-picture-downloader" class="nav-link" id="navDp">DP Downloader</a>
-        <a href="/threads-follower-counter" class="nav-link active" id="navCounter">Follower Counter</a>
+        <a href="/threads-follower-counter" class="nav-link active" id="navCounter" aria-current="page">Follower Counter</a>
         <a href="/about" class="nav-link" id="navAbout">About</a>
         <a href="/contact" class="nav-link" id="navContact">Contact</a>
       </nav>
 
       <!-- Actions & Theme Toggle -->
       <div class="header-actions">
-      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle mobile menu">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileNav">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <line x1="4" x2="20" y1="12" y2="12"/>
             <line x1="4" x2="20" y1="6" y2="6"/>
             <line x1="4" x2="20" y1="18" y2="18"/>
@@ -167,20 +372,20 @@
   </header>
 
   <!-- Mobile Drawer Menu -->
-  <nav class="mobile-nav" id="mobileNav">
+  <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile" hidden>
     <a href="/" class="nav-link">Home</a>
     <a href="/threads-video-downloader" class="nav-link">Threads Video Downloader</a>
     <a href="/threads-image-downloader" class="nav-link">Threads Image Downloader</a>
     <a href="/threads-profile-picture-downloader" class="nav-link">Threads DP Downloader</a>
-    <a href="/threads-follower-counter" class="nav-link active">Follower Counter</a>
-    <a href="/about" class="nav-link">About Us</a>
+    <a href="/threads-follower-counter" class="nav-link active" aria-current="page">Threads Follower Counter</a>
+    <a href="/about" class="nav-link">About</a>
     <a href="/contact" class="nav-link">Contact</a>
     <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
   </nav>
 
-  <main id="mainContent">
+  <main id="mainContent" role="main">
     <!-- Hero & Tool Section -->
-    <section class="hero-section" id="downloader">
+    <section class="hero-section" id="downloader" aria-labelledby="heroHeading">
       <div class="container">
         <h1 class="hero-title" id="heroHeading">Threads Follower Counter</h1>
         <p class="hero-subtitle hero-subtitle-sm">
@@ -188,48 +393,50 @@
         </p>
 
         <!-- Tool Mode Tabs -->
-        <div class="tool-tabs" id="toolTabs">
-          <a href="/threads-video-downloader" class="tool-tab" id="toolVideoTab" aria-label="Video Downloader">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect width="15" height="14" x="1" y="5" rx="2" ry="2"/></svg>
+        <div class="tool-tabs" id="toolTabs" role="tablist" aria-label="Threads Tools">
+          <a href="/threads-video-downloader" class="tool-tab" id="toolVideoTab" aria-label="Video Downloader" role="tab">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect width="15" height="14" x="1" y="5" rx="2" ry="2"/></svg>
           </a>
-          <a href="/threads-image-downloader" class="tool-tab" id="toolImageTab" aria-label="Image Downloader">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+          <a href="/threads-image-downloader" class="tool-tab" id="toolImageTab" aria-label="Image Downloader" role="tab">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
           </a>
-          <a href="/threads-profile-picture-downloader" class="tool-tab" id="toolDpTab" aria-label="Profile DP">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <a href="/threads-profile-picture-downloader" class="tool-tab" id="toolDpTab" aria-label="Profile DP" role="tab">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           </a>
-          <a href="/threads-follower-counter" class="tool-tab active" id="toolGrowthTab" aria-label="Growth Insights">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          <a href="/threads-follower-counter" class="tool-tab active" id="toolGrowthTab" aria-label="Growth Insights" role="tab" aria-selected="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
           </a>
         </div>
 
         <!-- Main Follower Counter Card -->
-        <section class="idp-card">
+        <section class="idp-card" aria-labelledby="heroHeading">
 
           <div class="idp-card-top">
             <div class="idp-eyebrow">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h7v8l10-14h-7z"/></svg>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L3 14h7v8l10-14h-7z"/></svg>
               Live Follower Counter
             </div>
-            <div id="refresh-pill" class="idp-refresh-pill">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" d="M4 4v6h6M20 20v-6h-6"/><path stroke-linecap="round" d="M5.5 15a7 7 0 0012.6 2.5M18.5 9a7 7 0 00-12.6-2.5"/></svg>
+            <div id="refresh-pill" class="idp-refresh-pill" role="status" aria-live="polite">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" d="M4 4v6h6M20 20v-6h-6"/><path stroke-linecap="round" d="M5.5 15a7 7 0 0012.6 2.5M18.5 9a7 7 0 00-12.6-2.5"/></svg>
               <span id="refresh-label">refreshing</span>
             </div>
           </div>
 
-          <form id="search-form" class="idp-search-row">
-            <span class="idp-at">@</span>
-            <input id="username-input" placeholder="Enter Threads username " autocomplete="off">
+          <form id="search-form" class="idp-search-row" role="search">
+            <span class="idp-at" aria-hidden="true">@</span>
+            <label for="username-input" class="visually-hidden">Threads username</label>
+            <input id="username-input" type="text" placeholder="Enter Threads username" autocomplete="off" spellcheck="false" inputmode="text" aria-describedby="username-hint" />
+            <span id="username-hint" class="visually-hidden">Enter a public Threads username. The @ prefix is optional.</span>
             <button type="submit" class="idp-track-btn" id="track-btn">Track</button>
           </form>
 
           <div class="idp-divider"></div>
 
-          <div class="idp-profile-block">
+          <div class="idp-profile-block" aria-live="polite" aria-atomic="true">
             <div class="idp-avatar-ring">
               <div class="idp-avatar-inner">
-                <img id="profile-pic" src="" alt="" referrerpolicy="no-referrer" class="hidden">
-                <svg id="avatar-placeholder" width="52" height="52" viewBox="0 0 24 24" fill="none">
+                <img id="profile-pic" src="" alt="Profile avatar" referrerpolicy="no-referrer" class="hidden" width="52" height="52" loading="lazy" decoding="async" />
+                <svg id="avatar-placeholder" width="52" height="52" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <defs>
                     <linearGradient id="igGrad" x1="0" y1="0" x2="24" y2="24">
                       <stop offset="0%" stop-color="#F58529"/>
@@ -242,197 +449,225 @@
                   <circle cx="17.2" cy="6.8" r="1.1" fill="url(#igGrad)"/>
                 </svg>
               </div>
-              <div class="idp-live-badge"><span class="idp-live-dot"></span>LIVE</div>
+              <div class="idp-live-badge" aria-label="Live tracking"><span class="idp-live-dot" aria-hidden="true"></span>LIVE</div>
             </div>
 
             <div class="idp-tracking-pill">
-              <span class="idp-tracking-dot"></span>
+              <span class="idp-tracking-dot" aria-hidden="true"></span>
               tracking <b id="tracking-handle">@threads</b>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10"/></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10"/></svg>
             </div>
 
             <h2 class="idp-name" id="profile-name">Threads</h2>
-            <p class="idp-tagline" id="profile-tagline">Discover what's new on Threads 🌟✨</p>
+            <p class="idp-tagline" id="profile-tagline">Discover what's new on Threads</p>
 
-            <div class="idp-count mono" id="follower-count">0</div>
+            <div class="idp-count mono" id="follower-count" aria-label="Follower count">0</div>
             <div class="idp-count-label" id="count-label">THREADS FOLLOWERS</div>
           </div>
 
           <div class="idp-monitor-row">
-            <div class="idp-monitor-ring"></div>
+            <div class="idp-monitor-ring" aria-hidden="true"></div>
             <div class="idp-monitor-text">
-              <div class="idp-monitor-title">Live monitoring<span class="idp-monitor-amber mono" id="monitor-seconds">0.0s</span></div>
+              <div class="idp-monitor-title">Live monitoring<span class="idp-monitor-amber mono" id="monitor-seconds" aria-label="Seconds since last refresh">0.0s</span></div>
               <div class="idp-monitor-sub">Fetching from ThreadsGrab servers</div>
             </div>
-            <div class="idp-monitor-divider"></div>
-            <button class="idp-monitor-btn" id="monitor-toggle-btn" title="Pause / resume monitoring">
-              <svg id="monitor-toggle-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            <div class="idp-monitor-divider" aria-hidden="true"></div>
+            <button type="button" class="idp-monitor-btn" id="monitor-toggle-btn" title="Pause or resume monitoring" aria-label="Pause or resume live monitoring">
+              <svg id="monitor-toggle-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
             </button>
           </div>
 
           <div class="idp-divider" style="margin-top:0;"></div>
 
-          <div class="idp-stat-grid">
-            <div class="idp-stat-box"><div class="idp-stat-label">Target Username</div><div class="idp-stat-value mono" id="stat-username">@threads</div></div>
-            <div class="idp-stat-box"><div class="idp-stat-label">Session Delta</div><div class="idp-stat-value mono idp-green" id="stat-delta">+0</div></div>
-            <div class="idp-stat-box"><div class="idp-stat-label">Poll Iterations</div><div class="idp-stat-value mono" id="stat-ticks">0 ticks</div></div>
-            <div class="idp-stat-box"><div class="idp-stat-label">Last Verified</div><div class="idp-stat-value mono" id="stat-verified">--:--:-- --</div></div>
+          <div class="idp-stat-grid" role="group" aria-label="Follower statistics">
+            <div class="idp-stat-box"><div class="idp-stat-label">Target Username</div><div class="idp-stat-value mono" id="stat-username" aria-label="Target username">@threads</div></div>
+            <div class="idp-stat-box"><div class="idp-stat-label">Session Delta</div><div class="idp-stat-value mono idp-green" id="stat-delta" aria-label="Session follower change">+0</div></div>
+            <div class="idp-stat-box"><div class="idp-stat-label">Poll Iterations</div><div class="idp-stat-value mono" id="stat-ticks" aria-label="Number of polls">0 ticks</div></div>
+            <div class="idp-stat-box"><div class="idp-stat-label">Last Verified</div><div class="idp-stat-value mono" id="stat-verified" aria-label="Last verified timestamp">--:--:-- --</div></div>
           </div>
 
-          <div class="idp-sparkline-panel">
+          <div class="idp-sparkline-panel" aria-labelledby="sparkline-heading">
             <div class="idp-sparkline-head">
-              <div class="idp-sparkline-title">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l5-5 4 4 8-9"/></svg>
+              <div class="idp-sparkline-title" id="sparkline-heading">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l5-5 4 4 8-9"/></svg>
                 In-Session Follower Trend Sparkline
               </div>
               <div class="idp-sparkline-hint">Live updates accumulate history below</div>
             </div>
-            <div class="idp-sparkline-chart"><canvas id="spark-canvas"></canvas></div>
+            <div class="idp-sparkline-chart"><canvas id="spark-canvas" role="img" aria-label="In-session follower trend chart"></canvas></div>
           </div>
 
-          <div id="error-box" class="hidden" style="color:#EF5350;font-size:12.5px;padding-bottom:20px;text-align:center;"></div>
+          <div id="error-box" class="hidden" role="alert" aria-live="assertive" style="color:#EF5350;font-size:12.5px;padding-bottom:20px;text-align:center;"></div>
 
         </section>
       </div>
     </section>
 
     <div class="container">
-      <section class="idp-discover">
+      <section class="idp-discover" aria-label="Featured Accounts">
 
         <div class="idp-discover-block">
           <div class="idp-discover-head">
             <div class="idp-discover-title">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a5 5 0 015 5v3h1a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2v-8a2 2 0 012-2h1V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v3h6V7a3 3 0 00-3-3z"/></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a5 5 0 015 5v3h1a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2v-8a2 2 0 012-2h1V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v3h6V7a3 3 0 00-3-3z"/></svg>
               Promoted Accounts
             </div>
             <div class="idp-discover-hint">tap to track a promoted account</div>
           </div>
-          <div class="idp-account-grid" id="promoted-grid"></div>
+          <div class="idp-account-grid" id="promoted-grid" role="list" aria-label="Promoted accounts list"></div>
         </div>
 
         <div class="idp-discover-block">
           <div class="idp-discover-head">
             <div class="idp-discover-title">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 8 12 8 12s8-6.6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"/></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 8 12 8 12s8-6.6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"/></svg>
               Popular Live Accounts
             </div>
             <div class="idp-discover-hint">click to switch track target</div>
           </div>
-          <div class="idp-account-grid" id="popular-grid"></div>
+          <div class="idp-account-grid" id="popular-grid" role="list" aria-label="Popular accounts list"></div>
         </div>
 
         <div class="idp-discover-block">
           <div class="idp-discover-head">
             <div class="idp-discover-title">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a5 5 0 00-5 5v3H6a2 2 0 00-2 2v9a2 2 0 002 2h12a2 2 0 002-2v-9a2 2 0 00-2-2h-1V6a5 5 0 00-5-5zm0 2a3 3 0 013 3v3H9V6a3 3 0 013-3z"/></svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1a5 5 0 00-5 5v3H6a2 2 0 00-2 2v9a2 2 0 002 2h12a2 2 0 002-2v-9a2 2 0 00-2-2h-1V6a5 5 0 00-5-5zm0 2a3 3 0 013 3v3H9V6a3 3 0 013-3z"/></svg>
               Trending Accounts
             </div>
             <div class="idp-discover-hint">tap to track a trending username</div>
           </div>
-          <div class="idp-trend-grid" id="trending-grid"></div>
+          <div class="idp-trend-grid" id="trending-grid" role="list" aria-label="Trending accounts list"></div>
         </div>
       </section>
     </div>
 
+    <!-- How To Track Steps Section -->
+    <section class="steps-section" id="howitworks" aria-labelledby="stepsHeading">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="stepsHeading">How to Track Threads Follower Count Live</h2>
+          <p class="section-subtitle">Follow these 3 simple steps to monitor live follower counts and growth trends for any public Threads account.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-icon"><img src="https://threadsgrab.com//media/threads-follower-counter.jpg" loading="lazy" decoding="async" width="60" height="60" alt="" aria-hidden="true" /></div>
+            <h3>Enter Username</h3>
+            <p>Type the Threads username (with or without the @ symbol) into the input box at the top of the counter tool.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon"><img src="https://threadsgrab.com/media/count-threads-follower.jpg" loading="lazy" decoding="async" width="60" height="60" alt="" aria-hidden="true" /></div>
+            <h3>Click <a href="#downloader" style="color:inherit;text-decoration:none;">Track</a></h3>
+            <p>Press the Track button and ThreadsGrab will immediately start fetching the latest follower count from the public Threads profile.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon"><img src="https://threadsgrab.com/media/track threads follower growth.jpg" loading="lazy" decoding="async" width="60" height="60" alt="" aria-hidden="true" /></div>
+            <h3>Watch in Real Time</h3>
+            <p>Keep the page open and watch the follower count update automatically every few seconds, complete with session delta, poll iterations, and an in-session trend sparkline chart.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- SEO Information Content Section -->
-    <section class="info-section">
+    <section class="info-section" aria-labelledby="infoIntroHeading">
       <div class="container">
         <article class="info-content">
-          <h2>How to Track Threads Follower Count Live</h2>
-          <h3>1. Enter Username</h3>
-          <p>Simply type the Threads username (with or without the @ symbol) in the input box above.</p>
-          <h3>2. Click Track</h3>
-          <p>Press the Track button and we'll start fetching the latest follower count from Threads.</p>
-          <h3>3. Watch in Real-time</h3>
-          <p>Keep the page open and watch the follower count update automatically every few seconds, with a sparkline showing your session's trend.</p>
+          <h2 id="infoIntroHeading"><a href="#infoIntroHeading" style="color:inherit;text-decoration:none;">Threads Follower Counter — Live Growth Tracking &amp; Analytics</a></h2>
+          <p>
+            Tracking follower growth on Threads using only the default profile view is a frustrating experience. Profile counts are cached, not live, so the number you see in the app may already be minutes or even hours stale. A dedicated Threads Follower Counter eliminates the manual refresh loop by pulling the latest public count on short, automatic intervals and displaying updates the moment they are detected. Whether you are monitoring your own account during a launch window, benchmarking a competitor, or studying growth trends across creators, ThreadsGrab gives you a continuously updating view — no logging in, no app install, and no manual reloading required.</p>
+            <p>ThreadsGrab is also your all-in-one toolkit for everything Threads. Once you finish analyzing follower trends, use our <a href="/threads-video-downloader">Threads Video Downloader</a> to save high-quality posts from creators, our <a href="/threads-image-downloader">Threads Image Downloader</a> to pull carousels and single images, or our <a href="/threads-profile-picture-downloader">Threads DP Downloader</a> to grab full-size profile avatars for every account you track.</p>
 
-          <h2>Threads Follower Counter - Keep track of live follower updates</h2>
-          <p>If all you do to track follower growth on Threads is look at the default profile view, you're going to find it very frustrating. The profile view does not always show the most current follower count, and the number is not a live number, so there is no point in checking the profile view over and over again to see changes. A Threads follower counter makes tracking count updates much easier. Instead of checking the profile number over and over, the counter will show the most current follower count, and it will refresh automatically. This also helps with tracking even more into the growth when there is a lot of activity, or you are trying to see the growth of your account over a long period of time.</p>
+          <h2 id="infoUpdatesHeading"><a href="#infoUpdatesHeading" style="color:inherit;text-decoration:none;">Why Follower Counts Do Not Update Instantly</a></h2>
+          <p>Threads, like every large social platform, batches follower-count changes through caching layers to protect its infrastructure from being overwhelmed by real-time writes. This means the number displayed in the native app is not a live feed — it is a snapshot refreshed at Meta-controlled intervals that can vary from seconds to many minutes depending on traffic and server load.</p>
+          <p>ThreadsGrab minimizes the perceived delay by polling the public profile endpoint on much shorter cycles than the default Threads UI. In practice, you see updates far sooner than you would by manually refreshing the profile, and the session delta and sparkline panels make even small movements immediately visible instead of hidden inside stale cached numbers.</p>
 
-          <h2>Why Follower Count Updates are Not Instant</h2>
-          <p>It may be helpful to understand how Threads, and other social media platforms, update follower count data to understand the purpose of a follower counter. Most social media platforms do not update follower counts immediately. Because of performance and server load concerns, follower counts are often cached and updated a little less frequently. Because of this, the follower count on your profile may be a little less than the reality. Most users won't notice this on casual scrolling. For users who study analytics and track follower counts closely, a delay is significantly less than a small amount of time. Compared to a standard profile view, a follower counter decreases these delays by updating data more quickly.</p>
+          <h2 id="infoMilestoneHeading"><a href="#infoMilestoneHeading" style="color:inherit;text-decoration:none;">Hit Milestones With Confidence</a></h2>
+          <p>Milestones — whether 1K, 10K, 100K, or anywhere in between — feel different the closer you get. The native profile view only shows you a before and after snapshot, so you never know exactly when the number tipped over or the trajectory it took to get there.</p>
+          <p>A live follower counter turns those discrete snapshots into a continuous story. Instead of refreshing 50 times and guessing, you see the count climb in real time, watch it cross your target threshold, and then verify the exact moment it happened in the poll history and sparkline. The data-backed momentum is far more satisfying than a surprise jump after a random refresh.</p>
 
-          <h2>When You Keep Refreshing Your Profile After Posting</h2>
-          <p>This has become quite a common practice and can occur many times to most people, where once you create a new entry on your profile you will go back and checking the same number of followers over and over. Checking a few times is not so bad. However, if you check one million times, you will be performing the same repetitive behavior. You'll just refresh, see the same amount of followers, quit the app, then do it again until the next refresh has finished. You also will not feel very satisfied because, because if you don't even know to check the follower data in totality, then your experience will be inconsistent each time. Most people's brains have been conditioned that there is some psychological benefit to checking your follower count and seeing a change when refreshing. If you are counting followers, this habit will break your action of counting your followers without looking at the data (because that is still the same every single time).</p>
+          <h2 id="infoChurnHeading"><a href="#infoChurnHeading" style="color:inherit;text-decoration:none;">Detect Unfollows and Audience Churn Early</a></h2>
+          <p>Most creators only notice gains — they post a screenshot when the number goes up, but a mysterious dip a week later often passes undetected because there is no visible record of when it occurred. If you only glance at your profile occasionally, a 500-follower drop can look like noise instead of a signal.</p>
+          <p>ThreadsGrab surfaces both directions of movement. Session delta highlights net change since you started tracking, every poll is recorded in the sparkline history, and downward ticks are visible the instant they happen instead of days later when you finally happen to notice a smaller number.</p>
 
-          <h2>When You Get Close To Your Target Number</h2>
-          <p>You don't have to be going after a big milestone for this to be relevant. Smaller goals have a different feeling to them when you are closer to achieving them. The only thing you're seeing when you refresh your profile is a before and after. That's not a great way to keep track of progress. A follower counter lets you see the change instead of having to guess when it updated. You see the number changing and you can watch it get closer to your goal.</p>
+          <h2 id="infoCompetitorHeading"><a href="#infoCompetitorHeading" style="color:inherit;text-decoration:none;">Track Competitors and Creators Without Manual Checks</a></h2>
+          <p>Monitoring someone else's account manually is tedious — you have no reason to refresh another person's profile on a timer, and spreadsheets are error-prone and out of date the moment you save them.</p>
+          <p>With ThreadsGrab, just enter any public @username once and the tool handles the rest. You can flip between promoted, popular, and trending accounts in one click from the featured panels below the counter, or type in any handle directly to track any creator you are benchmarking, researching, or collaborating with.</p>
 
-          <h2>When You Want to See If Followers Drop, Not Just Increase</h2>
-          <p>It is true that most people only post the number of followers gained without dropping. Sometimes it becomes clear that at some point the numbers became smaller, but the person does not understand when it happened. If you only visit your profile once, then you miss it completely. It just seems like some sort of decrement in the ratings. With a follower counter, one can actually tell when the numbers go down. It makes the change visible rather than surprising.</p>
-
-          <h2>When You're Tracking Someone Else's Profile</h2>
-          <p>You may not want to monitor your own account and will take an interest in the growth of other users. It can also be a nuisance to manually check for other accounts because you have no reason to continuously refresh another person's profile. If you plug in the link of another user into a follower counter, you can view their growth without having to check each time. You simply copy the url and see what is going on.</p>
+          <h2 id="infoCompatHeading"><a href="#infoCompatHeading" style="color:inherit;text-decoration:none;">Works on Every Device and Browser</a></h2>
+          <p>ThreadsGrab's follower counter runs 100% in the browser and works identically on Android, iOS, Windows, Mac, Linux, and every tablet form factor. The responsive UI scales perfectly to any screen, and the tracker is fully compatible with Google Chrome, Safari, Firefox, Microsoft Edge, Opera, and Brave. No app, no extension, no setup — just a username and a Track button.</p>
         </article>
       </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq-section" id="faq">
+    <section class="faq-section" id="faq" aria-labelledby="faqHeading">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Frequently Asked Questions</h2>
+          <h2 class="section-title" id="faqHeading">Frequently Asked Questions</h2>
           <p class="section-subtitle">Find answers to common questions about tracking Threads follower counts.</p>
         </div>
 
-        <div class="faq-list">
-          <div class="faq-item active">
-            <button class="faq-question">
-              <span>What is the accuracy of the Threads follower counter?</span>
-              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        <div class="faq-list" role="list">
+          <div class="faq-item active" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="true" aria-controls="faqAnswer1" id="faqButton1">
+              <span>How accurate is the Threads follower counter?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <div class="faq-answer">
-              Its accuracy is based on how the tool retrieves and updates data from Meta Platforms. Since Meta does not have an official API for this information, many tools depend on what is publicly available, so while this information is typically valid, it may not always represent current changes in followers on Threads as there can be slight delays with these updates, especially where the tool employs a caching method to enhance speed.
+            <div class="faq-answer" id="faqAnswer1" role="region" aria-labelledby="faqButton1">
+              <p>ThreadsGrab pulls follower data directly from publicly available Threads profile information. Since Meta does not expose a real-time official API for follower counts, numbers are typically accurate within the platform's own caching window. Small delays may occur when the source has not yet propagated a change, but our tool refreshes far more frequently than the default Threads profile view.</p>
             </div>
           </div>
 
-          <div class="faq-item">
-            <button class="faq-question">
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer2" id="faqButton2">
               <span>Why does the follower counter sometimes freeze or stop updating?</span>
-              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <div class="faq-answer">
-              Sometimes, the follower counter could become frozen or stop updating because of intermittent network connectivity or delays in data updates. It relies on data updates from the data source. If there was any delay in the source updating its information, the follower counter would not have the current count of followers and therefore will appear to be frozen until it has the new information.
+            <div class="faq-answer" id="faqAnswer2" role="region" aria-labelledby="faqButton2" hidden>
+              <p>Freezes or pauses are almost always caused by temporary network issues or upstream rate-limiting on the data source, not by the counter itself. If the upstream source delays publishing an update, the counter appears frozen until the new data is available. You can click the Track button again to force a fresh poll.</p>
             </div>
           </div>
 
-          <div class="faq-item">
-            <button class="faq-question">
-              <span>Why is there a delay between my counter and my Threads profile?</span>
-              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer3" id="faqButton3">
+              <span>Why is there a delay between my counter and the Threads app?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <div class="faq-answer">
-              Both your Threads profile and counter receive their data from the same source, and therefore they can be out of sync with each other during refresh intervals; this can result in a small lapse in time where both counters do not display equal numbers.
+            <div class="faq-answer" id="faqAnswer3" role="region" aria-labelledby="faqButton3" hidden>
+              <p>Both the Threads app and ThreadsGrab read from the same underlying public data, but they refresh on independent intervals. During the gap between refresh cycles, the two numbers may temporarily differ. This is normal behavior for any third-party analytics tool and the values will converge after the next poll.</p>
             </div>
           </div>
 
-          <div class="faq-item">
-            <button class="faq-question">
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer4" id="faqButton4">
               <span>Why is the follower count not updating instantly?</span>
-              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <div class="faq-answer">
-              Follower counts may not update instantly because most tools use caching or refresh data at intervals to improve performance. Additionally, since the data is not coming from an official API, there can be slight delays in fetching the latest numbers. This does not mean the tool is broken\u2014it is a normal limitation.
+            <div class="faq-answer" id="faqAnswer4" role="region" aria-labelledby="faqButton4" hidden>
+              <p>Instant updates are not possible because Threads aggregates follower counts into periodic caching batches to manage server load. ThreadsGrab minimizes the delay by polling on short intervals, but very rapid follow/unfollow events can still take a short time to propagate. This is a normal platform-level limitation, not a tool bug.</p>
             </div>
           </div>
 
-          <div class="faq-item">
-            <button class="faq-question">
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer5" id="faqButton5">
               <span>Is it safe to use a Threads follower counter?</span>
-              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <div class="faq-answer">
-              Yes, it is safe as long as the tool does not ask for your login details. A proper follower counter only requires a username and does not interact with your account. You should avoid any tool that requests sensitive information, as it is unnecessary for checking public data.
+            <div class="faq-answer" id="faqAnswer5" role="region" aria-labelledby="faqButton5" hidden>
+              <p>Yes. ThreadsGrab only reads publicly available profile information and never asks for your username, password, or any login credentials. There is no account interaction, no permissions requested, and nothing is ever posted back to Threads. For full details, review our <a href="/privacy-policy">Privacy Policy</a> and <a href="/disclaimer">Disclaimer</a> pages.</p>
             </div>
           </div>
 
-          <div class="faq-item">
-            <button class="faq-question">
-              <span>Is it possible to track follower count of a private Threads account?</span>
-              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer6" id="faqButton6">
+              <span>Can I track the follower count of a private Threads account?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
-            <div class="faq-answer">
-              Tracking followers of private accounts is not possible because follower counters depend upon publicly available information. Therefore, if the Threads account you are attempting to track is private, the follower count is not revealed.
+            <div class="faq-answer" id="faqAnswer6" role="region" aria-labelledby="faqButton6" hidden>
+              <p>No. Threads follower counters rely on publicly available profile data. If an account is set to private, its follower count is not exposed to public crawlers and therefore cannot be tracked. ThreadsGrab respects user privacy settings and will never attempt to bypass them.</p>
             </div>
           </div>
         </div>
@@ -441,14 +676,15 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <a href="/" class="logo">
-            <img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" width="40" height="40" loading="eager" decoding="async" alt="ThreadsGrab Logo" /><span>ThreadsGrab</span>
+          <a href="/" class="logo" aria-label="ThreadsGrab Home">
+            <img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" alt="ThreadsGrab Logo" width="40" height="40" loading="lazy" decoding="async" />
+            <span>ThreadsGrab</span>
           </a>
-          <p>The fastest way to download videos and images from Threads and track follower counts. We are not affiliated with Meta or Threads.</p>
+          <p>The fastest and most reliable online utility to save public Threads videos, images, and profile pictures in full quality, plus track live follower counts. We are not affiliated with Meta or Threads.</p>
         </div>
 
         <div class="footer-col">
@@ -464,7 +700,7 @@
         <div class="footer-col">
           <h4>Company</h4>
           <ul class="footer-links">
-            <li><a href="/about">About Us &amp; Deployment</a></li>
+            <li><a href="/about">About Us</a></li>
             <li><a href="/contact">Contact</a></li>
             <li><a href="/privacy-policy">Privacy Policy</a></li>
             <li><a href="/disclaimer">Disclaimer</a></li>
@@ -472,12 +708,12 @@
         </div>
 
         <div class="footer-col">
-          <h4>Legal</h4>
+          <h4>Legal &amp; Support</h4>
           <ul class="footer-links">
             <li><a href="/disclaimer">DMCA Policy</a></li>
             <li>
               <a href="mailto:contact.themistero@gmail.com" class="footer-link-email">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 Contact Support
               </a>
             </li>
@@ -488,11 +724,18 @@
       <div class="footer-bottom">
         <div>&copy; 2026 ThreadsGrab. All rights reserved.</div>
         <div class="footer-disclaimer-note">
-          Disclaimer: Threads Downloader is an independent tool and is not affiliated with, endorsed, or sponsored by Instagram, Meta Platforms, Inc., or Threads.
+          Disclaimer: ThreadsGrab is an independent tool and is not affiliated with, endorsed, or sponsored by Instagram, Meta Platforms, Inc., or Threads.
         </div>
       </div>
     </div>
   </footer>
+
+  <!-- Accessibility Critical CSS -->
+  <style>
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999}
+    .skip-link:focus{position:fixed;top:0;left:0;width:auto;height:auto;padding:12px 20px;background:#4f46e5;color:#fff;font-weight:600;text-decoration:none;border-radius:0 0 6px 0;outline:2px solid #fff;outline-offset:2px}
+    .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
 
   <script defer src="/romitp.js"></script>
   <script defer src="/tdcount.js?v=2"></script>
