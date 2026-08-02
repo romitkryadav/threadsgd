@@ -4,22 +4,35 @@
  * Supports both threads.net and threads.com post URLs.
  */
 
-// Worker URL provided by user
-const WORKER_URL = "https://tdvideo.romitkr5539.workers.dev";
+// ==========================================================================
+// Worker URLs - Add as many fallback workers as you want here.
+// The app will try them in order (index 0 first). If one fails/errors,
+// it automatically moves on to the next one.
+// ==========================================================================
+const WORKER_URLS = [
+  "https://tdvideo.romitkr5539.workers.dev",
+   "https://tdsave.romitkr361.workers.dev/",
+  // "https://your-third-worker.workers.dev",
+];
+
+// Tracks whichever worker last responded successfully, so proxy/video/image
+// requests (buildProxyUrl) keep using a known-good endpoint instead of
+// always defaulting back to WORKER_URLS[0].
+let activeWorkerBase = WORKER_URLS[0];
 
 // Global DOM State
 let currentMediaType = 'video'; // 'video' | 'image'
 let currentResultData = null;
 
 /**
- * Determine primary API Base URL
+ * Determine primary API Base URL (same-origin server, if applicable)
  */
 function getPrimaryApiBase() {
   const origin = window.location.origin;
   if (origin.includes('localhost') || origin.includes('run.app') || origin.includes('127.0.0.1') || origin.includes('pages.dev')) {
     return ""; // Use same origin relative /api server
   }
-  return WORKER_URL;
+  return null; // No same-origin API available; caller should use worker fallback chain
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -279,6 +292,72 @@ function autoDetectTypeFromUrl(url) {
 /* ==========================================================================
    4. API Request & Download Processing
    ========================================================================== */
+
+/**
+ * Attempts a GET request against a given base URL + path.
+ * Returns { data } on success (result.success === true),
+ * or { error } if the request went through but extraction failed,
+ * or throws if the network/request itself failed (so caller can move to next worker).
+ */
+async function fetchFromBase(base, path) {
+  const endpoint = `${base}${path}`;
+  const response = await fetch(endpoint, {
+    method: 'GET',
+    headers: { 'Accept': 'application/json' }
+  });
+
+  if (response.ok) {
+    const result = await response.json();
+    if (result && result.success) {
+      return { data: result };
+    }
+    return { error: result.error || 'Extraction failed' };
+  }
+
+  const errRes = await response.json().catch(() => ({}));
+  return { error: errRes.error || `Server returned ${response.status}` };
+}
+
+/**
+ * Tries the same-origin API first (if applicable), then walks through
+ * WORKER_URLS in order until one succeeds. Remembers the winning base
+ * in activeWorkerBase so proxy/media requests reuse a known-good worker.
+ */
+async function fetchWithFallback(path) {
+  let lastError = null;
+
+  // 1. Try same-origin API (local/dev/hosted environments)
+  const sameOriginBase = getPrimaryApiBase();
+  if (sameOriginBase !== null) {
+    try {
+      const result = await fetchFromBase(sameOriginBase, path);
+      if (result.data) {
+        return { data: result.data };
+      }
+      lastError = result.error;
+    } catch (err) {
+      lastError = err.message || 'Primary API unreachable';
+    }
+  }
+
+  // 2. Walk through every configured worker URL until one works
+  for (const workerBase of WORKER_URLS) {
+    try {
+      const result = await fetchFromBase(workerBase, path);
+      if (result.data) {
+        activeWorkerBase = workerBase; // remember which worker is currently healthy
+        return { data: result.data };
+      }
+      lastError = result.error || lastError;
+    } catch (err) {
+      console.warn(`Worker failed (${workerBase}):`, err.message || err);
+      // continue to next worker in the list
+    }
+  }
+
+  return { error: lastError || 'All servers are currently unreachable. Please try again shortly.' };
+}
+
 async function processDownload() {
   const urlInput = document.getElementById('urlInput');
   const rawInput = urlInput ? urlInput.value.trim() : '';
@@ -311,54 +390,8 @@ async function processDownload() {
 
   showLoading(true, 'Connecting to Threads...', 'Extracting media or profile picture from server');
 
-  let data = null;
-  let lastError = null;
-
-  // Try Primary API Endpoint
-  const primaryBase = getPrimaryApiBase();
-  try {
-    const endpoint = `${primaryBase}/api/download?url=${encodeURIComponent(rawUrl)}`;
-    const response = await fetch(endpoint, {
-      method: 'GET',
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-      const result = await response.json();
-      if (result && result.success) {
-        data = result;
-      } else {
-        lastError = result.error || 'Extraction failed';
-      }
-    } else {
-      const errRes = await response.json().catch(() => ({}));
-      lastError = errRes.error || `Server returned ${response.status}`;
-    }
-  } catch (err) {
-    lastError = err.message || 'Primary API unreachable';
-  }
-
-  // If Primary API failed, try Cloudflare Worker as Fallback
-  if (!data && primaryBase !== WORKER_URL) {
-    try {
-      const fallbackEndpoint = `${WORKER_URL}/api/download?url=${encodeURIComponent(rawUrl)}`;
-      const response = await fetch(fallbackEndpoint, {
-        method: 'GET',
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        if (result && result.success) {
-          data = result;
-        } else {
-          lastError = result.error || lastError;
-        }
-      }
-    } catch (err) {
-      console.warn('Worker fallback failed:', err);
-    }
-  }
+  const path = `/api/download?url=${encodeURIComponent(rawUrl)}`;
+  const { data, error } = await fetchWithFallback(path);
 
   showLoading(false);
 
@@ -368,7 +401,7 @@ async function processDownload() {
   } else {
     showError(
       'Extraction Failed',
-      lastError || 'Unable to fetch media from this Threads post. Please ensure the post is public and contains videos or images.'
+      error || 'Unable to fetch media from this Threads post. Please ensure the post is public and contains videos or images.'
     );
   }
 }
@@ -428,8 +461,51 @@ function hideResult() {
 }
 
 function buildProxyUrl(mediaUrl, filename = 'threads-media') {
-  const base = getPrimaryApiBase() || WORKER_URL;
+  const sameOriginBase = getPrimaryApiBase();
+  const base = (sameOriginBase !== null && sameOriginBase !== '') ? sameOriginBase : (sameOriginBase === '' ? '' : activeWorkerBase);
   return `${base}/api/proxy?url=${encodeURIComponent(mediaUrl)}&filename=${encodeURIComponent(filename)}`;
+}
+
+/**
+ * Builds a proxy URL trying a specific worker base. Used internally when
+ * we need to retry media loading against the next worker in the list.
+ */
+function buildProxyUrlForBase(base, mediaUrl, filename = 'threads-media') {
+  return `${base}/api/proxy?url=${encodeURIComponent(mediaUrl)}&filename=${encodeURIComponent(filename)}`;
+}
+
+/**
+ * Attaches cascading fallback to a <video> or <img> element: if the current
+ * source fails, try the next worker's proxy URL, then finally the raw
+ * mediaUrl itself.
+ */
+function attachMediaFallbackChain(el, mediaUrl, filename, isVideo) {
+  const bases = [...WORKER_URLS];
+  // Put the currently active worker first since it's most likely to work
+  bases.sort((a, b) => (a === activeWorkerBase ? -1 : b === activeWorkerBase ? 1 : 0));
+
+  let attemptIndex = 0;
+
+  const tryNext = () => {
+    if (attemptIndex < bases.length) {
+      const base = bases[attemptIndex];
+      attemptIndex++;
+      el.src = buildProxyUrlForBase(base, mediaUrl, filename);
+      if (isVideo) el.load();
+    } else {
+      // All proxies exhausted, fall back to the raw direct URL
+      el.src = mediaUrl;
+      if (isVideo) el.load();
+    }
+  };
+
+  el.addEventListener('error', () => {
+    console.warn('Media source failed, trying next fallback...');
+    tryNext();
+  });
+
+  // Kick off with the first (active) worker
+  tryNext();
 }
 
 function renderResult(data) {
@@ -520,16 +596,7 @@ function renderResult(data) {
         vid.preload = 'metadata';
         if (item.thumbnail) vid.poster = item.thumbnail;
 
-        const proxyVidUrl = buildProxyUrl(item.mediaUrl, `threads-video-${index + 1}.mp4`);
-        vid.src = proxyVidUrl;
-
-        vid.onerror = () => {
-          if (vid.src !== item.mediaUrl) {
-            console.warn(`Proxy playback failed for video #${index + 1}. Falling back to direct URL...`);
-            vid.src = item.mediaUrl;
-            vid.load();
-          }
-        };
+        attachMediaFallbackChain(vid, item.mediaUrl, `threads-video-${index + 1}.mp4`, true);
 
         // Auto scroll to media when loaded
         vid.addEventListener('canplay', () => {
@@ -543,13 +610,10 @@ function renderResult(data) {
         img.setAttribute('referrerpolicy', 'no-referrer');
         img.src = item.mediaUrl;
 
-        const proxyImgUrl = buildProxyUrl(item.mediaUrl, `threads-image-${index + 1}.jpg`);
-        img.onerror = () => {
-          if (img.src !== proxyImgUrl) {
-            console.warn(`Direct image loading blocked for item #${index + 1}. Switching to proxy image...`);
-            img.src = proxyImgUrl;
-          }
-        };
+        img.addEventListener('error', () => {
+          console.warn(`Direct image loading blocked for item #${index + 1}. Switching to proxy fallback chain...`);
+          attachMediaFallbackChain(img, item.mediaUrl, `threads-image-${index + 1}.jpg`, false);
+        }, { once: true });
 
         // Auto scroll to media when loaded
         img.addEventListener('load', () => {
@@ -624,16 +688,7 @@ function renderResult(data) {
         videoElem.poster = item.thumbnail;
       }
 
-      const proxyStreamUrl = buildProxyUrl(item.mediaUrl, 'threads-video.mp4');
-      videoElem.src = proxyStreamUrl;
-
-      videoElem.onerror = () => {
-        if (videoElem.src !== item.mediaUrl) {
-          console.warn('Proxy stream error. Falling back to direct video URL...');
-          videoElem.src = item.mediaUrl;
-          videoElem.load();
-        }
-      };
+      attachMediaFallbackChain(videoElem, item.mediaUrl, 'threads-video.mp4', true);
 
       // Auto scroll to media when loaded
       videoElem.addEventListener('canplay', () => {
@@ -647,30 +702,31 @@ function renderResult(data) {
       imgElem.setAttribute('referrerpolicy', 'no-referrer');
       imgElem.src = item.mediaUrl;
 
-      const proxyImgUrl = buildProxyUrl(item.mediaUrl, 'threads-image.jpg');
-      imgElem.onerror = () => {
-        if (imgElem.src !== proxyImgUrl) {
-          console.warn('Direct image loading blocked. Switching to proxy image...');
-          imgElem.src = proxyImgUrl;
-        } else {
-          console.warn('Proxy image failed, providing direct image link');
-          imgElem.style.display = 'none';
-          const fallbackBox = document.createElement('div');
-          fallbackBox.style.padding = '1.5rem';
-          fallbackBox.style.textAlign = 'center';
-          fallbackBox.style.background = 'var(--bg-glass)';
-          fallbackBox.style.borderRadius = 'var(--radius-md)';
-          fallbackBox.style.border = '1px solid var(--border)';
-          fallbackBox.innerHTML = `
-            <p style="color:var(--text-secondary); font-size: 0.95rem; margin-bottom: 0.75rem;">Image preview restricted by CDN headers.</p>
-            <a href="${item.mediaUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="display:inline-flex; align-items:center; gap:0.5rem; text-decoration:none;">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
-              View / Download Original DP Image
-            </a>
-          `;
-          previewContainer.appendChild(fallbackBox);
+      let fallbackTried = false;
+      imgElem.addEventListener('error', () => {
+        if (!fallbackTried) {
+          fallbackTried = true;
+          console.warn('Direct image loading blocked. Switching to proxy fallback chain...');
+          attachMediaFallbackChain(imgElem, item.mediaUrl, 'threads-image.jpg', false);
+          return;
         }
-      };
+        console.warn('All proxy attempts failed, providing direct image link');
+        imgElem.style.display = 'none';
+        const fallbackBox = document.createElement('div');
+        fallbackBox.style.padding = '1.5rem';
+        fallbackBox.style.textAlign = 'center';
+        fallbackBox.style.background = 'var(--bg-glass)';
+        fallbackBox.style.borderRadius = 'var(--radius-md)';
+        fallbackBox.style.border = '1px solid var(--border)';
+        fallbackBox.innerHTML = `
+          <p style="color:var(--text-secondary); font-size: 0.95rem; margin-bottom: 0.75rem;">Image preview restricted by CDN headers.</p>
+          <a href="${item.mediaUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="display:inline-flex; align-items:center; gap:0.5rem; text-decoration:none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+            View / Download Original DP Image
+          </a>
+        `;
+        previewContainer.appendChild(fallbackBox);
+      });
 
       // Auto scroll to media when loaded
       imgElem.addEventListener('load', () => {
@@ -742,8 +798,18 @@ function renderResult(data) {
   resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
+/**
+ * Attempts to download via a specific worker base's proxy endpoint.
+ * Throws on failure so triggerDownload can try the next worker.
+ */
+async function fetchBlobFromBase(base, mediaUrl, filename) {
+  const downloadUrl = buildProxyUrlForBase(base, mediaUrl, filename) + '&download=1';
+  const response = await fetch(downloadUrl);
+  if (!response.ok) throw new Error(`HTTP error ${response.status}`);
+  return await response.blob();
+}
+
 async function triggerDownload(mediaUrl, filename, btnElem) {
-  const downloadUrl = buildProxyUrl(mediaUrl, filename) + '&download=1';
   let originalHtml = '';
 
   if (btnElem) {
@@ -769,30 +835,40 @@ async function triggerDownload(mediaUrl, filename, btnElem) {
     }
   };
 
+  // Try same-origin base first (if applicable), then each worker in order
+  const bases = [];
+  const sameOriginBase = getPrimaryApiBase();
+  if (sameOriginBase !== null) bases.push(sameOriginBase);
+  // Try the currently active worker first, then the rest
+  const orderedWorkers = [...WORKER_URLS].sort((a, b) => (a === activeWorkerBase ? -1 : b === activeWorkerBase ? 1 : 0));
+  bases.push(...orderedWorkers);
+
   // Primary Method: In-memory blob fetch & direct save (keeps user on page)
-  try {
-    const response = await fetch(downloadUrl);
-    if (!response.ok) throw new Error(`HTTP error ${response.status}`);
-    const blob = await response.blob();
-    const blobUrl = URL.createObjectURL(blob);
+  for (const base of bases) {
+    try {
+      const blob = await fetchBlobFromBase(base, mediaUrl, filename);
+      const blobUrl = URL.createObjectURL(blob);
 
-    const a = document.createElement('a');
-    a.style.display = 'none';
-    a.href = blobUrl;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = blobUrl;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
 
-    setTimeout(() => URL.revokeObjectURL(blobUrl), 20000);
-    restoreBtn(true);
-    return;
-  } catch (err) {
-    console.warn('Blob fetch failed, falling back to hidden iframe stream:', err);
+      setTimeout(() => URL.revokeObjectURL(blobUrl), 20000);
+      activeWorkerBase = WORKER_URLS.includes(base) ? base : activeWorkerBase;
+      restoreBtn(true);
+      return;
+    } catch (err) {
+      console.warn(`Blob fetch failed for base (${base}), trying next:`, err.message || err);
+    }
   }
 
   // Fallback Method: Hidden iframe (triggers native file download prompt without navigating or opening new tab)
   try {
+    const downloadUrl = buildProxyUrlForBase(activeWorkerBase, mediaUrl, filename) + '&download=1';
     const iframe = document.createElement('iframe');
     iframe.style.display = 'none';
     iframe.src = downloadUrl;
