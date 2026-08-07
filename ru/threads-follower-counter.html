@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Счётчик подписчиков Threads — Бесплатный трекер подписчиков в реальном времени</title>
+
+  <!-- Performance Resource Hints -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+  <link rel="dns-prefetch" href="https://threadsgrab.com" />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Бесплатный счётчик подписчиков Threads онлайн. Отслеживайте количество подписчиков любого публичного аккаунта Threads в реальном времени. Аналитика роста, изменение за сессию, спарклайн тренда и автообновление статистики." />
+  <meta name="keywords" content="Счётчик подписчиков Threads, Отслеживание подписчиков Threads, Живой счётчик подписчиков, Аналитика Threads, Трекер роста Threads, Подписчики Threads в реальном времени, Проверка подписчиков Threads, Мониторинг статистики Threads, Трекер аудитории Threads, Бесплатный счётчик Threads онлайн" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1" />
+  <meta name="author" content="ThreadsGrab" />
+  <link rel="canonical" href="https://threadsgrab.com/ru/threads-follower-counter" />
+    <link rel="alternate" hreflang="x-default" href="https://threadsgrab.com/threads-follower-counter" />
+  <link rel="alternate" hreflang="en" href="https://threadsgrab.com/threads-follower-counter" />
+  <link rel="alternate" hreflang="ru" href="https://threadsgrab.com/ru/threads-follower-counter" />
+  <link rel="alternate" hreflang="es" href="https://threadsgrab.com/es/threads-follower-counter" />
+  <link rel="alternate" hreflang="ko" href="https://threadsgrab.com/ko/threads-follower-counter" />
+  <link rel="alternate" hreflang="ja" href="https://threadsgrab.com/ja/threads-follower-counter" />
+  <link rel="alternate" hreflang="th" href="https://threadsgrab.com/th/threads-follower-counter" />
+  <link rel="alternate" hreflang="de" href="https://threadsgrab.com/de/threads-follower-counter" />
+  <link rel="alternate" hreflang="fr" href="https://threadsgrab.com/fr/threads-follower-counter" />
+  <link rel="alternate" hreflang="hi" href="https://threadsgrab.com/hi/threads-follower-counter" />
+  <link rel="alternate" hreflang="zh" href="https://threadsgrab.com/zh/threads-follower-counter" />
+  <link rel="alternate" hreflang="it" href="https://threadsgrab.com/it/threads-follower-counter" />
+  <link rel="alternate" hreflang="pt" href="https://threadsgrab.com/pt/threads-follower-counter" />
+  <link rel="alternate" hreflang="bn" href="https://threadsgrab.com/bn/threads-follower-counter" />
+  <link rel="alternate" hreflang="tr" href="https://threadsgrab.com/tr/threads-follower-counter" />
+  <link rel="alternate" hreflang="id" href="https://threadsgrab.com/id/threads-follower-counter" />
+  <link rel="alternate" hreflang="vi" href="https://threadsgrab.com/vi/threads-follower-counter" />
+  <link rel="alternate" hreflang="ar" href="https://threadsgrab.com/ar/threads-follower-counter" />
+  <link rel="alternate" hreflang="pl" href="https://threadsgrab.com/pl/threads-follower-counter" />
+  <link rel="alternate" hreflang="uk" href="https://threadsgrab.com/uk/threads-follower-counter" />
+  <link rel="alternate" hreflang="ur" href="https://threadsgrab.com/ur/threads-follower-counter" />
+  <link rel="alternate" hreflang="af" href="https://threadsgrab.com/af/threads-follower-counter" />
+  <link rel="alternate" hreflang="sv" href="https://threadsgrab.com/sv/threads-follower-counter" />
+  <link rel="alternate" hreflang="ne" href="https://threadsgrab.com/ne/threads-follower-counter" />
+  <link rel="alternate" hreflang="fa" href="https://threadsgrab.com/fa/threads-follower-counter" />
+
+  <!-- Additional SEO / Mobile Tags -->
+  <meta name="theme-color" content="#4f46e5" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://threadsgrab.com/ru/threads-follower-counter" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:title" content="Счётчик подписчиков Threads — Бесплатный трекер подписчиков в реальном времени" />
+  <meta property="og:description" content="Бесплатный счётчик подписчиков Threads онлайн. Отслеживайте количество подписчиков любого публичного аккаунта Threads в реальном времени. Аналитика роста, изменение за сессию, спарклайн тренда и автообновление статистики. Регистрация не требуется." />
+  <meta property="og:image" content="https://threadsgrab.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:site_name" content="ThreadsGrab" />
+  <meta property="og:image:alt" content="Превью счётчика подписчиков ThreadsGrab — отслеживание подписчиков Threads в реальном времени" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ThreadsGrab" />
+  <meta name="twitter:creator" content="@ThreadsGrab" />
+  <meta name="twitter:url" content="https://threadsgrab.com/ru/threads-follower-counter" />
+  <meta name="twitter:title" content="Счётчик подписчиков Threads — Бесплатный трекер подписчиков в реальном времени" />
+  <meta name="twitter:description" content="Бесплатный счётчик подписчиков Threads онлайн. Отслеживайте количество подписчиков любого публичного аккаунта Threads в реальном времени. Аналитика роста, изменение за сессию, спарклайн тренда и автообновление статистики. Регистрация не требуется." />
+  <meta name="twitter:image" content="https://threadsgrab.com/og-image.jpg" />
+  <meta name="twitter:image:width" content="1200" />
+  <meta name="twitter:image:height" content="630" />
+  <meta name="twitter:image:alt" content="Превью счётчика подписчиков ThreadsGrab — отслеживание подписчиков Threads в реальном времени" />
+
+  <!-- Page-Specific Assets -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/romitkrweb.css" />
+  <link rel="icon" type="image/png" href="https://threadsgrab.com/threadsgrab-logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://threadsgrab.com/threadsgrab-logo.png" />
+  <link rel="stylesheet" href="/tdcount.css" />
+
+  <!-- WebGraph Schema JSON-LD (WebPage + WebSite + Organization + HowTo + Breadcrumb + ImageObject) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://threadsgrab.com/ru/threads-follower-counter/#webpage",
+        "url": "https://threadsgrab.com/ru/threads-follower-counter",
+        "name": "Счётчик подписчиков Threads — Бесплатный трекер подписчиков в реальном времени",
+        "description": "Бесплатный счётчик подписчиков Threads онлайн. Отслеживайте количество подписчиков любого публичного аккаунта Threads в реальном времени. Аналитика роста, изменение за сессию, спарклайн тренда и автообновление статистики. Регистрация не требуется.",
+        "inLanguage": "ru-RU",
+        "datePublished": "2026-01-01T00:00:00+00:00",
+        "dateModified": "2026-08-02T00:00:00+00:00",
+        "isPartOf": {
+          "@id": "https://threadsgrab.com/#website"
+        },
+        "primaryImageOfPage": {
+          "@id": "https://threadsgrab.com/ru/threads-follower-counter/#primaryimage"
+        },
+        "breadcrumb": {
+          "@id": "https://threadsgrab.com/ru/threads-follower-counter/#breadcrumb"
+        },
+        "potentialAction": [
+          {
+            "@type": "ReadAction",
+            "target": [
+              "https://threadsgrab.com/ru/threads-follower-counter"
+            ]
+          }
+        ]
+      },
+      {
+        "@type": "ImageObject",
+        "inLanguage": "ru-RU",
+        "@id": "https://threadsgrab.com/ru/threads-follower-counter/#primaryimage",
+        "url": "https://threadsgrab.com/og-image.jpg",
+        "contentUrl": "https://threadsgrab.com/og-image.jpg",
+        "width": 1200,
+        "height": 630,
+        "caption": "Счётчик подписчиков ThreadsGrab"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://threadsgrab.com/#website",
+        "url": "https://threadsgrab.com/",
+        "name": "ThreadsGrab",
+        "description": "Бесплатные онлайн-инструменты для скачивания видео, изображений, аватаров профиля Threads и отслеживания количества подписчиков.",
+        "inLanguage": "ru-RU",
+        "publisher": {
+          "@id": "https://threadsgrab.com/#organization"
+        },
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://threadsgrab.com/?s={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://threadsgrab.com/#organization",
+        "name": "ThreadsGrab",
+        "url": "https://threadsgrab.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "inLanguage": "ru-RU",
+          "@id": "https://threadsgrab.com/#logo",
+          "url": "https://threadsgrab.com/threadsgrab-logo.png",
+          "contentUrl": "https://threadsgrab.com/threadsgrab-logo.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Логотип ThreadsGrab"
+        },
+        "image": {
+          "@id": "https://threadsgrab.com/#logo"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "contact.themistero@gmail.com",
+          "contactType": "customer support",
+          "availableLanguage": ["Russian", "English"]
+        },
+        "sameAs": []
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://threadsgrab.com/ru/threads-follower-counter/#webapp",
+        "name": "Счётчик подписчиков Threads",
+        "url": "https://threadsgrab.com/ru/threads-follower-counter",
+        "description": "Бесплатный счётчик подписчиков Threads онлайн. Отслеживайте количество подписчиков любого публичного аккаунта Threads в реальном времени. Аналитика роста, изменение за сессию, спарклайн тренда и автообновление статистики. Регистрация не требуется.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "author": {
+          "@id": "https://threadsgrab.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "256"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://threadsgrab.com/ru/threads-follower-counter/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Главная",
+            "item": "https://threadsgrab.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Счётчик подписчиков Threads",
+            "item": "https://threadsgrab.com/ru/threads-follower-counter"
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://threadsgrab.com/ru/threads-follower-counter/#howto",
+        "name": "Как отслеживать количество подписчиков Threads в реальном времени",
+        "description": "Выполните 3 простых шага, чтобы отслеживать количество подписчиков любого публичного аккаунта Threads в реальном времени с помощью ThreadsGrab.",
+        "totalTime": "PT1M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "USD",
+          "value": "0"
+        },
+        "supply": [
+          {
+            "@type": "HowToSupply",
+            "name": "Ссылка на профиль Threads или @имя пользователя"
+          }
+        ],
+        "tool": [
+          {
+            "@type": "HowToTool",
+            "name": "Счётчик подписчиков ThreadsGrab",
+            "url": "https://threadsgrab.com/ru/threads-follower-counter"
+          }
+        ],
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Введите имя пользователя",
+            "text": "Введите имя пользователя Threads (с символом @ или без него) в поле ввода вверху счётчика.",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://threadsgrab.com/media/download-threads-dp.jpg",
+              "width": 60,
+              "height": 60
+            },
+            "url": "https://threadsgrab.com/ru/threads-follower-counter/#downloader"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Нажмите «Отслеживать»",
+            "text": "Нажмите кнопку «Отслеживать», и ThreadsGrab сразу начнёт получать актуальное количество подписчиков из публичного профиля Threads.",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://threadsgrab.com/media/threads-downloader-dp.jpg",
+              "width": 60,
+              "height": 60
+            },
+            "url": "https://threadsgrab.com/ru/threads-follower-counter/#downloader"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Наблюдайте в реальном времени",
+            "text": "Оставьте страницу открытой и наблюдайте, как счётчик подписчиков автоматически обновляется каждые несколько секунд, вместе с изменением за сессию, количеством опросов и графиком тренда за сессию.",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://threadsgrab.com/media/threads-profile-downloader.jpg",
+              "width": 60,
+              "height": 60
+            },
+            "url": "https://threadsgrab.com/ru/threads-follower-counter/#howitworks"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- FAQPage Schema JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/ru/threads-follower-counter/#faq-1",
+        "name": "Насколько точен счётчик подписчиков Threads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ThreadsGrab получает данные о подписчиках напрямую из общедоступной информации профиля Threads. Поскольку Meta не предоставляет официальный API для количества подписчиков в реальном времени, цифры обычно точны в пределах окна кэширования самой платформы. Возможны небольшие задержки, если источник ещё не успел передать изменение, но наш инструмент обновляется гораздо чаще, чем стандартный просмотр профиля Threads."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/ru/threads-follower-counter/#faq-2",
+        "name": "Почему счётчик подписчиков иногда зависает или перестаёт обновляться?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Зависания или паузы почти всегда вызваны временными проблемами с сетью или ограничением частоты запросов со стороны источника данных, а не самим счётчиком. Если источник задерживает публикацию обновления, счётчик выглядит замершим, пока не появятся новые данные. Вы можете снова нажать кнопку «Отслеживать», чтобы принудительно выполнить новый опрос."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/ru/threads-follower-counter/#faq-3",
+        "name": "Почему есть задержка между моим счётчиком и приложением Threads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "И приложение Threads, и ThreadsGrab считывают одни и те же публичные данные, но обновляются с независимыми интервалами. В промежутке между циклами обновления два значения могут временно отличаться. Это нормальное поведение для любого стороннего аналитического инструмента, и значения совпадут после следующего опроса."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/ru/threads-follower-counter/#faq-4",
+        "name": "Почему количество подписчиков не обновляется мгновенно?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Мгновенные обновления невозможны, потому что Threads объединяет изменения количества подписчиков в периодические пакеты кэширования для снижения нагрузки на серверы. ThreadsGrab минимизирует задержку, опрашивая профиль с короткими интервалами, но очень быстрые подписки/отписки всё же могут распространяться с небольшой задержкой. Это обычное ограничение на уровне платформы, а не ошибка инструмента."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/ru/threads-follower-counter/#faq-5",
+        "name": "Безопасно ли пользоваться счётчиком подписчиков Threads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да. ThreadsGrab использует только общедоступную информацию профиля и никогда не запрашивает имя пользователя, пароль или другие учётные данные. Нет взаимодействия с аккаунтом, не запрашиваются разрешения, и ничего не публикуется обратно в Threads. Подробности смотрите в разделах «Политика конфиденциальности» и «Отказ от ответственности»."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/ru/threads-follower-counter/#faq-6",
+        "name": "Можно ли отслеживать количество подписчиков закрытого аккаунта Threads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Нет. Счётчики подписчиков Threads полагаются на общедоступные данные профиля. Если аккаунт закрыт (приватный), его количество подписчиков не отображается для публичных краулеров и, следовательно, не может отслеживаться. ThreadsGrab уважает настройки конфиденциальности пользователей и никогда не пытается их обойти."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SP0ZHQ7HRQ"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SP0ZHQ7HRQ');
+  </script>
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Перейти к основному содержимому</a>
+
+  <!-- Header & Navigation -->
+  <header class="header" id="siteHeader" role="banner">
+    <div class="container header-inner">
+      <a href="/" class="logo" id="siteLogo" aria-label="ThreadsGrab — на главную">
+        <img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" alt="Логотип ThreadsGrab" width="40" height="40" loading="lazy" decoding="async" />
+        <span>ThreadsGrab</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-desktop" id="desktopNav" role="navigation" aria-label="Основная навигация">
+        <a href="/ru/threads-video-downloader" class="nav-link" id="navVideo">Скачать видео</a>
+        <a href="/ru/threads-image-downloader" class="nav-link" id="navImage">Скачать изображения</a>
+        <a href="/ru/threads-profile-picture-downloader" class="nav-link" id="navDp">Скачать аватар</a>
+        <a href="/ru/threads-follower-counter" class="nav-link active" id="navCounter" aria-current="page">Счётчик подписчиков</a>
+      </nav>
+
+      <!-- Actions & Theme Toggle -->
+      <div class="header-actions">
+        <div class="lang-desktop">
+          <button class="lang-btn" id="langBtnDesktop" type="button" aria-label="Выбрать язык" aria-haspopup="listbox" aria-expanded="false" aria-controls="langPanelDesktop">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+            <span class="lang-btn-label" id="langBtnLabelDesktop">Русский</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-panel" id="langPanelDesktop" role="listbox" aria-label="Выбор языка" hidden>
+            <a href="/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="en" data-lang-name="English"><span class="lang-code">US</span><span class="lang-texts"><strong>English</strong><span class="lang-sub">English</span></span></a>
+            <a href="/ru/threads-follower-counter" class="lang-item active" role="option" aria-selected="true" data-lang-code="ru" data-lang-name="Russian"><span class="lang-code">RU</span><span class="lang-texts"><strong>Русский</strong><span class="lang-sub">Russian</span></span></a>
+            <a href="/es/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="es" data-lang-name="Spanish"><span class="lang-code">ES</span><span class="lang-texts"><strong>Español</strong><span class="lang-sub">Spanish</span></span></a>
+            <a href="/ko/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="ko" data-lang-name="Korean"><span class="lang-code">KR</span><span class="lang-texts"><strong>한국어</strong><span class="lang-sub">Korean</span></span></a>
+            <a href="/ja/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="ja" data-lang-name="Japanese"><span class="lang-code">JP</span><span class="lang-texts"><strong>日本語</strong><span class="lang-sub">Japanese</span></span></a>
+            <a href="/th/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="th" data-lang-name="Thai"><span class="lang-code">TH</span><span class="lang-texts"><strong>ไทย</strong><span class="lang-sub">Thai</span></span></a>
+            <a href="/de/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="de" data-lang-name="German"><span class="lang-code">DE</span><span class="lang-texts"><strong>Deutsch</strong><span class="lang-sub">German</span></span></a>
+            <a href="/fr/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="fr" data-lang-name="French"><span class="lang-code">FR</span><span class="lang-texts"><strong>Français</strong><span class="lang-sub">French</span></span></a>
+            <a href="/hi/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="hi" data-lang-name="Hindi"><span class="lang-code">IN</span><span class="lang-texts"><strong>हिन्दी</strong><span class="lang-sub">Hindi</span></span></a>
+            <a href="/zh/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="zh" data-lang-name="Chinese"><span class="lang-code">CN</span><span class="lang-texts"><strong>中文</strong><span class="lang-sub">Chinese</span></span></a>
+            <a href="/it/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="it" data-lang-name="Italian"><span class="lang-code">IT</span><span class="lang-texts"><strong>Italiano</strong><span class="lang-sub">Italian</span></span></a>
+            <a href="/pt/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="pt" data-lang-name="Portuguese"><span class="lang-code">PT</span><span class="lang-texts"><strong>Português</strong><span class="lang-sub">Portuguese</span></span></a>
+            <a href="/bn/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="bn" data-lang-name="Bengali"><span class="lang-code">BD</span><span class="lang-texts"><strong>বাংলা</strong><span class="lang-sub">Bengali</span></span></a>
+            <a href="/tr/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="tr" data-lang-name="Turkish"><span class="lang-code">TR</span><span class="lang-texts"><strong>Türkçe</strong><span class="lang-sub">Turkish</span></span></a>
+            <a href="/id/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="id" data-lang-name="Indonesian"><span class="lang-code">ID</span><span class="lang-texts"><strong>Indonesia</strong><span class="lang-sub">Indonesian</span></span></a>
+            <a href="/vi/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="vi" data-lang-name="Vietnamese"><span class="lang-code">VN</span><span class="lang-texts"><strong>Tiếng Việt</strong><span class="lang-sub">Vietnamese</span></span></a>
+            <a href="/ar/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="ar" data-lang-name="Arabic"><span class="lang-code">SA</span><span class="lang-texts"><strong>العربية</strong><span class="lang-sub">Arabic</span></span></a>
+            <a href="/pl/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="pl" data-lang-name="Polish"><span class="lang-code">PL</span><span class="lang-texts"><strong>Polski</strong><span class="lang-sub">Polish</span></span></a>
+            <a href="/uk/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="uk" data-lang-name="Ukrainian"><span class="lang-code">UA</span><span class="lang-texts"><strong>Українська</strong><span class="lang-sub">Ukrainian</span></span></a>
+            <a href="/ur/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="ur" data-lang-name="Urdu"><span class="lang-code">PK</span><span class="lang-texts"><strong>اردو</strong><span class="lang-sub">Urdu</span></span></a>
+            <a href="/af/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="af" data-lang-name="Afrikaans"><span class="lang-code">ZA</span><span class="lang-texts"><strong>Afrikaans</strong><span class="lang-sub">Afrikaans</span></span></a>
+            <a href="/sv/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="sv" data-lang-name="Swedish"><span class="lang-code">SE</span><span class="lang-texts"><strong>Svenska</strong><span class="lang-sub">Swedish</span></span></a>
+            <a href="/ne/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="ne" data-lang-name="Nepali"><span class="lang-code">NP</span><span class="lang-texts"><strong>नेपाली</strong><span class="lang-sub">Nepali</span></span></a>
+            <a href="/fa/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="fa" data-lang-name="Persian"><span class="lang-code">IR</span><span class="lang-texts"><strong>فارسی</strong><span class="lang-sub">Persian</span></span></a>
+          </div>
+        </div>
+        <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Открыть/закрыть мобильное меню" aria-expanded="false" aria-controls="mobileNav">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="4" x2="20" y1="12" y2="12"/>
+            <line x1="4" x2="20" y1="6" y2="6"/>
+            <line x1="4" x2="20" y1="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Мобильное меню" hidden>
+    <a href="/" class="nav-link">Главная</a>
+    <a href="/ru/threads-video-downloader" class="nav-link">Скачать видео Threads</a>
+    <a href="/ru/threads-image-downloader" class="nav-link">Скачать изображения Threads</a>
+    <a href="/ru/threads-profile-picture-downloader" class="nav-link">Скачать аватар Threads</a>
+    <a href="/ru/threads-follower-counter" class="nav-link active" aria-current="page">Счётчик подписчиков Threads</a>
+    <a href="/about" class="nav-link">О нас</a>
+    <a href="/contact" class="nav-link">Контакты</a>
+    <a href="/privacy-policy" class="nav-link">Политика конфиденциальности</a>
+    <div class="mobile-lang-section" aria-labelledby="mobileLangHeading">
+      <div class="mobile-lang-header" id="mobileLangHeading">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+        <span>Язык</span>
+        <span class="mobile-lang-current" id="mobileLangCurrent">Русский</span>
+      </div>
+      <div class="mobile-lang-grid" role="listbox" aria-label="Выберите язык">
+        <a href="/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="en" data-lang-name="English"><span class="lang-code">US</span><span class="lang-texts"><strong>English</strong><span class="lang-sub">English</span></span></a>
+        <a href="/ru/threads-follower-counter" class="mobile-lang-item active" role="option" aria-selected="true" data-lang-code="ru" data-lang-name="Russian"><span class="lang-code">RU</span><span class="lang-texts"><strong>Русский</strong><span class="lang-sub">Russian</span></span></a>
+        <a href="/es/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="es" data-lang-name="Spanish"><span class="lang-code">ES</span><span class="lang-texts"><strong>Español</strong><span class="lang-sub">Spanish</span></span></a>
+        <a href="/ko/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ko" data-lang-name="Korean"><span class="lang-code">KR</span><span class="lang-texts"><strong>한국어</strong><span class="lang-sub">Korean</span></span></a>
+        <a href="/ja/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ja" data-lang-name="Japanese"><span class="lang-code">JP</span><span class="lang-texts"><strong>日本語</strong><span class="lang-sub">Japanese</span></span></a>
+        <a href="/th/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="th" data-lang-name="Thai"><span class="lang-code">TH</span><span class="lang-texts"><strong>ไทย</strong><span class="lang-sub">Thai</span></span></a>
+        <a href="/de/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="de" data-lang-name="German"><span class="lang-code">DE</span><span class="lang-texts"><strong>Deutsch</strong><span class="lang-sub">German</span></span></a>
+        <a href="/fr/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="fr" data-lang-name="French"><span class="lang-code">FR</span><span class="lang-texts"><strong>Français</strong><span class="lang-sub">French</span></span></a>
+        <a href="/hi/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="hi" data-lang-name="Hindi"><span class="lang-code">IN</span><span class="lang-texts"><strong>हिन्दी</strong><span class="lang-sub">Hindi</span></span></a>
+        <a href="/zh/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="zh" data-lang-name="Chinese"><span class="lang-code">CN</span><span class="lang-texts"><strong>中文</strong><span class="lang-sub">Chinese</span></span></a>
+        <a href="/it/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="it" data-lang-name="Italian"><span class="lang-code">IT</span><span class="lang-texts"><strong>Italiano</strong><span class="lang-sub">Italian</span></span></a>
+        <a href="/pt/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="pt" data-lang-name="Portuguese"><span class="lang-code">PT</span><span class="lang-texts"><strong>Português</strong><span class="lang-sub">Portuguese</span></span></a>
+        <a href="/bn/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="bn" data-lang-name="Bengali"><span class="lang-code">BD</span><span class="lang-texts"><strong>বাংলা</strong><span class="lang-sub">Bengali</span></span></a>
+        <a href="/tr/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="tr" data-lang-name="Turkish"><span class="lang-code">TR</span><span class="lang-texts"><strong>Türkçe</strong><span class="lang-sub">Turkish</span></span></a>
+        <a href="/id/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="id" data-lang-name="Indonesian"><span class="lang-code">ID</span><span class="lang-texts"><strong>Indonesia</strong><span class="lang-sub">Indonesian</span></span></a>
+        <a href="/vi/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="vi" data-lang-name="Vietnamese"><span class="lang-code">VN</span><span class="lang-texts"><strong>Tiếng Việt</strong><span class="lang-sub">Vietnamese</span></span></a>
+        <a href="/ar/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ar" data-lang-name="Arabic"><span class="lang-code">SA</span><span class="lang-texts"><strong>العربية</strong><span class="lang-sub">Arabic</span></span></a>
+        <a href="/pl/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="pl" data-lang-name="Polish"><span class="lang-code">PL</span><span class="lang-texts"><strong>Polski</strong><span class="lang-sub">Polish</span></span></a>
+        <a href="/uk/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="uk" data-lang-name="Ukrainian"><span class="lang-code">UA</span><span class="lang-texts"><strong>Українська</strong><span class="lang-sub">Ukrainian</span></span></a>
+        <a href="/ur/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ur" data-lang-name="Urdu"><span class="lang-code">PK</span><span class="lang-texts"><strong>اردو</strong><span class="lang-sub">Urdu</span></span></a>
+        <a href="/af/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="af" data-lang-name="Afrikaans"><span class="lang-code">ZA</span><span class="lang-texts"><strong>Afrikaans</strong><span class="lang-sub">Afrikaans</span></span></a>
+        <a href="/sv/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="sv" data-lang-name="Swedish"><span class="lang-code">SE</span><span class="lang-texts"><strong>Svenska</strong><span class="lang-sub">Swedish</span></span></a>
+        <a href="/ne/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ne" data-lang-name="Nepali"><span class="lang-code">NP</span><span class="lang-texts"><strong>नेपाली</strong><span class="lang-sub">Nepali</span></span></a>
+        <a href="/fa/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="fa" data-lang-name="Persian"><span class="lang-code">IR</span><span class="lang-texts"><strong>فارسی</strong><span class="lang-sub">Persian</span></span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="mainContent" role="main">
+    <!-- Hero & Tool Section -->
+    <section class="hero-section" id="downloader" aria-labelledby="heroHeading">
+      <div class="container">
+        <h1 class="hero-title" id="heroHeading">Счётчик подписчиков Threads</h1>
+        <p class="hero-subtitle hero-subtitle-sm">
+          Отслеживайте количество подписчиков любого публичного аккаунта Threads в реальном времени с аналитикой роста.
+        </p>
+
+        <!-- Tool Mode Tabs -->
+        <div class="tool-tabs" id="toolTabs" role="tablist" aria-label="Инструменты Threads">
+          <a href="/ru/threads-video-downloader" class="tool-tab" id="toolVideoTab" aria-label="Скачать видео" role="tab">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect width="15" height="14" x="1" y="5" rx="2" ry="2"/></svg>
+          </a>
+          <a href="/ru/threads-image-downloader" class="tool-tab" id="toolImageTab" aria-label="Скачать изображения" role="tab">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+          </a>
+          <a href="/ru/threads-profile-picture-downloader" class="tool-tab" id="toolDpTab" aria-label="Аватар профиля" role="tab">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </a>
+          <a href="/ru/threads-follower-counter" class="tool-tab active" id="toolGrowthTab" aria-label="Аналитика роста" role="tab" aria-selected="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          </a>
+        </div>
+
+        <!-- Main Follower Counter Card -->
+        <section class="idp-card" aria-labelledby="heroHeading">
+
+          <div class="idp-card-top">
+            <div class="idp-eyebrow">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L3 14h7v8l10-14h-7z"/></svg>
+              Живой счётчик подписчиков
+            </div>
+            <div id="refresh-pill" class="idp-refresh-pill" role="status" aria-live="polite">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" d="M4 4v6h6M20 20v-6h-6"/><path stroke-linecap="round" d="M5.5 15a7 7 0 0012.6 2.5M18.5 9a7 7 0 00-12.6-2.5"/></svg>
+              <span id="refresh-label">обновление</span>
+            </div>
+          </div>
+
+          <form id="search-form" class="idp-search-row" role="search">
+            <span class="idp-at" aria-hidden="true">@</span>
+            <label for="username-input" class="visually-hidden">Имя пользователя Threads</label>
+            <input id="username-input" type="text" placeholder="Введите имя пользователя Threads" autocomplete="off" spellcheck="false" inputmode="text" aria-describedby="username-hint" />
+            <span id="username-hint" class="visually-hidden">Введите публичное имя пользователя Threads. Символ @ необязателен.</span>
+            <button type="submit" class="idp-track-btn" id="track-btn">Отслеживать</button>
+          </form>
+
+          <div class="idp-divider"></div>
+
+          <div class="idp-profile-block" aria-live="polite" aria-atomic="true">
+            <div class="idp-avatar-ring">
+              <div class="idp-avatar-inner">
+                <img id="profile-pic" src="" alt="Аватар профиля" referrerpolicy="no-referrer" class="hidden" width="52" height="52" loading="lazy" decoding="async" />
+                <svg id="avatar-placeholder" width="52" height="52" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="igGrad" x1="0" y1="0" x2="24" y2="24">
+                      <stop offset="0%" stop-color="#F58529"/>
+                      <stop offset="45%" stop-color="#E1306C"/>
+                      <stop offset="100%" stop-color="#8134AF"/>
+                    </linearGradient>
+                  </defs>
+                  <rect x="2.5" y="2.5" width="19" height="19" rx="6" stroke="url(#igGrad)" stroke-width="1.8"/>
+                  <circle cx="12" cy="12" r="4.6" stroke="url(#igGrad)" stroke-width="1.8"/>
+                  <circle cx="17.2" cy="6.8" r="1.1" fill="url(#igGrad)"/>
+                </svg>
+              </div>
+              <div class="idp-live-badge" aria-label="Отслеживание в реальном времени"><span class="idp-live-dot" aria-hidden="true"></span>LIVE</div>
+            </div>
+
+            <div class="idp-tracking-pill">
+              <span class="idp-tracking-dot" aria-hidden="true"></span>
+              отслеживание <b id="tracking-handle">@threads</b>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10"/></svg>
+            </div>
+
+            <h2 class="idp-name" id="profile-name">Threads</h2>
+            <p class="idp-tagline" id="profile-tagline">Узнайте, что нового в Threads</p>
+
+            <div class="idp-count mono" id="follower-count" aria-label="Количество подписчиков">0</div>
+            <div class="idp-count-label" id="count-label">ПОДПИСЧИКОВ THREADS</div>
+          </div>
+
+          <div class="idp-monitor-row">
+            <div class="idp-monitor-ring" aria-hidden="true"></div>
+            <div class="idp-monitor-text">
+              <div class="idp-monitor-title">Мониторинг в реальном времени<span class="idp-monitor-amber mono" id="monitor-seconds" aria-label="Секунд с последнего обновления">0.0s</span></div>
+              <div class="idp-monitor-sub">Получение данных с серверов ThreadsGrab</div>
+            </div>
+            <div class="idp-monitor-divider" aria-hidden="true"></div>
+            <button type="button" class="idp-monitor-btn" id="monitor-toggle-btn" title="Приостановить или возобновить мониторинг" aria-label="Приостановить или возобновить мониторинг в реальном времени">
+              <svg id="monitor-toggle-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            </button>
+          </div>
+
+          <div class="idp-divider" style="margin-top:0;"></div>
+
+          <div class="idp-stat-grid" role="group" aria-label="Статистика подписчиков">
+            <div class="idp-stat-box"><div class="idp-stat-label">Отслеживаемый аккаунт</div><div class="idp-stat-value mono" id="stat-username" aria-label="Отслеживаемое имя пользователя">@threads</div></div>
+            <div class="idp-stat-box"><div class="idp-stat-label">Изменение за сессию</div><div class="idp-stat-value mono idp-green" id="stat-delta" aria-label="Изменение подписчиков за сессию">+0</div></div>
+            <div class="idp-stat-box"><div class="idp-stat-label">Количество опросов</div><div class="idp-stat-value mono" id="stat-ticks" aria-label="Количество опросов">0 ticks</div></div>
+            <div class="idp-stat-box"><div class="idp-stat-label">Последняя проверка</div><div class="idp-stat-value mono" id="stat-verified" aria-label="Метка времени последней проверки">--:--:-- --</div></div>
+          </div>
+
+          <div class="idp-sparkline-panel" aria-labelledby="sparkline-heading">
+            <div class="idp-sparkline-head">
+              <div class="idp-sparkline-title" id="sparkline-heading">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l5-5 4 4 8-9"/></svg>
+                Спарклайн тренда подписчиков за сессию
+              </div>
+              <div class="idp-sparkline-hint">История накапливается по мере обновлений</div>
+            </div>
+            <div class="idp-sparkline-chart"><canvas id="spark-canvas" role="img" aria-label="График тренда подписчиков за сессию"></canvas></div>
+          </div>
+
+          <div id="error-box" class="hidden" role="alert" aria-live="assertive" style="color:#EF5350;font-size:12.5px;padding-bottom:20px;text-align:center;"></div>
+
+        </section>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="idp-discover" aria-label="Рекомендуемые аккаунты">
+
+        <div class="idp-discover-block">
+          <div class="idp-discover-head">
+            <div class="idp-discover-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a5 5 0 015 5v3h1a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2v-8a2 2 0 012-2h1V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v3h6V7a3 3 0 00-3-3z"/></svg>
+              Продвигаемые аккаунты
+            </div>
+            <div class="idp-discover-hint">нажмите, чтобы отслеживать аккаунт</div>
+          </div>
+          <div class="idp-account-grid" id="promoted-grid" role="list" aria-label="Список продвигаемых аккаунтов"></div>
+        </div>
+
+        <div class="idp-discover-block">
+          <div class="idp-discover-head">
+            <div class="idp-discover-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 8 12 8 12s8-6.6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"/></svg>
+              Популярные аккаунты
+            </div>
+            <div class="idp-discover-hint">нажмите, чтобы переключить цель отслеживания</div>
+          </div>
+          <div class="idp-account-grid" id="popular-grid" role="list" aria-label="Список популярных аккаунтов"></div>
+        </div>
+
+        <div class="idp-discover-block">
+          <div class="idp-discover-head">
+            <div class="idp-discover-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1a5 5 0 00-5 5v3H6a2 2 0 00-2 2v9a2 2 0 002 2h12a2 2 0 002-2v-9a2 2 0 00-2-2h-1V6a5 5 0 00-5-5zm0 2a3 3 0 013 3v3H9V6a3 3 0 013-3z"/></svg>
+              Актуальные аккаунты
+            </div>
+            <div class="idp-discover-hint">нажмите, чтобы отслеживать актуальный аккаунт</div>
+          </div>
+          <div class="idp-trend-grid" id="trending-grid" role="list" aria-label="Список актуальных аккаунтов"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- How To Track Steps Section -->
+    <section class="steps-section" id="howitworks" aria-labelledby="stepsHeading">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="stepsHeading">Как отслеживать количество подписчиков Threads в реальном времени</h2>
+          <p class="section-subtitle">Выполните эти 3 простых шага, чтобы отслеживать количество подписчиков и тренды роста для любого публичного аккаунта Threads.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-icon"><img src="https://threadsgrab.com//media/threads-follower-counter.jpg" loading="lazy" decoding="async" width="60" height="60" alt="" aria-hidden="true" /></div>
+            <h3>Введите имя пользователя</h3>
+            <p>Введите имя пользователя Threads (с символом @ или без него) в поле ввода вверху счётчика.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon"><img src="https://threadsgrab.com/media/count-threads-follower.jpg" loading="lazy" decoding="async" width="60" height="60" alt="" aria-hidden="true" /></div>
+            <h3>Нажмите <a href="#downloader" style="color:inherit;text-decoration:none;">«Отслеживать»</a></h3>
+            <p>Нажмите кнопку «Отслеживать», и ThreadsGrab сразу начнёт получать актуальное количество подписчиков из публичного профиля Threads.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon"><img src="https://threadsgrab.com/media/track threads follower growth.jpg" loading="lazy" decoding="async" width="60" height="60" alt="" aria-hidden="true" /></div>
+            <h3>Наблюдайте в реальном времени</h3>
+            <p>Оставьте страницу открытой и наблюдайте, как счётчик подписчиков автоматически обновляется каждые несколько секунд, вместе с изменением за сессию, количеством опросов и графиком тренда за сессию.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Information Content Section -->
+    <section class="info-section" aria-labelledby="infoIntroHeading">
+      <div class="container">
+        <article class="info-content">
+          <h2 id="infoIntroHeading"><a href="#infoIntroHeading" style="color:inherit;text-decoration:none;">Счётчик подписчиков Threads — отслеживание роста и аналитика в реальном времени</a></h2>
+          <p>
+            Отслеживание роста подписчиков в Threads с помощью только стандартного просмотра профиля — разочаровывающий опыт. Счётчики в профиле кэшируются, а не обновляются мгновенно, поэтому число, которое вы видите в приложении, может быть устаревшим на минуты или даже часы. Специальный счётчик подписчиков Threads избавляет от бесконечного ручного обновления, получая актуальное публичное количество подписчиков с короткими автоматическими интервалами и показывая обновления сразу после их обнаружения. Отслеживаете ли вы собственный аккаунт во время запуска, сравниваете конкурентов или изучаете тренды роста среди авторов — ThreadsGrab даёт постоянно обновляющуюся картину без входа в систему, установки приложения и ручного обновления страницы.</p>
+            <p>ThreadsGrab также является универсальным набором инструментов для всего, что связано с Threads. Закончив анализ трендов подписчиков, воспользуйтесь нашим <a href="/ru/threads-video-downloader">загрузчиком видео Threads</a>, чтобы сохранить качественные публикации авторов, нашим <a href="/ru/threads-image-downloader">загрузчиком изображений Threads</a>, чтобы скачать карусели и отдельные изображения, или нашим <a href="/ru/threads-profile-picture-downloader">загрузчиком аватаров Threads</a>, чтобы получить полноразмерные аватары любых аккаунтов, которые вы отслеживаете.</p>
+
+          <h2 id="infoUpdatesHeading"><a href="#infoUpdatesHeading" style="color:inherit;text-decoration:none;">Почему количество подписчиков не обновляется мгновенно</a></h2>
+          <p>Threads, как и любая крупная социальная платформа, объединяет изменения количества подписчиков через слои кэширования, чтобы защитить свою инфраструктуру от перегрузки запросами в реальном времени. Это значит, что число, отображаемое в родном приложении, — не живой поток, а снимок, обновляемый с интервалами, контролируемыми Meta, которые могут варьироваться от секунд до многих минут в зависимости от трафика и нагрузки на серверы.</p>
+          <p>ThreadsGrab сводит к минимуму ощутимую задержку, опрашивая публичный эндпоинт профиля с гораздо более короткими циклами, чем стандартный интерфейс Threads. На практике вы видите обновления гораздо быстрее, чем при ручном обновлении профиля, а панели изменения за сессию и спарклайна делают заметными даже небольшие изменения, вместо того чтобы скрывать их в устаревших кэшированных числах.</p>
+
+          <h2 id="infoMilestoneHeading"><a href="#infoMilestoneHeading" style="color:inherit;text-decoration:none;">Достигайте вех с уверенностью</a></h2>
+          <p>Вехи — будь то 1 000, 10 000, 100 000 или любое другое значение — ощущаются иначе по мере приближения к ним. Стандартный просмотр профиля показывает только снимок «до» и «после», поэтому вы никогда точно не знаете, в какой момент число перевалило за отметку и по какой траектории оно к этому пришло.</p>
+          <p>Живой счётчик подписчиков превращает эти отдельные снимки в непрерывную историю. Вместо того чтобы обновлять страницу 50 раз и гадать, вы видите, как число растёт в реальном времени, наблюдаете, как оно пересекает нужный порог, а затем проверяете точный момент этого события в истории опросов и спарклайне. Подкреплённый данными импульс роста гораздо приятнее неожиданного скачка после случайного обновления.</p>
+
+          <h2 id="infoChurnHeading"><a href="#infoChurnHeading" style="color:inherit;text-decoration:none;">Раннее обнаружение отписок и оттока аудитории</a></h2>
+          <p>Большинство авторов замечают только рост — они публикуют скриншот, когда число увеличивается, но загадочное падение неделю спустя часто остаётся незамеченным, потому что нет видимой записи о том, когда это произошло. Если вы просматриваете свой профиль лишь изредка, падение на 500 подписчиков может выглядеть как случайный шум, а не как сигнал.</p>
+          <p>ThreadsGrab показывает изменения в обоих направлениях. Изменение за сессию отражает чистое изменение с начала отслеживания, каждый опрос фиксируется в истории спарклайна, а падения становятся видны сразу, а не спустя дни, когда вы наконец заметите уменьшившееся число.</p>
+
+          <h2 id="infoCompetitorHeading"><a href="#infoCompetitorHeading" style="color:inherit;text-decoration:none;">Отслеживайте конкурентов и авторов без ручных проверок</a></h2>
+          <p>Вручную отслеживать чужой аккаунт утомительно — у вас нет причин обновлять чужой профиль по таймеру, а таблицы легко устаревают и содержат ошибки уже в момент сохранения.</p>
+          <p>С ThreadsGrab достаточно один раз ввести любое публичное имя пользователя @, а остальное сделает инструмент. Вы можете переключаться между продвигаемыми, популярными и актуальными аккаунтами одним кликом в панелях под счётчиком или ввести любой аккаунт напрямую, чтобы отслеживать любого автора, которого вы сравниваете, изучаете или с которым сотрудничаете.</p>
+
+          <h2 id="infoCompatHeading"><a href="#infoCompatHeading" style="color:inherit;text-decoration:none;">Работает на любом устройстве и в любом браузере</a></h2>
+          <p>Счётчик подписчиков ThreadsGrab полностью работает в браузере и одинаково хорошо функционирует на Android, iOS, Windows, Mac, Linux и планшетах любого форм-фактора. Адаптивный интерфейс отлично масштабируется под любой экран, а трекер полностью совместим с Google Chrome, Safari, Firefox, Microsoft Edge, Opera и Brave. Никаких приложений, расширений и настроек — только имя пользователя и кнопка «Отслеживать».</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq" aria-labelledby="faqHeading">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="faqHeading">Часто задаваемые вопросы</h2>
+          <p class="section-subtitle">Ответы на распространённые вопросы об отслеживании количества подписчиков Threads.</p>
+        </div>
+
+        <div class="faq-list" role="list">
+          <div class="faq-item active" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="true" aria-controls="faqAnswer1" id="faqButton1">
+              <span>Насколько точен счётчик подписчиков Threads?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer1" role="region" aria-labelledby="faqButton1">
+              <p>ThreadsGrab получает данные о подписчиках напрямую из общедоступной информации профиля Threads. Поскольку Meta не предоставляет официальный API для количества подписчиков в реальном времени, цифры обычно точны в пределах окна кэширования самой платформы. Возможны небольшие задержки, если источник ещё не успел передать изменение, но наш инструмент обновляется гораздо чаще, чем стандартный просмотр профиля Threads.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer2" id="faqButton2">
+              <span>Почему счётчик подписчиков иногда зависает или перестаёт обновляться?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer2" role="region" aria-labelledby="faqButton2" hidden>
+              <p>Зависания или паузы почти всегда вызваны временными проблемами с сетью или ограничением частоты запросов со стороны источника данных, а не самим счётчиком. Если источник задерживает публикацию обновления, счётчик выглядит замершим, пока не появятся новые данные. Вы можете снова нажать кнопку «Отслеживать», чтобы принудительно выполнить новый опрос.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer3" id="faqButton3">
+              <span>Почему есть задержка между моим счётчиком и приложением Threads?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer3" role="region" aria-labelledby="faqButton3" hidden>
+              <p>И приложение Threads, и ThreadsGrab считывают одни и те же публичные данные, но обновляются с независимыми интервалами. В промежутке между циклами обновления два значения могут временно отличаться. Это нормальное поведение для любого стороннего аналитического инструмента, и значения совпадут после следующего опроса.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer4" id="faqButton4">
+              <span>Почему количество подписчиков не обновляется мгновенно?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer4" role="region" aria-labelledby="faqButton4" hidden>
+              <p>Мгновенные обновления невозможны, потому что Threads объединяет изменения количества подписчиков в периодические пакеты кэширования для снижения нагрузки на серверы. ThreadsGrab минимизирует задержку, опрашивая профиль с короткими интервалами, но очень быстрые подписки/отписки всё же могут распространяться с небольшой задержкой. Это обычное ограничение на уровне платформы, а не ошибка инструмента.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer5" id="faqButton5">
+              <span>Безопасно ли пользоваться счётчиком подписчиков Threads?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer5" role="region" aria-labelledby="faqButton5" hidden>
+              <p>Да. ThreadsGrab использует только общедоступную информацию профиля и никогда не запрашивает имя пользователя, пароль или другие учётные данные. Нет взаимодействия с аккаунтом, не запрашиваются разрешения, и ничего не публикуется обратно в Threads. Подробности смотрите в разделах <a href="/privacy-policy">«Политика конфиденциальности»</a> и <a href="/disclaimer">«Отказ от ответственности»</a>.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer6" id="faqButton6">
+              <span>Можно ли отслеживать количество подписчиков закрытого аккаунта Threads?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer6" role="region" aria-labelledby="faqButton6" hidden>
+              <p>Нет. Счётчики подписчиков Threads полагаются на общедоступные данные профиля. Если аккаунт закрыт (приватный), его количество подписчиков не отображается для публичных краулеров и, следовательно, не может отслеживаться. ThreadsGrab уважает настройки конфиденциальности пользователей и никогда не пытается их обойти.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="/" class="logo" aria-label="ThreadsGrab — на главную">
+            <img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" alt="Логотип ThreadsGrab" width="40" height="40" loading="lazy" decoding="async" />
+            <span>ThreadsGrab</span>
+          </a>
+          <p>Самый быстрый и надёжный онлайн-инструмент для сохранения публичных видео, изображений и аватаров профиля Threads в полном качестве, а также отслеживания количества подписчиков в реальном времени. Мы не связаны с Meta или Threads.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Инструменты</h4>
+          <ul class="footer-links">
+            <li><a href="/ru/threads-video-downloader">Загрузчик видео Threads</a></li>
+            <li><a href="/ru/threads-image-downloader">Загрузчик изображений Threads</a></li>
+            <li><a href="/ru/threads-profile-picture-downloader">Загрузчик аватаров Threads</a></li>
+            <li><a href="/ru/threads-follower-counter">Счётчик подписчиков Threads</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Компания</h4>
+          <ul class="footer-links">
+            <li><a href="/about">О нас</a></li>
+            <li><a href="/contact">Контакты</a></li>
+            <li><a href="/privacy-policy">Политика конфиденциальности</a></li>
+            <li><a href="/disclaimer">Отказ от ответственности</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Правовая информация и поддержка</h4>
+          <ul class="footer-links">
+            <li><a href="/disclaimer">Политика DMCA</a></li>
+            <li>
+              <a href="mailto:contact.themistero@gmail.com" class="footer-link-email">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Связаться с поддержкой
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 ThreadsGrab. Все права защищены.</div>
+        <div class="footer-disclaimer-note">
+          Отказ от ответственности: ThreadsGrab — независимый инструмент, не связанный с Instagram, Meta Platforms, Inc. или Threads, и не спонсируемый ими.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Accessibility Critical CSS -->
+  <style>
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999}
+    .skip-link:focus{position:fixed;top:0;left:0;width:auto;height:auto;padding:12px 20px;background:#4f46e5;color:#fff;font-weight:600;text-decoration:none;border-radius:0 0 6px 0;outline:2px solid #fff;outline-offset:2px}
+    .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+  <script defer src="/tdcount.js"></script>
+  <script defer src="/romitp.js"></script>
+  <script>
+    (function attachMobileMenuToggle(){
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      if (!hamburgerBtn || !mobileNav) return;
+
+      function closeMenu() {
+        mobileNav.setAttribute('hidden', '');
+        mobileNav.classList.remove('open');
+        hamburgerBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>`;
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      }
+
+      hamburgerBtn.addEventListener('click', () => {
+        const isHidden = mobileNav.hasAttribute('hidden');
+        if (isHidden) {
+          mobileNav.removeAttribute('hidden');
+          mobileNav.classList.add('open');
+          hamburgerBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`;
+          hamburgerBtn.setAttribute('aria-expanded', 'true');
+        } else {
+          closeMenu();
+        }
+      });
+
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
+</body>
+</html>

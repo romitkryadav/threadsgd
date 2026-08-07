@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Скачать DP из Threads — Загрузка фото профиля Threads в HD онлайн бесплатно</title>
+
+  <!-- Performance Resource Hints -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+  <link rel="dns-prefetch" href="https://threadsgrab.com" />
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Бесплатный сервис для скачивания фото профиля (DP) из Threads онлайн. Загружайте фото профиля в полном HD-разрешении с любого публичного аккаунта Threads мгновенно. Просмотр и сохранение фото профиля Threads в оригинальном качестве — без входа в аккаунт." />
+  <meta name="keywords" content="скачать DP Threads, скачать фото профиля Threads, загрузить аватар Threads, просмотр DP Threads в HD, сохранить фото профиля Threads, скачать аватарку Threads, Threads DP в HD, Threads в JPG, посмотреть аватар Threads полностью" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1" />
+  <meta name="author" content="ThreadsGrab" />
+  <link rel="canonical" href="https://threadsgrab.com/ru/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="x-default" href="https://threadsgrab.com/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="en" href="https://threadsgrab.com/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="ru" href="https://threadsgrab.com/ru/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="es" href="https://threadsgrab.com/es/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="ko" href="https://threadsgrab.com/ko/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="ja" href="https://threadsgrab.com/ja/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="th" href="https://threadsgrab.com/th/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="de" href="https://threadsgrab.com/de/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="fr" href="https://threadsgrab.com/fr/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="hi" href="https://threadsgrab.com/hi/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="zh" href="https://threadsgrab.com/zh/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="it" href="https://threadsgrab.com/it/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="pt" href="https://threadsgrab.com/pt/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="bn" href="https://threadsgrab.com/bn/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="tr" href="https://threadsgrab.com/tr/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="id" href="https://threadsgrab.com/id/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="vi" href="https://threadsgrab.com/vi/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="ar" href="https://threadsgrab.com/ar/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="pl" href="https://threadsgrab.com/pl/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="uk" href="https://threadsgrab.com/uk/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="ur" href="https://threadsgrab.com/ur/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="af" href="https://threadsgrab.com/af/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="sv" href="https://threadsgrab.com/sv/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="ne" href="https://threadsgrab.com/ne/threads-profile-picture-downloader" />
+  <link rel="alternate" hreflang="fa" href="https://threadsgrab.com/fa/threads-profile-picture-downloader" />
+
+  <!-- Additional SEO / Mobile Tags -->
+  <meta name="theme-color" content="#4f46e5" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://threadsgrab.com/ru/threads-profile-picture-downloader" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:title" content="Скачать DP из Threads — Загрузка фото профиля Threads в HD онлайн бесплатно" />
+  <meta property="og:description" content="Бесплатный сервис для скачивания фото профиля (DP) из Threads онлайн. Загружайте фото профиля в полном HD-разрешении с любого публичного аккаунта Threads мгновенно. Без входа в аккаунт." />
+  <meta property="og:image" content="https://threadsgrab.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:site_name" content="ThreadsGrab" />
+  <meta property="og:image:alt" content="Предпросмотр ThreadsGrab — скачивание фото профиля Threads в HD" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ThreadsGrab" />
+  <meta name="twitter:creator" content="@ThreadsGrab" />
+  <meta name="twitter:url" content="https://threadsgrab.com/ru/threads-profile-picture-downloader" />
+  <meta name="twitter:title" content="Скачать DP из Threads — Загрузка фото профиля Threads в HD онлайн бесплатно" />
+  <meta name="twitter:description" content="Бесплатный сервис для скачивания фото профиля (DP) из Threads онлайн. Загружайте фото профиля в полном HD-разрешении мгновенно, без входа в аккаунт." />
+  <meta name="twitter:image" content="https://threadsgrab.com/og-image.jpg" />
+  <meta name="twitter:image:width" content="1200" />
+  <meta name="twitter:image:height" content="630" />
+  <meta name="twitter:image:alt" content="Предпросмотр ThreadsGrab — скачивание фото профиля Threads в HD" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/romitkrweb.css" />
+  <link rel="icon" type="image/png" href="https://threadsgrab.com/threadsgrab-logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://threadsgrab.com/threadsgrab-logo.png" />
+
+  <!-- WebGraph Schema JSON-LD (WebPage + WebSite + Organization + HowTo + Breadcrumb + ImageObject) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://threadsgrab.com/ru/threads-profile-picture-downloader/#webpage",
+        "url": "https://threadsgrab.com/ru/threads-profile-picture-downloader",
+        "name": "Скачать DP из Threads — Загрузка фото профиля Threads в HD онлайн бесплатно",
+        "description": "Бесплатный сервис для скачивания фото профиля (DP) из Threads онлайн. Загружайте фото профиля в полном HD-разрешении с любого публичного аккаунта Threads мгновенно. Без входа в аккаунт.",
+        "inLanguage": "ru-RU",
+        "datePublished": "2026-01-01T00:00:00+00:00",
+        "dateModified": "2026-08-02T00:00:00+00:00",
+        "isPartOf": {
+          "@id": "https://threadsgrab.com/#website"
+        },
+        "primaryImageOfPage": {
+          "@id": "https://threadsgrab.com/ru/threads-profile-picture-downloader/#primaryimage"
+        },
+        "breadcrumb": {
+          "@id": "https://threadsgrab.com/ru/threads-profile-picture-downloader/#breadcrumb"
+        },
+        "potentialAction": [
+          {
+            "@type": "ReadAction",
+            "target": [
+              "https://threadsgrab.com/ru/threads-profile-picture-downloader"
+            ]
+          }
+        ]
+      },
+      {
+        "@type": "ImageObject",
+        "inLanguage": "ru-RU",
+        "@id": "https://threadsgrab.com/ru/threads-profile-picture-downloader/#primaryimage",
+        "url": "https://threadsgrab.com/og-image.jpg",
+        "contentUrl": "https://threadsgrab.com/og-image.jpg",
+        "width": 1200,
+        "height": 630,
+        "caption": "Скачать DP из Threads — ThreadsGrab"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://threadsgrab.com/#website",
+        "url": "https://threadsgrab.com/",
+        "name": "ThreadsGrab",
+        "description": "Бесплатные онлайн-инструменты для скачивания видео, изображений, фото профиля из Threads и отслеживания количества подписчиков.",
+        "inLanguage": "ru-RU",
+        "publisher": {
+          "@id": "https://threadsgrab.com/#organization"
+        },
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://threadsgrab.com/?s={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://threadsgrab.com/#organization",
+        "name": "ThreadsGrab",
+        "url": "https://threadsgrab.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "inLanguage": "ru-RU",
+          "@id": "https://threadsgrab.com/#logo",
+          "url": "https://threadsgrab.com/threadsgrab-logo.png",
+          "contentUrl": "https://threadsgrab.com/threadsgrab-logo.png",
+          "width": 180,
+          "height": 180,
+          "caption": "Логотип ThreadsGrab"
+        },
+        "image": {
+          "@id": "https://threadsgrab.com/#logo"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "contact.themistero@gmail.com",
+          "contactType": "customer support",
+          "availableLanguage": ["Russian", "English"]
+        },
+        "sameAs": []
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://threadsgrab.com/#webapp",
+        "url": "https://threadsgrab.com/",
+        "name": "ThreadsGrab",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://threadsgrab.com/ru/threads-profile-picture-downloader/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Главная",
+            "item": "https://threadsgrab.com/ru/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Скачать DP из Threads",
+            "item": "https://threadsgrab.com/ru/threads-profile-picture-downloader"
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://threadsgrab.com/ru/threads-profile-picture-downloader/#howto",
+        "name": "Как скачать фото профиля из Threads",
+        "description": "Всего 3 простых шага, чтобы скачать фото профиля в полном HD-качестве с любого публичного аккаунта Threads с помощью ThreadsGrab.",
+        "totalTime": "PT1M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "USD",
+          "value": "0"
+        },
+        "supply": [
+          {
+            "@type": "HowToSupply",
+            "name": "Ссылка на профиль Threads или @имя пользователя"
+          }
+        ],
+        "tool": [
+          {
+            "@type": "HowToTool",
+            "name": "ThreadsGrab — сервис скачивания DP из Threads",
+            "url": "https://threadsgrab.com/ru/threads-profile-picture-downloader"
+          }
+        ],
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Получите имя пользователя или ссылку на профиль",
+            "text": "Откройте приложение Threads или веб-версию, перейдите в профиль нужного пользователя и запомните его @имя пользователя, либо нажмите «Поделиться» и выберите «Скопировать ссылку».",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://threadsgrab.com/media/download-threads-dp.jpg",
+              "width": 60,
+              "height": 60
+            },
+            "url": "https://threadsgrab.com/ru/threads-profile-picture-downloader/#howitworks"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Вставьте в форму скачивания DP",
+            "text": "Введите @имя пользователя или вставьте скопированную ссылку на профиль в поле ввода вверху страницы и нажмите кнопку «Скачать».",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://threadsgrab.com/media/threads-downloader-dp.jpg",
+              "width": 60,
+              "height": 60
+            },
+            "url": "https://threadsgrab.com/ru/threads-profile-picture-downloader/#downloader"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Сохраните фото профиля в HD",
+            "text": "Просмотрите фото профиля в полном размере и высоком разрешении, затем нажмите «Скачать файл», чтобы сохранить DP прямо на устройство.",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://threadsgrab.com/media/threads-profile-downloader.jpg",
+              "width": 60,
+              "height": 60
+            },
+            "url": "https://threadsgrab.com/ru/threads-profile-picture-downloader/#howitworks"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- FAQPage Schema JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/ru/threads-profile-picture-downloader/#faq-1",
+        "name": "Можно ли посмотреть фото профиля Threads в оригинальном полном размере?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Да. Наш просмотрщик DP Threads загружает версию с самым высоким доступным разрешением с публичных серверов Threads, поэтому вы можете просмотреть фото профиля в его настоящем полном размере перед скачиванием. Больше никаких размытых увеличений крошечных аватарок."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/ru/threads-profile-picture-downloader/#faq-2",
+        "name": "Законно ли скачивать чужое фото профиля из Threads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Скачивание изображений профиля с публичных аккаунтов Threads допустимо для личного использования, но всегда необходимо соблюдать законы об авторском праве, права автора оригинала и конфиденциальность владельца аккаунта. Не публикуйте, не распространяйте и не используйте скачанные DP в коммерческих целях без явного разрешения. Подробнее — в разделах «Отказ от ответственности» и «Политика конфиденциальности»."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/ru/threads-profile-picture-downloader/#faq-3",
+        "name": "Сохраняет ли ThreadsGrab скачанные фото профиля?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Нет. Мы серьёзно относимся к конфиденциальности пользователей. Сервис только получает публично доступные данные профиля в момент вашего запроса и передаёт их напрямую в ваш браузер. Никакие фото профиля, имена пользователей или история поиска не сохраняются на наших серверах после завершения сеанса."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/ru/threads-profile-picture-downloader/#faq-4",
+        "name": "Можно ли скачать DP из закрытого (приватного) аккаунта Threads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Нет. Наш инструмент для скачивания DP работает только с публичными аккаунтами Threads. Он не может обходить настройки конфиденциальности или получать доступ к контенту закрытых профилей, что соответствует условиям использования Threads и защите конфиденциальности пользователей."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/ru/threads-profile-picture-downloader/#faq-5",
+        "name": "Нужно ли устанавливать программу или входить в аккаунт для использования ThreadsGrab?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Нет, установка программ, приложений или вход в Threads не требуются. ThreadsGrab — это на 100% браузерный инструмент: просто вставьте @имя пользователя или ссылку на профиль и скачайте файл. Дополнительные вопросы — в разделах «Политика конфиденциальности» и «Отказ от ответственности»."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SP0ZHQ7HRQ"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SP0ZHQ7HRQ');
+  </script>
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Перейти к основному содержимому</a>
+
+  <!-- Header & Navigation -->
+  <header class="header" id="siteHeader" role="banner">
+    <div class="container header-inner">
+      <a href="/ru/" class="logo" id="siteLogo" aria-label="ThreadsGrab — главная">
+        <img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" alt="Логотип ThreadsGrab" width="40" height="40" loading="lazy" decoding="async" /><span>ThreadsGrab</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-desktop" id="desktopNav" role="navigation" aria-label="Основная навигация">
+        <a href="/ru/threads-video-downloader" class="nav-link" id="navVideo">Скачать видео</a>
+        <a href="/ru/threads-image-downloader" class="nav-link" id="navImage">Скачать фото</a>
+        <a href="/ru/threads-profile-picture-downloader" class="nav-link active" id="navDp" aria-current="page">Скачать DP</a>
+        <a href="/ru/threads-follower-counter" class="nav-link" id="navCounter">Счётчик подписчиков</a>
+        <a href="/contact" class="nav-link" id="navContact">Контакты</a>
+      </nav>
+
+      <!-- Actions & Theme Toggle -->
+      <div class="header-actions">
+        <div class="lang-desktop">
+          <button class="lang-btn" id="langBtnDesktop" type="button" aria-label="Выбрать язык" aria-haspopup="listbox" aria-expanded="false" aria-controls="langPanelDesktop">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+            <span class="lang-btn-label" id="langBtnLabelDesktop">Русский</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-panel" id="langPanelDesktop" role="listbox" aria-label="Выбор языка" hidden>
+            <a href="/threads-profile-picture-downloader" class="lang-item" role="option" aria-selected="false" data-lang-code="en" data-lang-name="English"><span class="lang-code">US</span><span class="lang-texts"><strong>English</strong><span class="lang-sub">English</span></span></a>
+            <a href="/ru/threads-profile-picture-downloader" class="lang-item active" role="option" aria-selected="true" data-lang-code="ru" data-lang-name="Russian"><span class="lang-code">RU</span><span class="lang-texts"><strong>Русский</strong><span class="lang-sub">Russian</span></span></a>
+          </div>
+        </div>
+        <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Открыть мобильное меню" aria-expanded="false" aria-controls="mobileNav">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="4" x2="20" y1="12" y2="12"/>
+            <line x1="4" x2="20" y1="6" y2="6"/>
+            <line x1="4" x2="20" y1="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Мобильное меню" hidden>
+    <a href="/ru/" class="nav-link">Главная</a>
+    <a href="/ru/threads-video-downloader" class="nav-link">Скачать видео из Threads</a>
+    <a href="/ru/threads-image-downloader" class="nav-link">Скачать фото из Threads</a>
+    <a href="/ru/threads-profile-picture-downloader" class="nav-link active" aria-current="page">Скачать DP из Threads</a>
+    <a href="/ru/threads-follower-counter" class="nav-link">Счётчик подписчиков Threads</a>
+    <a href="/about" class="nav-link">О нас</a>
+    <a href="/contact" class="nav-link">Контакты</a>
+    <a href="/privacy-policy" class="nav-link">Политика конфиденциальности</a>
+    <div class="mobile-lang-section" aria-labelledby="mobileLangHeading">
+      <div class="mobile-lang-header" id="mobileLangHeading">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+        <span>Язык</span>
+        <span class="mobile-lang-current" id="mobileLangCurrent">Русский</span>
+      </div>
+      <div class="mobile-lang-grid" role="listbox" aria-label="Выберите язык">
+        <a href="/threads-profile-picture-downloader" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="en" data-lang-name="English"><span class="lang-code">US</span><span class="lang-texts"><strong>English</strong><span class="lang-sub">English</span></span></a>
+        <a href="/ru/threads-profile-picture-downloader" class="mobile-lang-item active" role="option" aria-selected="true" data-lang-code="ru" data-lang-name="Russian"><span class="lang-code">RU</span><span class="lang-texts"><strong>Русский</strong><span class="lang-sub">Russian</span></span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="mainContent" role="main">
+    <!-- Hero & Downloader Tool Section -->
+    <section class="hero-section" id="downloader" aria-labelledby="heroHeading">
+      <div class="container">
+        <h1 class="hero-title" id="heroHeading">Скачать DP из Threads</h1>
+        <p class="hero-subtitle hero-subtitle-sm">
+          Просматривайте и скачивайте фото профиля (DP) в полном HD-качестве с любого публичного аккаунта Threads мгновенно.
+        </p>
+
+        <!-- Tool Mode Tabs -->
+        <div class="tool-tabs" id="toolTabs" role="tablist" aria-label="Инструменты Threads">
+          <a href="/ru/threads-video-downloader" class="tool-tab" id="toolVideoTab" aria-label="Скачать видео" role="tab">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect width="15" height="14" x="1" y="5" rx="2" ry="2"/></svg>
+          </a>
+          <a href="/ru/threads-image-downloader" class="tool-tab" id="toolImageTab" aria-label="Скачать изображение" role="tab">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+          </a>
+          <a href="/ru/threads-profile-picture-downloader" class="tool-tab active" id="toolDpTab" aria-label="Фото профиля" role="tab" aria-selected="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </a>
+          <a href="/ru/threads-follower-counter" class="tool-tab" id="toolGrowthTab" aria-label="Аналитика роста" role="tab">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          </a>
+        </div>
+
+        <!-- Main Downloader Card Box -->
+        <div class="downloader-card" id="downloaderCard" aria-labelledby="heroHeading">
+          <div class="input-group">
+            <div class="url-input-wrapper">
+              <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              <label for="urlInput" class="visually-hidden">Имя пользователя или ссылка на профиль Threads</label>
+              <input type="text" id="urlInput" class="url-input" placeholder="Введите @имя пользователя Threads или вставьте ссылку на профиль (например, https://www.threads.com/@username)" autocomplete="off" spellcheck="false" inputmode="url" aria-describedby="urlInputHint" />
+              <span id="urlInputHint" class="visually-hidden">Введите публичное имя пользователя Threads, начинающееся с @, или вставьте полную ссылку на профиль.</span>
+              <button type="button" class="paste-btn" id="pasteBtn" aria-label="Вставить из буфера обмена">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                Вставить
+              </button>
+              <button type="button" class="clear-btn hidden" id="clearBtn" aria-label="Очистить поле">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                Очистить
+              </button>
+            </div>
+            <button type="button" class="btn-primary" id="downloadBtn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Скачать
+            </button>
+          </div>
+
+          <!-- Loading Indicator Box -->
+          <div class="loading-box" id="loadingBox" role="status" aria-live="polite" aria-atomic="true" hidden>
+            <div class="spinner"></div>
+            <div class="loading-status" id="loadingStatus">Обработка профиля...</div>
+            <div class="loading-subtext" id="loadingSubtext">Извлекаем фото профиля в полном размере</div>
+          </div>
+
+          <!-- Error Message Alert Box -->
+          <div class="error-box" id="errorBox" role="alert" aria-live="assertive" aria-atomic="true" hidden>
+            <svg class="error-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <div class="error-content">
+              <h4 id="errorTitle">Не удалось получить DP</h4>
+              <p id="errorMessage">Проверьте правильность имени пользователя или ссылки на профиль и убедитесь, что аккаунт публичный.</p>
+            </div>
+          </div>
+
+          <!-- Media Result Preview Box -->
+          <div class="result-box" id="resultBox" role="region" aria-live="polite" aria-atomic="true" aria-labelledby="resultTypeBadge" hidden>
+            <div class="result-header">
+              <span class="result-type-badge" id="resultTypeBadge">Фото профиля Threads</span>
+            </div>
+
+            <!-- Video / Image Preview Area -->
+            <div class="media-preview-container" id="mediaPreviewContainer"></div>
+
+            <!-- Author Meta -->
+            <div class="result-meta" id="resultMeta">
+              <div class="author-info">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span id="authorName">@username</span>
+              </div>
+            </div>
+
+            <!-- Quality Option Selectors -->
+            <div class="quality-options" id="qualityOptions" aria-labelledby="qualityLabel">
+              <span class="quality-label" id="qualityLabel">Доступное качество:</span>
+              <div class="quality-pills" id="qualityPills" role="radiogroup" aria-labelledby="qualityLabel"></div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+              <button type="button" class="btn-primary download-direct-btn" id="downloadDirectBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Скачать файл
+              </button>
+              <button type="button" class="copy-link-btn" id="copyLinkBtn" aria-label="Скопировать ссылку для скачивания">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Скопировать ссылку
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- promote -->
+  <div class="promo-account-banner" role="note">
+          <img class="promo-account-avatar" src="https://unavatar.io/threads/romitkryadav" alt="Фото профиля Romit Kr Yadav" loading="lazy" />
+          <span class="promo-account-badge">Рекомендуемый профиль</span>
+          <span class="promo-account-text">Подпишитесь на <a href="https://www.threads.com/@romitkryadav" target="_blank" rel="noopener noreferrer">@romitkryadav</a> в Threads</span>
+          <a class="promo-account-button" href="https://www.threads.com/@romitkryadav" target="_blank" rel="noopener noreferrer">Открыть профиль</a>
+        </div>
+
+    <!-- How To Download Steps Section -->
+    <section class="steps-section" id="howitworks" aria-labelledby="stepsHeading">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="stepsHeading">Как скачать фото профиля из Threads</h2>
+          <p class="section-subtitle">Всего 3 простых шага, чтобы сохранить фото профиля с любого публичного аккаунта Threads на своё устройство.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-icon"><img src="https://threadsgrab.com/media/download-threads-dp.jpg" loading="lazy" decoding="async" width="60" height="60" alt="скачать dp threads" aria-hidden="true" /></div>
+            <h3>Получите имя пользователя или ссылку на профиль</h3>
+            <p>Откройте приложение Threads или веб-версию, перейдите в профиль нужного пользователя и запомните его @имя пользователя, либо нажмите «Поделиться» и выберите <strong>«Скопировать ссылку»</strong>.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon"><img src="https://threadsgrab.com/media/threads-downloader-dp.jpg" loading="lazy" decoding="async" width="60" height="60" alt="скачивание dp threads" aria-hidden="true" /></div>
+            <h3>Вставьте в форму <a href="#downloader" style="color:inherit;text-decoration:none;">скачивания DP</a></h3>
+            <p>Введите @имя пользователя или вставьте скопированную ссылку на профиль в поле ввода выше и нажмите фиолетовую кнопку <strong>«Скачать»</strong>.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon"><img src="https://threadsgrab.com/media/threads-profile-downloader.jpg" loading="lazy" decoding="async" width="60" height="60" alt="скачивание фото профиля threads" aria-hidden="true" /></div>
+            <h3>Сохраните фото профиля в HD</h3>
+            <p>Просмотрите фото профиля в полном размере и высоком разрешении, затем нажмите <strong>«Скачать файл»</strong>, чтобы сохранить DP прямо на устройство.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Information Content Section -->
+    <section class="info-section" aria-labelledby="infoIntroHeading">
+      <div class="container">
+        <article class="info-content">
+          <h2 id="infoIntroHeading"><a href="#infoIntroHeading" style="color:inherit;text-decoration:none;">Скачать DP из Threads — просмотр и сохранение фото профиля в полном размере онлайн</a></h2>
+          <p>
+            Фото профиля в Threads — это больше, чем просто картинка: это визуальный образ, который встречает каждого посетителя, зашедшего на страницу аккаунта. Будь то личный портрет, логотип бренда, аватар автора или знак компании, DP мгновенно формирует первое впечатление о профиле. Однако Threads намеренно отображает фото профиля в виде крошечных круглых миниатюр в ленте и в шапке профиля, из-за чего практически невозможно разглядеть детали, прочитать текст на логотипе или оценить изображение в полном разрешении. Наш <a href="/ru/threads-profile-picture-downloader">сервис для скачивания DP из Threads</a> решает эту проблему, открывая доступ к версии фото профиля в наивысшем качестве, чтобы вы могли просмотреть, изучить и сохранить его в оригинальном размере.</p>
+            <p>Простота и скорость — в основе ThreadsGrab. Не нужно устанавливать программы, ставить расширения для браузера или входить в аккаунт Threads. Просто введите публичное @имя пользователя или вставьте ссылку на профиль Threads, и наш сервис сразу же получит оригинальное фото профиля в полном разрешении для просмотра и скачивания. Если вам также нужно сохранить медиафайлы из постов, посмотрите наши инструменты <a href="/ru/threads-image-downloader">для скачивания фото из Threads</a> и <a href="/ru/threads-video-downloader">для скачивания видео из Threads</a>. Для аналитики роста аккаунта попробуйте наш <a href="/ru/threads-follower-counter">счётчик подписчиков Threads</a>.</p>
+
+          <h2 id="infoWhyHeading"><a href="#infoWhyHeading" style="color:inherit;text-decoration:none;">Зачем нужен сервис для скачивания фото профиля Threads?</a></h2>
+          <p>Threads создан с расчётом на визуальную согласованность, и часть этого подхода — фиксированный маленький размер аватарок профиля. Это делает ленту аккуратной, но также скрывает важные визуальные детали — например, тонкие линии логотипа, черты лица на портрете автора или точную цветовую палитру бренда.</p>
+          <p>С нашим сервисом скачивания фото профиля Threads вы получаете исходный файл в том качестве, в каком он был загружен изначально, а не сжатую и обрезанную миниатюру. Вместо размытого скриншота с попыткой приблизить изображение вы получаете самую крупную доступную версию с публичных серверов Threads в один клик.</p>
+          <p>Проверяете ли вы своё собственное фото профиля, изучаете брендинг конкурентов, подтверждаете личность автора или просто собираете качественные аватарки для справки — наш сервис обеспечивает максимально возможное разрешение без лишних сложностей.</p>
+
+          <h2 id="infoViewHeading"><a href="#infoViewHeading" style="color:inherit;text-decoration:none;">Просмотр фото профиля Threads в полном размере перед скачиванием</a></h2>
+          <p>Наш встроенный просмотрщик DP Threads позволяет изучать фото профиля в чётком и высоком разрешении, прежде чем вы решите что-то сохранить. Увеличенная область предпросмотра помогает проверить резкость изображения, точность цвета, читаемость логотипа и другие детали, которые не видны в крошечном 40–60-пиксельном круглом аватаре Threads.</p>
+          <p>Этот шаг предпросмотра особенно полезен для дизайнеров, маркетологов, бренд-менеджеров и исследовательских команд, которым нужно проверять публичные изображения профилей без использования некачественных скриншотов или ручной обрезки.</p>
+          <p>Просмотрщик оптимизирован для скорости — файл в высоком разрешении загружается за секунды, а всё скачивание происходит напрямую через ваш браузер, минуя любые промежуточные серверы с нашей стороны.</p>
+
+          <h2 id="infoCompatHeading"><a href="#infoCompatHeading" style="color:inherit;text-decoration:none;">Работает на Android, iOS, Windows, Mac и в любом браузере</a></h2>
+          <p>
+            Независимо от того, используете ли вы телефон на Android, iPhone, ПК с Windows, Mac, ноутбук с Linux или планшет, сервис скачивания DP от ThreadsGrab обеспечивает полностью оптимизированную работу на любом устройстве и с любым форм-фактором экрана.</p>
+            <p>Адаптивный интерфейс автоматически подстраивается под размер вашего экрана и безупречно работает во всех основных браузерах, включая Google Chrome, Safari, Firefox, Microsoft Edge, Opera и Brave. Без приложений, без плагинов, без лишних шагов.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq" aria-labelledby="faqHeading">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="faqHeading">Часто задаваемые вопросы</h2>
+          <p class="section-subtitle">Ответы на самые популярные вопросы о скачивании фото профиля из Threads.</p>
+        </div>
+
+        <div class="faq-list" role="list">
+          <div class="faq-item active" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="true" aria-controls="faqAnswer1" id="faqButton1">
+              <span>Можно ли посмотреть фото профиля Threads в оригинальном полном размере?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer1" role="region" aria-labelledby="faqButton1">
+              <p>Да. Наш просмотрщик DP Threads загружает версию с самым высоким доступным разрешением с публичных серверов Threads, поэтому вы можете просмотреть фото профиля в его настоящем полном размере перед скачиванием. Больше никаких размытых увеличений крошечных аватарок.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer2" id="faqButton2">
+              <span>Законно ли скачивать чужое фото профиля из Threads?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer2" role="region" aria-labelledby="faqButton2" hidden>
+              <p>Скачивание изображений профиля с публичных аккаунтов Threads допустимо для личного использования, но всегда необходимо соблюдать законы об авторском праве, права автора оригинала и конфиденциальность владельца аккаунта. Не публикуйте, не распространяйте и не используйте скачанные DP в коммерческих целях без явного разрешения. Подробнее — в разделах <a href="/disclaimer">«Отказ от ответственности»</a> и <a href="/privacy-policy">«Политика конфиденциальности»</a>.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer3" id="faqButton3">
+              <span>Сохраняет ли ThreadsGrab скачанные фото профиля?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer3" role="region" aria-labelledby="faqButton3" hidden>
+              <p>Нет. Мы серьёзно относимся к конфиденциальности пользователей. Сервис только получает публично доступные данные профиля в момент вашего запроса и передаёт их напрямую в ваш браузер. Никакие фото профиля, имена пользователей или история поиска не сохраняются на наших серверах после завершения сеанса.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer4" id="faqButton4">
+              <span>Можно ли скачать DP из закрытого (приватного) аккаунта Threads?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer4" role="region" aria-labelledby="faqButton4" hidden>
+              <p>Нет. Наш инструмент для скачивания DP работает только с публичными аккаунтами Threads. Он не может обходить настройки конфиденциальности или получать доступ к контенту закрытых профилей, что соответствует условиям использования Threads и защите конфиденциальности пользователей.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer5" id="faqButton5">
+              <span>Нужно ли устанавливать программу или входить в аккаунт для использования ThreadsGrab?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer5" role="region" aria-labelledby="faqButton5" hidden>
+              <p>Нет, установка программ, приложений или вход в Threads не требуются. ThreadsGrab — это на 100% браузерный инструмент: просто вставьте @имя пользователя или ссылку на профиль и скачайте файл. Дополнительные вопросы — в разделах <a href="/privacy-policy">«Политика конфиденциальности»</a> и <a href="/disclaimer">«Отказ от ответственности»</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="/ru/" class="logo" aria-label="ThreadsGrab — главная">
+            <img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" alt="Логотип ThreadsGrab" width="40" height="40" loading="lazy" decoding="async" /><span>ThreadsGrab</span>
+          </a>
+          <p>Самый быстрый и надёжный онлайн-сервис для сохранения публичных видео, изображений и фото профиля из Threads в полном HD-качестве.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Инструменты</h4>
+          <ul class="footer-links">
+            <li><a href="/ru/threads-video-downloader">Скачать видео из Threads</a></li>
+            <li><a href="/ru/threads-image-downloader">Скачать фото из Threads</a></li>
+            <li><a href="/ru/threads-profile-picture-downloader">Скачать DP из Threads</a></li>
+            <li><a href="/ru/threads-follower-counter">Счётчик подписчиков Threads</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Компания</h4>
+          <ul class="footer-links">
+            <li><a href="/about">О нас</a></li>
+            <li><a href="/contact">Контакты</a></li>
+            <li><a href="/privacy-policy">Политика конфиденциальности</a></li>
+            <li><a href="/disclaimer">Отказ от ответственности</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Правовая информация и поддержка</h4>
+          <ul class="footer-links">
+            <li><a href="/disclaimer">Политика DMCA</a></li>
+            <li>
+              <a href="mailto:contact.themistero@gmail.com" class="footer-link-email">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Связаться с поддержкой
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 ThreadsGrab. Все права защищены.</div>
+        <div class="footer-disclaimer-note">
+          Отказ от ответственности: ThreadsGrab — независимый сервис, не связанный с Instagram, Meta Platforms, Inc. или Threads и не одобренный ими.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Accessibility Critical CSS -->
+  <style>
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999}
+    .skip-link:focus{position:fixed;top:0;left:0;width:auto;height:auto;padding:12px 20px;background:#4f46e5;color:#fff;font-weight:600;text-decoration:none;border-radius:0 0 6px 0;outline:2px solid #fff;outline-offset:2px}
+    .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+
+  <!-- DP Downloader JavaScript File -->
+  <script defer src="/romitp.js"></script>
+</body>
+</html>
