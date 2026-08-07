@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đếm người theo dõi Threads - Theo dõi số lượng người theo dõi trực tiếp miễn phí trực tuyến</title>
+
+  <!-- Performance Resource Hints -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+  <link rel="dns-prefetch" href="https://threadsgrab.com" />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Công cụ đếm người theo dõi Threads trực tuyến miễn phí. Theo dõi số lượng người theo dõi trực tiếp cho bất kỳ tài khoản công khai nào trên Threads trong thời gian thực. Nhận phân tích tăng trưởng, chênh lệch phiên, biểu đồ xu hướng và thống kê tự động làm mới." />
+  <meta name="keywords" content="đếm người theo dõi threads, theo dõi người theo dõi threads, số lượng người theo dõi trực tiếp, phân tích threads, trình theo dõi tăng trưởng threads, người theo dõi threads thời gian thực, kiểm tra người theo dõi threads, theo dõi thống kê threads, theo dõi khán giả threads, công cụ đếm threads miễn phí trực tuyến" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1" />
+  <meta name="author" content="ThreadsGrab" />
+  <link rel="canonical" href="https://threadsgrab.com/vi/threads-follower-counter" />
+   <link rel="alternate" hreflang="x-default" href="https://threadsgrab.com/threads-follower-counter" />
+  <link rel="alternate" hreflang="en" href="https://threadsgrab.com/threads-follower-counter" />
+  <link rel="alternate" hreflang="ru" href="https://threadsgrab.com/ru/threads-follower-counter" />
+  <link rel="alternate" hreflang="es" href="https://threadsgrab.com/es/threads-follower-counter" />
+  <link rel="alternate" hreflang="ko" href="https://threadsgrab.com/ko/threads-follower-counter" />
+  <link rel="alternate" hreflang="ja" href="https://threadsgrab.com/ja/threads-follower-counter" />
+  <link rel="alternate" hreflang="th" href="https://threadsgrab.com/th/threads-follower-counter" />
+  <link rel="alternate" hreflang="de" href="https://threadsgrab.com/de/threads-follower-counter" />
+  <link rel="alternate" hreflang="fr" href="https://threadsgrab.com/fr/threads-follower-counter" />
+  <link rel="alternate" hreflang="hi" href="https://threadsgrab.com/hi/threads-follower-counter" />
+  <link rel="alternate" hreflang="zh" href="https://threadsgrab.com/zh/threads-follower-counter" />
+  <link rel="alternate" hreflang="it" href="https://threadsgrab.com/it/threads-follower-counter" />
+  <link rel="alternate" hreflang="pt" href="https://threadsgrab.com/pt/threads-follower-counter" />
+  <link rel="alternate" hreflang="bn" href="https://threadsgrab.com/bn/threads-follower-counter" />
+  <link rel="alternate" hreflang="tr" href="https://threadsgrab.com/tr/threads-follower-counter" />
+  <link rel="alternate" hreflang="id" href="https://threadsgrab.com/id/threads-follower-counter" />
+  <link rel="alternate" hreflang="vi" href="https://threadsgrab.com/vi/threads-follower-counter" />
+  <link rel="alternate" hreflang="ar" href="https://threadsgrab.com/ar/threads-follower-counter" />
+  <link rel="alternate" hreflang="pl" href="https://threadsgrab.com/pl/threads-follower-counter" />
+  <link rel="alternate" hreflang="uk" href="https://threadsgrab.com/uk/threads-follower-counter" />
+  <link rel="alternate" hreflang="ur" href="https://threadsgrab.com/ur/threads-follower-counter" />
+  <link rel="alternate" hreflang="af" href="https://threadsgrab.com/af/threads-follower-counter" />
+  <link rel="alternate" hreflang="sv" href="https://threadsgrab.com/sv/threads-follower-counter" />
+  <link rel="alternate" hreflang="ne" href="https://threadsgrab.com/ne/threads-follower-counter" />
+  <link rel="alternate" hreflang="fa" href="https://threadsgrab.com/fa/threads-follower-counter" />
+
+  <!-- Additional SEO / Mobile Tags -->
+  <meta name="theme-color" content="#4f46e5" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://threadsgrab.com/vi/threads-follower-counter" />
+  <meta property="og:locale" content="vi_VN" />
+  <meta property="og:title" content="Đếm người theo dõi Threads - Theo dõi số lượng người theo dõi trực tiếp miễn phí trực tuyến" />
+  <meta property="og:description" content="Công cụ đếm người theo dõi Threads trực tuyến miễn phí. Theo dõi số lượng người theo dõi trực tiếp cho bất kỳ tài khoản công khai nào trên Threads trong thời gian thực. Nhận phân tích tăng trưởng, chênh lệch phiên, biểu đồ xu hướng và thống kê tự động làm mới. Không cần đăng nhập." />
+  <meta property="og:image" content="https://threadsgrab.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:site_name" content="ThreadsGrab" />
+  <meta property="og:image:alt" content="Xem trước công cụ đếm người theo dõi ThreadsGrab - theo dõi số lượng người theo dõi Threads trực tiếp" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ThreadsGrab" />
+  <meta name="twitter:creator" content="@ThreadsGrab" />
+  <meta name="twitter:url" content="https://threadsgrab.com/vi/threads-follower-counter" />
+  <meta name="twitter:title" content="Đếm người theo dõi Threads - Theo dõi số lượng người theo dõi trực tiếp miễn phí trực tuyến" />
+  <meta name="twitter:description" content="Công cụ đếm người theo dõi Threads trực tuyến miễn phí. Theo dõi số lượng người theo dõi trực tiếp cho bất kỳ tài khoản công khai nào trên Threads trong thời gian thực. Nhận phân tích tăng trưởng, chênh lệch phiên, biểu đồ xu hướng và thống kê tự động làm mới. Không cần đăng nhập." />
+  <meta name="twitter:image" content="https://threadsgrab.com/og-image.jpg" />
+  <meta name="twitter:image:width" content="1200" />
+  <meta name="twitter:image:height" content="630" />
+  <meta name="twitter:image:alt" content="Xem trước công cụ đếm người theo dõi ThreadsGrab - theo dõi số lượng người theo dõi Threads trực tiếp" />
+
+  <!-- Page-Specific Assets -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/romitkrweb.css" />
+  <link rel="icon" type="image/png" href="https://threadsgrab.com/threadsgrab-logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://threadsgrab.com/threadsgrab-logo.png" />
+  <link rel="stylesheet" href="/tdcount.css" />
+
+  <!-- WebGraph Schema JSON-LD (WebPage + WebSite + Organization + HowTo + Breadcrumb + ImageObject) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://threadsgrab.com/vi/threads-follower-counter/#webpage",
+        "url": "https://threadsgrab.com/vi/threads-follower-counter",
+        "name": "Đếm người theo dõi Threads - Theo dõi số lượng người theo dõi trực tiếp miễn phí trực tuyến",
+        "description": "Công cụ đếm người theo dõi Threads trực tuyến miễn phí. Theo dõi số lượng người theo dõi trực tiếp cho bất kỳ tài khoản công khai nào trên Threads trong thời gian thực. Nhận phân tích tăng trưởng, chênh lệch phiên, biểu đồ xu hướng và thống kê tự động làm mới. Không cần đăng nhập.",
+        "inLanguage": "vi-VN",
+        "datePublished": "2026-01-01T00:00:00+00:00",
+        "dateModified": "2026-08-02T00:00:00+00:00",
+        "isPartOf": {
+          "@id": "https://threadsgrab.com/#website"
+        },
+        "primaryImageOfPage": {
+          "@id": "https://threadsgrab.com/vi/threads-follower-counter/#primaryimage"
+        },
+        "breadcrumb": {
+          "@id": "https://threadsgrab.com/vi/threads-follower-counter/#breadcrumb"
+        },
+        "potentialAction": [
+          {
+            "@type": "ReadAction",
+            "target": [
+              "https://threadsgrab.com/vi/threads-follower-counter"
+            ]
+          }
+        ]
+      },
+      {
+        "@type": "ImageObject",
+        "inLanguage": "vi-VN",
+        "@id": "https://threadsgrab.com/vi/threads-follower-counter/#primaryimage",
+        "url": "https://threadsgrab.com/og-image.jpg",
+        "contentUrl": "https://threadsgrab.com/og-image.jpg",
+        "width": 1200,
+        "height": 630,
+        "caption": "ThreadsGrab - Công cụ đếm người theo dõi Threads"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://threadsgrab.com/#website",
+        "url": "https://threadsgrab.com/",
+        "name": "ThreadsGrab",
+        "description": "Các công cụ trực tuyến miễn phí để tải video, hình ảnh, ảnh đại diện và theo dõi số lượng người theo dõi trên Threads.",
+        "inLanguage": "vi-VN",
+        "publisher": {
+          "@id": "https://threadsgrab.com/#organization"
+        },
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://threadsgrab.com/?s={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://threadsgrab.com/#organization",
+        "name": "ThreadsGrab",
+        "url": "https://threadsgrab.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "inLanguage": "vi-VN",
+          "@id": "https://threadsgrab.com/#logo",
+          "url": "https://threadsgrab.com/threadsgrab-logo.png",
+          "contentUrl": "https://threadsgrab.com/threadsgrab-logo.png",
+          "width": 180,
+          "height": 180,
+          "caption": "ThreadsGrab Logo"
+        },
+        "image": {
+          "@id": "https://threadsgrab.com/#logo"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "contact.themistero@gmail.com",
+          "contactType": "customer support",
+          "availableLanguage": ["English", "Vietnamese"]
+        },
+        "sameAs": []
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://threadsgrab.com/vi/threads-follower-counter/#webapp",
+        "name": "Công cụ đếm người theo dõi Threads",
+        "url": "https://threadsgrab.com/vi/threads-follower-counter",
+        "description": "Công cụ đếm người theo dõi Threads trực tuyến miễn phí. Theo dõi số lượng người theo dõi trực tiếp cho bất kỳ tài khoản công khai nào trên Threads trong thời gian thực. Nhận phân tích tăng trưởng, chênh lệch phiên, biểu đồ xu hướng và thống kê tự động làm mới. Không cần đăng nhập.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Yêu cầu JavaScript. Yêu cầu HTML5.",
+        "author": {
+          "@id": "https://threadsgrab.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "256"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://threadsgrab.com/vi/threads-follower-counter/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Trang chủ",
+            "item": "https://threadsgrab.com/vi.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Đếm người theo dõi Threads",
+            "item": "https://threadsgrab.com/vi/threads-follower-counter"
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://threadsgrab.com/vi/threads-follower-counter/#howto",
+        "name": "Cách theo dõi số lượng người theo dõi Threads trực tiếp",
+        "description": "Thực hiện 3 bước đơn giản để theo dõi số lượng người theo dõi trực tiếp cho bất kỳ tài khoản công khai nào trên Threads bằng ThreadsGrab.",
+        "totalTime": "PT1M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "USD",
+          "value": "0"
+        },
+        "supply": [
+          {
+            "@type": "HowToSupply",
+            "name": "URL hồ sơ Threads hoặc @username"
+          }
+        ],
+        "tool": [
+          {
+            "@type": "HowToTool",
+            "name": "ThreadsGrab Đếm người theo dõi Threads",
+            "url": "https://threadsgrab.com/vi/threads-follower-counter"
+          }
+        ],
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Nhập tên người dùng",
+            "text": "Nhập tên người dùng Threads (có hoặc không có ký hiệu @) vào ô nhập liệu ở đầu công cụ đếm.",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://threadsgrab.com/media/download-threads-dp.jpg",
+              "width": 60,
+              "height": 60
+            },
+            "url": "https://threadsgrab.com/vi/threads-follower-counter/#downloader"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Nhấn Theo dõi",
+            "text": "Nhấn nút Theo dõi và ThreadsGrab sẽ ngay lập tức bắt đầu lấy số lượng người theo dõi mới nhất từ hồ sơ công khai trên Threads.",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://threadsgrab.com/media/threads-downloader-dp.jpg",
+              "width": 60,
+              "height": 60
+            },
+            "url": "https://threadsgrab.com/vi/threads-follower-counter/#downloader"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Xem trong thời gian thực",
+            "text": "Giữ trang mở và xem số lượng người theo dõi tự động cập nhật sau vài giây, kèm theo chênh lệch phiên, số lần poll và biểu đồ xu hướng trong phiên.",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://threadsgrab.com/media/threads-profile-downloader.jpg",
+              "width": 60,
+              "height": 60
+            },
+            "url": "https://threadsgrab.com/vi/threads-follower-counter/#howitworks"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- FAQPage Schema JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/vi/threads-follower-counter/#faq-1",
+        "name": "Công cụ đếm người theo dõi Threads chính xác đến mức nào?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ThreadsGrab lấy dữ liệu người theo dõi trực tiếp từ thông tin hồ sơ công khai của Threads. Vì Meta không cung cấp API chính thức cho số lượng người theo dõi theo thời gian thực, nên số liệu thường chính xác trong phạm vi bộ nhớ đệm của nền tảng. Có thể có độ trễ nhỏ khi nguồn chưa cập nhật thay đổi, nhưng công cụ của chúng tôi làm mới thường xuyên hơn nhiều so với chế độ xem hồ sơ mặc định của Threads."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/vi/threads-follower-counter/#faq-2",
+        "name": "Tại sao công cụ đếm người theo dõi đôi khi bị đóng băng hoặc ngừng cập nhật?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Đóng băng hoặc tạm dừng hầu như luôn do sự cố mạng tạm thời hoặc giới hạn tốc độ của nguồn dữ liệu, không phải do công cụ đếm. Nếu nguồn chậm phát hành cập nhật, công cụ đếm sẽ bị đóng băng cho đến khi dữ liệu mới có sẵn. Bạn có thể nhấn nút Theo dõi lại để buộc poll mới."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/vi/threads-follower-counter/#faq-3",
+        "name": "Tại sao có sự chênh lệch giữa công cụ đếm và ứng dụng Threads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cả ứng dụng Threads và ThreadsGrab đều đọc từ cùng một dữ liệu công khai, nhưng chúng làm mới ở các khoảng thời gian độc lập. Trong khoảng thời gian giữa các chu kỳ làm mới, hai con số có thể tạm thời khác nhau. Đây là hành vi bình thường đối với bất kỳ công cụ phân tích bên thứ ba nào và các giá trị sẽ hội tụ sau lần poll tiếp theo."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/vi/threads-follower-counter/#faq-4",
+        "name": "Tại sao số lượng người theo dõi không cập nhật ngay lập tức?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Không thể cập nhật ngay lập tức vì Threads tập hợp số lượng người theo dõi thành các đợt bộ nhớ đệm định kỳ để quản lý tải máy chủ. ThreadsGrab giảm thiểu độ trễ bằng cách poll ở các khoảng thời gian ngắn, nhưng các sự kiện follow/unfollow rất nhanh vẫn có thể mất một thời gian ngắn để truyền tải. Đây là giới hạn bình thường ở cấp nền tảng, không phải lỗi công cụ."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/vi/threads-follower-counter/#faq-5",
+        "name": "Sử dụng công cụ đếm người theo dõi Threads có an toàn không?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Có. ThreadsGrab chỉ đọc thông tin hồ sơ công khai và không bao giờ yêu cầu tên người dùng, mật khẩu hay bất kỳ thông tin đăng nhập nào. Không có tương tác với tài khoản, không yêu cầu quyền và không có gì được gửi lại Threads. Để biết chi tiết đầy đủ, hãy xem Chính sách bảo mật và Tuyên bố miễn trách của chúng tôi."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/vi/threads-follower-counter/#faq-6",
+        "name": "Tôi có thể theo dõi số lượng người theo dõi của tài khoản Threads riêng tư không?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Không. Các công cụ đếm người theo dõi Threads phụ thuộc vào dữ liệu hồ sơ công khai. Nếu tài khoản được đặt ở chế độ riêng tư, số người theo dõi của nó không được hiển thị cho trình thu thập dữ liệu công khai và do đó không thể theo dõi. ThreadsGrab tôn trọng cài đặt quyền riêng tư của người dùng và sẽ không bao giờ cố gắng vượt qua chúng."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SP0ZHQ7HRQ"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SP0ZHQ7HRQ');
+  </script>
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Chuyển đến nội dung chính</a>
+
+  <!-- Header & Navigation -->
+  <header class="header" id="siteHeader" role="banner">
+    <div class="container header-inner">
+      <a href="/vi.html" class="logo" id="siteLogo" aria-label="ThreadsGrab Trang chủ">
+        <img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" alt="ThreadsGrab Logo" width="40" height="40" loading="lazy" decoding="async" />
+        <span>ThreadsGrab</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-desktop" id="desktopNav" role="navigation" aria-label="Điều hướng chính">
+        <a href="/vi/threads-video-downloader" class="nav-link" id="navVideo">Tải video</a>
+        <a href="/vi/threads-image-downloader" class="nav-link" id="navImage">Tải ảnh</a>
+        <a href="/vi/threads-profile-picture-downloader" class="nav-link" id="navDp">Tải ảnh đại diện</a>
+        <a href="/vi/threads-follower-counter" class="nav-link active" id="navCounter" aria-current="page">Đếm người theo dõi</a>
+        <a href="/about" class="nav-link" id="navAnalyzer">Giới thiệu</a>
+      </nav>
+
+      <!-- Actions & Theme Toggle -->
+      <div class="header-actions">
+        <div class="lang-desktop">
+          <button class="lang-btn" id="langBtnDesktop" type="button" aria-label="Chọn ngôn ngữ" aria-haspopup="listbox" aria-expanded="false" aria-controls="langPanelDesktop">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+            <span class="lang-btn-label" id="langBtnLabelDesktop">Tiếng Việt</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-panel" id="langPanelDesktop" role="listbox" aria-label="Lựa chọn ngôn ngữ" hidden>
+            <a href="/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="en" data-lang-name="English"><span class="lang-code">US</span><span class="lang-texts"><strong>English</strong><span class="lang-sub">English</span></span></a>
+            <a href="/ru/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="ru" data-lang-name="Russian"><span class="lang-code">RU</span><span class="lang-texts"><strong>Русский</strong><span class="lang-sub">Russian</span></span></a>
+            <a href="/es/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="es" data-lang-name="Spanish"><span class="lang-code">ES</span><span class="lang-texts"><strong>Español</strong><span class="lang-sub">Spanish</span></span></a>
+            <a href="/ko/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="ko" data-lang-name="Korean"><span class="lang-code">KR</span><span class="lang-texts"><strong>한국어</strong><span class="lang-sub">Korean</span></span></a>
+            <a href="/ja/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="ja" data-lang-name="Japanese"><span class="lang-code">JP</span><span class="lang-texts"><strong>日本語</strong><span class="lang-sub">Japanese</span></span></a>
+            <a href="/th/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="th" data-lang-name="Thai"><span class="lang-code">TH</span><span class="lang-texts"><strong>ไทย</strong><span class="lang-sub">Thai</span></span></a>
+            <a href="/de/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="de" data-lang-name="German"><span class="lang-code">DE</span><span class="lang-texts"><strong>Deutsch</strong><span class="lang-sub">German</span></span></a>
+            <a href="/fr/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="fr" data-lang-name="French"><span class="lang-code">FR</span><span class="lang-texts"><strong>Français</strong><span class="lang-sub">French</span></span></a>
+            <a href="/hi/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="hi" data-lang-name="Hindi"><span class="lang-code">IN</span><span class="lang-texts"><strong>हिन्दी</strong><span class="lang-sub">Hindi</span></span></a>
+            <a href="/zh/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="zh" data-lang-name="Chinese"><span class="lang-code">CN</span><span class="lang-texts"><strong>中文</strong><span class="lang-sub">Chinese</span></span></a>
+            <a href="/it/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="it" data-lang-name="Italian"><span class="lang-code">IT</span><span class="lang-texts"><strong>Italiano</strong><span class="lang-sub">Italian</span></span></a>
+            <a href="/pt/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="pt" data-lang-name="Portuguese"><span class="lang-code">PT</span><span class="lang-texts"><strong>Português</strong><span class="lang-sub">Portuguese</span></span></a>
+            <a href="/bn/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="bn" data-lang-name="Bengali"><span class="lang-code">BD</span><span class="lang-texts"><strong>বাংলা</strong><span class="lang-sub">Bengali</span></span></a>
+            <a href="/tr/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="tr" data-lang-name="Turkish"><span class="lang-code">TR</span><span class="lang-texts"><strong>Türkçe</strong><span class="lang-sub">Turkish</span></span></a>
+            <a href="/id/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="id" data-lang-name="Indonesian"><span class="lang-code">ID</span><span class="lang-texts"><strong>Indonesia</strong><span class="lang-sub">Indonesian</span></span></a>
+            <a href="/vi/threads-follower-counter" class="lang-item active" role="option" aria-selected="true" data-lang-code="vi" data-lang-name="Vietnamese"><span class="lang-code">VN</span><span class="lang-texts"><strong>Tiếng Việt</strong><span class="lang-sub">Vietnamese</span></span></a>
+            <a href="/ar/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="ar" data-lang-name="Arabic"><span class="lang-code">SA</span><span class="lang-texts"><strong>العربية</strong><span class="lang-sub">Arabic</span></span></a>
+            <a href="/pl/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="pl" data-lang-name="Polish"><span class="lang-code">PL</span><span class="lang-texts"><strong>Polski</strong><span class="lang-sub">Polish</span></span></a>
+            <a href="/uk/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="uk" data-lang-name="Ukrainian"><span class="lang-code">UA</span><span class="lang-texts"><strong>Українська</strong><span class="lang-sub">Ukrainian</span></span></a>
+            <a href="/ur/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="ur" data-lang-name="Urdu"><span class="lang-code">PK</span><span class="lang-texts"><strong>اردو</strong><span class="lang-sub">Urdu</span></span></a>
+            <a href="/af/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="af" data-lang-name="Afrikaans"><span class="lang-code">ZA</span><span class="lang-texts"><strong>Afrikaans</strong><span class="lang-sub">Afrikaans</span></span></a>
+            <a href="/sv/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="sv" data-lang-name="Swedish"><span class="lang-code">SE</span><span class="lang-texts"><strong>Svenska</strong><span class="lang-sub">Swedish</span></span></a>
+            <a href="/ne/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="ne" data-lang-name="Nepali"><span class="lang-code">NP</span><span class="lang-texts"><strong>नेपाली</strong><span class="lang-sub">Nepali</span></span></a>
+            <a href="/fa/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="fa" data-lang-name="Persian"><span class="lang-code">IR</span><span class="lang-texts"><strong>فارسی</strong><span class="lang-sub">Persian</span></span></a>
+          </div>
+        </div>
+        <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Chuyển đổi menu di động" aria-expanded="false" aria-controls="mobileNav">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="4" x2="20" y1="12" y2="12"/>
+            <line x1="4" x2="20" y1="6" y2="6"/>
+            <line x1="4" x2="20" y1="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Điều hướng di động" hidden>
+    <a href="/vi.html" class="nav-link">Trang chủ</a>
+    <a href="/vi/threads-video-downloader" class="nav-link">Trình tải video Threads</a>
+    <a href="/vi/threads-image-downloader" class="nav-link">Trình tải ảnh Threads</a>
+    <a href="/vi/threads-profile-picture-downloader" class="nav-link">Trình tải ảnh đại diện Threads</a>
+    <a href="/vi/threads-follower-counter" class="nav-link active" aria-current="page">Đếm người theo dõi Threads</a>
+    <a href="/about" class="nav-link">Giới thiệu</a>
+    <a href="/contact" class="nav-link">Liên hệ</a>
+    <a href="/privacy-policy" class="nav-link">Chính sách bảo mật</a>
+    <div class="mobile-lang-section" aria-labelledby="mobileLangHeading">
+      <div class="mobile-lang-header" id="mobileLangHeading">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+        <span>Ngôn ngữ</span>
+        <span class="mobile-lang-current" id="mobileLangCurrent">Tiếng Việt</span>
+      </div>
+      <div class="mobile-lang-grid" role="listbox" aria-label="Chọn ngôn ngữ của bạn">
+        <a href="/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="en" data-lang-name="English"><span class="lang-code">US</span><span class="lang-texts"><strong>English</strong><span class="lang-sub">English</span></span></a>
+        <a href="/ru/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ru" data-lang-name="Russian"><span class="lang-code">RU</span><span class="lang-texts"><strong>Русский</strong><span class="lang-sub">Russian</span></span></a>
+        <a href="/es/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="es" data-lang-name="Spanish"><span class="lang-code">ES</span><span class="lang-texts"><strong>Español</strong><span class="lang-sub">Spanish</span></span></a>
+        <a href="/ko/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ko" data-lang-name="Korean"><span class="lang-code">KR</span><span class="lang-texts"><strong>한국어</strong><span class="lang-sub">Korean</span></span></a>
+        <a href="/ja/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ja" data-lang-name="Japanese"><span class="lang-code">JP</span><span class="lang-texts"><strong>日本語</strong><span class="lang-sub">Japanese</span></span></a>
+        <a href="/th/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="th" data-lang-name="Thai"><span class="lang-code">TH</span><span class="lang-texts"><strong>ไทย</strong><span class="lang-sub">Thai</span></span></a>
+        <a href="/de/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="de" data-lang-name="German"><span class="lang-code">DE</span><span class="lang-texts"><strong>Deutsch</strong><span class="lang-sub">German</span></span></a>
+        <a href="/fr/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="fr" data-lang-name="French"><span class="lang-code">FR</span><span class="lang-texts"><strong>Français</strong><span class="lang-sub">French</span></span></a>
+        <a href="/hi/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="hi" data-lang-name="Hindi"><span class="lang-code">IN</span><span class="lang-texts"><strong>हिन्दी</strong><span class="lang-sub">Hindi</span></span></a>
+        <a href="/zh/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="zh" data-lang-name="Chinese"><span class="lang-code">CN</span><span class="lang-texts"><strong>中文</strong><span class="lang-sub">Chinese</span></span></a>
+        <a href="/it/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="it" data-lang-name="Italian"><span class="lang-code">IT</span><span class="lang-texts"><strong>Italiano</strong><span class="lang-sub">Italian</span></span></a>
+        <a href="/pt/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="pt" data-lang-name="Portuguese"><span class="lang-code">PT</span><span class="lang-texts"><strong>Português</strong><span class="lang-sub">Portuguese</span></span></a>
+        <a href="/bn/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="bn" data-lang-name="Bengali"><span class="lang-code">BD</span><span class="lang-texts"><strong>বাংলা</strong><span class="lang-sub">Bengali</span></span></a>
+        <a href="/tr/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="tr" data-lang-name="Turkish"><span class="lang-code">TR</span><span class="lang-texts"><strong>Türkçe</strong><span class="lang-sub">Turkish</span></span></a>
+        <a href="/id/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="id" data-lang-name="Indonesian"><span class="lang-code">ID</span><span class="lang-texts"><strong>Indonesia</strong><span class="lang-sub">Indonesian</span></span></a>
+        <a href="/vi/threads-follower-counter" class="mobile-lang-item active" role="option" aria-selected="true" data-lang-code="vi" data-lang-name="Vietnamese"><span class="lang-code">VN</span><span class="lang-texts"><strong>Tiếng Việt</strong><span class="lang-sub">Vietnamese</span></span></a>
+        <a href="/ar/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ar" data-lang-name="Arabic"><span class="lang-code">SA</span><span class="lang-texts"><strong>العربية</strong><span class="lang-sub">Arabic</span></span></a>
+        <a href="/pl/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="pl" data-lang-name="Polish"><span class="lang-code">PL</span><span class="lang-texts"><strong>Polski</strong><span class="lang-sub">Polish</span></span></a>
+        <a href="/uk/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="uk" data-lang-name="Ukrainian"><span class="lang-code">UA</span><span class="lang-texts"><strong>Українська</strong><span class="lang-sub">Ukrainian</span></span></a>
+        <a href="/ur/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ur" data-lang-name="Urdu"><span class="lang-code">PK</span><span class="lang-texts"><strong>اردو</strong><span class="lang-sub">Urdu</span></span></a>
+        <a href="/af/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="af" data-lang-name="Afrikaans"><span class="lang-code">ZA</span><span class="lang-texts"><strong>Afrikaans</strong><span class="lang-sub">Afrikaans</span></span></a>
+        <a href="/sv/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="sv" data-lang-name="Swedish"><span class="lang-code">SE</span><span class="lang-texts"><strong>Svenska</strong><span class="lang-sub">Swedish</span></span></a>
+        <a href="/ne/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ne" data-lang-name="Nepali"><span class="lang-code">NP</span><span class="lang-texts"><strong>नेपाली</strong><span class="lang-sub">Nepali</span></span></a>
+        <a href="/fa/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="fa" data-lang-name="Persian"><span class="lang-code">IR</span><span class="lang-texts"><strong>فارسی</strong><span class="lang-sub">Persian</span></span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="mainContent" role="main">
+    <!-- Hero & Tool Section -->
+    <section class="hero-section" id="downloader" aria-labelledby="heroHeading">
+      <div class="container">
+        <h1 class="hero-title" id="heroHeading">Đếm người theo dõi Threads</h1>
+        <p class="hero-subtitle hero-subtitle-sm">
+          Theo dõi số lượng người theo dõi trực tiếp của bất kỳ tài khoản công khai nào trên Threads với phân tích tăng trưởng theo thời gian thực.
+        </p>
+
+        <!-- Tool Mode Tabs -->
+        <div class="tool-tabs" id="toolTabs" role="tablist" aria-label="Công cụ Threads">
+          <a href="/vi/threads-video-downloader" class="tool-tab" id="toolVideoTab" aria-label="Tải video" role="tab">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect width="15" height="14" x="1" y="5" rx="2" ry="2"/></svg>
+          </a>
+          <a href="/vi/threads-image-downloader" class="tool-tab" id="toolImageTab" aria-label="Tải ảnh" role="tab">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+          </a>
+          <a href="/vi/threads-profile-picture-downloader" class="tool-tab" id="toolDpTab" aria-label="Ảnh đại diện" role="tab">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </a>
+          <a href="/vi/threads-follower-counter" class="tool-tab active" id="toolGrowthTab" aria-label="Thông tin tăng trưởng" role="tab" aria-selected="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          </a>
+        </div>
+
+        <!-- Main Follower Counter Card -->
+        <section class="idp-card" aria-labelledby="heroHeading">
+
+          <div class="idp-card-top">
+            <div class="idp-eyebrow">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L3 14h7v8l10-14h-7z"/></svg>
+              Đếm người theo dõi trực tiếp
+            </div>
+            <div id="refresh-pill" class="idp-refresh-pill" role="status" aria-live="polite">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" d="M4 4v6h6M20 20v-6h-6"/><path stroke-linecap="round" d="M5.5 15a7 7 0 0012.6 2.5M18.5 9a7 7 0 00-12.6-2.5"/></svg>
+              <span id="refresh-label">đang làm mới</span>
+            </div>
+          </div>
+
+          <form id="search-form" class="idp-search-row" role="search">
+            <span class="idp-at" aria-hidden="true">@</span>
+            <label for="username-input" class="visually-hidden">Tên người dùng Threads</label>
+            <input id="username-input" type="text" placeholder="Nhập tên người dùng Threads" autocomplete="off" spellcheck="false" inputmode="text" aria-describedby="username-hint" />
+            <span id="username-hint" class="visually-hidden">Nhập tên người dùng công khai trên Threads. Tiền tố @ là tùy chọn.</span>
+            <button type="submit" class="idp-track-btn" id="track-btn">Theo dõi</button>
+          </form>
+
+          <div class="idp-divider"></div>
+
+          <div class="idp-profile-block" aria-live="polite" aria-atomic="true">
+            <div class="idp-avatar-ring">
+              <div class="idp-avatar-inner">
+                <img id="profile-pic" src="" alt="Ảnh đại diện" referrerpolicy="no-referrer" class="hidden" width="52" height="52" loading="lazy" decoding="async" />
+                <svg id="avatar-placeholder" width="52" height="52" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="igGrad" x1="0" y1="0" x2="24" y2="24">
+                      <stop offset="0%" stop-color="#F58529"/>
+                      <stop offset="45%" stop-color="#E1306C"/>
+                      <stop offset="100%" stop-color="#8134AF"/>
+                    </linearGradient>
+                  </defs>
+                  <rect x="2.5" y="2.5" width="19" height="19" rx="6" stroke="url(#igGrad)" stroke-width="1.8"/>
+                  <circle cx="12" cy="12" r="4.6" stroke="url(#igGrad)" stroke-width="1.8"/>
+                  <circle cx="17.2" cy="6.8" r="1.1" fill="url(#igGrad)"/>
+                </svg>
+              </div>
+              <div class="idp-live-badge" aria-label="Theo dõi trực tiếp"><span class="idp-live-dot" aria-hidden="true"></span>TRỰC TIẾP</div>
+            </div>
+
+            <div class="idp-tracking-pill">
+              <span class="idp-tracking-dot" aria-hidden="true"></span>
+              đang theo dõi <b id="tracking-handle">@threads</b>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10"/></svg>
+            </div>
+
+            <h2 class="idp-name" id="profile-name">Threads</h2>
+            <p class="idp-tagline" id="profile-tagline">Khám phá những gì mới trên Threads</p>
+
+            <div class="idp-count mono" id="follower-count" aria-label="Số lượng người theo dõi">0</div>
+            <div class="idp-count-label" id="count-label">NGƯỜI THEO DÕI THREADS</div>
+          </div>
+
+          <div class="idp-monitor-row">
+            <div class="idp-monitor-ring" aria-hidden="true"></div>
+            <div class="idp-monitor-text">
+              <div class="idp-monitor-title">Giám sát trực tiếp<span class="idp-monitor-amber mono" id="monitor-seconds" aria-label="Giây kể từ lần làm mới cuối">0.0s</span></div>
+              <div class="idp-monitor-sub">Đang lấy từ máy chủ ThreadsGrab</div>
+            </div>
+            <div class="idp-monitor-divider" aria-hidden="true"></div>
+            <button type="button" class="idp-monitor-btn" id="monitor-toggle-btn" title="Tạm dừng hoặc tiếp tục giám sát" aria-label="Tạm dừng hoặc tiếp tục giám sát trực tiếp">
+              <svg id="monitor-toggle-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            </button>
+          </div>
+
+          <div class="idp-divider" style="margin-top:0;"></div>
+
+          <div class="idp-stat-grid" role="group" aria-label="Thống kê người theo dõi">
+            <div class="idp-stat-box"><div class="idp-stat-label">Tên người dùng</div><div class="idp-stat-value mono" id="stat-username" aria-label="Tên người dùng mục tiêu">@threads</div></div>
+            <div class="idp-stat-box"><div class="idp-stat-label">Chênh lệch phiên</div><div class="idp-stat-value mono idp-green" id="stat-delta" aria-label="Thay đổi người theo dõi trong phiên">+0</div></div>
+            <div class="idp-stat-box"><div class="idp-stat-label">Số lần poll</div><div class="idp-stat-value mono" id="stat-ticks" aria-label="Số lần poll">0 ticks</div></div>
+            <div class="idp-stat-box"><div class="idp-stat-label">Xác minh lần cuối</div><div class="idp-stat-value mono" id="stat-verified" aria-label="Thời gian xác minh lần cuối">--:--:-- --</div></div>
+          </div>
+
+          <div class="idp-sparkline-panel" aria-labelledby="sparkline-heading">
+            <div class="idp-sparkline-head">
+              <div class="idp-sparkline-title" id="sparkline-heading">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l5-5 4 4 8-9"/></svg>
+                Biểu đồ xu hướng người theo dõi trong phiên
+              </div>
+              <div class="idp-sparkline-hint">Cập nhật trực tiếp tích lũy lịch sử bên dưới</div>
+            </div>
+            <div class="idp-sparkline-chart"><canvas id="spark-canvas" role="img" aria-label="Biểu đồ xu hướng người theo dõi trong phiên"></canvas></div>
+          </div>
+
+          <div id="error-box" class="hidden" role="alert" aria-live="assertive" style="color:#EF5350;font-size:12.5px;padding-bottom:20px;text-align:center;"></div>
+
+        </section>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="idp-discover" aria-label="Tài khoản nổi bật">
+
+        <div class="idp-discover-block">
+          <div class="idp-discover-head">
+            <div class="idp-discover-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a5 5 0 015 5v3h1a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2v-8a2 2 0 012-2h1V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v3h6V7a3 3 0 00-3-3z"/></svg>
+              Tài khoản được đề xuất
+            </div>
+            <div class="idp-discover-hint">nhấn để theo dõi tài khoản được đề xuất</div>
+          </div>
+          <div class="idp-account-grid" id="promoted-grid" role="list" aria-label="Danh sách tài khoản được đề xuất"></div>
+        </div>
+
+        <div class="idp-discover-block">
+          <div class="idp-discover-head">
+            <div class="idp-discover-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 8 12 8 12s8-6.6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"/></svg>
+              Tài khoản phổ biến trực tiếp
+            </div>
+            <div class="idp-discover-hint">nhấn để chuyển mục tiêu theo dõi</div>
+          </div>
+          <div class="idp-account-grid" id="popular-grid" role="list" aria-label="Danh sách tài khoản phổ biến"></div>
+        </div>
+
+        <div class="idp-discover-block">
+          <div class="idp-discover-head">
+            <div class="idp-discover-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1a5 5 0 00-5 5v3H6a2 2 0 00-2 2v9a2 2 0 002 2h12a2 2 0 002-2v-9a2 2 0 00-2-2h-1V6a5 5 0 00-5-5zm0 2a3 3 0 013 3v3H9V6a3 3 0 013-3z"/></svg>
+              Tài khoản thịnh hành
+            </div>
+            <div class="idp-discover-hint">nhấn để theo dõi tên người dùng thịnh hành</div>
+          </div>
+          <div class="idp-trend-grid" id="trending-grid" role="list" aria-label="Danh sách tài khoản thịnh hành"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- How To Track Steps Section -->
+    <section class="steps-section" id="howitworks" aria-labelledby="stepsHeading">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="stepsHeading">Cách theo dõi số lượng người theo dõi Threads trực tiếp</h2>
+          <p class="section-subtitle">Thực hiện 3 bước đơn giản sau để theo dõi số lượng người theo dõi trực tiếp và xu hướng tăng trưởng cho bất kỳ tài khoản công khai nào trên Threads.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-icon"><img src="https://threadsgrab.com//media/threads-follower-counter.jpg" loading="lazy" decoding="async" width="60" height="60" alt="" aria-hidden="true" /></div>
+            <h3>Nhập tên người dùng</h3>
+            <p>Nhập tên người dùng Threads (có hoặc không có ký hiệu @) vào ô nhập liệu ở đầu công cụ đếm.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon"><img src="https://threadsgrab.com/media/count-threads-follower.jpg" loading="lazy" decoding="async" width="60" height="60" alt="" aria-hidden="true" /></div>
+            <h3>Nhấn <a href="#downloader" style="color:inherit;text-decoration:none;">Theo dõi</a></h3>
+            <p>Nhấn nút Theo dõi và ThreadsGrab sẽ ngay lập tức bắt đầu lấy số lượng người theo dõi mới nhất từ hồ sơ công khai trên Threads.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon"><img src="https://threadsgrab.com/media/track threads follower growth.jpg" loading="lazy" decoding="async" width="60" height="60" alt="" aria-hidden="true" /></div>
+            <h3>Xem trong thời gian thực</h3>
+            <p>Giữ trang mở và xem số lượng người theo dõi tự động cập nhật sau vài giây, kèm theo chênh lệch phiên, số lần poll và biểu đồ xu hướng trong phiên.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Information Content Section -->
+    <section class="info-section" aria-labelledby="infoIntroHeading">
+      <div class="container">
+        <article class="info-content">
+          <h2 id="infoIntroHeading"><a href="#infoIntroHeading" style="color:inherit;text-decoration:none;">Đếm người theo dõi Threads — Theo dõi tăng trưởng và phân tích trực tiếp</a></h2>
+          <p>
+            Theo dõi sự tăng trưởng người theo dõi trên Threads chỉ bằng cách sử dụng chế độ xem hồ sơ mặc định là một trải nghiệm khó chịu. Số lượng trong hồ sơ được lưu trong bộ nhớ đệm, không phải trực tiếp, vì vậy con số bạn thấy trong ứng dụng có thể đã cũ vài phút hoặc thậm chí vài giờ. Một công cụ đếm người theo dõi chuyên dụng loại bỏ việc làm mới thủ công bằng cách lấy số lượng công khai mới nhất với khoảng thời gian tự động ngắn và hiển thị cập nhật ngay khi phát hiện. Cho dù bạn đang theo dõi tài khoản của chính mình trong giai đoạn ra mắt, so sánh với đối thủ cạnh tranh hay nghiên cứu xu hướng tăng trưởng của các nhà sáng tạo, ThreadsGrab cung cấp cho bạn chế độ xem cập nhật liên tục — không cần đăng nhập, không cần cài đặt ứng dụng và không cần tải lại thủ công.</p>
+            <p>ThreadsGrab cũng là bộ công cụ đa năng của bạn cho mọi thứ liên quan đến Threads. Sau khi phân tích xu hướng người theo dõi, hãy sử dụng <a href="/vi/threads-video-downloader">Trình tải video Threads</a> để lưu các bài đăng chất lượng cao từ người sáng tạo, <a href="/vi/threads-image-downloader">Trình tải ảnh Threads</a> để lấy carousel và ảnh đơn, hoặc <a href="/vi/threads-profile-picture-downloader">Trình tải ảnh đại diện Threads</a> để tải ảnh đại diện kích thước đầy đủ cho mọi tài khoản bạn theo dõi.</p>
+
+          <h2 id="infoUpdatesHeading"><a href="#infoUpdatesHeading" style="color:inherit;text-decoration:none;">Tại sao số lượng người theo dõi không cập nhật ngay lập tức</a></h2>
+          <p>Threads, giống như mọi nền tảng xã hội lớn, nhóm các thay đổi số lượng người theo dõi qua các lớp bộ nhớ đệm để bảo vệ cơ sở hạ tầng khỏi bị quá tải bởi các ghi theo thời gian thực. Điều này có nghĩa là số hiển thị trong ứng dụng gốc không phải là nguồn cấp dữ liệu trực tiếp — đó là một ảnh chụp nhanh được làm mới ở các khoảng thời gian do Meta kiểm soát, có thể thay đổi từ vài giây đến nhiều phút tùy thuộc vào lưu lượng truy cập và tải máy chủ.</p>
+          <p>ThreadsGrab giảm thiểu độ trễ bằng cách poll điểm cuối hồ sơ công khai với chu kỳ ngắn hơn nhiều so với giao diện Threads mặc định. Trong thực tế, bạn thấy cập nhật sớm hơn nhiều so với việc tự làm mới hồ sơ, và các bảng chênh lệch phiên và biểu đồ xu hướng giúp ngay cả những thay đổi nhỏ cũng hiển thị ngay lập tức thay vì ẩn bên trong các số bộ nhớ đệm cũ.</p>
+
+          <h2 id="infoMilestoneHeading"><a href="#infoMilestoneHeading" style="color:inherit;text-decoration:none;">Đạt cột mốc với sự tự tin</a></h2>
+          <p>Các cột mốc — dù là 1K, 10K, 100K hay bất kỳ đâu giữa đó — cảm giác khác khi bạn đến gần. Chế độ xem hồ sơ gốc chỉ hiển thị cho bạn ảnh chụp nhanh trước và sau, vì vậy bạn không bao giờ biết chính xác thời điểm con số vượt qua hoặc quỹ đạo đã đạt đến đó như thế nào.</p>
+          <p>Một công cụ đếm người theo dõi trực tiếp biến những ảnh chụp nhanh rời rạc đó thành một câu chuyện liên tục. Thay vì làm mới 50 lần và đoán, bạn thấy con số tăng trong thời gian thực, xem nó vượt qua ngưỡng mục tiêu của bạn và sau đó xác minh thời điểm chính xác nó xảy ra trong lịch sử poll và biểu đồ xu hướng. Đà tăng trưởng dựa trên dữ liệu thú vị hơn nhiều so với một cú nhảy bất ngờ sau một lần làm mới ngẫu nhiên.</p>
+
+          <h2 id="infoChurnHeading"><a href="#infoChurnHeading" style="color:inherit;text-decoration:none;">Phát hiện hủy theo dõi và sự thay đổi khán giả sớm</a></h2>
+          <p>Hầu hết các nhà sáng tạo chỉ nhận thấy sự tăng trưởng — họ đăng ảnh chụp màn hình khi con số tăng lên, nhưng sự sụt giảm bí ẩn một tuần sau đó thường bị bỏ qua vì không có hồ sơ hiển thị về thời điểm nó xảy ra. Nếu bạn chỉ nhìn vào hồ sơ của mình thỉnh thoảng, việc mất 500 người theo dõi có thể giống như nhiễu thay vì tín hiệu.</p>
+          <p>ThreadsGrab hiển thị cả hai hướng chuyển động. Chênh lệch phiên làm nổi bật thay đổi ròng kể từ khi bạn bắt đầu theo dõi, mọi lần poll đều được ghi lại trong lịch sử biểu đồ xu hướng và các dấu giảm được hiển thị ngay thời điểm chúng xảy ra thay vì nhiều ngày sau khi bạn cuối cùng nhận thấy một số nhỏ hơn.</p>
+
+          <h2 id="infoCompetitorHeading"><a href="#infoCompetitorHeading" style="color:inherit;text-decoration:none;">Theo dõi đối thủ và người sáng tạo mà không cần kiểm tra thủ công</a></h2>
+          <p>Việc theo dõi tài khoản của người khác một cách thủ công rất tẻ nhạt — bạn không có lý do gì để làm mới hồ sơ của người khác theo lịch trình và bảng tính dễ bị lỗi thời ngay sau khi bạn lưu.</p>
+          <p>Với ThreadsGrab, chỉ cần nhập bất kỳ @username công khai nào một lần và công cụ sẽ lo phần còn lại. Bạn có thể chuyển đổi giữa các tài khoản được đề xuất, phổ biến và thịnh hành chỉ với một cú nhấp từ các bảng được hiển thị bên dưới công cụ đếm, hoặc nhập trực tiếp bất kỳ tên người dùng nào để theo dõi bất kỳ nhà sáng tạo nào bạn đang so sánh, nghiên cứu hoặc hợp tác.</p>
+
+          <h2 id="infoCompatHeading"><a href="#infoCompatHeading" style="color:inherit;text-decoration:none;">Hoạt động trên mọi thiết bị và trình duyệt</a></h2>
+          <p>Công cụ đếm người theo dõi của ThreadsGrab chạy 100% trong trình duyệt và hoạt động giống hệt nhau trên Android, iOS, Windows, Mac, Linux và mọi máy tính bảng. Giao diện đáp ứng thu nhỏ hoàn hảo cho mọi màn hình và trình theo dõi tương thích đầy đủ với Google Chrome, Safari, Firefox, Microsoft Edge, Opera và Brave. Không cần ứng dụng, không cần tiện ích mở rộng, không cần thiết lập — chỉ cần một tên người dùng và nút Theo dõi.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq" aria-labelledby="faqHeading">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="faqHeading">Câu hỏi thường gặp</h2>
+          <p class="section-subtitle">Tìm câu trả lời cho các câu hỏi phổ biến về theo dõi số lượng người theo dõi trên Threads.</p>
+        </div>
+
+        <div class="faq-list" role="list">
+          <div class="faq-item active" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="true" aria-controls="faqAnswer1" id="faqButton1">
+              <span>Công cụ đếm người theo dõi Threads chính xác đến mức nào?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer1" role="region" aria-labelledby="faqButton1">
+              <p>ThreadsGrab lấy dữ liệu người theo dõi trực tiếp từ thông tin hồ sơ công khai của Threads. Vì Meta không cung cấp API chính thức cho số lượng người theo dõi theo thời gian thực, nên số liệu thường chính xác trong phạm vi bộ nhớ đệm của nền tảng. Có thể có độ trễ nhỏ khi nguồn chưa cập nhật thay đổi, nhưng công cụ của chúng tôi làm mới thường xuyên hơn nhiều so với chế độ xem hồ sơ mặc định của Threads.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer2" id="faqButton2">
+              <span>Tại sao công cụ đếm người theo dõi đôi khi bị đóng băng hoặc ngừng cập nhật?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer2" role="region" aria-labelledby="faqButton2" hidden>
+              <p>Đóng băng hoặc tạm dừng hầu như luôn do sự cố mạng tạm thời hoặc giới hạn tốc độ của nguồn dữ liệu, không phải do công cụ đếm. Nếu nguồn chậm phát hành cập nhật, công cụ đếm sẽ bị đóng băng cho đến khi dữ liệu mới có sẵn. Bạn có thể nhấn nút Theo dõi lại để buộc poll mới.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer3" id="faqButton3">
+              <span>Tại sao có sự chênh lệch giữa công cụ đếm và ứng dụng Threads?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer3" role="region" aria-labelledby="faqButton3" hidden>
+              <p>Cả ứng dụng Threads và ThreadsGrab đều đọc từ cùng một dữ liệu công khai, nhưng chúng làm mới ở các khoảng thời gian độc lập. Trong khoảng thời gian giữa các chu kỳ làm mới, hai con số có thể tạm thời khác nhau. Đây là hành vi bình thường đối với bất kỳ công cụ phân tích bên thứ ba nào và các giá trị sẽ hội tụ sau lần poll tiếp theo.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer4" id="faqButton4">
+              <span>Tại sao số lượng người theo dõi không cập nhật ngay lập tức?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer4" role="region" aria-labelledby="faqButton4" hidden>
+              <p>Không thể cập nhật ngay lập tức vì Threads tập hợp số lượng người theo dõi thành các đợt bộ nhớ đệm định kỳ để quản lý tải máy chủ. ThreadsGrab giảm thiểu độ trễ bằng cách poll ở các khoảng thời gian ngắn, nhưng các sự kiện follow/unfollow rất nhanh vẫn có thể mất một thời gian ngắn để truyền tải. Đây là giới hạn bình thường ở cấp nền tảng, không phải lỗi công cụ.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer5" id="faqButton5">
+              <span>Sử dụng công cụ đếm người theo dõi Threads có an toàn không?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer5" role="region" aria-labelledby="faqButton5" hidden>
+              <p>Có. ThreadsGrab chỉ đọc thông tin hồ sơ công khai và không bao giờ yêu cầu tên người dùng, mật khẩu hay bất kỳ thông tin đăng nhập nào. Không có tương tác với tài khoản, không yêu cầu quyền và không có gì được gửi lại Threads. Để biết chi tiết đầy đủ, hãy xem <a href="/privacy-policy">Chính sách bảo mật</a> và <a href="/disclaimer">Tuyên bố miễn trách</a> của chúng tôi.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer6" id="faqButton6">
+              <span>Tôi có thể theo dõi số lượng người theo dõi của tài khoản Threads riêng tư không?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer6" role="region" aria-labelledby="faqButton6" hidden>
+              <p>Không. Các công cụ đếm người theo dõi Threads phụ thuộc vào dữ liệu hồ sơ công khai. Nếu tài khoản được đặt ở chế độ riêng tư, số người theo dõi của nó không được hiển thị cho trình thu thập dữ liệu công khai và do đó không thể theo dõi. ThreadsGrab tôn trọng cài đặt quyền riêng tư của người dùng và sẽ không bao giờ cố gắng vượt qua chúng.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="/vi.html" class="logo" aria-label="ThreadsGrab Trang chủ">
+            <img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" alt="ThreadsGrab Logo" width="40" height="40" loading="lazy" decoding="async" />
+            <span>ThreadsGrab</span>
+          </a>
+          <p>Công cụ trực tuyến nhanh nhất và đáng tin cậy nhất để lưu video, hình ảnh, ảnh đại diện công khai từ Threads với chất lượng đầy đủ, cộng với theo dõi số lượng người theo dõi trực tiếp. Chúng tôi không liên kết với Meta hay Threads.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Công cụ</h4>
+          <ul class="footer-links">
+            <li><a href="/vi/threads-video-downloader">Trình tải video Threads</a></li>
+            <li><a href="/vi/threads-image-downloader">Trình tải ảnh Threads</a></li>
+            <li><a href="/vi/threads-profile-picture-downloader">Trình tải ảnh đại diện Threads</a></li>
+            <li><a href="/vi/threads-follower-counter">Đếm người theo dõi Threads</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Công ty</h4>
+          <ul class="footer-links">
+            <li><a href="/about">Giới thiệu</a></li>
+            <li><a href="/contact">Liên hệ</a></li>
+            <li><a href="/privacy-policy">Chính sách bảo mật</a></li>
+            <li><a href="/disclaimer">Tuyên bố miễn trách</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Pháp lý &amp; Hỗ trợ</h4>
+          <ul class="footer-links">
+            <li><a href="/disclaimer">Chính sách DMCA</a></li>
+            <li>
+              <a href="mailto:contact.themistero@gmail.com" class="footer-link-email">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Liên hệ hỗ trợ
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 ThreadsGrab. Đã đăng ký bản quyền.</div>
+        <div class="footer-disclaimer-note">
+          Tuyên bố miễn trách: ThreadsGrab là một công cụ độc lập và không liên kết, không được chứng thực hay tài trợ bởi Instagram, Meta Platforms, Inc. hoặc Threads.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Accessibility Critical CSS -->
+  <style>
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999}
+    .skip-link:focus{position:fixed;top:0;left:0;width:auto;height:auto;padding:12px 20px;background:#4f46e5;color:#fff;font-weight:600;text-decoration:none;border-radius:0 0 6px 0;outline:2px solid #fff;outline-offset:2px}
+    .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+  <script defer src="/tdcount.js"></script>
+  <script>
+    (function attachMobileMenuToggle(){
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      if (!hamburgerBtn || !mobileNav) return;
+
+      function closeMenu() {
+        mobileNav.setAttribute('hidden', '');
+        mobileNav.classList.remove('open');
+        hamburgerBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>`;
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      }
+
+      hamburgerBtn.addEventListener('click', () => {
+        const isHidden = mobileNav.hasAttribute('hidden');
+        if (isHidden) {
+          mobileNav.removeAttribute('hidden');
+          mobileNav.classList.add('open');
+          hamburgerBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`;
+          hamburgerBtn.setAttribute('aria-expanded', 'true');
+        } else {
+          closeMenu();
+        }
+      });
+
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
+</body>
+</html>
