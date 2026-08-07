@@ -1,511 +1,906 @@
-<!doctype html>
-<html lang=es>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3844763220522801"
-     crossorigin="anonymous"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SP0ZHQ7HRQ"></script>
-<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-SP0ZHQ7HRQ")</script>
-<link rel=icon href=/threadsgrab-favicon.png>
-<link rel="shortcut icon" href=/threadsgrab-favicon.ico>
-<meta charset=UTF-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=application-name content="ThreadsGrab - Threads video Downloader">
-<link rel=canonical href=https://threadsgrab.com/es/ >
-<title>Descargador de Threads – Descarga videos, imágenes y fotos de perfil de Threads</title>
-<meta name=description content="El Descargador de Threads de ThreadsGrab hace que sea fácil descargar videos, imágenes y fotos de perfil de Threads en línea en alta calidad.">
-<meta property=og:site_name content="ThreadsGrab">
-<meta property=og:type content=website>
-<meta property=og:url content=https://threadsgrab.com/es/>
-<meta property=og:title content="Descargador de Threads - Descarga videos, imágenes y fotos de perfil de Threads">
-<meta property=og:description content="Descarga videos, imágenes y fotos de perfil de Threads en línea con ThreadsGrab. Pega el enlace de Threads y guarda el contenido en alta calidad en segundos.">
-<meta property=og:image content=https://threadsgrab.com/og-image.png>
-<meta name=twitter:card content=summary_large_image>
-<meta name=twitter:site content=@ThreadsGrab>
-<meta name=twitter:title content="Descargador de Threads - Descarga videos, imágenes y fotos de perfil de Threads">
-<meta name=twitter:description content="Descarga videos, imágenes y fotos de perfil de Threads en línea con ThreadsGrab. Pega el enlace de Threads y guarda el contenido en alta calidad en segundos.">
-<meta name=twitter:image content=https://threadsgrab.com/og-image.png>
-<meta name=author content=ThreadsGrab>
-<meta name=keywords content="descargador de Threads, descargar videos de Threads, imágenes y fotos de perfil, descargador de Threads HD, video de Threads sin marca de agua, ThreadsGrab">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="alternate" hreflang="en" href="https://threadsgrab.com/">
-<link rel="alternate" hreflang="fil" href="https://threadsgrab.com/ph/">
-<link rel="alternate" hreflang="es" href="https://threadsgrab.com/es/">
-<link rel="alternate" hreflang="id" href="https://threadsgrab.com/id/">
-<link rel="alternate" hreflang="de" href="https://threadsgrab.com/de/">
-<link rel="alternate" hreflang="pt-BR" href="https://threadsgrab.com/pt-br/">
-<link rel="alternate" hreflang="tr" href="https://threadsgrab.com/tr/">
-<link rel="alternate" hreflang="vi" href="https://threadsgrab.com/vi/">
-<link rel="alternate" hreflang="ar" href="https://threadsgrab.com/ar/">
-<link rel="alternate" hreflang="fr" href="https://threadsgrab.com/fr/">
-<link rel="alternate" hreflang="x-default" href="https://threadsgrab.com/">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://threadsgrab.com" />
 
-<link rel=stylesheet href=./romitscript.min/style.min/rky.style.min.css>
-<link rel=stylesheet href=../romitscript.min/style.min/blog.min.css>
-<style>.download-shadow{box-shadow:0 18px 36px rgba(255,255,255,.16),0 0 0 1px rgba(255,255,255,.08)!important;transition:box-shadow .2s ease-in-out,transform .2s ease-in-out}.download-shadow:hover{box-shadow:0 18px 36px rgba(255,255,255,.16),0 0 0 1px rgba(255,255,255,.08)!important}.download-shadow:active{transform:translateY(1px);box-shadow:0 18px 36px rgba(255,255,255,.16),0 0 0 1px rgba(255,255,255,.08)!important}.download-shadow.loading,.download-shadow.loading:hover,.download-shadow:disabled,.download-shadow:disabled:hover{box-shadow:0 18px 36px rgba(255,255,255,.16),0 0 0 1px rgba(255,255,255,.08)!important;opacity:1!important;filter:none!important;cursor:not-allowed}
-.lang-dropdown{position:relative;display:inline-block}
-.lang-btn{display:flex;align-items:center;gap:6px;padding:8px 16px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:9999px;color:white;font-size:14px;font-medium;cursor:pointer;transition:all .2s}
-.lang-btn:hover{background:rgba(255,255,255,.2)}
-.lang-btn svg{width:16px;height:16px}
-.lang-menu{position:absolute;top:100%;right:0;margin-top:8px;background:black;border:1px solid rgba(255,255,255,.2);border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,.5);min-width:180px;display:none;z-index:100;overflow:hidden}
-.lang-menu.show{display:block}
-.lang-option{display:flex;align-items:center;gap:10px;padding:12px 16px;color:white;text-decoration:none;cursor:pointer;transition:background .2s}
-.lang-option:hover{background:rgba(255,255,255,.1)}
-.lang-option.active{background:rgba(255,255,255,.1);border-left:3px solid white}
-.lang-flag{font-size:18px}
-.rotate-180{transform:rotate(180deg)}</style>
+  <title>Descargador de Threads - Descarga Videos, Imágenes y Fotos de Perfil de Threads</title>
 
+  <meta name="description" content="ThreadsGrab - El descargador de Threads gratuito #1 en línea. Guarda videos de Threads en HD MP4, imágenes, GIFs y fotos de perfil al instante. Funciona en Android, iPhone, Windows y Mac. Sin inicio de sesión, sin software, descargas gratis e ilimitadas." />
+  <meta name="keywords" content="descargador de threads, descargar videos de threads, descargar imágenes de threads, descargar foto de perfil threads, descargar videos de threads, guardar fotos de threads, descargador de foto de perfil threads, contador de seguidores threads, threads a mp4, descargador de threads gratis en línea, threadsgrab" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1" />
+  <meta name="author" content="ThreadsGrab" />
+  <link rel="canonical" href="https://threadsgrab.com/es" />
+  <link rel="alternate" hreflang="x-default" href="https://threadsgrab.com/" />
+  <link rel="alternate" hreflang="en" href="https://threadsgrab.com/" />
+  <link rel="alternate" hreflang="ru" href="https://threadsgrab.com/ru" />
+  <link rel="alternate" hreflang="es" href="https://threadsgrab.com/es" />
+  <link rel="alternate" hreflang="ko" href="https://threadsgrab.com/ko" />
+  <link rel="alternate" hreflang="ja" href="https://threadsgrab.com/ja" />
+  <link rel="alternate" hreflang="th" href="https://threadsgrab.com/th" />
+  <link rel="alternate" hreflang="de" href="https://threadsgrab.com/de" />
+  <link rel="alternate" hreflang="fr" href="https://threadsgrab.com/fr" />
+  <link rel="alternate" hreflang="hi" href="https://threadsgrab.com/hi" />
+  <link rel="alternate" hreflang="zh" href="https://threadsgrab.com/zh" />
+  <link rel="alternate" hreflang="it" href="https://threadsgrab.com/it" />
+  <link rel="alternate" hreflang="pt" href="https://threadsgrab.com/pt" />
+  <link rel="alternate" hreflang="bn" href="https://threadsgrab.com/bn" />
+  <link rel="alternate" hreflang="tr" href="https://threadsgrab.com/tr" />
+  <link rel="alternate" hreflang="id" href="https://threadsgrab.com/id" />
+  <link rel="alternate" hreflang="vi" href="https://threadsgrab.com/vi" />
+  <link rel="alternate" hreflang="ar" href="https://threadsgrab.com/ar" />
+  <link rel="alternate" hreflang="pl" href="https://threadsgrab.com/pl" />
+  <link rel="alternate" hreflang="uk" href="https://threadsgrab.com/uk" />
+  <link rel="alternate" hreflang="ur" href="https://threadsgrab.com/ur" />
+  <link rel="alternate" hreflang="af" href="https://threadsgrab.com/af" />
+  <link rel="alternate" hreflang="sv" href="https://threadsgrab.com/sv" />
+  <link rel="alternate" hreflang="ne" href="https://threadsgrab.com/ne" />
+  <link rel="alternate" hreflang="fa" href="https://threadsgrab.com/fa" />
+
+  <meta name="theme-color" content="#4f46e5" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://threadsgrab.com/es" />
+  <meta property="og:title" content="Descargador de Threads - Descarga Videos, Imágenes y Fotos de Perfil de Threads Gratis en Línea" />
+  <meta property="og:description" content="ThreadsGrab - El descargador de Threads gratuito #1 en línea. Guarda videos de Threads en HD MP4, imágenes, GIFs y fotos de perfil al instante. Funciona en Android, iPhone, Windows y Mac. Sin inicio de sesión, sin software, descargas gratis e ilimitadas." />
+  <meta property="og:image" content="https://threadsgrab.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:alt" content="Descargador de Threads - Descarga Videos, Imágenes y Fotos de Perfil de Threads Gratis en Línea" />
+  <meta property="og:site_name" content="ThreadsGrab" />
+  <meta property="og:locale" content="es_ES" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ThreadsGrab" />
+  <meta name="twitter:creator" content="@ThreadsGrab" />
+  <meta name="twitter:url" content="https://threadsgrab.com/es" />
+  <meta name="twitter:title" content="Descargador de Threads - Descarga Videos, Imágenes y Fotos de Perfil de Threads Gratis en Línea" />
+  <meta name="twitter:description" content="ThreadsGrab - El descargador de Threads gratuito #1 en línea. Guarda videos de Threads en HD MP4, imágenes, GIFs y fotos de perfil al instante. Funciona en Android, iPhone, Windows y Mac. Sin inicio de sesión, sin software, descargas gratis e ilimitadas." />
+  <meta name="twitter:image" content="https://threadsgrab.com/og-image.jpg" />
+  <meta name="twitter:image:width" content="1200" />
+  <meta name="twitter:image:height" content="630" />
+  <meta name="twitter:image:alt" content="Descargador de Threads - Descarga Videos, Imágenes y Fotos de Perfil de Threads Gratis en Línea" />
+
+  <link rel="stylesheet" href="/romitkrweb.css" />
+  <link rel="icon" type="image/png" href="https://threadsgrab.com/threadsgrab-logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://threadsgrab.com/threadsgrab-logo.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://threadsgrab.com/#organization",
+        "name": "ThreadsGrab",
+        "url": "https://threadsgrab.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "@id": "https://threadsgrab.com/#logo",
+          "url": "https://threadsgrab.com/threadsgrab-logo.png",
+          "width": 512,
+          "height": 512,
+          "caption": "Logotipo de ThreadsGrab"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "contact.themistero@gmail.com",
+          "contactType": "customer support",
+          "areaServed": "Worldwide",
+          "availableLanguage": ["Spanish", "English"]
+        },
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://threadsgrab.com/#website",
+        "url": "https://threadsgrab.com/",
+        "name": "ThreadsGrab",
+        "description": "Descargador de Threads gratuito en línea para videos, imágenes, GIFs y fotos de perfil. Guarda contenido público de Threads en calidad HD original en cualquier dispositivo.",
+        "publisher": { "@id": "https://threadsgrab.com/#organization" },
+        "inLanguage": "es-ES",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://threadsgrab.com/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://threadsgrab.com/og-image.jpg",
+        "url": "https://threadsgrab.com/og-image.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://threadsgrab.com/es/#webpage",
+        "url": "https://threadsgrab.com/es",
+        "name": "Descargador de Threads - Descarga Videos, Imágenes y Fotos de Perfil de Threads Gratis en Línea",
+        "description": "ThreadsGrab - El descargador de Threads gratuito #1 en línea. Guarda videos de Threads en HD MP4, imágenes, GIFs y fotos de perfil al instante. Funciona en Android, iPhone, Windows y Mac. Sin inicio de sesión, sin software, descargas gratis e ilimitadas.",
+        "isPartOf": { "@id": "https://threadsgrab.com/#website" },
+        "about": { "@id": "https://threadsgrab.com/#organization" },
+        "primaryImageOfPage": { "@id": "https://threadsgrab.com/og-image.jpg" },
+        "datePublished": "2026-03-15",
+        "dateModified": "2026-08-02",
+        "breadcrumb": { "@id": "https://threadsgrab.com/es/#breadcrumb" },
+        "inLanguage": "es-ES"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://threadsgrab.com/es/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://threadsgrab.com/es"
+          }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://threadsgrab.com/es/#webapp",
+        "name": "ThreadsGrab",
+        "url": "https://threadsgrab.com/es",
+        "description": "ThreadsGrab es una herramienta gratuita en línea que permite descargar videos, imágenes, GIFs y fotos de perfil públicos de Threads en su calidad original.",
+        "applicationCategory": "MultimediaApplication",
+        "applicationSubCategory": "Downloader",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requiere un navegador web moderno con JavaScript habilitado.",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "publisher": { "@id": "https://threadsgrab.com/#organization" }
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "@id": "https://threadsgrab.com/es/#navigation",
+        "name": "Navegación Principal",
+        "url": "https://threadsgrab.com/es",
+        "hasPart": [
+          {
+            "@type": "SiteNavigationElement",
+            "name": "Descargador de Videos de Threads",
+            "url": "https://threadsgrab.com/es/threads-video-downloader"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "name": "Descargador de Imágenes de Threads",
+            "url": "https://threadsgrab.com/es/threads-image-downloader"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "name": "Descargador de Foto de Perfil de Threads",
+            "url": "https://threadsgrab.com/es/threads-profile-picture-downloader"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "name": "Contador de Seguidores de Threads",
+            "url": "https://threadsgrab.com/es/threads-follower-counter"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "name": "Acerca de",
+            "url": "https://threadsgrab.com/about"
+          },
+          {
+            "@type": "SiteNavigationElement",
+            "name": "Contacto",
+            "url": "https://threadsgrab.com/contact"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "@id": "https://threadsgrab.com/es/#howto",
+    "name": "Cómo descargar videos, imágenes y fotos de perfil de Threads",
+    "description": "3 sencillos pasos para descargar cualquier publicación pública de Threads (video, imagen o foto de perfil) a tu dispositivo usando ThreadsGrab.",
+    "totalTime": "PT1M",
+    "estimatedCost": {
+      "@type": "MonetaryAmount",
+      "currency": "USD",
+      "value": "0"
+    },
+    "supply": [
+      {
+        "@type": "HowToSupply",
+        "name": "URL de una publicación pública de Threads (threads.net o threads.com)"
+      }
+    ],
+    "tool": [
+      {
+        "@type": "HowToTool",
+        "name": "ThreadsGrab.com",
+        "url": "https://threadsgrab.com/es"
+      }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Copia el enlace de la publicación de Threads",
+        "text": "Abre la app o el sitio web de Threads. Ve a la publicación pública que contiene el video, la imagen o la foto de perfil que quieres guardar. Toca el botón Compartir y elige Copiar enlace.",
+        "image": "https://threadsgrab.com/media/thread-photo-downloader.jpg",
+        "url": "https://threadsgrab.com/es/#howitworks"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Pega la URL en ThreadsGrab",
+        "text": "Ve a ThreadsGrab.com/es y pega el enlace copiado de Threads en el campo de entrada en la parte superior de la página. Haz clic en el botón morado Descargar para procesar la publicación.",
+        "image": "https://threadsgrab.com/media/threads-downloader-dp.jpg",
+        "url": "https://threadsgrab.com/es/#downloader"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Guarda el archivo en tu dispositivo",
+        "text": "Espera unos segundos mientras se procesa. Previsualiza el video, la imagen o la foto de perfil extraída, selecciona tu opción de calidad preferida y haz clic en Descargar para guardar el archivo directamente en tu teléfono, tableta o computadora.",
+        "image": "https://threadsgrab.com/media/threads-video-downloader.jpg",
+        "url": "https://threadsgrab.com/es/#downloader"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://threadsgrab.com/es/#faq",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/es/#faq-1",
+        "name": "¿Qué es ThreadsGrab?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ThreadsGrab es una herramienta web gratuita y todo en uno que te permite descargar videos públicos de Threads en HD MP4, guardar imágenes individuales o de carruseles en formato JPG, ver y descargar fotos de perfil en tamaño completo, y rastrear el número de seguidores de cualquier cuenta de Threads en tiempo real. Para más información, visita la página Acerca de."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/es/#faq-2",
+        "name": "¿Es gratis usar ThreadsGrab?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, ThreadsGrab es 100% gratis con descargas ilimitadas. Mostramos anuncios mínimos y no intrusivos para cubrir los costos del servidor y mantener el servicio disponible para todos sin costo alguno. Sin planes premium, sin tarifas ocultas, sin muros de pago."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/es/#faq-3",
+        "name": "¿Puedo descargar GIFs de Threads con ThreadsGrab?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, las publicaciones animadas (comúnmente llamadas GIFs) de Threads se pueden descargar. Sin embargo, Threads entrega todo el contenido animado en formato de video MP4 en lugar de archivos .gif nativos, por lo que tu descarga llegará como un MP4 estándar que conserva la misma animación y calidad que la publicación original."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/es/#faq-4",
+        "name": "¿ThreadsGrab permite descargar contenido de cuentas privadas de Threads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. ThreadsGrab solo puede procesar contenido de publicaciones configuradas como Públicas. No puede eludir la configuración de privacidad de Threads, acceder a cuentas protegidas o privadas, ni obtener contenido que el creador original haya restringido. Esta política protege tanto a los creadores de contenido como la privacidad de los usuarios."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/es/#faq-5",
+        "name": "¿Puedo guardar fotos de Threads con ThreadsGrab?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Por supuesto. ThreadsGrab permite descargar imágenes individuales en JPG, así como todas las imágenes de publicaciones de carrusel con varias fotos. Cada imagen se guarda en su resolución original sin compresión ni pérdida de calidad. Para extracción de imágenes dedicada, usa nuestra herramienta Descargador de Imágenes de Threads."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/es/#faq-6",
+        "name": "¿Puedo ver y descargar fotos de perfil de Threads (DP)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Pega el enlace de cualquier publicación de Threads o URL de perfil, luego cambia a la pestaña de foto de perfil (o visita la página dedicada al Descargador de Foto de Perfil de Threads) para ver la versión completa, sin recortar y en tamaño real de la foto de perfil de cualquier cuenta pública, y descargarla directamente a tu dispositivo."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/es/#faq-7",
+        "name": "¿Guardan mis descargas o mantienen algún registro de ellas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. ThreadsGrab opera con una política de cero registros y cero almacenamiento. Nunca almacenamos, almacenamos en caché ni conservamos ningún archivo multimedia que descargues. Todas las solicitudes de procesamiento se envían mediante conexiones HTTPS encriptadas, no se recopila información de identificación personal y cada descarga es completamente anónima."
+        }
+      }
+    ]
+  }
+  </script>
+<!-- anelatices -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SP0ZHQ7HRQ"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SP0ZHQ7HRQ');
+  </script>
 </head>
-<body class="bg-black text-white font-sans">
-  <script type=application/ld+json>
-{
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "ThreadsGrab",
-      "url": "https://threadsgrab.com/es/",
-      "description": "Descarga videos e imágenes de Threads fácilmente.",
-      "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "All"
-    }
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": "https://threadsgrab.com/es/#website",
-  "url": "https://threadsgrab.com/es/",
-  "name": "ThreadsGrab",
-  "alternateName": "Descargador de Threads",
-  "description": "ThreadsGrab es un descargador de Threads en línea gratuito que te permite descargar videos, imágenes y fotos de perfil de Threads, y verificar el número de seguidores.",
-  "publisher": {
-    "@type": "Organization",
-    "@id": "https://threadsgrab.com/es/#organization"
-  },
-  "inLanguage": "es"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "¿Es ThreadsGrab gratuito y necesito crear una cuenta?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí, ThreadsGrab es completamente gratuito de usar, sin necesidad de registrarse ni iniciar sesión en ningún paso. Esta es una decisión de diseño intencional: sin cuenta significa que nunca almacenamos datos personales vinculados a lo que descargas."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Descarga ThreadsGrab videos de Threads sin marca de agua?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí. Extraemos el archivo de video directamente de los propios servidores de Threads en lugar de grabar la pantalla de tu dispositivo, por lo que no se superpone ni se vuelve a codificar nada en el proceso. Lo que descargas es el mismo archivo que el creador publicó originalmente."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Por qué el descargador de Threads no funciona con algunos de los enlaces que he publicado?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Tres cosas causan esto casi siempre: la cuenta es privada, la publicación fue eliminada o editada después de que copiaras el enlace, o el enlace apunta a una página de perfil en lugar de a la publicación específica. Usa el ícono Compartir en la publicación exacta para copiar el enlace correcto."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Por qué el video o la imagen descargada parece de menor calidad?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Tu cuenta de Threads no tiene interacción con esta herramienta. Simplemente está diseñada para procesar URL disponibles públicamente. Crear o cambiar cualquier cosa relacionada con la cuenta de Threads de un usuario requiere que lo hagan por sí mismos a través del sitio web y/o la aplicación de Threads."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Por qué no puedo descargar contenido de cuentas privadas?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "ThreadsGrab no tiene forma de autenticarse en cuentas privadas, y eso es intencional. Solo procesamos URL accesibles públicamente y nunca pedimos un nombre de usuario o contraseña de Threads: cualquier herramienta que lo haga debe tratarse como una señal de alerta."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Por qué el descargador funciona en un navegador pero no en otro?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Debido a que los navegadores implementan scripts de usuario y privilegios de manera diferente, por lo que si el descargador no identificó tu navegador como funcional, aún es posible que otro navegador encuentre con éxito la aplicación del descargador y la descargue o la instale correctamente en ese caso."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Funciona ThreadsGrab en iPhone, Android y tabletas?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sí: ThreadsGrab se ejecuta completamente en tu navegador, por lo que no hay nada que instalar en iOS o Android. Copia el enlace desde el menú Compartir dentro de la aplicación de Threads y luego pégalo aquí desde el navegador de tu teléfono."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Es seguro usar ThreadsGrab? ¿Almacenas mis descargas?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No se requiere cuenta, nunca pedimos tu inicio de sesión de Threads y el contenido multimedia descargado no se guarda en nuestros servidores después de tu sesión. Consulta nuestra Política de privacidad para obtener todos los detalles."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Es legal descargar videos e imágenes de Threads?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Guardar contenido publicado públicamente para visualización personal sin conexión generalmente está bien. Reutilizar o redistribuir el contenido de otra persona comercialmente sin permiso es un problema de derechos de autor separado que se aplica sin importar qué herramienta se usó para descargarlo: esa responsabilidad recae en el usuario, no en el descargador."
-      }
-    }
-  ]
-}
-</script>
-<nav class="relative bg-black border-b border-white/10 py-4 shadow-lg z-50">
-<div class="max-w-6xl mx-auto px-4 flex items-center justify-between">
-<a href=https://threadsgrab.com/es/ class="text-2xl font-bold tracking-tighter text-white">ThreadsGrab</a>
-<div class="hidden md:flex items-center space-x-6 text-sm font-medium">
-<a href=./threads-video-downloader class="desktop-menu-link hover:text-white">Descargador de videos</a>
-<a href=./threads-image-downloader class="desktop-menu-link hover:text-white">Descargador de imágenes</a>
-<a href=./threads-profile-picture-downloader class="desktop-menu-link hover:text-white">Descargador de perfil</a>
-<a href=./threads-follower-counter class="desktop-menu-link hover:text-white"> Contador de seguidores</a>
-<a href=./about class="desktop-menu-link hover:text-white">Sobre nosotros</a>
-<a href=./blog class="desktop-menu-link hover:text-white">Blog</a>
-<a href=./contact class="desktop-menu-link hover:text-white">Contacto</a>
-<div class="lang-dropdown">
-<button class="lang-btn" id="langBtn">
-<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-</svg>
-Idioma
-</button>
-<div class="lang-menu" id="langMenu">
-<a href="https://threadsgrab.com/" class="lang-option">
-<span class="lang-flag">🇺🇸</span>
-English
-</a>
-<a href="https://threadsgrab.com/ph/" class="lang-option">
-<span class="lang-flag">🇵🇭</span>
-Filipino
-</a>
-<a href="https://threadsgrab.com/es/" class="lang-option active">
-<span class="lang-flag">🇪🇸</span>
-Español
-</a>
-<a href="https://threadsgrab.com/id/" class="lang-option">
-<span class="lang-flag">🇮🇩</span>
-Indonesian
-</a>
-<a href="https://threadsgrab.com/de/" class="lang-option">
-<span class="lang-flag">🇩🇪</span>
-Deutsch
-</a>
-<a href="https://threadsgrab.com/pt-br/" class="lang-option">
-<span class="lang-flag">🇧🇷</span>
-Português (BR)
-</a>
-<a href="https://threadsgrab.com/tr/" class="lang-option">
-<span class="lang-flag">🇹🇷</span>
-Türkçe
-</a>
-<a href="https://threadsgrab.com/vi/" class="lang-option">
-<span class="lang-flag">🇻🇳</span>
-Tiếng Việt
-</a>
-<a href="https://threadsgrab.com/ar/" class="lang-option">
-<span class="lang-flag">🇸🇦</span>
-العربية
-</a>
-<a href="https://threadsgrab.com/fr/" class="lang-option">
-<span class="lang-flag">🇫🇷</span>
-Français
-</a>
-</div>
-</div>
-</div>
-<button id=mobileMenuBtn class="md:hidden text-white focus:outline-none p-2">
-<svg class="w-6 h-6" fill=none stroke=currentColor viewBox="0 0 24 24" xmlns=http://www.w3.org/2000/svg>
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-</svg>
-</button>
-</div>
-<div id=mobileMenu class="fixed top-0 right-0 h-full bg-black border-l border-white/10 shadow-2xl z-[60] transform translate-x-full transition-transform duration-300 ease-in-out md:hidden overflow-y-auto w-72 sm:w-80 max-w-[80vw]">
-<div class=p-6>
-<div class="flex items-center justify-between mb-8">
-<span class="text-xl font-bold tracking-tighter text-white">ThreadsGrab</span>
-<button id=closeMenuBtn class="text-white focus:outline-none p-2">
-<svg class="w-6 h-6" fill=none stroke=currentColor viewBox="0 0 24 24" xmlns=http://www.w3.org/2000/svg>
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-</svg>
-</button>
-</div>
-<div class="flex flex-col space-y-4">
-<a href=/es/ class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">Inicio</a>
-<a href=./threads-video-downloader class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">Descargador de videos</a>
-<a href=./threads-image-downloader class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">Descargador de imágenes</a>
-<a href=./threads-profile-picture-downloader class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">Descargador de perfil</a>
-<a href=./threads-follower-counter class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors"> Contador de seguidores</a>
-<a href=./about class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">Sobre nosotros</a>
-<a href=./blog class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">Blog</a>
-<a href=./contact class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">Contacto</a>
-<div class="border-t border-white/10 pt-4 mt-2">
-<button class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors text-left" id="mobileLangBtn">
-<span class="flex items-center gap-2">
-<svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-</svg>
-Seleccionar idioma
-</span>
-<svg style="width:14px;height:14px;" class="transition-transform" id="mobileLangArrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-</svg>
-</button>
-<div id="mobileLangMenu" class="hidden pl-4">
-<a href="https://threadsgrab.com/" class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">
-🇺🇸 English
-</a>
-<a href="https://threadsgrab.com/ph/" class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">
-🇵🇭 Filipino
-</a>
-<a href="https://threadsgrab.com/es/" class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors active">
-🇪🇸 Español
-</a>
-<a href="https://threadsgrab.com/id/" class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">
-🇮🇩 Indonesian
-</a>
-<a href="https://threadsgrab.com/de/" class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">
-🇩🇪 Deutsch
-</a>
-<a href="https://threadsgrab.com/pt-br/" class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">
-🇧🇷 Português (BR)
-</a>
-<a href="https://threadsgrab.com/tr/" class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">
-🇹🇷 Türkçe
-</a>
-<a href="https://threadsgrab.com/vi/" class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">
-🇻🇳 Tiếng Việt
-</a>
-<a href="https://threadsgrab.com/ar/" class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">
-🇸🇦 العربية
-</a>
-<a href="https://threadsgrab.com/fr/" class="menu-link block px-4 py-3 rounded-xl text-white hover:bg-white/10 transition-colors">
-🇫🇷 Français
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</nav>
-<div style="display:flex;justify-content:center;align-items:center;margin:20px 0">
-<div>
-<script>atOptions={key:"f2616c23205cb5264ba0e046e706da51",format:"iframe",height:60,width:468,params:{}}</script>
-<script src=https://www.highperformanceformat.com/f2616c23205cb5264ba0e046e706da51/invoke.js></script>
-</div>
-</div>
-<header class="py-16 px-4 text-center bg-black">
-<h1 class="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight text-white">Descargador de Threads</h1>
-<div class="max-w-3xl mx-auto bg-[#000] p-6 rounded-2xl shadow-xl border border-white/20">
-<div class="flex flex-col md:flex-row gap-3">
-<input id=threadsUrl placeholder="Pega el enlace de Threads aquí (ej: https://www.threads.net/@usuario/post/...)" class="flex-1 px-4 py-4 rounded-xl border border-white/20 bg-[#000] text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white transition-all">
-<button id=downloadBtn class="bg-[#000] text-white px-8 py-4 rounded-xl font-bold hover:bg-black/70 transition-all shadow-lg shadow-black/50 active:scale-95 download-shadow border border-white/20">
-Descargar
-</button>
-</div>
-<div id=statusMessage class="mt-4 text-sm hidden text-white"></div>
-</div>
-</header>
-<section id=resultSection class="max-w-3xl mx-auto px-4 py-8 hidden">
-<div class="bg-[#000] p-6 rounded-2xl shadow-md border border-white/20 text-center">
-<h2 class="text-xl font-bold mb-4 text-white">Tu contenido está listo</h2>
-<div id=previewContainer class="mb-6 rounded-lg overflow-hidden bg-[#000] flex justify-center items-center min-h-[200px]">
-</div>
-<a id=finalDownloadBtn href=# target=_blank class="inline-block bg-white text-black px-10 py-4 rounded-xl font-bold hover:bg-white/90 transition-all shadow-lg shadow-black/50 download-shadow border border-black/10">
-Guardar en dispositivo
-</a>
-</div>
-</section>
-<div style="display:flex;justify-content:center;align-items:center;margin:20px 0">
-<div>
-<script>atOptions={key:"f2616c23205cb5264ba0e046e706da51",format:"iframe",height:60,width:468,params:{}}</script>
-<script src=https://www.highperformanceformat.com/f2616c23205cb5264ba0e046e706da51/invoke.js></script>
-</div>
-</div>
-<section class="max-w-6xl mx-auto px-4 py-16">
-<h2 class="text-3xl font-bold text-center mb-8 text-white">Descarga videos, imágenes y fotos de perfil de Threads fácilmente. </h2>
-<div class="mb-10 flex justify-center">
-<img src=https://threadsgrab.com/mediapic/threads-video-downloader.gif alt="Cómo descargar videos e imágenes de Threads usando ThreadsGrab" width="600" height="350" class="max-w-full h-auto rounded-xl border border-white/20 shadow-lg">
-</div>
-<div class="tg-blog">
-  <section class="tg-box">
-<h2> ¿Cómo descargar videos e imágenes de Threads? </h2>
-<h3 >1.  Copiar enlace</h3>
-<p >Abre la aplicación o el sitio web de Threads y copia el enlace de la publicación que guardarás en tu dispositivo.</p>
-<h3>2.  Pegar enlace</h3>
-<p >Pega el enlace en nuestro cuadro de descarga y haz clic en el botón de descargar.</p>
-<h3 >3.  Descargar</h3>
-<p> Aparecerá el video o la imagen de tu publicación de Threads que contiene un clic en el botón de guardar y tu contenido multimedia se descargará y guardará en tu carpeta de descargas.</p>
+<body>
 
-</section> </div>
-</section>
-<div style="display:flex;justify-content:center;align-items:center;margin:20px 0">
-<div>
-<script>atOptions={key:"f2616c23205cb5264ba0e046e706da51",format:"iframe",height:60,width:468,params:{}}</script>
-<script src=https://www.highperformanceformat.com/f2616c23205cb5264ba0e046e706da51/invoke.js></script>
-</div>
-</div>
+  <header class="header" id="siteHeader" role="banner">
+    <div class="container header-inner">
+      <a href="/es" class="logo" id="siteLogo" aria-label="ThreadsGrab - Inicio">
+        <img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" alt="Logotipo de ThreadsGrab" width="40" height="40" loading="eager" decoding="async" />
+        <span>ThreadsGrab</span>
+      </a>
 
-<section>
-<div class="tg-blog">
-  <section class="tg-box">
-<h2 >
-ThreadsGrab: un descargador de Threads y contador de seguidores en un solo lugar.
-</h2>
-<p>
-Threads hace que sea fácil desplazarse por las publicaciones y ver perfiles, pero en el momento en que quieres guardar una foto en resolución completa, descargar un video, obtener la foto de perfil de alguien o simplemente verificar el número de seguidores, te topas con un obstáculo. La aplicación simplemente no fue diseñada para eso.
-</p>
-<p>Creamos ThreadsGrab para cerrar esa brecha.</p>
-<p>Después de pasar tiempo usando Threads a diario y encontrándonos con las mismas frustraciones (sin opción de descarga nativa, sin forma rápida de ver estadísticas de seguidores, sin acceso fácil a imágenes de tamaño completo), diseñamos ThreadsGrab en torno a una sola idea: una herramienta, un pegado, un resultado. Sin crear una cuenta, sin saltar entre cinco extensiones de navegador diferentes o aplicaciones de terceros dudosas. <a href="/about.html"> Leer más...</a></p>
-</section>  </div>
-<div class="tg-blog">
-  <section class="tg-box">
-<h2>
-Herramientas de ThreadsGrab: video, imagen, perfil y contador de seguidores
-</h2>
-<p>
-ThreadsGrab reúne las pocas cosas que los usuarios de Threads realmente buscan: descargas de videos, guardado de imágenes, acceso a fotos de perfil y seguimiento de seguidores, en un solo recurso sencillo. Mantenemos cada función separada y enfocada, por lo que cada herramienta hace su único trabajo bien sin complejidad innecesaria</p> 
-<p>Cada herramienta funciona de forma independiente, diseñada para su propósito específico. Pero las diseñamos todas en torno al mismo proceso simple, por lo que una vez que hayas usado una, ya sabes cómo usar las demás. No hay necesidad de volver a aprender pasos o navegar por interfaces diferentes para cada tarea.
-Esa coherencia es intencional. Es lo que hace que ThreadsGrab sea menos sobre ser "una herramienta gigante" y más sobre ser una forma fiable y repetible de obtener exactamente lo que necesitas de Threads, cada vez.
-</p> </section>  </div>
-<div class="tg-blog">
-  <section class="tg-box">
-<h2>
-Descargador de videos de Threads: cómo descargar videos de Threads sin marca de agua
-</h2>
-<p>
-Threads no ofrece una forma integrada de descargar videos de Threads: una limitación intencional compartida por la mayoría de las aplicaciones sociales, que están diseñadas para mantener a los espectadores desplazándose dentro de la aplicación en lugar de descargar y salir. Como resultado, los usuarios a menudo recurren a la grabación de pantalla, que vuelve a codificar el metraje y generalmente reduce la resolución, o a aplicaciones de terceros que agregan su propia marca o requieren instalar software de fuentes no verificadas.
-</p> <p>Con el <a href=https://threadsgrab.com/threads-video-downloader title="Descargador de videos de Threads"> Descargador de videos de Threads</a> de ThreadsGrab, el proceso es más simple: copia el enlace a una publicación de Threads, pégalo en la herramienta y recupera el video directamente desde la fuente en la resolución disponible, sin volver a codificar ni agregar una marca de agua. No hay nada que instalar, ya que este descargador de Threads se ejecuta completamente en el navegador.
-</p><p>Es una forma práctica de guardar videos de Threads para uso sin conexión o personal.</p> </section>  </div>
-<div class="tg-blog">
-  <section class="tg-box">
-<h2>
-Descargador de imágenes de Threads: descarga fotos de Threads en tamaño completo
-</h2>
-<p>
-Threads hace que sea fácil ver las imágenes que las personas comparten, pero obtener una copia adecuada de una no es tan simple. La mayoría de los métodos de guardado comunes (captura de pantalla, pulsación prolongada o guardado con clic derecho) comprimen el archivo o lo recortan de sus dimensiones reales, lo que es un problema si estás intentando archivar o reutilizar la imagen correctamente.
-</p><p>El <a href=https://threadsgrab.com/threads-image-downloader title="Descargador de imágenes de Threads">Descargador de imágenes de Threads</a> está diseñado específicamente para descargar imágenes de Threads en tamaño completo. Pega el enlace a una publicación de Threads y la herramienta extrae la imagen directamente desde la fuente en su resolución original, no una copia reducida o guardada nuevamente. Para publicaciones con varias imágenes, este descargador de fotos de Threads obtiene todas en una sola pasada, por lo que no hay necesidad de repetir el proceso imagen por imagen.
-</p><p>Es una forma fiable de descargar imágenes de Threads y guardar imágenes de Threads para uso sin conexión o archivo personal, sin perder detalle ni pasar tiempo extra en ello. </p> </section>  </div>
-<div class="tg-blog">
-  <section class="tg-box">
-<h2>
-Guarda fotos de perfil con el Descargador de DP de Threads
-</h2>
-<p>
-Las fotos de perfil en Threads generalmente se muestran en miniaturas comprimidas de baja resolución, incluso cuando la imagen original que el usuario cargó era de alta calidad. Haz zoom en cualquier foto de perfil de Threads y la calidad disminuye rápidamente: bordes suaves, pixelación visible, nada que querrías usar realmente.
-</p> <p>El <a href=https://threadsgrab.com/threads-profile-picture-downloader title="Descargador de DP de Threads"> Descargador de DP de Threads</a> de ThreadsGrab resuelve esto al extraer la foto de perfil directamente desde su archivo de origen en lugar de la versión comprimida que se muestra en la aplicación o el sitio web. Eso significa que, en lugar de depender de una captura de pantalla (que solo captura cualquier versión de baja resolución que esté en tu pantalla), obtienes un enlace directo a la imagen en su resolución máxima original.
-</p> <p>Esto hace que la herramienta sea especialmente útil cuando necesites una copia limpia y de alta calidad de una foto de perfil de Threads: para trabajo de diseño, fines de verificación, archivo o simplemente para obtener una visión más clara de una foto que la que la plataforma normalmente te muestra.
-</p></section>  </div>
-<div class="tg-blog"> 
-  <section class="tg-box">
-<h2>
-Seguimiento del número de seguidores en Threads con el Contador de seguidores
-</h2>
-<p>
-Threads muestra tu número de seguidores en tu perfil, pero las actualizaciones no ocurren en tiempo real. Actualiza un par de veces y a menudo verás el mismo número, luego salta sin previo aviso, ya que la plataforma agrupa los recuentos internamente en lugar de actualizarlos instantáneamente.
-</p><p>El <a href=https://threadsgrab.com/threads-follower-counter title="Contador de seguidores de Threads"> Contador de seguidores de Threads</a> te da un solo lugar para verificar tu número sin tener que actualizar repetidamente tu perfil. Extrae los datos más actuales disponibles, por lo que no te quedas adivinando si el número realmente se ha actualizado.
-</p><p>No es una herramienta de análisis completa (sin gráficos de crecimiento ni tendencias históricas), pero sí elimina la suposición para cualquiera que verifique su número con frecuencia.
-</p> </section>  </div>
-</section>
-<section class="bg-black py-16">
-<div class="max-w-4xl mx-auto px-4">
-<h2 class="text-3xl font-bold text-center mb-12 text-white">Preguntas frecuentes: FAQ</h2>
-<div class=space-y-6>
-<div class="border-b border-white/20 pb-4 shadow-md">
-<h3 class="font-bold text-lg mb-2 text-white">¿Es ThreadsGrab gratuito y necesito crear una cuenta?</h3>
-<p class=text-white>
-Sí, ThreadsGrab es completamente gratuito de usar, sin necesidad de registrarse ni iniciar sesión en ningún paso. Esta es una decisión de diseño intencional: sin cuenta significa que nunca almacenamos datos personales vinculados a lo que descargas.</p>
-</div>
-<div class="border-b border-white/20 pb-4 shadow-md">
-<h3 class="font-bold text-lg mb-2 text-white">¿Descarga ThreadsGrab videos de Threads sin marca de agua?</h3>
-<p class=text-white>Sí. Extraemos el archivo de video directamente de los propios servidores de Threads en lugar de grabar la pantalla de tu dispositivo, por lo que no se superpone ni se vuelve a codificar nada en el proceso. Lo que descargas es el mismo archivo que el creador publicó originalmente.</p>
-</div>
-<div class="border-b border-white/20 pb-4 shadow-md">
-<h3 class="font-bold text-lg mb-2 text-white">¿Por qué el descargador de Threads no funciona con algunos de los enlaces que he publicado?</h3>
-<p class=text-white>Tres cosas causan esto casi siempre: la cuenta es privada, la publicación fue eliminada o editada después de que copiaras el enlace, o el enlace apunta a una página de perfil en lugar de a la publicación específica. Usa el ícono Compartir en la publicación exacta para copiar el enlace correcto.</p>
-</div>
-<div class="border-b border-white/20 pb-4 shadow-md">
-<h3 class="font-bold text-lg mb-2 text-white">¿Por qué el video o la imagen descargada parece de menor calidad?</h3>
-<p class=text-white>Tu cuenta de Threads no tiene interacción con esta herramienta. Simplemente está diseñada para procesar URL disponibles públicamente. Crear o cambiar cualquier cosa relacionada con la cuenta de Threads de un usuario requiere que lo hagan por sí mismos a través del sitio web y/o la aplicación de Threads.</p>
-</div>
-<div class="border-b border-white/20 pb-4 shadow-md">
-<h3 class="font-bold text-lg mb-2 text-white">¿Por qué no puedo descargar contenido de cuentas privadas?</h3>
-<p class=text-white>ThreadsGrab no tiene forma de autenticarse en cuentas privadas, y eso es intencional. Solo procesamos URL accesibles públicamente y nunca pedimos un nombre de usuario o contraseña de Threads: cualquier herramienta que lo haga debe tratarse como una señal de alerta.
-</p></div>
-<div class="border-b border-white/20 pb-4 shadow-md">
-<h3 class="font-bold text-lg mb-2 text-white">¿Por qué el descargador funciona en un navegador pero no en otro?</h3>
-<p class=text-white> Debido a que los navegadores implementan scripts de usuario y privilegios de manera diferente, por lo que si el descargador no identificó tu navegador como funcional, aún es posible que otro navegador encuentre con éxito la aplicación del descargador y la descargue o la instale correctamente en ese caso.</p>
-</div>
-<div class="border-b border-white/20 pb-4 shadow-md">
-<h3 class="font-bold text-lg mb-2 text-white">¿Funciona ThreadsGrab en iPhone, Android y tabletas?</h3>
-<p class=text-white>Sí: ThreadsGrab se ejecuta completamente en tu navegador, por lo que no hay nada que instalar en iOS o Android. Copia el enlace desde el menú Compartir dentro de la aplicación de Threads y luego pégalo aquí desde el navegador de tu teléfono.</p>
-</div>
-<div class="border-b border-white/20 pb-4 shadow-md">
-<h3 class="font-bold text-lg mb-2 text-white">¿Es seguro usar ThreadsGrab? ¿Almacenas mis descargas?</h3>
-<p class=text-white>No se requiere cuenta, nunca pedimos tu inicio de sesión de Threads y el contenido multimedia descargado no se guarda en nuestros servidores después de tu sesión. Consulta nuestra <a href="/privacy-policy" class="text-blue-500 hover:underline">Política de privacidad</a> para obtener todos los detalles.</p>
-</div>
-<div class="border-b border-white/20 pb-4 shadow-md">
-<h3 class="font-bold text-lg mb-2 text-white">¿Es legal descargar videos e imágenes de Threads?</h3>
-<p class=text-white>Guardar contenido publicado públicamente para visualización personal sin conexión generalmente está bien. Reutilizar o redistribuir el contenido de otra persona comercialmente sin permiso es un problema de derechos de autor separado que se aplica sin importar qué herramienta se usó para descargarlo: esa responsabilidad recae en el usuario, no en el descargador.</p>
-</div>
-</div>
-</div>
-</section>
-<footer class="bg-[#000] text-white py-12 px-4">
-<div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-8">
-<div class=col-span-2>
-<h3 class="text-white text-xl font-bold mb-4">ThreadsGrab</h3>
-<p class="text-sm text-white">La forma más rápida de descargar videos e imágenes de Threads. No estamos afiliados a Meta ni a Threads.</p>
-</div>
-<div>
-<h4 class="text-white font-bold mb-4">Enlaces rápidos</h4>
-<ul class="space-y-2 text-sm">
-<li><a href=/about class=hover:text-white>Sobre nosotros</a></li>
-<li><a href=/privacy-policy class=hover:text-white>Política de privacidad</a></li>
-<li><a href=/disclaimer class=hover:text-white>Aviso legal</a></li>
-</ul>
+      <nav class="nav-desktop" id="desktopNav" role="navigation" aria-label="Navegación Principal">
+        <a href="/es/threads-video-downloader" class="nav-link" id="navVideo">Descargador de Videos</a>
+        <a href="/es/threads-image-downloader" class="nav-link" id="navImage">Descargador de Imágenes</a>
+        <a href="/es/threads-profile-picture-downloader" class="nav-link" id="navDp">Descargador de Foto de Perfil</a>
+        <a href="/es/threads-follower-counter" class="nav-link" id="navCounter">Contador de Seguidores</a>
+        <a href="/contact" class="nav-link" id="navContact">Contacto</a>
+      </nav>
 
-</div>
-<div>
-<h4 class="text-white font-bold mb-4">Otras herramientas</h4>
-<ul class="space-y-2 text-sm">
-<li><a href=https://fbviddl.com/ class=hover:text-white>Descargador de Facebook</a></li>
-<li><a href=https://instadpdownload.com/ class=hover:text-white>Descargador de DP de Instagram</a></li>
-</ul>
-</div>
-</div>
-<div class="max-w-6xl mx-auto mt-12 pt-8 border-t border-white/20 text-center text-xs">
-&copy; 2026 ThreadsGrab. Todos los derechos reservados.
-</div>
-</footer>
-<script src=./romitscript.min/rky.viscript.min.js></script>
-<script src=./romitscript.min/menu.min.js></script>
-<script>
-document.getElementById('langBtn').addEventListener('click', function(e) {
-e.stopPropagation();
-document.getElementById('langMenu').classList.toggle('show');
-});
-document.addEventListener('click', function() {
-document.getElementById('langMenu').classList.remove('show');
-});
-document.getElementById('mobileLangBtn').addEventListener('click', function(e) {
-e.stopPropagation();
-const menu = document.getElementById('mobileLangMenu');
-const arrow = document.getElementById('mobileLangArrow');
-menu.classList.toggle('hidden');
-arrow.classList.toggle('rotate-180');
-});
-</script>
+     <div class="header-actions">
+        <div class="lang-desktop">
+          <button class="lang-btn" id="langBtnDesktop" type="button" aria-label="Seleccionar idioma" aria-haspopup="listbox" aria-expanded="false" aria-controls="langPanelDesktop">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+            <span class="lang-btn-label" id="langBtnLabelDesktop">Español</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-panel" id="langPanelDesktop" role="listbox" aria-label="Language selection" hidden>
+            <a href="/" class="lang-item active" role="option" aria-selected="true" data-lang-code="en" data-lang-name="English"><span class="lang-code">US</span><span class="lang-texts"><strong>English</strong><span class="lang-sub">English</span></span></a>
+           <a href="/ru" class="lang-item" role="option" aria-selected="false" data-lang-code="ru" data-lang-name="Russian"> <span class="lang-code">RU</span> <span class="lang-texts"><strong>Русский</strong><span class="lang-sub">Russian</span></span></a>
+            <a href="/es" class="lang-item" role="option" aria-selected="false" data-lang-code="es" data-lang-name="Spanish"><span class="lang-code">ES</span><span class="lang-texts"><strong>Español</strong><span class="lang-sub">Spanish</span></span></a>
+            <a href="/ko" class="lang-item" role="option" aria-selected="false" data-lang-code="ko" data-lang-name="Korean"><span class="lang-code">KR</span><span class="lang-texts"><strong>한국어</strong><span class="lang-sub">Korean</span></span></a>
+            <a href="/ja" class="lang-item" role="option" aria-selected="false" data-lang-code="ja" data-lang-name="Japanese"><span class="lang-code">JP</span><span class="lang-texts"><strong>日本語</strong><span class="lang-sub">Japanese</span></span></a>
+            <a href="/th" class="lang-item" role="option" aria-selected="false" data-lang-code="th" data-lang-name="Thai"><span class="lang-code">TH</span><span class="lang-texts"><strong>ไทย</strong><span class="lang-sub">Thai</span></span></a>
+            <a href="/de" class="lang-item" role="option" aria-selected="false" data-lang-code="de" data-lang-name="German"><span class="lang-code">DE</span><span class="lang-texts"><strong>Deutsch</strong><span class="lang-sub">German</span></span></a>
+            <a href="/fr" class="lang-item" role="option" aria-selected="false" data-lang-code="fr" data-lang-name="French"><span class="lang-code">FR</span><span class="lang-texts"><strong>Français</strong><span class="lang-sub">French</span></span></a>
+            <a href="/hi" class="lang-item" role="option" aria-selected="false" data-lang-code="hi" data-lang-name="Hindi"><span class="lang-code">IN</span><span class="lang-texts"><strong>हिन्दी</strong><span class="lang-sub">Hindi</span></span></a>
+            <a href="/zh" class="lang-item" role="option" aria-selected="false" data-lang-code="zh" data-lang-name="Chinese"><span class="lang-code">CN</span><span class="lang-texts"><strong>中文</strong><span class="lang-sub">Chinese</span></span></a>
+            <a href="/it" class="lang-item" role="option" aria-selected="false" data-lang-code="it" data-lang-name="Italian"><span class="lang-code">IT</span><span class="lang-texts"><strong>Italiano</strong><span class="lang-sub">Italian</span></span></a>
+            <a href="/pt" class="lang-item" role="option" aria-selected="false" data-lang-code="pt" data-lang-name="Portuguese"><span class="lang-code">PT</span><span class="lang-texts"><strong>Português</strong><span class="lang-sub">Portuguese</span></span></a>
+            <a href="/bn" class="lang-item" role="option" aria-selected]="false" data-lang-code="bn" data-lang-name="Bengali"><span class="lang-code">BD</span><span class="lang-texts"><strong>বাংলা</strong><span class="lang-sub">Bengali</span></span></a>
+            <a href="/tr" class="lang-item" role="option" aria-selected="false" data-lang-code="tr" data-lang-name="Turkish"><span class="lang-code">TR</span><span class="lang-texts"><strong>Türkçe</strong><span class="lang-sub">Turkish</span></span></a>
+            <a href="/id" class="lang-item" role="option" aria-selected="false" data-lang-code="id" data-lang-name="Indonesian"><span class="lang-code">ID</span><span class="lang-texts"><strong>Indonesia</strong><span class="lang-sub">Indonesian</span></span></a>
+            <a href="/vi" class="lang-item" role="option" aria-selected="false" data-lang-code="vi" data-lang-name="Vietnamese"><span class="lang-code">VN</span><span class="lang-texts"><strong>Tiếng Việt</strong><span class="lang-sub">Vietnamese</span></span></a>
+            <a href="/ar" class="lang-item" role="option" aria-selected="false" data-lang-code="ar" data-lang-name="Arabic"><span class="lang-code">SA</span><span class="lang-texts"><strong>العربية</strong><span class="lang-sub">Arabic</span></span></a>
+            <a href="/pl" class="lang-item" role="option" aria-selected="false" data-lang-code="pl" data-lang-name="Polish"><span class="lang-code">PL</span><span class="lang-texts"><strong>Polski</strong><span class="lang-sub">Polish</span></span></a>
+            <a href="/uk" class="lang-item" role="option" aria-selected="false" data-lang-code="uk" data-lang-name="Ukrainian"><span class="lang-code">UA</span><span class="lang-texts"><strong>Українська</strong><span class="lang-sub">Ukrainian</span></span></a>
+            <a href="/ur" class="lang-item" role="option" aria-selected="false" data-lang-code="ur" data-lang-name="Urdu"><span class="lang-code">PK</span><span class="lang-texts"><strong>اردو</strong><span class="lang-sub">Urdu</span></span></a>
+            <a href="/af" class="lang-item" role="option" aria-selected="false" data-lang-code="af" data-lang-name="Afrikaans"><span class="lang-code">ZA</span><span class="lang-texts"><strong>Afrikaans</strong><span class="lang-sub">Afrikaans</span></span></a>
+            <a href="/sv" class="lang-item" role="option" aria-selected="false" data-lang-code="sv" data-lang-name="Swedish"><span class = "lang-code ">SE</span><span class ="lang-texts"><strong>Svenska</strong ><span class ="lang-sub"> Swedish </span ></span></a>
+            <a href="/ne" class="lang-item" role="option" aria-selected="false" data-lang-code="ne" data-lang-name="Nepali"><span class = "lang-code ">NP</span><span class ="lang-texts "><strong >नेपlी</strong ><span class ="lang-sub"> Nepali </span></span></a >
+            <a href="/fa" class="lang-item" role="option" aria-selected="false" data-lang-code="fa" data-lang-name="Persian"><span	class	="lang-code">IR</span><span	class	="lang-texts"><strong	>فارسی</strong><span	class	="lang-sub">Persian	</span></span></a>
+          </div>
+        </div>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Alternar menú móvil" aria-expanded="false" aria-controls="mobileNav">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="4" x2="20" y1="12" y2="12"/>
+            <line x1="4" x2="20" y1="6" y2="6"/>
+            <line x1="4" x2="20" y1="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Navegación Móvil" hidden>
+    <a href="/es" class="nav-link active" aria-current="page">Inicio</a>
+    <a href="/es/threads-video-downloader" class="nav-link">Descargador de Videos de Threads</a>
+    <a href="/es/threads-image-downloader" class="nav-link">Descargador de Imágenes de Threads</a>
+    <a href="/es/threads-profile-picture-downloader" class="nav-link">Descargador de Foto de Perfil de Threads</a>
+    <a href="/es/threads-follower-counter" class="nav-link">Contador de Seguidores</a>
+    <a href="/about" class="nav-link">Acerca de Nosotros</a>
+    <a href="/contact" class="nav-link">Contacto</a>
+    <a href="/privacy-policy" class="nav-link">Política de Privacidad</a>
+    <div class="mobile-lang-section" aria-labelledby="mobileLangHeading">
+      <div class="mobile-lang-header" id="mobileLangHeading">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+        <span>Idioma</span>
+        <span class="mobile-lang-current" id="mobileLangCurrent">Español</span>
+      </div>
+      <div class="mobile-lang-grid" role="listbox" aria-label="Elige tu idioma">
+        <a href="/" class="mobile-lang-item active" role="option" aria-selected="true" data-lang-code="en" data-lang-name="English">
+          <span class="lang-code">US</span>
+          <span class="lang-texts"><strong>English</strong><span class="lang-sub">English</span></span>
+        </a>
+        <a href="/ru" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ru" data-lang-name="Russian"><span class="lang-code">RU</span><span class="lang-texts"><strong>Русский</strong><span class="lang-sub">Russian</span></span></a>
+        <a href="/es" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="es" data-lang-name="Spanish">
+          <span class="lang-code">ES</span>
+          <span class="lang-texts"><strong>Español</strong><span class="lang-sub">Spanish</span></span>
+        </a>
+        <a href="/ko" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ko" data-lang-name="Korean">
+          <span class="lang-code">KR</span>
+          <span class="lang-texts"><strong>한국어</strong><span class="lang-sub">Korean</span></span>
+        </a>
+        <a href="/ja" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ja" data-lang-name="Japanese">
+          <span class="lang-code">JP</span>
+          <span class="lang-texts"><strong>日本語</strong><span class="lang-sub">Japanese</span></span>
+        </a>
+        <a href="/th" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="th" data-lang-name="Thai">
+          <span class="lang-code">TH</span>
+          <span class="lang-texts"><strong>ไทย</strong><span class="lang-sub">Thai</span></span>
+        </a>
+        <a href="/de" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="de" data-lang-name="German">
+          <span class="lang-code">DE</span>
+          <span class="lang-texts"><strong>Deutsch</strong><span class="lang-sub">German</span></span>
+        </a>
+        <a href="/fr" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="fr" data-lang-name="French">
+          <span class="lang-code">FR</span>
+          <span class="lang-texts"><strong>Français</strong><span class="lang-sub">French</span></span>
+        </a>
+        <a href="/hi" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="hi" data-lang-name="Hindi">
+          <span class="lang-code">IN</span>
+          <span class="lang-texts"><strong>हिन्दी</strong><span class="lang-sub">Hindi</span></span>
+        </a>
+        <a href="/zh" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="zh" data-lang-name="Chinese">
+          <span class="lang-code">CN</span>
+          <span class="lang-texts"><strong>中文</strong><span class="lang-sub">Chinese</span></span>
+        </a>
+        <a href="/it" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="it" data-lang-name="Italian">
+          <span class="lang-code">IT</span>
+          <span class="lang-texts"><strong>Italiano</strong><span class="lang-sub">Italian</span></span>
+        </a>
+        <a href="/pt" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="pt" data-lang-name="Portuguese">
+          <span class="lang-code">PT</span>
+          <span class="lang-texts"><strong>Português</strong><span class="lang-sub">Portuguese</span></span>
+        </a>
+        <a href="/bn" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="bn" data-lang-name="Bengali">
+          <span class="lang-code">BD</span>
+          <span class="lang-texts"><strong>বাংলা</strong><span class="lang-sub">Bengali</span></span>
+        </a>
+        <a href="/tr" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="tr" data-lang-name="Turkish">
+          <span class="lang-code">TR</span>
+          <span class="lang-texts"><strong>Türkçe</strong><span class="lang-sub">Turkish</span></span>
+        </a>
+        <a href="/id" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="id" data-lang-name="Indonesian">
+          <span class="lang-code">ID</span>
+          <span class="lang-texts"><strong>Indonesia</strong><span class="lang-sub">Indonesian</span></span>
+        </a>
+        <a href="/vi" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="vi" data-lang-name="Vietnamese">
+          <span class="lang-code">VN</span>
+          <span class="lang-texts"><strong>Tiếng Việt</strong><span class="lang-sub">Vietnamese</span></span>
+        </a>
+        <a href="/ar" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ar" data-lang-name="Arabic">
+          <span class="lang-code">SA</span>
+          <span class="lang-texts"><strong>العربية</strong><span class="lang-sub">Arabic</span></span>
+        </a>
+        <a href="/pl" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="pl" data-lang-name="Polish">
+          <span class="lang-code">PL</span>
+          <span class="lang-texts"><strong>Polski</strong><span class="lang-sub">Polish</span></span>
+        </a>
+        <a href="/uk" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="uk" data-lang-name="Ukrainian">
+          <span class="lang-code">UA</span>
+          <span class="lang-texts"><strong>Українська</strong><span class="lang-sub">Ukrainian</span></span>
+        </a>
+        <a href="/ur" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ur" data-lang-name="Urdu">
+          <span class="lang-code">PK</span>
+          <span class="lang-texts"><strong>اردو</strong><span class="lang-sub">Urdu</span></span>
+        </a>
+        <a href="/af" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="af" data-lang-name="Afrikaans">
+          <span class="lang-code">ZA</span>
+          <span class="lang-texts"><strong>Afrikaans</strong><span class="lang-sub">Afrikaans</span></span>
+        </a>
+        <a href="/sv" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="sv" data-lang-name="Swedish">
+          <span class="lang-code">SE</span>
+          <span class="lang-texts"><strong>Svenska</strong><span class="lang-sub">Swedish</span></span>
+        </a>
+        <a href="/ne" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ne" data-lang-name="Nepali">
+          <span class="lang-code">NP</span>
+          <span class="lang-texts"><strong>नेपाली</strong><span class="lang-sub">Nepali</span></span>
+        </a>
+        <a href="/fa" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="fa" data-lang-name="Persian">
+          <span class="lang-code">IR</span>
+          <span class="lang-texts"><strong>فارسی</strong><span class="lang-sub">Persian</span></span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="mainContent" role="main">
+    <section class="hero-section" id="downloader" aria-labelledby="heroHeading">
+      <div class="container">
+        <h1 class="hero-title" id="heroHeading">Descargador de Threads</h1>
+        <p class="hero-subtitle hero-subtitle-sm">
+          Descarga videos en HD, imágenes de alta resolución, fotos de perfil en tamaño completo de Threads y rastrea el número de seguidores, todo en una sola herramienta gratuita.
+        </p>
+
+        <div class="tool-tabs" id="toolTabs" role="tablist" aria-label="Herramientas del Descargador">
+          <a href="/es/threads-video-downloader" class="tool-tab" id="toolVideoTab" role="tab" aria-selected="false" aria-label="Descargador de Videos">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect width="15" height="14" x="1" y="5" rx="2" ry="2"/></svg>
+          </a>
+          <a href="/es/threads-image-downloader" class="tool-tab" id="toolImageTab" role="tab" aria-selected="false" aria-label="Descargador de Imágenes">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+          </a>
+          <a href="/es/threads-profile-picture-downloader" class="tool-tab" id="toolDpTab" role="tab" aria-selected="false" aria-label="Descargador de Foto de Perfil">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </a>
+          <a href="/es/threads-follower-counter" class="tool-tab" id="toolGrowthTab" role="tab" aria-selected="false" aria-label="Contador de Seguidores">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          </a>
+        </div>
+
+        <div class="downloader-card" id="downloaderCard" aria-label="Formulario del Descargador de Contenido de Threads">
+          <div class="input-group">
+            <div class="url-input-wrapper">
+              <label for="urlInput" class="visually-hidden">URL de Publicación o Perfil de Threads</label>
+              <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              <input type="url" id="urlInput" class="url-input" name="threadsUrl" placeholder="Pega aquí el enlace de Threads (URL de publicación/perfil de threads.net o threads.com)" autocomplete="off" spellcheck="false" inputmode="url" aria-describedby="urlHelp" />
+              <span id="urlHelp" class="visually-hidden">Pega cualquier URL de publicación pública o perfil de Threads. Compatible con enlaces de threads.net y threads.com.</span>
+              <button type="button" class="paste-btn" id="pasteBtn" aria-label="Pegar URL desde el portapapeles">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                Pegar
+              </button>
+              <button type="button" class="clear-btn hidden" id="clearBtn" aria-label="Borrar campo de entrada">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                Borrar
+              </button>
+            </div>
+            <button type="button" class="btn-primary" id="downloadBtn" aria-label="Descargar desde el enlace de Threads">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+              Descargar
+            </button>
+          </div>
+
+          <div class="loading-box" id="loadingBox" role="status" aria-live="polite" aria-busy="true" hidden>
+            <div class="spinner" role="presentation"></div>
+            <div class="loading-status" id="loadingStatus">Procesando enlace de Threads...</div>
+            <div class="loading-subtext" id="loadingSubtext">Extrayendo contenido en calidad completa del servidor</div>
+          </div>
+
+          <div class="error-box" id="errorBox" role="alert" aria-live="assertive" hidden>
+            <svg class="error-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <div class="error-content">
+              <h4 id="errorTitle">No se pudo procesar la solicitud</h4>
+              <p id="errorMessage">Por favor, verifica la URL de Threads y asegúrate de que la publicación sea visible públicamente.</p>
+            </div>
+          </div>
+
+          <div class="result-box" id="resultBox" role="region" aria-live="polite" aria-labelledby="resultTypeBadge" hidden>
+            <div class="result-header">
+              <span class="result-type-badge" id="resultTypeBadge">Contenido de Threads</span>
+            </div>
+
+            <div class="media-preview-container" id="mediaPreviewContainer" aria-label="Vista previa del contenido"></div>
+
+            <div class="result-meta" id="resultMeta">
+              <div class="author-info">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span id="authorName" aria-label="Nombre de usuario del autor">@usuario</span>
+              </div>
+            </div>
+
+            <div class="quality-options" id="qualityOptions" role="radiogroup" aria-labelledby="qualityLabel">
+              <span class="quality-label" id="qualityLabel">Calidad disponible:</span>
+              <div class="quality-pills" id="qualityPills"></div>
+            </div>
+
+            <div class="action-buttons">
+              <button type="button" class="btn-primary download-direct-btn" id="downloadDirectBtn" aria-label="Descargar archivo ahora">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                Descargar
+              </button>
+              <button type="button" class="copy-link-btn" id="copyLinkBtn" aria-label="Copiar enlace de descarga al portapapeles">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copiar enlace
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- promote -->
+      <div class="promo-account-banner" role="note">
+          <img class="promo-account-avatar" src="https://unavatar.io/threads/romitkryadav" alt="Foto de perfil de Romit Kr Yadav" loading="lazy" />
+          <span class="promo-account-badge">Perfil destacado</span>
+          <span class="promo-account-text">Sigue a <a href="https://www.threads.com/@romitkryadav" target="_blank" rel="noopener noreferrer">@romitkryadav</a> en Threads</span>
+          <a class="promo-account-button" href="https://www.threads.com/@romitkryadav" target="_blank" rel="noopener noreferrer">Abrir perfil</a>
+        </div>
+
+
+      <div class="container">
+        <aside class="update-box" aria-labelledby="updatesHeading">
+          <div class="update-box-header">
+            <span class="update-icon" aria-hidden="true">🔔</span>
+            <h2 id="updatesHeading">Actualizaciones Recientes</h2>
+          </div>
+          <div class="update-items">
+            <div class="update-item">
+              <p><time datetime="2026-07-26"><strong>31 de julio de 2026:</strong></time> ThreadsGrab estrena un nuevo look moderno y un diseño responsivo mejorado en todos los dispositivos.</p>
+            </div>
+            <div class="update-item">
+              <p><time datetime="2026-07-22"><strong>22 de julio de 2026:</strong></time> Rediseñamos el <a href="/es/threads-follower-counter">Contador de Seguidores de Threads</a> con conteos en tiempo real más rápidos y precisos.</p>
+            </div>
+            <div class="update-item">
+              <p><time datetime="2026-06-25"><strong>25 de junio de 2026:</strong></time> Corregimos un error de contenido duplicado que hacía que los mismos videos e imágenes de Threads aparecieran varias veces durante el procesamiento.</p>
+            </div>
+            <div class="update-item">
+              <p><time datetime="2026-05-07"><strong>07 de mayo de 2026:</strong></time> Nueva herramienta lanzada: Contador de Seguidores de Threads. Rastrea el crecimiento de cualquier cuenta pública de Threads al instante.</p>
+            </div>
+            <div class="update-item">
+              <p><time datetime="2026-04-24"><strong>24 de abril de 2026:</strong></time> Función de vista previa de video mejorada según los comentarios de los usuarios: ahora hay vistas previas más grandes con controles de reproducción/búsqueda antes de descargar.</p>
+            </div>
+            <div class="update-item">
+              <p><time datetime="2026-04-03"><strong>03 de abril de 2026:</strong></time> La actualización de API unificada te permite descargar fotos y fotos de perfil de Threads desde el mismo campo de entrada.</p>
+            </div>
+            <div class="update-item">
+              <p><time datetime="2026-03-15"><strong>15 de marzo de 2026:</strong></time> ThreadsGrab.com se lanzó oficialmente a nivel mundial: la herramienta todo en uno para descargar cualquier contenido público de Threads.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="features-section" id="features" aria-labelledby="featuresHeading">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="featuresHeading">¿Por qué elegir ThreadsGrab? Características principales</h2>
+          <p class="section-subtitle">Descargas ultrarrápidas, calidad original, total privacidad, sin restricciones, todo en una herramienta gratuita.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            </div>
+            <h3>Calidad original alta</h3>
+            <p>Descarga videos HD, imágenes de alta resolución y fotos de perfil en tamaño completo de Threads en su calidad original exacta: sin recodificación, sin compresión, sin pérdida de calidad.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3>Extracción súper rápida</h3>
+            <p>Nuestros servidores de ThreadsGrab, optimizados globalmente, procesan URLs de publicaciones en milisegundos y transmiten el archivo original directamente a ti, sin esperas en colas ni redirecciones lentas.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>No necesitas cuenta ni inicio de sesión</h3>
+            <p>Descarga contenido de Threads de forma completamente anónima. Sin registro, sin inicio de sesión en Threads, sin correo electrónico, sin información personal, nunca. Solo pega un enlace y listo.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><line x1="12" x2="12.01" y1="18" y2="18"/></svg>
+            </div>
+            <h3>Compatible con todas las plataformas</h3>
+            <p>ThreadsGrab funciona perfectamente en todos los dispositivos y sistemas operativos: teléfonos Android, iPhones, iPads, Macs, PCs con Windows, escritorios Linux y cualquier navegador web moderno.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>100% seguro y protegido</h3>
+            <p>Nunca almacenamos, guardamos en caché ni registramos ningún archivo multimedia descargado. Cada solicitud de extracción viaja mediante HTTPS encriptado. Tu privacidad y seguridad de datos son nuestra prioridad principal.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v4"/><polyline points="18 8 22 12 18 16"/></svg>
+            </div>
+            <h3>Descargas verdaderamente ilimitadas</h3>
+            <p>ThreadsGrab no tiene límites diarios de descarga, ni límites de velocidad por hora, ni muros de pago. Guarda tantos videos, imágenes y fotos de perfil de Threads como necesites: 100% gratis, para siempre.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps-section" id="howitworks" aria-labelledby="stepsHeading">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="stepsHeading">Cómo descargar videos, imágenes y fotos de perfil de Threads</h2>
+          <p class="section-subtitle">Solo 3 sencillos pasos para guardar el contenido de cualquier publicación pública de Threads en tu teléfono o computadora.</p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <div class="step-icon"><img src="https://threadsgrab.com/media/thread-photo-downloader.jpg" loading="lazy" decoding="async" width="60" height="60" alt="descargar publicación de threads" /></div>
+            <h3>Paso 1: Copia el enlace de Threads</h3>
+            <p>Abre la app o el sitio web de Threads, ve a la publicación pública (video, carrusel de fotos o perfil) que quieres, toca <strong>Compartir</strong> y selecciona <strong>Copiar enlace</strong>.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-icon"><img src="https://threadsgrab.com/media/threads-downloader-dp.jpg" loading="lazy" decoding="async" width="60" height="60" alt="descargar video de threads" /></div>
+            <h3>Paso 2: Pega la URL en ThreadsGrab</h3>
+            <p>Vuelve a esta página, pega la URL de Threads copiada en el <a href="#downloader">campo de entrada de arriba</a>, y haz clic en el botón morado <strong>Descargar</strong> para comenzar el procesamiento.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-icon"><img src="https://threadsgrab.com/media/threads-video-downloader.jpg" loading="lazy" decoding="async" width="60" height="60" alt="descargar foto de perfil de threads" /></div>
+            <h3>Paso 3: Guarda el archivo multimedia</h3>
+            <p>Previsualiza el video, la imagen o la foto de perfil extraída, elige tu opción de calidad preferida y haz clic en el botón final de <strong>Descargar</strong> para guardar el archivo directamente en el almacenamiento de tu dispositivo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Information Content Section -->
+    <section class="info-section" aria-labelledby="infoHeading">
+      <div class="container">
+        <article class="info-content">
+          <h2 id="infoHeading">Herramientas de ThreadsGrab — Descargador de Video, Imagen, Foto de Perfil y Contador de Seguidores</h2>
+          <p>ThreadsGrab reúne todas las herramientas esenciales de Threads en una sola plataforma unificada. Los usuarios de Threads en todo el mundo buscan formas de descargar videos de Threads, guardar fotos de Threads, obtener fotos de perfil de Threads y contar seguidores de Threads en tiempo real. Construimos cada herramienta funcional como un módulo separado y enfocado para que puedas descargar lo que necesites sin complicaciones ni confusión innecesarias.</p>
+          <p>Cada herramienta de ThreadsGrab funciona de forma independiente, pero mantuvimos intencionalmente el mismo diseño limpio y enfocado en toda la plataforma. Si ya sabes usar el descargador de videos de Threads, te sentirás como en casa con el guardador de imágenes, el visor de fotos de perfil y el contador de seguidores: todos siguen el mismo flujo de pegar y listo. Eso es lo que hace que ThreadsGrab sea más que "una herramienta gigante": es un kit de herramientas confiable y repetible que te da exactamente lo que necesitas de Threads, cada vez.</p>
+
+          <h2 id="toolsHeading">¿Qué puedes descargar con ThreadsGrab?</h2>
+          <p>Nuestro kit de herramientas todo en uno <strong>ThreadsGrab</strong> incluye cuatro herramientas dedicadas de descarga y utilidades de Threads, para que puedas guardar todo tipo de contenido de Threads directamente en tu teléfono móvil, tableta o computadora de escritorio, sin límites y de forma gratuita.</p>
+          <h3><a href="/es/threads-video-downloader">Descargador de Videos de Threads</a></h3>
+          <p>Descarga videos públicos de Threads en su calidad HD original como archivos MP4, para que puedas verlos sin conexión en cualquier lugar y en cualquier momento, sin necesidad de internet.</p>
+          <h3><a href="/es/threads-image-downloader">Descargador de Imágenes de Threads</a></h3>
+          <p>Guarda fotos individuales y múltiples imágenes de publicaciones de carrusel de Threads en formato JPG nítido y original, sin pérdida de calidad ni marca de agua.</p>
+          <h3><a href="/es/threads-profile-picture-downloader">Descargador de Foto de Perfil de Threads</a></h3>
+          <p>Visualiza y descarga la foto de perfil en resolución completa de cualquier cuenta pública de Threads: amplía lo que esconde ese pequeño círculo de vista previa.</p>
+          <h2 id="legalHeading">¿Es legal y seguro descargar contenido de Threads?</h2>
+          <p>Descargar contenido de publicaciones públicas de Threads es generalmente seguro y permitido cuando se usa estrictamente para visualización personal y sin conexión, sin fines comerciales. Nunca debes volver a subir, redistribuir o usar comercialmente el contenido descargado sin el permiso explícito por escrito del creador original, ya que dicho material puede estar protegido por leyes internacionales de derechos de autor. Por favor, lee nuestro <a href="/disclaimer">Aviso Legal</a> y nuestra <a href="/privacy-policy">Política de Privacidad</a> para conocer todos los detalles sobre el uso responsable.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq" aria-labelledby="faqHeading">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="faqHeading" class="section-title">Preguntas Frecuentes</h2>
+          <p class="section-subtitle">Encuentra respuestas a preguntas comunes sobre cómo descargar contenido de Threads.</p>
+        </div>
+
+        <div class="faq-list" role="list">
+          <div class="faq-item active" role="listitem">
+            <button type="button" class="faq-question" id="faqQuestion1" aria-expanded="true" aria-controls="faqAnswer1">
+              <span>¿Qué es ThreadsGrab?</span>
+              <svg class="faq-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="faqAnswer1" class="faq-answer" role="region" aria-labelledby="faqQuestion1">
+              <p>ThreadsGrab es un kit de herramientas web gratuito y todo en uno que te permite descargar videos de Threads en HD MP4, guardar fotos e imágenes de carrusel de Threads, ver y descargar fotos de perfil de Threads, y consultar el número de seguidores en tiempo real de cualquier cuenta pública. Vuelve al <a href="#downloader">descargador de arriba</a> para probarlo ahora, o visita nuestra página <a href="/about">Acerca de Nosotros</a> para conocer toda la historia.</p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" id="faqQuestion2" aria-expanded="false" aria-controls="faqAnswer2">
+              <span>¿Es gratis usar ThreadsGrab?</span>
+              <svg class="faq-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="faqAnswer2" class="faq-answer" role="region" aria-labelledby="faqQuestion2" hidden>
+              <p>Sí, ThreadsGrab es 100% gratis: sin registros, sin marcas de agua y sin límites diarios de descarga. Financiamos la plataforma mediante anuncios no intrusivos que se muestran en el sitio, para poder mantener cada herramienta —el <a href="/es/threads-video-downloader">descargador de videos</a>, el <a href="/es/threads-image-downloader">guardador de imágenes</a>, el <a href="/es/threads-profile-picture-downloader">visor de fotos de perfil</a> y el <a href="/es/threads-follower-counter">contador de seguidores</a>— funcionando a máxima velocidad para todos, para siempre.</p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" id="faqQuestion3" aria-expanded="false" aria-controls="faqAnswer3">
+              <span>¿Puedo descargar GIFs de Threads con ThreadsGrab?</span>
+              <svg class="faq-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="faqAnswer3" class="faq-answer" role="region" aria-labelledby="faqQuestion3" hidden>
+              <p>Sí, puedes descargar cualquier publicación de GIF animado de Threads con ThreadsGrab. Como Threads convierte internamente los GIFs a video MP4 en sus servidores, el archivo descargado se guardará como un MP4 HD estándar que podrás reproducir en cualquier dispositivo, volver a compartir o editar con tus herramientas de video preferidas.</p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" id="faqQuestion4" aria-expanded="false" aria-controls="faqAnswer4">
+              <span>¿ThreadsGrab permite descargar contenido de cuentas privadas de Threads?</span>
+              <svg class="faq-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="faqAnswer4" class="faq-answer" role="region" aria-labelledby="faqQuestion4" hidden>
+              <p>No, por razones de privacidad y legales, ThreadsGrab solo funciona con contenido de perfiles públicos de Threads. No eludimos ni podemos eludir las protecciones de cuentas privadas de Threads. Si una publicación, foto de perfil o número de seguidores no es visible para un visitante que no ha iniciado sesión, ThreadsGrab no podrá acceder a ella, y eso es intencional.</p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" id="faqQuestion5" aria-expanded="false" aria-controls="faqAnswer5">
+              <span>¿Puedo guardar fotos de Threads con ThreadsGrab?</span>
+              <svg class="faq-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="faqAnswer5" class="faq-answer" role="region" aria-labelledby="faqQuestion5" hidden>
+              <p>Por supuesto. Nuestro <a href="/es/threads-image-downloader">Descargador de Imágenes de Threads</a> dedicado te permite guardar fotos individuales, así como todas las imágenes dentro de publicaciones de carrusel de Threads de varias diapositivas, en su formato JPG original de alta resolución, sin compresión, sin pérdida de calidad y sin marca de agua molesta.</p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" id="faqQuestion6" aria-expanded="false" aria-controls="faqAnswer6">
+              <span>¿Puedo ver fotos de perfil de Threads en tamaño completo?</span>
+              <svg class="faq-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="faqAnswer6" class="faq-answer" role="region" aria-labelledby="faqQuestion6" hidden>
+              <p>Sí. Nuestro <a href="/es/threads-profile-picture-downloader">Descargador de Foto de Perfil de Threads</a> te permite ver y guardar la foto de perfil de cualquier cuenta pública de Threads en su resolución completa y original, mucho más grande que el pequeño círculo de vista previa que se muestra dentro de la app de Threads. Pega la URL del perfil y haz clic en la pestaña de foto de perfil para previsualizarla al instante.</p>
+            </div>
+          </div>
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" id="faqQuestion7" aria-expanded="false" aria-controls="faqAnswer7">
+              <span>¿Guardan mis descargas o mantienen algún registro de ellas?</span>
+              <svg class="faq-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div id="faqAnswer7" class="faq-answer" role="region" aria-labelledby="faqQuestion7" hidden>
+              <p>Nunca. ThreadsGrab es una herramienta totalmente sin servidor propio, basada en proxy: nunca almacenamos, guardamos en caché ni registramos ningún archivo que descargues, ninguna URL que pegues ni ningún perfil que consultes. Todas las solicitudes HTTPS están encriptadas de extremo a extremo, no se requieren cuentas y toda tu sesión es completamente anónima. Lee más en nuestra <a href="/privacy-policy">Política de Privacidad</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="/es" class="logo" aria-label="ThreadsGrab - Inicio">
+            <img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" alt="Logotipo de ThreadsGrab" width="32" height="32" loading="eager" decoding="async" /><span>ThreadsGrab</span>
+          </a>
+          <p>El kit de herramientas gratuito en línea más rápido y confiable para guardar videos HD, imágenes de alta resolución y fotos de perfil en tamaño completo públicos de Threads, y consultar el número de seguidores en tiempo real: ilimitado, sin necesidad de registro.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4 id="footerToolsHeading">Herramientas</h4>
+          <ul class="footer-links" aria-labelledby="footerToolsHeading">
+            <li><a href="/es/threads-video-downloader">Descargador de Videos de Threads</a></li>
+            <li><a href="/es/threads-image-downloader">Descargador de Imágenes de Threads</a></li>
+            <li><a href="/es/threads-profile-picture-downloader">Descargador de Foto de Perfil de Threads</a></li>
+            <li><a href="/es/threads-follower-counter">Contador de Seguidores de Threads</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 id="footerCompanyHeading">Empresa</h4>
+          <ul class="footer-links" aria-labelledby="footerCompanyHeading">
+            <li><a href="/about">Acerca de Nosotros</a></li>
+            <li><a href="/contact">Contacto</a></li>
+            <li><a href="/privacy-policy">Política de Privacidad</a></li>
+            <li><a href="/disclaimer">Aviso Legal</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 id="footerLegalHeading">Legal y Soporte</h4>
+          <ul class="footer-links" aria-labelledby="footerLegalHeading">
+            <li><a href="/disclaimer">Política DMCA</a></li>
+            <li>
+              <a href="mailto:contact.themistero@gmail.com" class="footer-link-email">
+                <svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Contactar Soporte
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 ThreadsGrab. Todos los derechos reservados.</div>
+        <div class="footer-disclaimer-note">
+          Aviso legal: ThreadsGrab es una herramienta independiente y no está afiliada, respaldada ni patrocinada por Instagram, Meta Platforms, Inc. ni Threads.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Accessibility Utilities CSS -->
+  <style>
+    .skip-link { position:absolute; top:-40px; left:0; background:#4f46e5; color:#fff; padding:8px 16px; z-index:100; transition:top 0.3s; text-decoration:none; }
+    .skip-link:focus { top:0; outline:2px solid #fff; }
+    .visually-hidden { position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  </style>
+
+  <!-- Main JavaScript File -->
+   
+  <script defer src="/romitp.js"></script>
 </body>
 </html>

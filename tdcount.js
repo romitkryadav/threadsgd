@@ -1,1 +1,484 @@
-const POLL_INTERVAL_MS=5e3,TICK_MS=100,WORKER_URLS=["https://liveapp.romitkryadav.workers.dev/","https://tdlivecount.romitkr5539.workers.dev/","https://tdlive3.romitkr361.workers.dev/",];let workerIndex=0;function getNextWorkerUrl(e){let t=WORKER_URLS[workerIndex%WORKER_URLS.length];workerIndex++;let a=t.includes("?")?"&":"?";return t+a+"user="+encodeURIComponent(e)}let state={username:"threads",followers:null,profilePic:null,history:[],sessionStart:null,ticks:0,elapsed:0,loading:!1,monitoring:!0,error:null,sparkChart:null};const el={form:document.getElementById("search-form"),input:document.getElementById("username-input"),trackBtn:document.getElementById("track-btn"),refreshPill:document.getElementById("refresh-pill"),refreshLabel:document.getElementById("refresh-label"),profilePic:document.getElementById("profile-pic"),avatarPlaceholder:document.getElementById("avatar-placeholder"),trackingHandle:document.getElementById("tracking-handle"),profileName:document.getElementById("profile-name"),profileTagline:document.getElementById("profile-tagline"),followerCount:document.getElementById("follower-count"),countLabel:document.getElementById("count-label"),monitorSeconds:document.getElementById("monitor-seconds"),monitorToggleBtn:document.getElementById("monitor-toggle-btn"),monitorToggleIcon:document.getElementById("monitor-toggle-icon"),statUsername:document.getElementById("stat-username"),statDelta:document.getElementById("stat-delta"),statTicks:document.getElementById("stat-ticks"),statVerified:document.getElementById("stat-verified"),sparkCanvas:document.getElementById("spark-canvas"),errorBox:document.getElementById("error-box")};function initSpark(){let e=el.sparkCanvas.getContext("2d");state.sparkChart=new Chart(e,{type:"line",data:{labels:[],datasets:[{data:[],borderColor:"rgba(225,48,108,0.35)",borderWidth:1.5,fill:!1,tension:.35,pointRadius(e){let t=e.dataIndex,a=e.dataset.data.length;return t===a-1?5:0},pointBackgroundColor:"#E1306C",pointBorderWidth:0}]},options:{responsive:!0,maintainAspectRatio:!1,animation:{duration:400},plugins:{legend:{display:!1},tooltip:{enabled:!1}},scales:{x:{display:!1,grid:{display:!1}},y:{display:!1,grid:{display:!0,color:"rgba(255,255,255,0.08)",borderDash:[3,4],drawTicks:!1}}},layout:{padding:0}}})}function formatTime(e){return new Date(e).toLocaleTimeString([],{hour:"numeric",minute:"2-digit",second:"2-digit"})}function titleCase(e){return e.charAt(0).toUpperCase()+e.slice(1)}function render(){if(el.trackBtn.disabled=state.loading,el.trackBtn.textContent=state.loading?"Tracking…":"Track",el.refreshPill.classList.toggle("is-idle",!state.loading),el.refreshLabel.textContent=state.loading?"refreshing":"live",state.error?(el.errorBox.textContent=state.error,el.errorBox.classList.remove("hidden")):el.errorBox.classList.add("hidden"),null===state.followers)return;el.trackingHandle.textContent="@"+state.username,el.statUsername.textContent="@"+state.username,"Threads"===state.username?(el.profileName.textContent="Threads",el.profileTagline.textContent="Discover what's new on Threads \uD83D\uDD0E✨",el.countLabel.textContent="THREADS FOLLOWERS"):(el.profileName.textContent=titleCase(state.username),el.profileTagline.textContent="Live-tracking @"+state.username+"'s growth in real time ✨",el.countLabel.textContent=state.username.toUpperCase()+" FOLLOWERS"),state.profilePic?(el.profilePic.src=state.profilePic,el.profilePic.classList.remove("hidden"),el.avatarPlaceholder.classList.add("hidden")):(el.profilePic.classList.add("hidden"),el.avatarPlaceholder.classList.remove("hidden")),el.followerCount.textContent=state.followers.toLocaleString();let e=null!==state.sessionStart?state.followers-state.sessionStart:0;el.statDelta.textContent=(e>=0?"+":"")+e.toLocaleString(),el.statDelta.classList.toggle("idp-green",e>=0),el.statTicks.textContent=state.ticks+" tick"+(1===state.ticks?"":"s");let t=state.history[state.history.length-1];el.statVerified.textContent=t?formatTime(t.timestamp):"--:--:-- --",state.sparkChart&&(state.sparkChart.data.labels=state.history.map((e,t)=>t),state.sparkChart.data.datasets[0].data=state.history.map(e=>e.followers),state.sparkChart.update()),el.monitorToggleBtn.title=state.monitoring?"Pause monitoring":"Resume monitoring",el.monitorToggleIcon.innerHTML=state.monitoring?'<rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/>':'<path d="M7 5l12 7-12 7V5z"/>',renderDiscoverSelection()}el.profilePic.onerror=()=>{el.profilePic.classList.add("hidden"),el.avatarPlaceholder.classList.remove("hidden")};const POPULAR=[{name:"Neymar Jr",handle:"neymarjr"},{name:"Kim Kardashian",handle:"kimkardashian"},{name:"MrBeast",handle:"mrbeast"},{name:"Selena Gomez",handle:"selenagomez"},{name:"Kylie Jenner",handle:"kyliejenner"},{name:"Shakira",handle:"shakira"}],PROMOTIONAL=[{name:"Romit Kr Yadav",handle:"romitkryadav"},{name:"Abhijit Kumar",handle:"abhijit_yadav_0018"}],TRENDING=[{name:"Mark Zuckerberg",handle:"zuck"},{name:"MrBeast",handle:"mrbeast"},{name:"National Geographic",handle:"natgeo"},{name:"Real Madrid",handle:"realmadrid"},{name:"Selena Gomez",handle:"selenagomez"},{name:"Nike",handle:"nike"},{name:"Khaby Lame",handle:"khaby00"},{name:"Marvel Entertainment",handle:"marvel"},{name:"Adam Mosseri",handle:"mosseri"}];function initials(e){return e.replace("@","").trim().split(/\s+/).map(e=>e[0]).slice(0,2).join("").toUpperCase()}function selectAccount(e){state.loading||(el.input.value=e,fetchFollowers(e))}function renderPopularGrid(){let e=document.getElementById("popular-grid");e.innerHTML="",POPULAR.forEach(t=>{let a=document.createElement("div");a.className="idp-account-card",a.dataset.handle=t.handle,a.innerHTML='<div class="idp-account-avatar-ring"><div class="idp-account-avatar-inner"><img src="https://unavatar.io/threads/'+t.handle+'" alt="" referrerpolicy="no-referrer" onerror="this.replaceWith(document.createTextNode(\''+initials(t.name)+'\'))"></div></div><div class="idp-account-name">'+t.name+'</div><div class="idp-account-handle">@'+t.handle+"</div>",a.addEventListener("click",()=>selectAccount(t.handle)),e.appendChild(a)})}function renderTrendingGrid(){let e=document.getElementById("trending-grid");e.innerHTML="",TRENDING.forEach(t=>{let a=document.createElement("div");a.className="idp-trend-row",a.dataset.handle=t.handle,a.innerHTML='<div class="idp-trend-handle">@'+t.handle+'</div><div class="idp-trend-name">'+t.name+"</div>",a.addEventListener("click",()=>selectAccount(t.handle)),e.appendChild(a)})}function renderPromotedGrid(){let e=document.getElementById("promoted-grid");e.innerHTML="",PROMOTIONAL.forEach(t=>{let a=document.createElement("div");a.className="idp-account-card",a.dataset.handle=t.handle,a.innerHTML='<div class="idp-account-avatar-ring"><div class="idp-account-avatar-inner"><img src="https://unavatar.io/threads/'+t.handle+'" alt="" referrerpolicy="no-referrer" onerror="this.replaceWith(document.createTextNode(\''+initials(t.name)+'\'))"></div></div><div class="idp-account-name">'+t.name+'</div><div class="idp-account-handle">@'+t.handle+"</div>",a.addEventListener("click",()=>selectAccount(t.handle)),e.appendChild(a)})}function renderDiscoverSelection(){let e=null!==state.followers?state.username:null;document.querySelectorAll("#promoted-grid .idp-account-card, #popular-grid .idp-account-card").forEach(t=>{t.classList.toggle("selected",!!e&&t.dataset.handle===e)}),document.querySelectorAll("#trending-grid .idp-trend-row").forEach(t=>{t.classList.toggle("selected",!!e&&t.dataset.handle===e)})}async function fetchFollowers(e){state.loading=!0,state.error=null,render();try{let t=getNextWorkerUrl(e),a=await fetch(t),n=await a.json();if(n.error)throw Error(n.error);if(void 0===n.followers||null===n.followers||0===n.followers||!a.ok)throw Error("Username not found");let r=Date.now();state.username!==e&&(state.username=e,state.history=[],state.sessionStart=n.followers,state.ticks=0),null===state.sessionStart&&(state.sessionStart=n.followers),state.followers=n.followers,state.profilePic=n.profilePic||null,state.history.push({timestamp:r,followers:n.followers}),state.history.length>40&&state.history.shift(),state.ticks+=1}catch(l){state.error=l.message.includes("Username not found")||l.message.includes("not found")||l.message.includes("404")?"Username not found":l.message}finally{state.loading=!1,render()}}el.form.addEventListener("submit",e=>{e.preventDefault();let t=el.input.value.trim().replace(/^@/,"");t&&!state.loading&&fetchFollowers(t)}),el.monitorToggleBtn.addEventListener("click",()=>{state.monitoring=!state.monitoring,render()}),setInterval(()=>{state.monitoring&&!state.loading&&(state.elapsed+=100,el.monitorSeconds.textContent=(state.elapsed/1e3).toFixed(1)+"s",state.elapsed>=5e3&&(state.elapsed=0,fetchFollowers(state.username)))},100),document.addEventListener("DOMContentLoaded",()=>{initSpark(),renderPromotedGrid(),renderPopularGrid(),renderTrendingGrid(),fetchFollowers("threads")});
+const POLL_INTERVAL_MS = 5000;
+const TICK_MS = 100;
+
+// ---- Worker endpoints ----------------------------------------------------
+// Each poll cycle rotates to the next worker in this list (round-robin).
+// First tick -> WORKER_URLS[0], next tick (5s later) -> WORKER_URLS[1], etc.
+// To add more workers in the future, just append another base URL here —
+// no other code changes needed.
+const WORKER_URLS = [
+  "https://liveapp.romitkryadav.workers.dev/",
+  "https://tdlivecount.romitkr5539.workers.dev/",
+  "https://tdlive3.romitkr361.workers.dev/",
+
+];
+
+let workerIndex = 0;
+
+function getNextWorkerUrl(user) {
+  const base = WORKER_URLS[workerIndex % WORKER_URLS.length];
+  workerIndex++;
+  const sep = base.includes('?') ? '&' : '?';
+  return base + sep + "user=" + encodeURIComponent(user);
+}
+// ---------------------------------------------------------------------------
+
+let state = {
+  username: "threads",
+  followers: null,
+  profilePic: null,
+  history: [],
+  sessionStart: null,
+  ticks: 0,
+  elapsed: 0,
+  loading: false,
+  monitoring: true,
+  error: null,
+  sparkChart: null
+};
+
+const el = {
+  form: document.getElementById('search-form'),
+  input: document.getElementById('username-input'),
+  trackBtn: document.getElementById('track-btn'),
+  refreshPill: document.getElementById('refresh-pill'),
+  refreshLabel: document.getElementById('refresh-label'),
+  profilePic: document.getElementById('profile-pic'),
+  avatarPlaceholder: document.getElementById('avatar-placeholder'),
+  trackingHandle: document.getElementById('tracking-handle'),
+  profileName: document.getElementById('profile-name'),
+  profileTagline: document.getElementById('profile-tagline'),
+  followerCount: document.getElementById('follower-count'),
+  countLabel: document.getElementById('count-label'),
+  monitorSeconds: document.getElementById('monitor-seconds'),
+  monitorToggleBtn: document.getElementById('monitor-toggle-btn'),
+  monitorToggleIcon: document.getElementById('monitor-toggle-icon'),
+  statUsername: document.getElementById('stat-username'),
+  statDelta: document.getElementById('stat-delta'),
+  statTicks: document.getElementById('stat-ticks'),
+  statVerified: document.getElementById('stat-verified'),
+  sparkCanvas: document.getElementById('spark-canvas'),
+  errorBox: document.getElementById('error-box')
+};
+
+el.profilePic.onerror = () => {
+  el.profilePic.classList.add('hidden');
+  el.avatarPlaceholder.classList.remove('hidden');
+};
+
+function initSpark() {
+  const ctx = el.sparkCanvas.getContext('2d');
+  state.sparkChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: [],
+      datasets: [{
+        data: [],
+        borderColor: 'rgba(225,48,108,0.35)',
+        borderWidth: 1.5,
+        fill: false,
+        tension: 0.35,
+        pointRadius: (context) => {
+          const i = context.dataIndex;
+          const len = context.dataset.data.length;
+          return i === len - 1 ? 5 : 0;
+        },
+        pointBackgroundColor: '#E1306C',
+        pointBorderWidth: 0
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: { duration: 400 },
+      plugins: { legend: { display: false }, tooltip: { enabled: false } },
+      scales: {
+        x: { display: false, grid: { display: false } },
+        y: {
+          display: false,
+          grid: {
+            display: true,
+            color: 'rgba(255,255,255,0.08)',
+            borderDash: [3, 4],
+            drawTicks: false
+          }
+        }
+      },
+      layout: { padding: 0 }
+    }
+  });
+}
+
+function formatTime(ts) {
+  return new Date(ts).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', second: '2-digit' });
+}
+
+function titleCase(handle) {
+  return handle.charAt(0).toUpperCase() + handle.slice(1);
+}
+
+function render() {
+  el.trackBtn.disabled = state.loading;
+  el.trackBtn.textContent = state.loading ? 'Tracking…' : 'Track';
+
+  el.refreshPill.classList.toggle('is-idle', !state.loading);
+  el.refreshLabel.textContent = state.loading ? 'refreshing' : 'live';
+
+  if (state.error) {
+    el.errorBox.textContent = state.error;
+    el.errorBox.classList.remove('hidden');
+  } else {
+    el.errorBox.classList.add('hidden');
+  }
+
+  if (state.followers === null) return;
+
+  el.trackingHandle.textContent = '@' + state.username;
+  el.statUsername.textContent = '@' + state.username;
+
+  if (state.username === 'Threads') {
+    el.profileName.textContent = 'Threads';
+    el.profileTagline.textContent = "Discover what's new on Threads 🔎✨";
+    el.countLabel.textContent = 'THREADS FOLLOWERS';
+  } else {
+    el.profileName.textContent = titleCase(state.username);
+    el.profileTagline.textContent = 'Live-tracking @' + state.username + "'s growth in real time ✨";
+    el.countLabel.textContent = state.username.toUpperCase() + ' FOLLOWERS';
+  }
+
+  if (state.profilePic) {
+    el.profilePic.src = state.profilePic;
+    el.profilePic.classList.remove('hidden');
+    el.avatarPlaceholder.classList.add('hidden');
+  } else {
+    el.profilePic.classList.add('hidden');
+    el.avatarPlaceholder.classList.remove('hidden');
+  }
+
+  el.followerCount.textContent = state.followers.toLocaleString();
+
+  const delta = state.sessionStart !== null ? state.followers - state.sessionStart : 0;
+  el.statDelta.textContent = (delta >= 0 ? '+' : '') + delta.toLocaleString();
+  el.statDelta.classList.toggle('idp-green', delta >= 0);
+
+  el.statTicks.textContent = state.ticks + ' tick' + (state.ticks === 1 ? '' : 's');
+
+  const last = state.history[state.history.length - 1];
+  el.statVerified.textContent = last ? formatTime(last.timestamp) : '--:--:-- --';
+
+  if (state.sparkChart) {
+    state.sparkChart.data.labels = state.history.map((_, i) => i);
+    state.sparkChart.data.datasets[0].data = state.history.map(p => p.followers);
+    state.sparkChart.update();
+  }
+
+  el.monitorToggleBtn.title = state.monitoring ? 'Pause monitoring' : 'Resume monitoring';
+  el.monitorToggleIcon.innerHTML = state.monitoring
+    ? '<rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/>'
+    : '<path d="M7 5l12 7-12 7V5z"/>';
+
+  renderDiscoverSelection();
+}
+const POPULAR = [
+  { name: 'Neymar Jr', handle: 'neymarjr' },
+  { name: 'Kim Kardashian', handle: 'kimkardashian' },
+  { name: 'MrBeast', handle: 'mrbeast' },
+  { name: 'Selena Gomez', handle: 'selenagomez' },
+  { name: 'Kylie Jenner', handle: 'kyliejenner' },
+  { name: 'Shakira', handle: 'shakira' }
+];
+const PROMOTIONAL = [
+  { name: 'Romit Kr Yadav', handle: 'romitkryadav' },
+  { name: 'Abhijit Kumar', handle: 'abhijit_yadav_0018' }
+  
+];
+const TRENDING = [
+  { name: 'Mark Zuckerberg', handle: 'zuck' },
+  { name: 'MrBeast', handle: 'mrbeast' },
+  { name: 'National Geographic', handle: 'natgeo' },
+  { name: 'Real Madrid', handle: 'realmadrid' },
+  { name: 'Selena Gomez', handle: 'selenagomez' },
+  { name: 'Nike', handle: 'nike' },
+  { name: 'Khaby Lame', handle: 'khaby00' },
+  { name: 'Marvel Entertainment', handle: 'marvel' },
+  { name: 'Adam Mosseri', handle: 'mosseri' }
+];
+
+function initials(name) {
+  return name.replace('@', '').trim().split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+}
+
+function selectAccount(handle) {
+  if (state.loading) return;
+  el.input.value = handle;
+  fetchFollowers(handle);
+}
+function renderPopularGrid() {
+  const grid = document.getElementById('popular-grid');
+  grid.innerHTML = '';
+  POPULAR.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'idp-account-card';
+    card.dataset.handle = p.handle;
+    card.innerHTML =
+      '<div class="idp-account-avatar-ring"><div class="idp-account-avatar-inner">' +
+        '<img src="https://unavatar.io/threads/' + p.handle + '" alt="" referrerpolicy="no-referrer" onerror="this.replaceWith(document.createTextNode(\'' + initials(p.name) + '\'))">' +
+      '</div></div>' +
+      '<div class="idp-account-name">' + p.name + '</div>' +
+      '<div class="idp-account-handle">@' + p.handle + '</div>';
+    card.addEventListener('click', () => selectAccount(p.handle));
+    grid.appendChild(card);
+  });
+}
+
+function renderTrendingGrid() {
+  const grid = document.getElementById('trending-grid');
+  grid.innerHTML = '';
+  TRENDING.forEach(t => {
+    const row = document.createElement('div');
+    row.className = 'idp-trend-row';
+    row.dataset.handle = t.handle;
+    row.innerHTML = '<div class="idp-trend-handle">@' + t.handle + '</div><div class="idp-trend-name">' + t.name + '</div>';
+    row.addEventListener('click', () => selectAccount(t.handle));
+    grid.appendChild(row);
+  });
+}
+function renderPromotedGrid() {
+  const grid = document.getElementById('promoted-grid');
+  grid.innerHTML = '';
+  PROMOTIONAL.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'idp-account-card';
+    card.dataset.handle = p.handle;
+    card.innerHTML =
+      '<div class="idp-account-avatar-ring"><div class="idp-account-avatar-inner">' +
+        '<img src="https://unavatar.io/threads/' + p.handle + '" alt="" referrerpolicy="no-referrer" onerror="this.replaceWith(document.createTextNode(\'' + initials(p.name) + '\'))">' +
+      '</div></div>' +
+      '<div class="idp-account-name">' + p.name + '</div>' +
+      '<div class="idp-account-handle">@' + p.handle + '</div>';
+    card.addEventListener('click', () => selectAccount(p.handle));
+    grid.appendChild(card);
+  });
+}
+
+function initFaqAccordion() {
+  const faqItems = Array.from(document.querySelectorAll('.faq-item'));
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    if (!question || !answer) return;
+
+    question.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+
+      faqItems.forEach(i => {
+        const q = i.querySelector('.faq-question');
+        const a = i.querySelector('.faq-answer');
+        i.classList.remove('active');
+        if (q) q.setAttribute('aria-expanded', 'false');
+        if (a) a.setAttribute('hidden', '');
+      });
+
+      if (!isActive) {
+        item.classList.add('active');
+        question.setAttribute('aria-expanded', 'true');
+        answer.removeAttribute('hidden');
+      }
+    });
+  });
+
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    const isActive = item.classList.contains('active');
+    if (question) {
+      question.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+    }
+    if (answer) {
+      if (isActive) {
+        answer.removeAttribute('hidden');
+      } else {
+        answer.setAttribute('hidden', '');
+      }
+    }
+  });
+}
+
+function renderDiscoverSelection() {
+  const active = state.followers !== null ? state.username : null;
+  document.querySelectorAll('#promoted-grid .idp-account-card, #popular-grid .idp-account-card').forEach(node => {
+    node.classList.toggle('selected', !!active && node.dataset.handle === active);
+  });
+  document.querySelectorAll('#trending-grid .idp-trend-row').forEach(node => {
+    node.classList.toggle('selected', !!active && node.dataset.handle === active);
+  });
+}
+
+async function fetchFollowers(user) {
+  state.loading = true;
+  state.error = null;
+  render();
+  try {
+    const url = getNextWorkerUrl(user);
+    const res = await fetch(url);
+    const data = await res.json();
+
+    // Check for API error response
+    if (data.error) {
+      throw new Error(data.error);
+    }
+
+    // Check for missing or invalid follower count
+    if (data.followers === undefined || data.followers === null || data.followers === 0) {
+      throw new Error("Username not found");
+    }
+
+    // Check for non-OK status
+    if (!res.ok) {
+      throw new Error("Username not found");
+    }
+
+    const now = Date.now();
+    if (state.username !== user) {
+      state.username = user;
+      state.history = [];
+      state.sessionStart = data.followers;
+      state.ticks = 0;
+    }
+    if (state.sessionStart === null) state.sessionStart = data.followers;
+
+    state.followers = data.followers;
+    state.profilePic = data.profilePic || null;
+    state.history.push({ timestamp: now, followers: data.followers });
+    if (state.history.length > 40) state.history.shift();
+    state.ticks += 1;
+  } catch (err) {
+    state.error = err.message.includes("Username not found") || err.message.includes("not found") || err.message.includes("404") ? "Username not found" : err.message;
+  } finally {
+    state.loading = false;
+    render();
+  }
+}
+
+el.form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const user = el.input.value.trim().replace(/^@/, '');
+  if (!user || state.loading) return;
+  fetchFollowers(user);
+});
+
+el.monitorToggleBtn.addEventListener('click', () => {
+  state.monitoring = !state.monitoring;
+  render();
+});
+
+setInterval(() => {
+  if (!state.monitoring || state.loading) return;
+  state.elapsed += TICK_MS;
+  el.monitorSeconds.textContent = (state.elapsed / 1000).toFixed(1) + 's';
+  if (state.elapsed >= POLL_INTERVAL_MS) {
+    state.elapsed = 0;
+    fetchFollowers(state.username);
+  }
+}, TICK_MS);
+
+document.addEventListener('DOMContentLoaded', () => {
+  initSpark();
+  renderPromotedGrid();
+  renderPopularGrid();
+  renderTrendingGrid();
+  initFaqAccordion();
+  fetchFollowers('threads');
+});
+
+// lang menu dropdown
+
+    (function attachLangDropdown(){
+      const langBtnDesktop = document.getElementById('langBtnDesktop');
+      const langPanelDesktop = document.getElementById('langPanelDesktop');
+      const langBtnLabelDesktop = document.getElementById('langBtnLabelDesktop');
+      const mobileLangCurrent = document.getElementById('mobileLangCurrent');
+
+      if (!langBtnDesktop || !langPanelDesktop) return;
+
+      function isLangPanelOpen() {
+        return langPanelDesktop.classList.contains('open');
+      }
+
+      function openLangPanel() {
+        langPanelDesktop.removeAttribute('hidden');
+        langPanelDesktop.style.display = '';
+        langPanelDesktop.classList.add('open');
+        langBtnDesktop.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeLangPanel() {
+        langPanelDesktop.setAttribute('hidden', '');
+        langPanelDesktop.style.display = 'none';
+        langPanelDesktop.classList.remove('open');
+        langBtnDesktop.setAttribute('aria-expanded', 'false');
+      }
+
+      // Force a known closed state on load.
+      closeLangPanel();
+
+      langBtnDesktop.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isLangPanelOpen()) {
+          closeLangPanel();
+        } else {
+          openLangPanel();
+        }
+      });
+
+      document.addEventListener('click', (e) => {
+        if (isLangPanelOpen() &&
+            !langPanelDesktop.contains(e.target) &&
+            !langBtnDesktop.contains(e.target)) {
+          closeLangPanel();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isLangPanelOpen()) {
+          closeLangPanel();
+          langBtnDesktop.focus();
+        }
+      });
+
+      function applyLanguageUI(code, name) {
+        document.documentElement.setAttribute('lang', code);
+        if (langBtnLabelDesktop) langBtnLabelDesktop.textContent = name;
+        if (mobileLangCurrent) mobileLangCurrent.textContent = name;
+
+        document.querySelectorAll('.lang-item, .mobile-lang-item').forEach((el) => {
+          const elCode = el.getAttribute('data-lang-code');
+          const isActive = elCode === code;
+          el.classList.toggle('active', isActive);
+          el.setAttribute('aria-selected', String(isActive));
+        });
+      }
+
+      function setLanguage(code, name) {
+        localStorage.setItem('td_lang_code', code);
+        localStorage.setItem('td_lang_name', name);
+        applyLanguageUI(code, name);
+        closeLangPanel();
+      }
+
+      document.querySelectorAll('.lang-item, .mobile-lang-item').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const code = btn.getAttribute('data-lang-code');
+          const name = btn.getAttribute('data-lang-name');
+          setLanguage(code, name);
+        });
+      });
+
+      // Restore saved language on load
+      const savedLang = localStorage.getItem('td_lang_code') || 'en';
+      const savedLangName = localStorage.getItem('td_lang_name') || 'English';
+      applyLanguageUI(savedLang, savedLangName);
+    })();
+
+  
