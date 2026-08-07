@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Threads 팔로워 카운터 - 실시간 팔로워 수 무료 추적 온라인</title>
+
+  <!-- Performance Resource Hints -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+  <link rel="dns-prefetch" href="https://threadsgrab.com" />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="무료 Threads 팔로워 카운터 온라인 도구. 공개된 모든 Threads 계정의 실시간 팔로워 수를 추적하세요. 성장 분석, 세션 변화량, 추세 스파크라인, 자동 새로고침 통계를 확인할 수 있습니다." />
+  <meta name="keywords" content="Threads 팔로워 카운터, Threads 팔로워 추적, 실시간 팔로워 수, Threads 분석, Threads 성장 트래커, 실시간 Threads 팔로워, Threads 팔로워 체커, Threads 통계 모니터, Threads 오디언스 트래커, 무료 Threads 카운터 온라인" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1" />
+  <meta name="author" content="ThreadsGrab" />
+  <link rel="canonical" href="https://threadsgrab.com/ko/threads-follower-counter" />
+   <link rel="alternate" hreflang="x-default" href="https://threadsgrab.com/threads-follower-counter" />
+  <link rel="alternate" hreflang="en" href="https://threadsgrab.com/threads-follower-counter" />
+  <link rel="alternate" hreflang="ru" href="https://threadsgrab.com/ru/threads-follower-counter" />
+  <link rel="alternate" hreflang="es" href="https://threadsgrab.com/es/threads-follower-counter" />
+  <link rel="alternate" hreflang="ko" href="https://threadsgrab.com/ko/threads-follower-counter" />
+  <link rel="alternate" hreflang="ja" href="https://threadsgrab.com/ja/threads-follower-counter" />
+  <link rel="alternate" hreflang="th" href="https://threadsgrab.com/th/threads-follower-counter" />
+  <link rel="alternate" hreflang="de" href="https://threadsgrab.com/de/threads-follower-counter" />
+  <link rel="alternate" hreflang="fr" href="https://threadsgrab.com/fr/threads-follower-counter" />
+  <link rel="alternate" hreflang="hi" href="https://threadsgrab.com/hi/threads-follower-counter" />
+  <link rel="alternate" hreflang="zh" href="https://threadsgrab.com/zh/threads-follower-counter" />
+  <link rel="alternate" hreflang="it" href="https://threadsgrab.com/it/threads-follower-counter" />
+  <link rel="alternate" hreflang="pt" href="https://threadsgrab.com/pt/threads-follower-counter" />
+  <link rel="alternate" hreflang="bn" href="https://threadsgrab.com/bn/threads-follower-counter" />
+  <link rel="alternate" hreflang="tr" href="https://threadsgrab.com/tr/threads-follower-counter" />
+  <link rel="alternate" hreflang="id" href="https://threadsgrab.com/id/threads-follower-counter" />
+  <link rel="alternate" hreflang="vi" href="https://threadsgrab.com/vi/threads-follower-counter" />
+  <link rel="alternate" hreflang="ar" href="https://threadsgrab.com/ar/threads-follower-counter" />
+  <link rel="alternate" hreflang="pl" href="https://threadsgrab.com/pl/threads-follower-counter" />
+  <link rel="alternate" hreflang="uk" href="https://threadsgrab.com/uk/threads-follower-counter" />
+  <link rel="alternate" hreflang="ur" href="https://threadsgrab.com/ur/threads-follower-counter" />
+  <link rel="alternate" hreflang="af" href="https://threadsgrab.com/af/threads-follower-counter" />
+  <link rel="alternate" hreflang="sv" href="https://threadsgrab.com/sv/threads-follower-counter" />
+  <link rel="alternate" hreflang="ne" href="https://threadsgrab.com/ne/threads-follower-counter" />
+  <link rel="alternate" hreflang="fa" href="https://threadsgrab.com/fa/threads-follower-counter" />
+
+  <!-- Additional SEO / Mobile Tags -->
+  <meta name="theme-color" content="#4f46e5" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://threadsgrab.com/ko/threads-follower-counter" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:title" content="Threads 팔로워 카운터 - 실시간 팔로워 수 무료 추적 온라인" />
+  <meta property="og:description" content="무료 Threads 팔로워 카운터 온라인 도구. 공개된 모든 Threads 계정의 실시간 팔로워 수를 추적하세요. 성장 분석, 세션 변화량, 추세 스파크라인, 자동 새로고침 통계까지. 로그인 필요 없음." />
+  <meta property="og:image" content="https://threadsgrab.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:site_name" content="ThreadsGrab" />
+  <meta property="og:image:alt" content="ThreadsGrab 팔로워 카운터 미리보기 — Threads 실시간 팔로워 수 추적" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ThreadsGrab" />
+  <meta name="twitter:creator" content="@ThreadsGrab" />
+  <meta name="twitter:url" content="https://threadsgrab.com/ko/threads-follower-counter" />
+  <meta name="twitter:title" content="Threads 팔로워 카운터 - 실시간 팔로워 수 무료 추적 온라인" />
+  <meta name="twitter:description" content="무료 Threads 팔로워 카운터 온라인 도구. 공개된 모든 Threads 계정의 실시간 팔로워 수를 추적하세요. 성장 분석, 세션 변화량, 추세 스파크라인, 자동 새로고침 통계까지. 로그인 필요 없음." />
+  <meta name="twitter:image" content="https://threadsgrab.com/og-image.jpg" />
+  <meta name="twitter:image:width" content="1200" />
+  <meta name="twitter:image:height" content="630" />
+  <meta name="twitter:image:alt" content="ThreadsGrab 팔로워 카운터 미리보기 — Threads 실시간 팔로워 수 추적" />
+
+  <!-- Page-Specific Assets -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../romitkrweb.css" />
+  <link rel="icon" type="image/png" href="https://threadsgrab.com/threadsgrab-logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://threadsgrab.com/threadsgrab-logo.png" />
+  <link rel="stylesheet" href="../tdcount.css" />
+
+  <!-- WebGraph Schema JSON-LD (WebPage + WebSite + Organization + HowTo + Breadcrumb + ImageObject) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://threadsgrab.com/ko/threads-follower-counter/#webpage",
+        "url": "https://threadsgrab.com/ko/threads-follower-counter",
+        "name": "Threads 팔로워 카운터 - 실시간 팔로워 수 무료 추적 온라인",
+        "description": "무료 Threads 팔로워 카운터 온라인 도구. 공개된 모든 Threads 계정의 실시간 팔로워 수를 추적하세요. 성장 분석, 세션 변화량, 추세 스파크라인, 자동 새로고침 통계까지. 로그인 필요 없음.",
+        "inLanguage": "ko-KR",
+        "datePublished": "2026-08-04T00:00:00+00:00",
+        "dateModified": "2026-08-04T00:00:00+00:00",
+        "isPartOf": {
+          "@id": "https://threadsgrab.com/#website"
+        },
+        "primaryImageOfPage": {
+          "@id": "https://threadsgrab.com/ko/threads-follower-counter/#primaryimage"
+        },
+        "breadcrumb": {
+          "@id": "https://threadsgrab.com/ko/threads-follower-counter/#breadcrumb"
+        },
+        "potentialAction": [
+          {
+            "@type": "ReadAction",
+            "target": [
+              "https://threadsgrab.com/ko/threads-follower-counter"
+            ]
+          }
+        ]
+      },
+      {
+        "@type": "ImageObject",
+        "inLanguage": "ko-KR",
+        "@id": "https://threadsgrab.com/ko/threads-follower-counter/#primaryimage",
+        "url": "https://threadsgrab.com/og-image.jpg",
+        "contentUrl": "https://threadsgrab.com/og-image.jpg",
+        "width": 1200,
+        "height": 630,
+        "caption": "ThreadsGrab Threads 팔로워 카운터"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://threadsgrab.com/#website",
+        "url": "https://threadsgrab.com/",
+        "name": "ThreadsGrab",
+        "description": "Free online tools to download Threads videos, images, profile pictures and track follower counts.",
+        "inLanguage": "en-US",
+        "publisher": {
+          "@id": "https://threadsgrab.com/#organization"
+        },
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://threadsgrab.com/?s={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://threadsgrab.com/#organization",
+        "name": "ThreadsGrab",
+        "url": "https://threadsgrab.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "inLanguage": "en-US",
+          "@id": "https://threadsgrab.com/#logo",
+          "url": "https://threadsgrab.com/threadsgrab-logo.png",
+          "contentUrl": "https://threadsgrab.com/threadsgrab-logo.png",
+          "width": 180,
+          "height": 180,
+          "caption": "ThreadsGrab Logo"
+        },
+        "image": {
+          "@id": "https://threadsgrab.com/#logo"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "contact.themistero@gmail.com",
+          "contactType": "customer support",
+          "availableLanguage": ["English", "Korean"]
+        },
+        "sameAs": []
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://threadsgrab.com/ko/threads-follower-counter/#webapp",
+        "name": "Threads 팔로워 카운터",
+        "url": "https://threadsgrab.com/ko/threads-follower-counter",
+        "description": "무료 Threads 팔로워 카운터 온라인 도구. 공개된 모든 Threads 계정의 실시간 팔로워 수를 추적하세요. 성장 분석, 세션 변화량, 추세 스파크라인, 자동 새로고침 통계까지. 로그인 필요 없음.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "author": {
+          "@id": "https://threadsgrab.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "256"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://threadsgrab.com/ko/threads-follower-counter/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "홈",
+            "item": "https://threadsgrab.com/ko/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Threads 팔로워 카운터",
+            "item": "https://threadsgrab.com/ko/threads-follower-counter"
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://threadsgrab.com/ko/threads-follower-counter/#howto",
+        "name": "Threads 팔로워 수를 실시간으로 추적하는 방법",
+        "description": "ThreadsGrab을 이용해 공개된 모든 Threads 계정의 실시간 팔로워 수를 3단계로 간단하게 추적하세요.",
+        "totalTime": "PT1M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "USD",
+          "value": "0"
+        },
+        "supply": [
+          {
+            "@type": "HowToSupply",
+            "name": "Threads 프로필 URL 또는 @사용자 이름"
+          }
+        ],
+        "tool": [
+          {
+            "@type": "HowToTool",
+            "name": "ThreadsGrab Threads 팔로워 카운터",
+            "url": "https://threadsgrab.com/ko/threads-follower-counter"
+          }
+        ],
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "사용자 이름 입력하기",
+            "text": "카운터 도구 상단의 입력창에 Threads 사용자 이름을 입력하세요(@ 기호는 있어도 없어도 됩니다).",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://threadsgrab.com/media/download-threads-dp.jpg",
+              "width": 60,
+              "height": 60
+            },
+            "url": "https://threadsgrab.com/ko/threads-follower-counter/#downloader"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "추적 클릭하기",
+            "text": "추적 버튼을 누르면 ThreadsGrab이 공개된 Threads 프로필에서 최신 팔로워 수를 즉시 가져오기 시작합니다.",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://threadsgrab.com/media/threads-downloader-dp.jpg",
+              "width": 60,
+              "height": 60
+            },
+            "url": "https://threadsgrab.com/ko/threads-follower-counter/#downloader"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "실시간으로 확인하기",
+            "text": "페이지를 열어둔 채로 몇 초마다 자동으로 업데이트되는 팔로워 수를 확인하세요. 세션 변화량, 조회 횟수, 세션 내 추세 스파크라인 차트까지 함께 제공됩니다.",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://threadsgrab.com/media/threads-profile-downloader.jpg",
+              "width": 60,
+              "height": 60
+            },
+            "url": "https://threadsgrab.com/ko/threads-follower-counter/#howitworks"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- FAQPage Schema JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/ko/threads-follower-counter/#faq-1",
+        "name": "Threads 팔로워 카운터는 얼마나 정확한가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ThreadsGrab은 공개적으로 이용 가능한 Threads 프로필 정보에서 직접 팔로워 데이터를 가져옵니다. Meta가 팔로워 수에 대한 실시간 공식 API를 제공하지 않기 때문에, 수치는 일반적으로 플랫폼 자체의 캐싱 주기 내에서 정확합니다. 원본 데이터가 아직 변경 사항을 반영하지 못한 경우 약간의 지연이 발생할 수 있지만, 저희 도구는 기본 Threads 프로필 화면보다 훨씬 자주 새로고침됩니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/ko/threads-follower-counter/#faq-2",
+        "name": "팔로워 카운터가 가끔 멈추거나 업데이트를 중단하는 이유는 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "멈춤이나 지연은 카운터 자체의 문제가 아니라, 대부분 일시적인 네트워크 문제나 데이터 소스 측의 요청 제한 때문에 발생합니다. 원본 데이터 소스가 업데이트 발행을 지연시키면, 새 데이터가 준비될 때까지 카운터가 멈춘 것처럼 보입니다. 추적 버튼을 다시 클릭하면 강제로 새로 조회할 수 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/ko/threads-follower-counter/#faq-3",
+        "name": "내 카운터와 Threads 앱 사이에 차이가 나는 이유는 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Threads 앱과 ThreadsGrab 모두 동일한 공개 데이터를 읽어오지만, 서로 독립적인 주기로 새로고침됩니다. 두 새로고침 주기 사이의 간격 동안 두 수치가 일시적으로 다를 수 있습니다. 이는 모든 제3자 분석 도구에서 나타나는 정상적인 현상이며, 다음 조회 이후에는 값이 일치하게 됩니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/ko/threads-follower-counter/#faq-4",
+        "name": "팔로워 수가 즉시 업데이트되지 않는 이유는 무엇인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Threads가 서버 부하를 관리하기 위해 팔로워 수 변경 사항을 주기적인 캐싱 단위로 모아서 처리하기 때문에 즉각적인 업데이트는 불가능합니다. ThreadsGrab은 짧은 주기로 조회하여 지연을 최소화하지만, 매우 빠른 팔로우/언팔로우 이벤트는 반영되는 데 약간의 시간이 걸릴 수 있습니다. 이는 도구의 결함이 아니라 플랫폼 차원의 정상적인 제약입니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/ko/threads-follower-counter/#faq-5",
+        "name": "Threads 팔로워 카운터를 사용해도 안전한가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "네, 안전합니다. ThreadsGrab은 공개적으로 이용 가능한 프로필 정보만 읽어오며, 사용자 이름, 비밀번호, 그 어떤 로그인 자격 증명도 요구하지 않습니다. 계정과의 상호작용이나 권한 요청이 전혀 없으며, Threads로 다시 게시되는 내용도 없습니다. 자세한 내용은 개인정보 보호정책 및 면책조항 페이지를 참고해주세요."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://threadsgrab.com/ko/threads-follower-counter/#faq-6",
+        "name": "비공개 Threads 계정의 팔로워 수도 추적할 수 있나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "아니요. Threads 팔로워 카운터는 공개적으로 이용 가능한 프로필 데이터에 의존합니다. 계정이 비공개로 설정된 경우 팔로워 수는 공개 크롤러에 노출되지 않으므로 추적할 수 없습니다. ThreadsGrab은 사용자의 개인정보 설정을 존중하며 이를 우회하려는 시도를 하지 않습니다."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SP0ZHQ7HRQ"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SP0ZHQ7HRQ');
+  </script>
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">본문으로 바로가기</a>
+
+  <!-- Header & Navigation -->
+  <header class="header" id="siteHeader" role="banner">
+    <div class="container header-inner">
+      <a href="/ko/" class="logo" id="siteLogo" aria-label="ThreadsGrab 홈으로 이동">
+        <img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" alt="ThreadsGrab 로고" width="40" height="40" loading="lazy" decoding="async" />
+        <span>ThreadsGrab</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-desktop" id="desktopNav" role="navigation" aria-label="주 메뉴">
+        <a href="/ko/threads-video-downloader" class="nav-link" id="navVideo">동영상 다운로더</a>
+        <a href="/ko/threads-image-downloader" class="nav-link" id="navImage">이미지 다운로더</a>
+        <a href="/ko/threads-profile-picture-downloader" class="nav-link" id="navDp">DP 다운로더</a>
+        <a href="/ko/threads-follower-counter" class="nav-link active" id="navCounter" aria-current="page">팔로워 카운터</a>
+        <a href="/about" class="nav-link" id="navAnalyzer">회사 소개</a>
+      </nav>
+
+      <!-- Actions & Theme Toggle -->
+      <div class="header-actions">
+        <div class="lang-desktop">
+          <button class="lang-btn" id="langBtnDesktop" type="button" aria-label="언어 선택" aria-haspopup="listbox" aria-expanded="false" aria-controls="langPanelDesktop">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+            <span class="lang-btn-label" id="langBtnLabelDesktop">한국어</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="lang-panel" id="langPanelDesktop" role="listbox" aria-label="언어 선택" hidden>
+            <a href="/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="en" data-lang-name="English"><span class="lang-code">US</span><span class="lang-texts"><strong>English</strong><span class="lang-sub">영어</span></span></a>
+            <a href="/ru/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="ru" data-lang-name="Russian"><span class="lang-code">RU</span><span class="lang-texts"><strong>Русский</strong><span class="lang-sub">러시아어</span></span></a>
+            <a href="/es/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="es" data-lang-name="Spanish"><span class="lang-code">ES</span><span class="lang-texts"><strong>Español</strong><span class="lang-sub">스페인어</span></span></a>
+            <a href="/ko/threads-follower-counter" class="lang-item active" role="option" aria-selected="true" data-lang-code="ko" data-lang-name="Korean"><span class="lang-code">KR</span><span class="lang-texts"><strong>한국어</strong><span class="lang-sub">Korean</span></span></a>
+            <a href="/ja/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="ja" data-lang-name="Japanese"><span class="lang-code">JP</span><span class="lang-texts"><strong>日本語</strong><span class="lang-sub">일본어</span></span></a>
+            <a href="/th/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="th" data-lang-name="Thai"><span class="lang-code">TH</span><span class="lang-texts"><strong>ไทย</strong><span class="lang-sub">태국어</span></span></a>
+            <a href="/de/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="de" data-lang-name="German"><span class="lang-code">DE</span><span class="lang-texts"><strong>Deutsch</strong><span class="lang-sub">독일어</span></span></a>
+            <a href="/fr/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="fr" data-lang-name="French"><span class="lang-code">FR</span><span class="lang-texts"><strong>Français</strong><span class="lang-sub">프랑스어</span></span></a>
+            <a href="/hi/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="hi" data-lang-name="Hindi"><span class="lang-code">IN</span><span class="lang-texts"><strong>हिन्दी</strong><span class="lang-sub">힌디어</span></span></a>
+            <a href="/zh/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="zh" data-lang-name="Chinese"><span class="lang-code">CN</span><span class="lang-texts"><strong>中文</strong><span class="lang-sub">중국어</span></span></a>
+            <a href="/it/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="it" data-lang-name="Italian"><span class="lang-code">IT</span><span class="lang-texts"><strong>Italiano</strong><span class="lang-sub">이탈리아어</span></span></a>
+            <a href="/pt/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="pt" data-lang-name="Portuguese"><span class="lang-code">PT</span><span class="lang-texts"><strong>Português</strong><span class="lang-sub">포르투갈어</span></span></a>
+            <a href="/bn/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="bn" data-lang-name="Bengali"><span class="lang-code">BD</span><span class="lang-texts"><strong>বাংলা</strong><span class="lang-sub">벵골어</span></span></a>
+            <a href="/tr/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="tr" data-lang-name="Turkish"><span class="lang-code">TR</span><span class="lang-texts"><strong>Türkçe</strong><span class="lang-sub">터키어</span></span></a>
+            <a href="/id/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="id" data-lang-name="Indonesian"><span class="lang-code">ID</span><span class="lang-texts"><strong>Indonesia</strong><span class="lang-sub">인도네시아어</span></span></a>
+            <a href="/vi/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="vi" data-lang-name="Vietnamese"><span class="lang-code">VN</span><span class="lang-texts"><strong>Tiếng Việt</strong><span class="lang-sub">베트남어</span></span></a>
+            <a href="/ar/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="ar" data-lang-name="Arabic"><span class="lang-code">SA</span><span class="lang-texts"><strong>العربية</strong><span class="lang-sub">아랍어</span></span></a>
+            <a href="/pl/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="pl" data-lang-name="Polish"><span class="lang-code">PL</span><span class="lang-texts"><strong>Polski</strong><span class="lang-sub">폴란드어</span></span></a>
+            <a href="/uk/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="uk" data-lang-name="Ukrainian"><span class="lang-code">UA</span><span class="lang-texts"><strong>Українська</strong><span class="lang-sub">우크라이나어</span></span></a>
+            <a href="/ur/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="ur" data-lang-name="Urdu"><span class="lang-code">PK</span><span class="lang-texts"><strong>اردو</strong><span class="lang-sub">우르두어</span></span></a>
+            <a href="/af/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="af" data-lang-name="Afrikaans"><span class="lang-code">ZA</span><span class="lang-texts"><strong>Afrikaans</strong><span class="lang-sub">아프리칸스어</span></span></a>
+            <a href="/sv/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="sv" data-lang-name="Swedish"><span class="lang-code">SE</span><span class="lang-texts"><strong>Svenska</strong><span class="lang-sub">스웨덴어</span></span></a>
+            <a href="/ne/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="ne" data-lang-name="Nepali"><span class="lang-code">NP</span><span class="lang-texts"><strong>नेपाली</strong><span class="lang-sub">네팔어</span></span></a>
+            <a href="/fa/threads-follower-counter" class="lang-item" role="option" aria-selected="false" data-lang-code="fa" data-lang-name="Persian"><span class="lang-code">IR</span><span class="lang-texts"><strong>فارسی</strong><span class="lang-sub">페르시아어</span></span></a>
+          </div>
+        </div>
+        <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="모바일 메뉴 전환" aria-expanded="false" aria-controls="mobileNav">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="4" x2="20" y1="12" y2="12"/>
+            <line x1="4" x2="20" y1="6" y2="6"/>
+            <line x1="4" x2="20" y1="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="모바일 메뉴" hidden>
+    <a href="/ko/" class="nav-link">홈</a>
+    <a href="/ko/threads-video-downloader" class="nav-link">Threads 동영상 다운로더</a>
+    <a href="/ko/threads-image-downloader" class="nav-link">Threads 이미지 다운로더</a>
+    <a href="/ko/threads-profile-picture-downloader" class="nav-link">Threads DP 다운로더</a>
+    <a href="/ko/threads-follower-counter" class="nav-link active" aria-current="page">Threads 팔로워 카운터</a>
+    <a href="/about" class="nav-link">회사 소개</a>
+    <a href="/contact" class="nav-link">문의하기</a>
+    <a href="/privacy-policy" class="nav-link">개인정보 보호정책</a>
+    <div class="mobile-lang-section" aria-labelledby="mobileLangHeading">
+      <div class="mobile-lang-header" id="mobileLangHeading">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+        <span>언어</span>
+        <span class="mobile-lang-current" id="mobileLangCurrent">한국어</span>
+      </div>
+      <div class="mobile-lang-grid" role="listbox" aria-label="언어를 선택하세요">
+        <a href="/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="en" data-lang-name="English"><span class="lang-code">US</span><span class="lang-texts"><strong>English</strong><span class="lang-sub">영어</span></span></a>
+        <a href="/ru/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ru" data-lang-name="Russian"><span class="lang-code">RU</span><span class="lang-texts"><strong>Русский</strong><span class="lang-sub">러시아어</span></span></a>
+        <a href="/es/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="es" data-lang-name="Spanish"><span class="lang-code">ES</span><span class="lang-texts"><strong>Español</strong><span class="lang-sub">스페인어</span></span></a>
+        <a href="/ko/threads-follower-counter" class="mobile-lang-item active" role="option" aria-selected="true" data-lang-code="ko" data-lang-name="Korean"><span class="lang-code">KR</span><span class="lang-texts"><strong>한국어</strong><span class="lang-sub">Korean</span></span></a>
+        <a href="/ja/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ja" data-lang-name="Japanese"><span class="lang-code">JP</span><span class="lang-texts"><strong>日本語</strong><span class="lang-sub">일본어</span></span></a>
+        <a href="/th/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="th" data-lang-name="Thai"><span class="lang-code">TH</span><span class="lang-texts"><strong>ไทย</strong><span class="lang-sub">태국어</span></span></a>
+        <a href="/de/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="de" data-lang-name="German"><span class="lang-code">DE</span><span class="lang-texts"><strong>Deutsch</strong><span class="lang-sub">독일어</span></span></a>
+        <a href="/fr/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="fr" data-lang-name="French"><span class="lang-code">FR</span><span class="lang-texts"><strong>Français</strong><span class="lang-sub">프랑스어</span></span></a>
+        <a href="/hi/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="hi" data-lang-name="Hindi"><span class="lang-code">IN</span><span class="lang-texts"><strong>हिन्दी</strong><span class="lang-sub">힌디어</span></span></a>
+        <a href="/zh/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="zh" data-lang-name="Chinese"><span class="lang-code">CN</span><span class="lang-texts"><strong>中文</strong><span class="lang-sub">중국어</span></span></a>
+        <a href="/it/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="it" data-lang-name="Italian"><span class="lang-code">IT</span><span class="lang-texts"><strong>Italiano</strong><span class="lang-sub">이탈리아어</span></span></a>
+        <a href="/pt/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="pt" data-lang-name="Portuguese"><span class="lang-code">PT</span><span class="lang-texts"><strong>Português</strong><span class="lang-sub">포르투갈어</span></span></a>
+        <a href="/bn/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="bn" data-lang-name="Bengali"><span class="lang-code">BD</span><span class="lang-texts"><strong>বাংলা</strong><span class="lang-sub">벵골어</span></span></a>
+        <a href="/tr/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="tr" data-lang-name="Turkish"><span class="lang-code">TR</span><span class="lang-texts"><strong>Türkçe</strong><span class="lang-sub">터키어</span></span></a>
+        <a href="/id/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="id" data-lang-name="Indonesian"><span class="lang-code">ID</span><span class="lang-texts"><strong>Indonesia</strong><span class="lang-sub">인도네시아어</span></span></a>
+        <a href="/vi/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="vi" data-lang-name="Vietnamese"><span class="lang-code">VN</span><span class="lang-texts"><strong>Tiếng Việt</strong><span class="lang-sub">베트남어</span></span></a>
+        <a href="/ar/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ar" data-lang-name="Arabic"><span class="lang-code">SA</span><span class="lang-texts"><strong>العربية</strong><span class="lang-sub">아랍어</span></span></a>
+        <a href="/pl/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="pl" data-lang-name="Polish"><span class="lang-code">PL</span><span class="lang-texts"><strong>Polski</strong><span class="lang-sub">폴란드어</span></span></a>
+        <a href="/uk/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="uk" data-lang-name="Ukrainian"><span class="lang-code">UA</span><span class="lang-texts"><strong>Українська</strong><span class="lang-sub">우크라이나어</span></span></a>
+        <a href="/ur/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ur" data-lang-name="Urdu"><span class="lang-code">PK</span><span class="lang-texts"><strong>اردو</strong><span class="lang-sub">우르두어</span></span></a>
+        <a href="/af/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="af" data-lang-name="Afrikaans"><span class="lang-code">ZA</span><span class="lang-texts"><strong>Afrikaans</strong><span class="lang-sub">아프리칸스어</span></span></a>
+        <a href="/sv/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="sv" data-lang-name="Swedish"><span class="lang-code">SE</span><span class="lang-texts"><strong>Svenska</strong><span class="lang-sub">스웨덴어</span></span></a>
+        <a href="/ne/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="ne" data-lang-name="Nepali"><span class="lang-code">NP</span><span class="lang-texts"><strong>नेपाली</strong><span class="lang-sub">네팔어</span></span></a>
+        <a href="/fa/threads-follower-counter" class="mobile-lang-item" role="option" aria-selected="false" data-lang-code="fa" data-lang-name="Persian"><span class="lang-code">IR</span><span class="lang-texts"><strong>فارسی</strong><span class="lang-sub">페르시아어</span></span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="mainContent" role="main">
+    <!-- Hero & Tool Section -->
+    <section class="hero-section" id="downloader" aria-labelledby="heroHeading">
+      <div class="container">
+        <h1 class="hero-title" id="heroHeading">Threads 팔로워 카운터</h1>
+        <p class="hero-subtitle hero-subtitle-sm">
+          실시간 성장 인사이트와 분석으로 공개된 모든 Threads 계정의 실시간 팔로워 수를 추적하세요.
+        </p>
+
+        <!-- Tool Mode Tabs -->
+        <div class="tool-tabs" id="toolTabs" role="tablist" aria-label="Threads 도구">
+          <a href="/ko/threads-video-downloader" class="tool-tab" id="toolVideoTab" aria-label="동영상 다운로더" role="tab">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect width="15" height="14" x="1" y="5" rx="2" ry="2"/></svg>
+          </a>
+          <a href="/ko/threads-image-downloader" class="tool-tab" id="toolImageTab" aria-label="이미지 다운로더" role="tab">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+          </a>
+          <a href="/ko/threads-profile-picture-downloader" class="tool-tab" id="toolDpTab" aria-label="프로필 DP" role="tab">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </a>
+          <a href="/ko/threads-follower-counter" class="tool-tab active" id="toolGrowthTab" aria-label="성장 인사이트" role="tab" aria-selected="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          </a>
+        </div>
+
+        <!-- Main Follower Counter Card -->
+        <section class="idp-card" aria-labelledby="heroHeading">
+
+          <div class="idp-card-top">
+            <div class="idp-eyebrow">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L3 14h7v8l10-14h-7z"/></svg>
+              실시간 팔로워 카운터
+            </div>
+            <div id="refresh-pill" class="idp-refresh-pill" role="status" aria-live="polite">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" d="M4 4v6h6M20 20v-6h-6"/><path stroke-linecap="round" d="M5.5 15a7 7 0 0012.6 2.5M18.5 9a7 7 0 00-12.6-2.5"/></svg>
+              <span id="refresh-label">새로고침 중</span>
+            </div>
+          </div>
+
+          <form id="search-form" class="idp-search-row" role="search">
+            <span class="idp-at" aria-hidden="true">@</span>
+            <label for="username-input" class="visually-hidden">Threads 사용자 이름</label>
+            <input id="username-input" type="text" placeholder="Threads 사용자 이름을 입력하세요" autocomplete="off" spellcheck="false" inputmode="text" aria-describedby="username-hint" />
+            <span id="username-hint" class="visually-hidden">공개된 Threads 사용자 이름을 입력하세요. @ 기호는 생략해도 됩니다.</span>
+            <button type="submit" class="idp-track-btn" id="track-btn">추적</button>
+          </form>
+
+          <div class="idp-divider"></div>
+
+          <div class="idp-profile-block" aria-live="polite" aria-atomic="true">
+            <div class="idp-avatar-ring">
+              <div class="idp-avatar-inner">
+                <img id="profile-pic" src="" alt="프로필 아바타" referrerpolicy="no-referrer" class="hidden" width="52" height="52" loading="lazy" decoding="async" />
+                <svg id="avatar-placeholder" width="52" height="52" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="igGrad" x1="0" y1="0" x2="24" y2="24">
+                      <stop offset="0%" stop-color="#F58529"/>
+                      <stop offset="45%" stop-color="#E1306C"/>
+                      <stop offset="100%" stop-color="#8134AF"/>
+                    </linearGradient>
+                  </defs>
+                  <rect x="2.5" y="2.5" width="19" height="19" rx="6" stroke="url(#igGrad)" stroke-width="1.8"/>
+                  <circle cx="12" cy="12" r="4.6" stroke="url(#igGrad)" stroke-width="1.8"/>
+                  <circle cx="17.2" cy="6.8" r="1.1" fill="url(#igGrad)"/>
+                </svg>
+              </div>
+              <div class="idp-live-badge" aria-label="실시간 추적 중"><span class="idp-live-dot" aria-hidden="true"></span>LIVE</div>
+            </div>
+
+            <div class="idp-tracking-pill">
+              <span class="idp-tracking-dot" aria-hidden="true"></span>
+              추적 중 <b id="tracking-handle">@threads</b>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10"/></svg>
+            </div>
+
+            <h2 class="idp-name" id="profile-name">Threads</h2>
+            <p class="idp-tagline" id="profile-tagline">Threads에서 새로운 소식을 발견하세요</p>
+
+            <div class="idp-count mono" id="follower-count" aria-label="팔로워 수">0</div>
+            <div class="idp-count-label" id="count-label">THREADS 팔로워</div>
+          </div>
+
+          <div class="idp-monitor-row">
+            <div class="idp-monitor-ring" aria-hidden="true"></div>
+            <div class="idp-monitor-text">
+              <div class="idp-monitor-title">실시간 모니터링<span class="idp-monitor-amber mono" id="monitor-seconds" aria-label="마지막 새로고침 이후 경과 시간">0.0s</span></div>
+              <div class="idp-monitor-sub">ThreadsGrab 서버에서 데이터를 가져오는 중</div>
+            </div>
+            <div class="idp-monitor-divider" aria-hidden="true"></div>
+            <button type="button" class="idp-monitor-btn" id="monitor-toggle-btn" title="모니터링 일시정지 또는 재개" aria-label="실시간 모니터링 일시정지 또는 재개">
+              <svg id="monitor-toggle-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            </button>
+          </div>
+
+          <div class="idp-divider" style="margin-top:0;"></div>
+
+          <div class="idp-stat-grid" role="group" aria-label="팔로워 통계">
+            <div class="idp-stat-box"><div class="idp-stat-label">대상 사용자 이름</div><div class="idp-stat-value mono" id="stat-username" aria-label="대상 사용자 이름">@threads</div></div>
+            <div class="idp-stat-box"><div class="idp-stat-label">세션 변화량</div><div class="idp-stat-value mono idp-green" id="stat-delta" aria-label="세션 중 팔로워 변화량">+0</div></div>
+            <div class="idp-stat-box"><div class="idp-stat-label">조회 횟수</div><div class="idp-stat-value mono" id="stat-ticks" aria-label="조회 횟수">0회</div></div>
+            <div class="idp-stat-box"><div class="idp-stat-label">마지막 확인 시각</div><div class="idp-stat-value mono" id="stat-verified" aria-label="마지막 확인 시각">--:--:-- --</div></div>
+          </div>
+
+          <div class="idp-sparkline-panel" aria-labelledby="sparkline-heading">
+            <div class="idp-sparkline-head">
+              <div class="idp-sparkline-title" id="sparkline-heading">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l5-5 4 4 8-9"/></svg>
+                세션 내 팔로워 추세 스파크라인
+              </div>
+              <div class="idp-sparkline-hint">실시간 업데이트가 아래에 기록되어 누적됩니다</div>
+            </div>
+            <div class="idp-sparkline-chart"><canvas id="spark-canvas" role="img" aria-label="세션 내 팔로워 추세 차트"></canvas></div>
+          </div>
+
+          <div id="error-box" class="hidden" role="alert" aria-live="assertive" style="color:#EF5350;font-size:12.5px;padding-bottom:20px;text-align:center;"></div>
+
+        </section>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="idp-discover" aria-label="추천 계정">
+
+        <div class="idp-discover-block">
+          <div class="idp-discover-head">
+            <div class="idp-discover-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a5 5 0 015 5v3h1a2 2 0 012 2v8a2 2 0 01-2 2H6a2 2 0 01-2-2v-8a2 2 0 012-2h1V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v3h6V7a3 3 0 00-3-3z"/></svg>
+              프로모션 계정
+            </div>
+            <div class="idp-discover-hint">탭하여 프로모션 계정 추적하기</div>
+          </div>
+          <div class="idp-account-grid" id="promoted-grid" role="list" aria-label="프로모션 계정 목록"></div>
+        </div>
+
+        <div class="idp-discover-block">
+          <div class="idp-discover-head">
+            <div class="idp-discover-title">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 8 12 8 12s8-6.6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"/></svg>
+              인기 실시간 계정
+            </div>
+            <div class="idp-discover-hint">클릭하여 추적 대상 변경하기</div>
+          </div>
+          <div class="idp-account-grid" id="popular-grid" role="list" aria-label="인기 계정 목록"></div>
+        </div>
+
+        <div class="idp-discover-block">
+          <div class="idp-discover-head">
+            <div class="idp-discover-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1a5 5 0 00-5 5v3H6a2 2 0 00-2 2v9a2 2 0 002 2h12a2 2 0 002-2v-9a2 2 0 00-2-2h-1V6a5 5 0 00-5-5zm0 2a3 3 0 013 3v3H9V6a3 3 0 013-3z"/></svg>
+              트렌딩 계정
+            </div>
+            <div class="idp-discover-hint">탭하여 트렌딩 사용자 추적하기</div>
+          </div>
+          <div class="idp-trend-grid" id="trending-grid" role="list" aria-label="트렌딩 계정 목록"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- How To Track Steps Section -->
+    <section class="steps-section" id="howitworks" aria-labelledby="stepsHeading">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="stepsHeading">Threads 팔로워 수를 실시간으로 추적하는 방법</h2>
+          <p class="section-subtitle">아래 3가지 간단한 단계를 따라 공개된 모든 Threads 계정의 실시간 팔로워 수와 성장 추세를 모니터링하세요.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-icon"><img src="https://threadsgrab.com//media/threads-follower-counter.jpg" loading="lazy" decoding="async" width="60" height="60" alt="" aria-hidden="true" /></div>
+            <h3>사용자 이름 입력</h3>
+            <p>카운터 도구 상단의 입력창에 Threads 사용자 이름을 입력하세요(@ 기호는 있어도 없어도 됩니다).</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon"><img src="https://threadsgrab.com/media/count-threads-follower.jpg" loading="lazy" decoding="async" width="60" height="60" alt="" aria-hidden="true" /></div>
+            <h3><a href="#downloader" style="color:inherit;text-decoration:none;">추적</a> 클릭</h3>
+            <p>추적 버튼을 누르면 ThreadsGrab이 공개된 Threads 프로필에서 최신 팔로워 수를 즉시 가져오기 시작합니다.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-icon"><img src="https://threadsgrab.com/media/track threads follower growth.jpg" loading="lazy" decoding="async" width="60" height="60" alt="" aria-hidden="true" /></div>
+            <h3>실시간으로 확인하기</h3>
+            <p>페이지를 열어둔 채로 몇 초마다 자동으로 업데이트되는 팔로워 수를 확인하세요. 세션 변화량, 조회 횟수, 세션 내 추세 스파크라인 차트까지 함께 제공됩니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Information Content Section -->
+    <section class="info-section" aria-labelledby="infoIntroHeading">
+      <div class="container">
+        <article class="info-content">
+          <h2 id="infoIntroHeading"><a href="#infoIntroHeading" style="color:inherit;text-decoration:none;">Threads 팔로워 카운터 — 실시간 성장 추적 및 분석</a></h2>
+          <p>
+            기본 프로필 화면만으로 Threads의 팔로워 성장을 추적하는 것은 답답한 경험입니다. 프로필 수치는 캐시된 값이지 실시간이 아니기 때문에, 앱에서 보이는 숫자는 이미 몇 분, 심지어 몇 시간 전에 멈춰 있는 값일 수 있습니다. 전용 Threads 팔로워 카운터는 공개된 최신 수치를 짧은 자동 주기로 가져와, 변화가 감지되는 즉시 업데이트를 보여줌으로써 수동 새로고침의 반복을 없애줍니다. 런칭 기간 동안 자신의 계정을 모니터링하든, 경쟁사를 벤치마킹하든, 여러 크리에이터의 성장 추세를 연구하든, ThreadsGrab은 로그인도, 앱 설치도, 수동 새로고침도 필요 없이 끊임없이 갱신되는 화면을 제공합니다.</p>
+            <p>ThreadsGrab은 Threads와 관련된 모든 작업을 위한 올인원 도구 세트이기도 합니다. 팔로워 추세 분석을 마쳤다면, Threads 동영상 다운로더로 크리에이터의 고품질 게시물을 저장하거나, Threads 이미지 다운로더로 캐러셀과 단일 이미지를 가져오거나, Threads DP 다운로더로 추적 중인 모든 계정의 원본 크기 프로필 사진을 받아보세요.</p>
+
+          <h2 id="infoUpdatesHeading"><a href="#infoUpdatesHeading" style="color:inherit;text-decoration:none;">팔로워 수가 즉시 업데이트되지 않는 이유</a></h2>
+          <p>Threads는 다른 대형 소셜 플랫폼과 마찬가지로, 실시간 쓰기 작업으로 인해 인프라가 과부하되는 것을 막기 위해 캐싱 레이어를 통해 팔로워 수 변경을 일괄 처리합니다. 즉, 네이티브 앱에 표시되는 숫자는 실시간 피드가 아니라 Meta가 제어하는 주기로 새로고침되는 스냅숏이며, 이 주기는 트래픽과 서버 부하에 따라 몇 초에서 수십 분까지 달라질 수 있습니다.</p>
+          <p>ThreadsGrab은 기본 Threads UI보다 훨씬 짧은 주기로 공개 프로필 엔드포인트를 조회하여 체감 지연을 최소화합니다. 실제로는 프로필을 수동으로 새로고침할 때보다 훨씬 빠르게 업데이트를 확인할 수 있으며, 세션 변화량과 스파크라인 패널이 캐시된 숫자 안에 숨겨졌을 작은 변화까지도 즉시 눈에 보이게 해줍니다.</p>
+
+          <h2 id="infoMilestoneHeading"><a href="#infoMilestoneHeading" style="color:inherit;text-decoration:none;">확신을 갖고 마일스톤을 달성하세요</a></h2>
+          <p>1천, 1만, 10만 등 마일스톤에 가까워질수록 그 느낌은 달라집니다. 네이티브 프로필 화면은 이전과 이후의 스냅숏만 보여주기 때문에, 정확히 언제 숫자가 넘어갔는지, 어떤 궤적을 거쳳는지는 전혀 알 수 없습니다.</p>
+          <p>실시간 팔로워 카운터는 이런 단편적인 스냅숏을 하나의 연속된 이야기로 바꿔줍니다. 50번씩 새로고침하며 짐작하는 대신, 숫자가 실시간으로 오르는 것을 보고, 목표 지점을 넘어서는 순간을 지켜보며, 조회 기록과 스파크라인에서 정확한 순간을 확인할 수 있습니다. 데이터로 뒷받침되는 이 흐름은 무작위 새로고침 끝에 마주치는 갑작스러운 점프보다 훨씬 만족스럽습니다.</p>
+
+          <h2 id="infoChurnHeading"><a href="#infoChurnHeading" style="color:inherit;text-decoration:none;">언팔로우와 이탈을 조기에 감지하세요</a></h2>
+          <p>대부분의 크리에이터는 증가만 눈치챕니다 — 숫자가 오르면 스크린샷을 남기지만, 일주일 뒤 알 수 없는 감소는 정확히 언제 발생했는지 알 수 있는 기록이 없어 눈치채지 못하고 지나가는 경우가 많습니다. 프로필을 가끔씩만 확인한다면 500명의 감소도 그저 노이즈처럼 보일 수 있습니다.</p>
+          <p>ThreadsGrab은 증가와 감소, 양방향의 움직임을 모두 보여줍니다. 세션 변화량은 추적을 시작한 이후의 순 변화를 강조하고, 모든 조회는 스파크라인 기록에 남으며, 감소 추세도 며칠 뒤 우연히 작아진 숫자를 발견하는 대신 발생하는 즉시 확인할 수 있습니다.</p>
+
+          <h2 id="infoCompetitorHeading"><a href="#infoCompetitorHeading" style="color:inherit;text-decoration:none;">수동 확인 없이 경쟁자와 크리에이터를 추적하세요</a></h2>
+          <p>다른 사람의 계정을 수동으로 모니터링하는 것은 번거로운 일입니다 — 남의 프로필을 정해진 시간마다 새로고침할 이유가 없고, 스프레드시트는 저장하는 순간 이미 오래된 데이터가 되어버립니다.</p>
+          <p>ThreadsGrab에서는 공개된 @사용자 이름을 한 번만 입력하면 나머지는 도구가 처리합니다. 카운터 아래의 추천 패널에서 프로모션, 인기, 트렌딩 계정을 클릭 한 번으로 전환할 수 있으며, 벤치마킹하거나 조사하거나 협업 중인 크리에이터의 계정명을 직접 입력해 추적할 수도 있습니다.</p>
+
+          <h2 id="infoCompatHeading"><a href="#infoCompatHeading" style="color:inherit;text-decoration:none;">모든 기기와 브라우저에서 사용 가능</a></h2>
+          <p>ThreadsGrab의 팔로워 카운터는 100% 브라우저에서 실행되며 Android, iOS, Windows, Mac, Linux 및 모든 태블릿 형태에서 동일하게 작동합니다. 반응형 UI가 어떤 화면에도 완벽하게 맞춰지며, Google Chrome, Safari, Firefox, Microsoft Edge, Opera, Brave와 완전히 호환됩니다. 앱도, 확장 프로그램도, 별도 설정도 필요 없이, 사용자 이름과 추적 버튼만 있으면 됩니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq" aria-labelledby="faqHeading">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="faqHeading">자주 묻는 질문</h2>
+          <p class="section-subtitle">Threads 팔로워 수 추적에 대해 자주 나오는 질문들을 확인해보세요.</p>
+        </div>
+
+        <div class="faq-list" role="list">
+          <div class="faq-item active" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="true" aria-controls="faqAnswer1" id="faqButton1">
+              <span>Threads 팔로워 카운터는 얼마나 정확한가요?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer1" role="region" aria-labelledby="faqButton1">
+              <p>ThreadsGrab은 공개적으로 이용 가능한 Threads 프로필 정보에서 직접 팔로워 데이터를 가져옵니다. Meta가 팔로워 수에 대한 실시간 공식 API를 제공하지 않기 때문에, 수치는 일반적으로 플랫폼 자체의 캐싱 주기 내에서 정확합니다. 원본 데이터가 아직 변경 사항을 반영하지 못한 경우 약간의 지연이 발생할 수 있지만, 저희 도구는 기본 Threads 프로필 화면보다 훨씬 자주 새로고침됩니다.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer2" id="faqButton2">
+              <span>팔로워 카운터가 가끔 멈추거나 업데이트를 중단하는 이유는 무엇인가요?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer2" role="region" aria-labelledby="faqButton2" hidden>
+              <p>멈춤이나 지연은 카운터 자체의 문제가 아니라, 대부분 일시적인 네트워크 문제나 데이터 소스 측의 요청 제한 때문에 발생합니다. 원본 데이터 소스가 업데이트 발행을 지연시키면, 새 데이터가 준비될 때까지 카운터가 멈춘 것처럼 보입니다. 추적 버튼을 다시 클릭하면 강제로 새로 조회할 수 있습니다.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer3" id="faqButton3">
+              <span>내 카운터와 Threads 앱 사이에 차이가 나는 이유는 무엇인가요?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer3" role="region" aria-labelledby="faqButton3" hidden>
+              <p>Threads 앱과 ThreadsGrab 모두 동일한 공개 데이터를 읽어오지만, 서로 독립적인 주기로 새로고침됩니다. 두 새로고침 주기 사이의 간격 동안 두 수치가 일시적으로 다를 수 있습니다. 이는 모든 제3자 분석 도구에서 나타나는 정상적인 현상이며, 다음 조회 이후에는 값이 일치하게 됩니다.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer4" id="faqButton4">
+              <span>팔로워 수가 즉시 업데이트되지 않는 이유는 무엇인가요?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer4" role="region" aria-labelledby="faqButton4" hidden>
+              <p>Threads가 서버 부하를 관리하기 위해 팔로워 수 변경 사항을 주기적인 캐싱 단위로 모아서 처리하기 때문에 즉각적인 업데이트는 불가능합니다. ThreadsGrab은 짧은 주기로 조회하여 지연을 최소화하지만, 매우 빠른 팔로우/언팔로우 이벤트는 반영되는 데 약간의 시간이 걸릴 수 있습니다. 이는 도구의 결함이 아니라 플랫폼 차원의 정상적인 제약입니다.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer5" id="faqButton5">
+              <span>Threads 팔로워 카운터를 사용해도 안전한가요?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer5" role="region" aria-labelledby="faqButton5" hidden>
+              <p>네, 안전합니다. ThreadsGrab은 공개적으로 이용 가능한 프로필 정보만 읽어오며, 사용자 이름, 비밀번호, 그 어떤 로그인 자격 증명도 요구하지 않습니다. 계정과의 상호작용이나 권한 요청이 전혀 없으며, Threads로 다시 게시되는 내용도 없습니다. 자세한 내용은 <a href="/privacy-policy">개인정보 보호정책</a> 및 <a href="/disclaimer">면책조항</a> 페이지를 참고해주세요.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faqAnswer6" id="faqButton6">
+              <span>비공개 Threads 계정의 팔로워 수도 추적할 수 있나요?</span>
+              <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer" id="faqAnswer6" role="region" aria-labelledby="faqButton6" hidden>
+              <p>아니요. Threads 팔로워 카운터는 공개적으로 이용 가능한 프로필 데이터에 의존합니다. 계정이 비공개로 설정된 경우 팔로워 수는 공개 크롤러에 노출되지 않으므로 추적할 수 없습니다. ThreadsGrab은 사용자의 개인정보 설정을 존중하며 이를 우회하려는 시도를 하지 않습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="/ko/" class="logo" aria-label="ThreadsGrab 홈으로 이동">
+            <img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" alt="ThreadsGrab 로고" width="40" height="40" loading="lazy" decoding="async" />
+            <span>ThreadsGrab</span>
+          </a>
+          <p>공개된 Threads 동영상, 이미지, 프로필 사진을 원본 품질로 저장하고 실시간 팔로워 수까지 추적할 수 있는, 가장 빠르고 안정적인 온라인 유틸리티입니다. 저희는 Meta 또는 Threads와 관련이 없습니다.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>도구</h4>
+          <ul class="footer-links">
+            <li><a href="/ko/threads-video-downloader">Threads 동영상 다운로더</a></li>
+            <li><a href="/ko/threads-image-downloader">Threads 이미지 다운로더</a></li>
+            <li><a href="/ko/threads-profile-picture-downloader">Threads DP 다운로더</a></li>
+            <li><a href="/ko/threads-follower-counter">Threads 팔로워 카운터</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>회사</h4>
+          <ul class="footer-links">
+            <li><a href="/about">회사 소개</a></li>
+            <li><a href="/contact">문의하기</a></li>
+            <li><a href="/privacy-policy">개인정보 보호정책</a></li>
+            <li><a href="/disclaimer">면책조항</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>법률 및 지원</h4>
+          <ul class="footer-links">
+            <li><a href="/disclaimer">DMCA 정책</a></li>
+            <li>
+              <a href="mailto:contact.themistero@gmail.com" class="footer-link-email">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                고객지원 문의
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 ThreadsGrab. 모든 권리 보유.</div>
+        <div class="footer-disclaimer-note">
+          고지: ThreadsGrab은 독립적인 도구이며 Instagram, Meta Platforms, Inc. 또는 Threads와 제휴, 보증 또는 후원 관계가 없습니다.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Accessibility Critical CSS -->
+  <style>
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999}
+    .skip-link:focus{position:fixed;top:0;left:0;width:auto;height:auto;padding:12px 20px;background:#4f46e5;color:#fff;font-weight:600;text-decoration:none;border-radius:0 0 6px 0;outline:2px solid #fff;outline-offset:2px}
+    .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+  <script defer src="../tdcount.js"></script>
+  <script>
+    (function attachMobileMenuToggle(){
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      if (!hamburgerBtn || !mobileNav) return;
+
+      function closeMenu() {
+        mobileNav.setAttribute('hidden', '');
+        mobileNav.classList.remove('open');
+        hamburgerBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>`;
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+      }
+
+      hamburgerBtn.addEventListener('click', () => {
+        const isHidden = mobileNav.hasAttribute('hidden');
+        if (isHidden) {
+          mobileNav.removeAttribute('hidden');
+          mobileNav.classList.add('open');
+          hamburgerBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`;
+          hamburgerBtn.setAttribute('aria-expanded', 'true');
+        } else {
+          closeMenu();
+        }
+      });
+
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
+</body>
+</html>
