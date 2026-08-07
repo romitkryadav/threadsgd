@@ -341,6 +341,41 @@
   gtag('js', new Date());
   gtag('config', 'G-SP0ZHQ7HRQ');
   </script>
+  <script>
+    // Client-side redirection to /id/ folder and remove .html
+    (function() {
+      var path = window.location.pathname;
+      var host = window.location.host;
+
+      var basePath = '/id';
+
+      var globalPaths = [
+        '/about',
+        '/disclaimer',
+        '/contact',
+        '/privacy-policy',
+        '/'
+      ];
+
+      if (path.startsWith('/id/') || path === '/id') {
+        return;
+      }
+
+      for (var i = 0; i < globalPaths.length; i++) {
+        if (path === globalPaths[i]) {
+          return;
+        }
+      }
+
+      if (path.endsWith('.html')) {
+        path = path.slice(0, -5);
+      }
+
+      var newPath = basePath + path;
+
+      window.location.href = newPath;
+    })();
+  </script>
 </head>
 <body>
 
