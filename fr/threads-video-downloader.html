@@ -304,14 +304,14 @@
         <a href="/contact" class="nav-link" id="navContact">Contact</a>
       </nav>
 
-      <div class="header-actions">
+         <div class="header-actions">
         <div class="lang-desktop">
-          <button class="lang-btn" id="langBtnDesktop" type="button" aria-label="Sélectionner la langue" aria-haspopup="listbox" aria-expanded="false" aria-controls="langPanelDesktop">
+          <button class="lang-btn" id="langBtnDesktop" type="button" aria-label="انتخاب زبان" aria-haspopup="listbox" aria-expanded="false" aria-controls="langPanelDesktop">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
-            <span class="lang-btn-label" id="langBtnLabelDesktop">Français</span>
+            <span class="lang-btn-label" id="langBtnLabelDesktop">فارسی</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </button>
-          <div class="lang-panel" id="langPanelDesktop" role="listbox" aria-label="Sélection de la langue" hidden>
+          <div class="lang-panel" id="langPanelDesktop" role="listbox" aria-label="انتخاب زبان" hidden>
             <a href="/threads-video-downloader" class="lang-item active" role="option" aria-selected="true" data-lang-code="en" data-lang-name="English"><span class="lang-code">US</span><span class="lang-texts"><strong>English</strong><span class="lang-sub">English</span></span></a>
             <a href="/ru/threads-video-downloader" class="lang-item" role="option" aria-selected="false" data-lang-code="ru" data-lang-name="Russian"><span class="lang-code">RU</span><span class="lang-texts"><strong>Русский</strong><span class="lang-sub">Russian</span></span></a>
             <a href="/es/threads-video-downloader" class="lang-item" role="option" aria-selected="false" data-lang-code="es" data-lang-name="Spanish"><span class="lang-code">ES</span><span class="lang-texts"><strong>Español</strong><span class="lang-sub">Spanish</span></span></a>
@@ -336,15 +336,20 @@
             <a href="/sv/threads-video-downloader" class="lang-item" role="option" aria-selected="false" data-lang-code="sv" data-lang-name="Swedish"><span class="lang-code">SE</span><span class="lang-texts"><strong>Svenska</strong><span class="lang-sub">Swedish</span></span></a>
             <a href="/ne/threads-video-downloader" class="lang-item" role="option" aria-selected="false" data-lang-code="ne" data-lang-name="Nepali"><span class="lang-code">NP</span><span class="lang-texts"><strong>नेपाली</strong><span class="lang-sub">Nepali</span></span></a>
             <a href="/fa/threads-video-downloader" class="lang-item" role="option" aria-selected="false" data-lang-code="fa" data-lang-name="Persian"><span class="lang-code">IR</span><span class="lang-texts"><strong>فارسی</strong><span class="lang-sub">Persian</span></span></a>
+          </div>
+        </div> <!-- closes lang-desktop -->
+
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="منوی موبایل" aria-expanded="false" aria-controls="mobileNav">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <line x1="4" x2="20" y1="12" y2="12"/>
             <line x1="4" x2="20" y1="6" y2="6"/>
             <line x1="4" x2="20" y1="18" y2="18"/>
           </svg>
         </button>
-      </div>
-    </div>
+      </div> <!-- closes header-actions -->
+    </div> <!-- closes header-inner -->
   </header>
-
+  
   <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Navigation mobile" hidden>
     <a href="/fr/" class="nav-link">Accueil</a>
     <a href="/fr/threads-video-downloader" class="nav-link active" aria-current="page">Téléchargeur Vidéo Threads</a>
