@@ -384,6 +384,9 @@ function autoDetectTypeFromUrl(url) {
     setToolMode('video');
   } else if (norm.includes('test-dp') || norm.includes('test-profile')) {
     setToolMode('dp');
+  } else if (norm.includes('/share/')) {
+    // ADDED BACK (was in old code): shared post links are treated as video by default
+    setToolMode('video');
   } else if (!norm.includes('/post/') && !norm.includes('/t/')) {
     setToolMode('dp');
   }
@@ -477,7 +480,8 @@ async function processDownload() {
   }
 
   // Validate URL format (supports posts AND profile URLs)
-  const threadsPattern = /^https?:\/\/(www\.)?threads\.(net|com)\/(@?[\w.-]+(\/post\/[A-Za-z0-9_-]+)?|t\/[A-Za-z0-9_-]+|post\/[A-Za-z0-9_-]+)/i;
+  // NOTE: 'share/[A-Za-z0-9_-]+' restored from old code so shared post links validate correctly
+  const threadsPattern = /^https?:\/\/(www\.)?threads\.(net|com)\/(@?[\w.-]+(\/post\/[A-Za-z0-9_-]+)?|t\/[A-Za-z0-9_-]+|post\/[A-Za-z0-9_-]+|share\/[A-Za-z0-9_-]+)/i;
   const isTestUrl = rawUrl.includes('test-video') || rawUrl.includes('test-image') || rawUrl.includes('test-carousel') || rawUrl.includes('test-dp') || rawUrl.includes('test-profile');
 
   if (!threadsPattern.test(rawUrl) && !isTestUrl) {
@@ -613,6 +617,7 @@ function renderResult(data) {
   const previewContainer = document.getElementById('mediaPreviewContainer');
   const resultTypeBadge = document.getElementById('resultTypeBadge');
   const authorName = document.getElementById('authorName');
+  const captionText = document.getElementById('captionText'); // RESTORED from old code
   const qualityOptions = document.getElementById('qualityOptions');
   const qualityPills = document.getElementById('qualityPills');
   const downloadDirectBtn = document.getElementById('downloadDirectBtn');
@@ -663,8 +668,9 @@ function renderResult(data) {
     }
   }
 
-  // Author
+  // Author & Caption
   if (authorName) authorName.textContent = data.author || '@threads';
+  if (captionText) captionText.textContent = data.caption || 'Threads Post'; // RESTORED from old code
 
   if (isMulti) {
     // MULTI-MEDIA / CAROUSEL LAYOUT: Render a media grid
