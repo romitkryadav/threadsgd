@@ -13,8 +13,11 @@ const WORKER_URLS = [
   "https://tdvideo.romitkr5539.workers.dev",
    "https://tdsave.romitkr361.workers.dev/",
    "https://tdsave3.contact-themistero.workers.dev/",
-   "https://tdsve4.r18151309.workers.dev/",
-   "https://tdsave.ram54478872.workers.dev/",
+   "https://tdsve4.r18151309.workers.dev/", 
+   "https://tdgrab.ronitkr9341.workers.dev/",
+  "https://tdgrab2.ajeetkr0920.workers.dev/",
+   "https://tdgrab.romitkr3018.workers.dev/",
+   "https://tdgrab.ram54478872.workers.dev/",
   // "https://your-third-worker.workers.dev",
 ];
 
@@ -1022,3 +1025,24 @@ function initFaqAccordion() {
     }
   });
 }
+
+
+
+// mobile menu
+
+  (function() {
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener('click', function() {
+        const isOpen = mobileNav.hasAttribute('hidden');
+        if (isOpen) {
+          mobileNav.removeAttribute('hidden');
+          hamburger.setAttribute('aria-expanded', 'true');
+        } else {
+          mobileNav.setAttribute('hidden', '');
+          hamburger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  })();
