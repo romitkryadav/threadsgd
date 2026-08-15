@@ -340,12 +340,17 @@ async function fetchFollowers(user) {
 
     const now = Date.now();
     if (state.username !== user) {
+      // Switching to a different account — reset all per-session stats
       state.username = user;
       state.history = [];
       state.sessionStart = data.followers;
       state.ticks = 0;
     }
     if (state.sessionStart === null) state.sessionStart = data.followers;
+
+    // Persist username, session start, and tick count in cookies (30-day expiry)
+    setCookie(COOKIE_KEY, user, COOKIE_DAYS);
+    saveStatsCookies();
 
     state.followers = data.followers;
     state.profilePic = data.profilePic || null;
@@ -382,13 +387,55 @@ setInterval(() => {
   }
 }, TICK_MS);
 
+// ---- Cookie helpers -------------------------------------------------------
+const COOKIE_KEY            = 'tg_last_username';
+const COOKIE_KEY_SESSION    = 'tg_session_start';   // follower count at session start
+const COOKIE_KEY_TICKS      = 'tg_poll_ticks';       // cumulative poll iterations
+const COOKIE_KEY_FOR_USER   = 'tg_stats_user';       // which username the stats belong to
+const COOKIE_DAYS = 30;
+
+function setCookie(name, value, days) {
+  const expires = new Date(Date.now() + days * 864e5).toUTCString();
+  document.cookie = name + '=' + encodeURIComponent(value) +
+    '; expires=' + expires +
+    '; path=/; SameSite=Lax';
+}
+
+function getCookie(name) {
+  const match = document.cookie.split('; ').find(row => row.startsWith(name + '='));
+  return match ? decodeURIComponent(match.split('=')[1]) : null;
+}
+
+function saveStatsCookies() {
+  setCookie(COOKIE_KEY_FOR_USER, state.username,           COOKIE_DAYS);
+  setCookie(COOKIE_KEY_SESSION,  state.sessionStart,       COOKIE_DAYS);
+  setCookie(COOKIE_KEY_TICKS,    state.ticks,              COOKIE_DAYS);
+}
+// ---------------------------------------------------------------------------
+
 document.addEventListener('DOMContentLoaded', () => {
   initSpark();
   renderPromotedGrid();
   renderPopularGrid();
   renderTrendingGrid();
   initFaqAccordion();
-  fetchFollowers('threads');
+
+  // Restore last tracked username from cookie, fallback to 'threads'
+  const lastUser = getCookie(COOKIE_KEY) || 'threads';
+  if (lastUser !== 'threads') {
+    el.input.value = lastUser;
+  }
+
+  // Restore session delta and poll ticks only if they belong to the same username
+  const statsUser = getCookie(COOKIE_KEY_FOR_USER);
+  if (statsUser === lastUser) {
+    const savedSession = parseInt(getCookie(COOKIE_KEY_SESSION), 10);
+    const savedTicks   = parseInt(getCookie(COOKIE_KEY_TICKS),   10);
+    if (!isNaN(savedSession)) state.sessionStart = savedSession;
+    if (!isNaN(savedTicks))   state.ticks        = savedTicks;
+  }
+
+  fetchFollowers(lastUser);
 });
 
 // lang menu dropdown
