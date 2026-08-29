@@ -206,8 +206,8 @@
     "@context": "https://schema.org",
     "@type": "HowTo",
     "@id": "https://threadsgrab.com/#howto",
-    "name": "How to Download Threads Videos, Images & DPs",
-    "description": "3 simple steps to download any public Threads post (video, image, or profile picture) to your device using ThreadsGrab.",
+    "name": "How to Download a Video From Threads",
+    "description": "3 simple steps to download any public Threads video to your device using ThreadsGrab.",
     "totalTime": "PT1M",
     "estimatedCost": {
       "@type": "MonetaryAmount",
@@ -371,7 +371,17 @@
         <a href="/threads-follower-counter" class="nav-link" id="navCounter">Follower Counter</a>
         <a href="/contact" class="nav-link" id="navContact">Contact</a>
       </nav>
+       <button class="hamburger-btn" id="hamburgerBtn" aria-label="Apri menu mobile" aria-expanded="false" aria-controls="mobileNav">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="4" x2="20" y1="12" y2="12"/>
+            <line x1="4" x2="20" y1="6" y2="6"/>
+            <line x1="4" x2="20" y1="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
   </header>
+  
 
   <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile Navigation" hidden>
     <a href="/" class="nav-link active" aria-current="page">Home</a>
@@ -382,7 +392,6 @@
     <a href="/about" class="nav-link">About Us</a>
     <a href="/contact" class="nav-link">Contact</a>
     <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
-   
   </nav>
 
   <main id="mainContent" role="main">
