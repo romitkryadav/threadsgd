@@ -1,0 +1,513 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>X Video Downloader - Download X / Twitter Videos Online Free</title>
+
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+  <meta name="description" content="Free X (Twitter) Video Downloader. Save public X / Twitter videos as MP4 in HD quality instantly. Works on Android, iPhone, Windows, and Mac. No login or software required." />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1" />
+  <meta name="author" content="TwixGrab" />
+  <link rel="canonical" href="https://twitter.threadsgrab.com" />
+  <meta name="theme-color" content="#4f46e5" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://twitter.threadsgrab.com" />
+  <meta property="og:title" content="X Video Downloader - Download X / Twitter Videos Online Free" />
+  <meta property="og:description" content="Free X (Twitter) Video Downloader. Save public X / Twitter videos as MP4 instantly. No login or software required." />
+  <meta property="og:image" content="https://twitter.threadsgrab.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="TwiXgrab" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://twitter.threadsgrab.com" />
+  <meta name="twitter:title" content="X Video Downloader - Download X / Twitter Videos Online Free" />
+  <meta name="twitter:description" content="Free X (Twitter) Video Downloader. Save public X / Twitter videos as MP4 instantly." />
+  <meta name="twitter:image" content="https://twitter.threadsgrab.com/og-image.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "@id": "https://twitter.threadsgrab.com/xdl/#webapp",
+    "url": "https://twitter.threadsgrab.com/xdl/",
+    "name": "X Video Downloader",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SP0ZHQ7HRQ"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-SP0ZHQ7HRQ');
+  </script>
+
+  <link rel="stylesheet" href="/romitkrweb.css" />
+  <link rel="icon" type="image/png" href="https://twitter.threadsgrab.com/twixgrab-favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://twitter.threadsgrab.com/twixgrab-favicon.png" />
+
+  <style>
+    /* Quality rows injected by script.js */
+    .quality-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .875rem 1rem;
+      border: 1px solid var(--border-color, rgba(255,255,255,.08));
+      border-radius: 10px;
+      margin-bottom: .625rem;
+      cursor: pointer;
+      transition: border-color .15s, background .15s;
+      background: rgba(255,255,255,.02);
+    }
+    .quality-row:hover, .quality-row.active {
+      border-color: var(--accent-primary, #7c6be8);
+      background: rgba(124,107,232,.08);
+    }
+    .quality-info { display: flex; align-items: center; gap: .75rem; }
+    .quality-badge {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: rgba(124,107,232,.15);
+      color: var(--accent-primary, #7c6be8);
+      border: 1px solid rgba(124,107,232,.3);
+      white-space: nowrap;
+    }
+    .quality-meta h5 { font-size: .85rem; font-weight: 600; margin: 0 0 2px; color: var(--text-primary, #f0f0f5); }
+    .quality-meta p  { font-size: .75rem; margin: 0; opacity: .6; }
+    .btn-download-quality {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: .45rem 1rem;
+      border-radius: 8px;
+      background: var(--accent-primary, #7c6be8);
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity .15s;
+    }
+    .btn-download-quality:hover { opacity: .85; }
+    /* FAQ accordion (script.js uses .faq-trigger and .faq-content) */
+    .xdl-faq-item {
+      background: rgba(255,255,255,.03);
+      border: 1px solid var(--border-color, rgba(255,255,255,.08));
+      border-radius: 12px;
+      margin-bottom: .75rem;
+      overflow: hidden;
+      transition: border-color .2s;
+    }
+    .xdl-faq-item:last-child { margin-bottom: 0; }
+    .xdl-faq-item.active {
+      border-color: rgba(124,107,232,.35);
+      background: rgba(124,107,232,.05);
+    }
+    .faq-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 1.25rem;
+      background: none;
+      border: none;
+      color: var(--text-primary, #f0f0f5);
+      font-size: .9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      gap: 1.25rem;
+      line-height: 1.5;
+      transition: color .15s;
+    }
+    .faq-trigger:hover { color: var(--accent-primary, #7c6be8); }
+    .faq-trigger span:first-child { flex: 1; }
+    .faq-trigger .arrow {
+      font-size: .9rem;
+      opacity: .45;
+      transition: transform .25s ease, opacity .2s;
+      flex-shrink: 0;
+      width: 20px;
+      text-align: center;
+    }
+    .xdl-faq-item.active .faq-trigger { color: var(--accent-primary, #7c6be8); }
+    .xdl-faq-item.active .faq-trigger .arrow { transform: rotate(180deg); opacity: .8; }
+    .faq-content { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+    .faq-content p {
+      padding: 0 1.25rem 1.25rem;
+      font-size: .9rem;
+      color: var(--text-secondary, #a0a0b8);
+      margin: 0;
+      line-height: 1.75;
+    }
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.75);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-card {
+      background: var(--bg-card, #1a1a2e);
+      border: 1px solid var(--border-color, rgba(255,255,255,.1));
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 520px;
+      width: 100%;
+      position: relative;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: var(--text-secondary, #a0a0b8);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .modal-header-group { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.25rem; }
+    .modal-header-group h3 { margin: 0; font-size: 1.1rem; }
+    .modal-body-text p, .modal-body-text h4 { margin: 0 0 .75rem; font-size: .9rem; color: var(--text-secondary, #a0a0b8); }
+    .modal-body-text h4 { color: var(--text-primary, #f0f0f5); font-size: .95rem; margin-top: 1rem; }
+    .modal-footer { margin-top: 1.5rem; text-align: right; }
+    .btn-close { padding: .5rem 1.25rem; font-size: .875rem; }
+    /* Result box hidden until script.js shows it */
+    #resultCard { display: none; }
+    #errorCard  { display: none; }
+    #loaderState{ display: none; }
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999}
+    .skip-link:focus{position:fixed;top:0;left:0;width:auto;height:auto;padding:12px 20px;background:#4f46e5;color:#fff;font-weight:600;text-decoration:none;border-radius:0 0 6px 0;outline:2px solid #fff;outline-offset:2px}
+    .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="header" id="siteHeader" role="banner">
+    <div class="container header-inner">
+      <a href="/" class="logo" id="siteLogo" aria-label="TwiXgrab - Home">
+        <img class="logo-icon" src="https://twitter.threadsgrab.com/twixgrab-favicon.png" alt="TwiXgrab Logo" width="40" height="40" loading="eager" decoding="async" />
+        <span>TwiXgrab</span>
+      </a>
+      <nav class="nav-desktop" id="desktopNav" role="navigation" aria-label="Primary Navigation">
+        <a href="/" class="nav-link">Video Downloader</a>
+        <a href="/twitter-image-downloader" class="nav-link">Image Downloader</a>
+        <a href="/twitter-dp-downloader" class="nav-link">DP Downloader</a>
+        <a href="/twitter-follower-counter" class="nav-link">Follower Counter</a>
+      </nav>
+      <div class="header-actions">
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileNav">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="4" x2="20" y1="12" y2="12"/>
+            <line x1="4" x2="20" y1="6" y2="6"/>
+            <line x1="4" x2="20" y1="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile Navigation">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/twitter-video-downloader" class="nav-link">X Video Downloader</a>
+    <a href="/twitter-image-downloader" class="nav-link">X Image Downloader</a>
+    <a href="/twitter-dp-downloader" class="nav-link">X DP Downloader</a>
+    <a href="/twitter-follower-counter" class="nav-link">Follower Counter</a>
+    <a href="/about" class="nav-link">About Us</a>
+    <a href="/contact" class="nav-link">Contact</a>
+    <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+  </nav>
+
+  <main id="mainContent" role="main">
+
+    <!-- Hero & Downloader -->
+    <section class="hero-section" id="downloader" aria-labelledby="heroHeading">
+      <div class="container">
+        <h1 class="hero-title" id="heroHeading">X Video Downloader</h1>
+        <p class="hero-subtitle hero-subtitle-sm">
+          Paste a public X (Twitter) post link below and save the video as MP4 — no account, no extension, nothing to install.
+        </p>
+
+        <!-- Tool Tabs -->
+        <div class="tool-tabs" id="toolTabs" role="tablist" aria-label="X Downloader Tools">
+          <a href="/" class="tool-tab active" role="tab" aria-selected="true" aria-label="X Video Downloader">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"/><rect width="15" height="14" x="1" y="5" rx="2" ry="2"/></svg>
+          </a>
+          <a href="/twitter-image-downloader" class="tool-tab" role="tab" aria-label="X Image Downloader">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+          </a>
+          <a href="/twitter-dp-downloader" class="tool-tab" role="tab" aria-label="X DP Downloader">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </a>
+          <a href="/twitter-follower-counter" class="tool-tab" role="tab" aria-label="X Follower Counter">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          </a>
+        </div>
+
+        <!-- Downloader Card -->
+        <div class="downloader-card" id="downloaderCard">
+
+          <!-- FORM wraps input + button — script.js listens to #downloaderForm submit -->
+          <form id="downloaderForm">
+            <div class="input-group">
+              <div class="url-input-wrapper">
+                <label for="videoUrl" class="visually-hidden">X / Twitter post URL</label>
+                <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                <input type="url" id="videoUrl" class="url-input" placeholder="Paste X / Twitter post URL here (e.g. https://x.com/user/status/...)" autocomplete="off" spellcheck="false" inputmode="url" />
+                <button type="button" id="clearBtn" class="clear-btn" aria-label="Clear input" style="display:none;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  Clear
+                </button>
+                <button type="button" id="pasteBtn" class="paste-btn" aria-label="Paste from clipboard">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
+                  Paste
+                </button>
+              </div>
+              <button type="submit" class="btn-primary" id="submitBtn" aria-label="Download X Video">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download
+              </button>
+            </div>
+          </form>
+
+          <!-- Loading — script.js uses loaderState.style.display -->
+          <div class="loading-box" id="loaderState" role="status" aria-live="polite">
+            <div class="spinner" role="presentation"></div>
+            <div class="loading-status" id="loadingStatus">Processing X Post...</div>
+            <div class="loading-subtext" id="loadingSubtext">Extracting video from X servers</div>
+          </div>
+
+          <!-- Error — script.js uses errorCard.style.display + errorMsg.textContent -->
+          <div class="error-box" id="errorCard" role="alert" aria-live="assertive">
+            <svg class="error-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <div class="error-content">
+              <h4 id="errorTitle">Unable to Process Request</h4>
+              <p id="errorMsg">Please check the URL and make sure the post is publicly viewable.</p>
+            </div>
+          </div>
+
+          <!-- Result — script.js sets resultCard.style.display = "block" to show -->
+          <div id="resultCard" role="region" aria-live="polite" style="margin-top:1.5rem;">
+
+            <!-- Author — script.js sets authorHeader.style.display = "flex" -->
+            <div id="authorHeader" style="display:none;align-items:center;gap:.75rem;margin-bottom:1rem;">
+              <img id="authorAvatar" src="" alt="Author avatar" width="36" height="36" referrerpolicy="no-referrer" style="border-radius:50%;object-fit:cover;" />
+              <div>
+                <div id="authorName" style="font-weight:600;font-size:.95rem;color:var(--text-primary,#f0f0f5);"></div>
+                <div id="authorHandle" style="font-size:.82rem;opacity:.6;"></div>
+              </div>
+            </div>
+
+            <!-- Video Preview -->
+            <div style="border-radius:12px;overflow:hidden;background:#000;margin-bottom:1rem;">
+              <video id="previewPlayer" controls style="width:100%;max-height:380px;display:block;"></video>
+            </div>
+
+            <!-- Duration + active quality -->
+            <div style="display:flex;gap:12px;margin-bottom:.75rem;align-items:center;flex-wrap:wrap;font-size:.82rem;color:var(--text-secondary,#a0a0b8);">
+              <span id="videoDuration">Duration: N/A</span>
+              <span id="activeQuality" style="color:var(--accent-primary,#7c6be8);font-weight:600;"></span>
+            </div>
+
+            <!-- Caption — script.js sets captionBox.style.display = "block" -->
+            <div id="captionBox" style="display:none;margin-bottom:1rem;padding:.75rem 1rem;background:rgba(255,255,255,.03);border-radius:8px;border-left:3px solid var(--accent-primary,#7c6be8);">
+              <p id="captionText" style="font-size:.875rem;opacity:.8;font-style:italic;margin:0;color:var(--text-secondary,#a0a0b8);"></p>
+            </div>
+
+            <!-- Qualities — script.js injects .quality-row divs here -->
+            <div style="margin-bottom:1rem;">
+              <p style="font-size:.78rem;opacity:.55;margin:0 0 .6rem;text-transform:uppercase;letter-spacing:.06em;">Select quality to download</p>
+              <div id="qualitiesList"></div>
+            </div>
+
+          </div><!-- end #resultCard -->
+
+        </div><!-- end .downloader-card -->
+      </div>
+    </section>
+
+    <!-- Steps -->
+    <section class="steps-section" id="how-to-download" aria-labelledby="stepsHeading">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="stepsHeading">How to Download X / Twitter Videos</h2>
+          <p class="section-subtitle">Three steps to save any public X post video to your device.</p>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card">
+            <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+            <h3>Copy the post link</h3>
+            <p>Open X (Twitter), find the post with the video, tap Share, and choose Copy Link.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+            <h3>Paste it above and click Download</h3>
+            <p>Paste the link into the input box and click Download. The tool fetches all available quality options.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+            <h3>Pick a quality and save</h3>
+            <p>Select your preferred resolution and click Download. The MP4 saves through your browser's normal download flow.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info -->
+    <section class="info-section" aria-labelledby="infoHeading">
+      <div class="container">
+        <article class="info-content">
+          <h2 id="infoHeading">X Video Downloader — Save X &amp; Twitter Videos as MP4</h2>
+          <p>Paste any public X or Twitter post link and this tool pulls out the attached video so you can save it to your device. It works with standard video posts, GIFs (which X serves as MP4 clips), and posts with multiple quality options — no account, no extension, nothing to install.</p>
+
+          <h2 id="infoQualityHeading">Quality and Format</h2>
+          <p>Where multiple resolutions are available for a post, each one is listed separately so you can choose. Files download as standard MP4. The quality ceiling is set by whatever the original poster uploaded — this tool doesn't add resolution that isn't already there.</p>
+
+          <h2 id="infoWontWorkHeading">When a Video Won't Download</h2>
+          <ul>
+            <li><strong>The account is private.</strong> This tool only works with posts publicly visible without logging in.</li>
+            <li><strong>The post was deleted or the link is incomplete.</strong> Go back to X and copy the link again.</li>
+            <li><strong>The post contains only images or text.</strong> There's no video to extract in that case.</li>
+            <li><strong>The URL format is wrong.</strong> Make sure it's an x.com or twitter.com status link.</li>
+          </ul>
+
+          <h2 id="infoLegalHeading">Using What You Download</h2>
+          <p>Downloading a public video for personal use is different from reposting or redistributing it. Copyright stays with whoever made it. If you plan to reuse a video, get permission from the creator first.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ — uses .faq-trigger + .faq-content as script.js expects -->
+    <section class="faq-section" id="faqs" aria-labelledby="faqHeading">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" id="faqHeading">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Common questions about downloading X and Twitter videos.</p>
+        </div>
+
+        <div style="max-width:720px;margin:0 auto;">
+          <div class="xdl-faq-item faq-item">
+            <button class="faq-trigger"><span>How do I download an X / Twitter video?</span><span class="arrow">&#9662;</span></button>
+            <div class="faq-content"><p>Copy the post URL from X or Twitter, paste it into the input box above, and click Download. Select your preferred quality and save the MP4 to your device.</p></div>
+          </div>
+          <div class="xdl-faq-item faq-item">
+            <button class="faq-trigger"><span>Is this free?</span><span class="arrow">&#9662;</span></button>
+            <div class="faq-content"><p>Yes — no sign-up, no fees, no watermarks.</p></div>
+          </div>
+          <div class="xdl-faq-item faq-item">
+            <button class="faq-trigger"><span>Can I download from a private account?</span><span class="arrow">&#9662;</span></button>
+            <div class="faq-content"><p>No. This only works with public posts. Private accounts can't be accessed, and it isn't built to get around that.</p></div>
+          </div>
+          <div class="xdl-faq-item faq-item">
+            <button class="faq-trigger"><span>Does this work on iPhone and Android?</span><span class="arrow">&#9662;</span></button>
+            <div class="faq-content"><p>Yes. It works in any mobile browser — Safari on iOS, Chrome on Android — no app required.</p></div>
+          </div>
+          <div class="xdl-faq-item faq-item">
+            <button class="faq-trigger"><span>Are downloaded videos stored on your servers?</span><span class="arrow">&#9662;</span></button>
+            <div class="faq-content"><p>No. Video links come directly from X's CDN and are passed to your browser; nothing is stored afterward.</p></div>
+          </div>
+          <div class="xdl-faq-item faq-item">
+            <button class="faq-trigger"><span>Can I download X GIFs?</span><span class="arrow">&#9662;</span></button>
+            <div class="faq-content"><p>Yes — X GIFs are short MP4 video files, so they download the same way as a regular video.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="/" class="logo" aria-label="TwiXgrab Home">
+            <img class="logo-icon" src="https://twitter.threadsgrab.com/twixgrab-favicon.png" alt="TwiXgrab Logo" width="40" height="40" loading="lazy" decoding="async" />
+            <span>TwiXgrab</span>
+          </a>
+          <p>Free online tools to download X / Twitter media. No signup, no software, no limits.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul class="footer-links">
+            <li><a href="/">X Video Downloader</a></li>
+            <li><a href="/twitter-image-downloader">X Image Downloader</a></li>
+            <li><a href="/twitter-dp-downloader">X DP Downloader</a></li>
+            <li><a href="/twitter-follower-counter">X Follower Counter</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/privacy-policy">Privacy Policy</a></li>
+            <li><a href="/disclaimer">Disclaimer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal &amp; Support</h4>
+          <ul class="footer-links">
+            <li><a href="/disclaimer">DMCA Policy</a></li>
+            <li>
+              <a href="mailto:contact.themistero@gmail.com" class="footer-link-email">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Contact Support
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 TwiXgrab. All rights reserved.</div>
+        <div class="footer-disclaimer-note">Disclaimer: This tool is independent and not affiliated with X Corp., Twitter, Meta, or Threads.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal overlay — id="modalOverlay" + id="modalContent" required by script.js -->
+  <div id="modalOverlay" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+      <div id="modalContent"></div>
+      <div class="modal-footer">
+        <button class="btn-primary btn-close" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- script.js untouched — handles all download logic -->
+  <script src="/ahome.js"></script>
+  <!-- romitp.js handles mobile nav -->
+  <script src="/romitp.js"></script>
+</body>
+</html>
