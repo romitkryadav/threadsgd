@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TDSave – Threads Downloader and Follower Counter App for Android</title>
+  <meta name="description" content="TDSave – Free Android app to download Threads videos, images, carousels & profile pictures. No watermark. Coming soon on Google Play." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://threadsgrab.com/tdsave/" />
+  <meta property="og:title" content="TDSave – Threads Downloader App" />
+  <meta property="og:description" content="Download Threads videos, images & profile pictures with TDSave. Free, fast, no watermark. Coming soon on Google Play." />
+  <meta property="og:image" content="https://threadsgrab.com/tdsave/Tdsave-app.png" />
+  <meta property="og:url" content="https://threadsgrab.com/tdsave/" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0DCFB4" />
+  <link rel="icon" type="image/png" href="https://threadsgrab.com/tdsave/Tdsave-app.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ─── THEME: App colours pulled from TDSave icon (teal #0DCFB4, dark navy #090E1A) ─── */
+    :root {
+      --teal:        #0DCFB4;
+      --teal-dk:     #09A891;
+      --teal-lt:     #3EDED0;
+      --teal-glow:   rgba(13,207,180,.35);
+      --purple:      #7B5CF5;
+      --purple-dk:   #5A3FD4;
+      --purple-lt:   #A48BFA;
+      --orange:      #FF7043;
+
+      --bg:          #060B16;
+      --bg2:         #0B1120;
+      --bg3:         #0F172A;
+      --card:        #111827;
+      --card2:       #162033;
+      --surface:     rgba(255,255,255,.04);
+      --border:      rgba(13,207,180,.15);
+      --border2:     rgba(13,207,180,.28);
+      --text:        #E8F4F2;
+      --muted:       #6B8FAA;
+      --radius:      22px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.65;
+    }
+
+    /* subtle grid */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(13,207,180,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13,207,180,.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 6%;
+      background: rgba(6,11,22,.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-brand .app-icon-sm {
+      width: 34px; height: 34px; border-radius: 10px;
+      box-shadow: 0 0 0 2px rgba(13,207,180,.3);
+    }
+    .nav-brand-name {
+      font-size: 1.15rem; font-weight: 800;
+      background: linear-gradient(120deg, var(--teal), var(--teal-lt));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+
+    .nav-ps-badge {
+      display: flex; align-items: center; gap: 6px;
+      padding: 6px 13px;
+      border: 1px solid rgba(13,207,180,.3);
+      border-radius: 50px;
+      font-size: .72rem; font-weight: 700;
+      color: var(--teal);
+      background: rgba(13,207,180,.07);
+      letter-spacing: .04em;
+    }
+    .nav-ps-badge svg { width: 14px; height: 14px; }
+
+    .nav-dl-btn {
+      display: flex; align-items: center; gap: 7px;
+      padding: 9px 20px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dk));
+      color: #060B16;
+      font-weight: 800; font-size: .82rem;
+      border-radius: 50px; text-decoration: none; border: none; cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px var(--teal-glow);
+    }
+    .nav-dl-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px var(--teal-glow); }
+    .nav-dl-btn svg { width: 15px; height: 15px; }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 90px 6% 70px;
+      overflow: hidden;
+    }
+
+    /* blobs */
+    .blob {
+      position: absolute; border-radius: 50%;
+      filter: blur(90px); opacity: .5; pointer-events: none;
+      animation: blobDrift 10s ease-in-out infinite alternate;
+    }
+    .blob-1 { width: 560px; height: 560px; background: radial-gradient(circle, var(--teal) 0%, transparent 68%); top: -160px; left: -140px; animation-duration: 11s; }
+    .blob-2 { width: 420px; height: 420px; background: radial-gradient(circle, var(--purple) 0%, transparent 70%); bottom: -80px; right: -100px; animation-duration: 14s; animation-delay: -5s; }
+    .blob-3 { width: 280px; height: 280px; background: radial-gradient(circle, var(--teal-lt) 0%, transparent 70%); top: 55%; left: 42%; opacity: .2; animation-duration: 16s; animation-delay: -8s; }
+    @keyframes blobDrift {
+      from { transform: translate(0,0) scale(1); }
+      to   { transform: translate(50px,35px) scale(1.1); }
+    }
+
+    .hero-inner {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; gap: 70px;
+      max-width: 1140px; width: 100%;
+    }
+
+    /* ─── LEFT TEXT ─── */
+    .hero-text { flex: 1; }
+
+    .top-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 26px; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 13px; border-radius: 50px; font-size: .72rem; font-weight: 700;
+      letter-spacing: .04em;
+    }
+    .pill-free {
+      background: rgba(13,207,180,.12);
+      border: 1px solid rgba(13,207,180,.35);
+      color: var(--teal);
+    }
+    .pill-android {
+      background: rgba(123,92,245,.12);
+      border: 1px solid rgba(123,92,245,.35);
+      color: var(--purple-lt);
+    }
+    .pill-live { display: flex; align-items: center; gap: 5px; }
+    .live-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--teal);
+      animation: livePulse 1.6s ease-in-out infinite;
+    }
+    @keyframes livePulse { 0%,100%{transform:scale(1);opacity:1;} 50%{transform:scale(1.8);opacity:.5;} }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.06;
+      margin-bottom: 22px;
+      letter-spacing: -.025em;
+    }
+    .ht-line1 { color: var(--text); }
+    .ht-line2 {
+      background: linear-gradient(130deg, var(--teal) 0%, var(--teal-lt) 50%, var(--purple-lt) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem; color: var(--muted);
+      max-width: 440px; margin-bottom: 38px; line-height: 1.75;
+    }
+
+    /* ─── DOWNLOAD BUTTON ─── */
+    .dl-wrap { position: relative; display: inline-block; }
+
+    /* spinning conic ring on hover */
+    .dl-wrap::before {
+      content: '';
+      position: absolute; inset: -5px; border-radius: 60px; z-index: -1;
+      background: conic-gradient(var(--teal), var(--purple-lt), var(--orange), var(--teal));
+      animation: ringSpn 2.8s linear infinite;
+      opacity: 0; transition: opacity .3s;
+    }
+    .dl-wrap:hover::before { opacity: 1; }
+    @keyframes ringSpn { to { transform: rotate(360deg); } }
+
+    .dl-btn {
+      position: relative;
+      display: inline-flex; align-items: center; gap: 15px;
+      padding: 17px 34px;
+      background: linear-gradient(130deg, var(--teal) 0%, var(--teal-dk) 100%);
+      color: #040A14;
+      font-size: 1rem; font-weight: 800;
+      border-radius: 60px; border: none; cursor: pointer;
+      overflow: hidden;
+      transition: transform .25s, box-shadow .25s;
+      box-shadow: 0 6px 30px var(--teal-glow), 0 2px 8px rgba(0,0,0,.4);
+    }
+    /* shimmer */
+    .dl-btn::after {
+      content: '';
+      position: absolute; top: 0; left: -130%;
+      width: 75%; height: 100%;
+      background: linear-gradient(115deg, transparent 25%, rgba(255,255,255,.28) 50%, transparent 75%);
+      animation: shimmerBtn 2.6s ease-in-out infinite;
+    }
+    @keyframes shimmerBtn { 0%{left:-130%} 55%{left:130%} 100%{left:130%} }
+
+    .dl-btn:hover { transform: translateY(-4px) scale(1.025); box-shadow: 0 14px 44px var(--teal-glow), 0 4px 14px rgba(0,0,0,.5); }
+    .dl-btn:active { transform: translateY(-1px) scale(.98); }
+    .dl-btn.loading { pointer-events: none; }
+
+    .dl-btn .android-ico { width: 26px; height: 26px; flex-shrink: 0; }
+    .dl-btn .lbl { display: flex; flex-direction: column; text-align: left; }
+    .dl-btn .lbl-top { font-size: .65rem; font-weight: 600; opacity: .75; letter-spacing: .06em; text-transform: uppercase; }
+    .dl-btn .lbl-main { font-size: .98rem; font-weight: 800; margin-top: -1px; }
+
+    /* progress bar */
+    .dl-progress {
+      position: absolute; bottom: 0; left: 0;
+      height: 4px; width: 0%;
+      background: linear-gradient(90deg, var(--purple-lt), var(--orange));
+      border-radius: 0 0 60px 60px;
+      transition: width .12s linear;
+    }
+
+    /* ─── PLAY STORE COMING SOON ─── */
+    .ps-soon {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-top: 18px;
+      padding: 11px 20px;
+      background: var(--card);
+      border: 1px solid rgba(13,207,180,.2);
+      border-radius: 14px;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .ps-soon::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(13,207,180,.05), transparent);
+      animation: scanline 3s linear infinite;
+    }
+    @keyframes scanline { from{transform:translateX(-100%)} to{transform:translateX(100%)} }
+
+    .ps-soon-icon { width: 32px; height: 32px; flex-shrink: 0; }
+    .ps-soon-text { display: flex; flex-direction: column; }
+    .ps-soon-top { font-size: .65rem; color: var(--muted); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+    .ps-soon-main { font-size: .88rem; font-weight: 800; color: var(--text); }
+    .ps-soon-tag {
+      margin-left: auto;
+      font-size: .62rem; font-weight: 800; letter-spacing: .08em;
+      padding: 3px 9px; border-radius: 50px;
+      background: linear-gradient(130deg, var(--teal), var(--purple-lt));
+      color: #060B16; text-transform: uppercase;
+      animation: tagPop 2s ease-in-out infinite alternate;
+    }
+    @keyframes tagPop { from{opacity:.75;transform:scale(.97)} to{opacity:1;transform:scale(1.03)} }
+
+    /* stats */
+    .hero-stats { display: flex; gap: 32px; margin-top: 32px; flex-wrap: wrap; }
+    .stat { display: flex; flex-direction: column; }
+    .stat-n {
+      font-size: 1.45rem; font-weight: 900;
+      background: linear-gradient(130deg, var(--teal), var(--teal-lt));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .stat-l { font-size: .68rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .07em; }
+
+    /* ─── PHONE MOCKUP ─── */
+    .hero-mockup { flex: 0 0 auto; position: relative; width: 270px; }
+
+    .phone-outer {
+      position: relative;
+      animation: phoneFloat 4.5s ease-in-out infinite alternate;
+    }
+    @keyframes phoneFloat {
+      from { transform: translateY(0) rotate(-1.5deg); }
+      to   { transform: translateY(-22px) rotate(1.5deg); }
+    }
+
+    .phone-glow-ring {
+      position: absolute; inset: -28px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--teal-glow) 0%, transparent 65%);
+      animation: glowBreath 3.2s ease-in-out infinite;
+      z-index: -1;
+    }
+    @keyframes glowBreath { 0%,100%{opacity:.5;transform:scale(1)} 50%{opacity:1;transform:scale(1.12)} }
+
+    .phone-shell {
+      width: 270px;
+      background: #0B1120;
+      border-radius: 44px;
+      border: 2px solid rgba(13,207,180,.3);
+      box-shadow:
+        0 35px 90px rgba(0,0,0,.7),
+        0 0 0 1px rgba(255,255,255,.04),
+        inset 0 0 35px rgba(13,207,180,.05);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* top notch */
+    .phone-notch {
+      position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+      width: 88px; height: 26px;
+      background: #050A15; border-radius: 13px; z-index: 10;
+    }
+
+    /* app icon on top of phone */
+    .phone-app-icon {
+      position: absolute;
+      top: -28px; left: 50%; transform: translateX(-50%);
+      width: 56px; height: 56px;
+      border-radius: 16px;
+      border: 2.5px solid rgba(13,207,180,.5);
+      box-shadow: 0 8px 28px rgba(13,207,180,.4);
+      z-index: 20;
+      animation: iconBob 4.5s ease-in-out infinite alternate;
+    }
+    @keyframes iconBob {
+      from { transform: translateX(-50%) translateY(0); }
+      to   { transform: translateX(-50%) translateY(-22px); }
+    }
+
+    .screenshot-slider {
+      width: 100%;
+      aspect-ratio: 9/19.5;
+      position: relative; overflow: hidden;
+      border-radius: 42px;
+    }
+    .screenshot-slider img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: 0; transition: opacity .9s ease;
+    }
+    .screenshot-slider img.active { opacity: 1; }
+
+    /* dot indicators */
+    .slide-dots {
+      display: flex; gap: 6px; justify-content: center;
+      margin-top: 16px;
+    }
+    .dot-ind {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--muted); transition: background .3s, transform .3s;
+    }
+    .dot-ind.active { background: var(--teal); transform: scale(1.5); }
+
+    /* ─── SECTION SHARED ─── */
+    section { position: relative; z-index: 1; }
+    .sec-head { text-align: center; margin-bottom: 52px; }
+    .sec-head h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 900; letter-spacing: -.02em; margin-bottom: 12px;
+    }
+    .sec-head p { color: var(--muted); font-size: 1rem; max-width: 480px; margin: 0 auto; }
+    .sec-label {
+      display: inline-block;
+      padding: 4px 12px; border-radius: 50px; font-size: .7rem; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      background: rgba(13,207,180,.1); border: 1px solid rgba(13,207,180,.3);
+      color: var(--teal); margin-bottom: 12px;
+    }
+
+    /* ─── FEATURES ─── */
+    .features { padding: 90px 6%; background: var(--bg2); }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px; max-width: 1100px; margin: 0 auto;
+    }
+    .feat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px 22px;
+      position: relative; overflow: hidden;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+    }
+    .feat-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--purple-lt));
+      opacity: 0; transition: opacity .3s;
+    }
+    .feat-card:hover { transform: translateY(-7px); border-color: var(--border2); box-shadow: 0 18px 50px rgba(0,0,0,.4); }
+    .feat-card:hover::before { opacity: 1; }
+    .feat-ico {
+      width: 50px; height: 50px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.55rem; margin-bottom: 16px;
+    }
+    .feat-card h3 { font-size: .97rem; font-weight: 700; margin-bottom: 8px; }
+    .feat-card p { font-size: .86rem; color: var(--muted); line-height: 1.6; }
+
+    /* ─── SCREENSHOTS ─── */
+    .screenshots { padding: 90px 6%; background: var(--bg); }
+    .ss-scroll {
+      display: flex; gap: 18px; overflow-x: auto;
+      padding: 24px 6% 32px; margin: 0 -6%;
+      scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .ss-scroll::-webkit-scrollbar { display: none; }
+    .ss-card {
+      flex: 0 0 auto; scroll-snap-align: start;
+      width: 195px; border-radius: 22px; overflow: hidden;
+      border: 1.5px solid var(--border);
+      box-shadow: 0 10px 40px rgba(0,0,0,.45);
+      transition: transform .3s, box-shadow .3s; cursor: pointer;
+    }
+    .ss-card:hover { transform: scale(1.05) translateY(-5px); box-shadow: 0 22px 60px rgba(0,0,0,.55), 0 0 0 1.5px var(--teal); }
+    .ss-card img { width: 100%; display: block; }
+    .ss-lbl {
+      background: var(--card); padding: 8px 12px;
+      font-size: .73rem; font-weight: 600; color: var(--muted); text-align: center;
+    }
+
+    /* ─── HOW ─── */
+    .how { padding: 90px 6%; background: var(--bg3); }
+    .how-row {
+      display: flex; gap: 0; max-width: 860px; margin: 0 auto;
+      position: relative; flex-wrap: wrap; justify-content: center;
+    }
+    .how-row::before {
+      content: ''; position: absolute;
+      top: 34px; left: 12%; right: 12%; height: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--purple-lt), var(--orange));
+    }
+    .how-step { flex: 1 1 180px; max-width: 200px; text-align: center; padding: 0 14px; position: relative; z-index: 1; }
+    .how-num {
+      width: 68px; height: 68px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dk));
+      border: 3px solid var(--bg3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.45rem; margin: 0 auto 18px;
+      box-shadow: 0 6px 24px var(--teal-glow);
+      transition: transform .3s;
+    }
+    .how-step:hover .how-num { transform: scale(1.14); }
+    .how-step h3 { font-size: .93rem; font-weight: 700; margin-bottom: 8px; }
+    .how-step p { font-size: .82rem; color: var(--muted); line-height: 1.55; }
+
+    /* ─── PLAY STORE SECTION ─── */
+    .playstore-section {
+      padding: 90px 6%;
+      background: var(--bg2);
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .playstore-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(13,207,180,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .ps-card {
+      display: inline-flex; flex-direction: column; align-items: center;
+      gap: 22px; max-width: 480px; width: 100%;
+      background: var(--card);
+      border: 1px solid rgba(13,207,180,.2);
+      border-radius: 28px;
+      padding: 40px 36px;
+      position: relative; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,.45), inset 0 0 40px rgba(13,207,180,.03);
+    }
+    /* animated border top */
+    .ps-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--purple-lt), var(--orange), var(--teal));
+      background-size: 200%;
+      animation: borderFlow 3s linear infinite;
+    }
+    @keyframes borderFlow { from{background-position:0%} to{background-position:200%} }
+
+    .ps-logo { width: 72px; height: 72px; }
+    .ps-card-title { font-size: 1.5rem; font-weight: 900; letter-spacing: -.02em; }
+    .ps-card-sub { font-size: .92rem; color: var(--muted); max-width: 320px; line-height: 1.6; }
+
+    .ps-soon-btn {
+      display: flex; align-items: center; gap: 12px;
+      padding: 15px 28px;
+      background: var(--bg3);
+      border: 1.5px solid rgba(255,255,255,.12);
+      border-radius: 16px; cursor: default;
+      opacity: .75; width: 100%; max-width: 280px;
+      position: relative; overflow: hidden;
+    }
+    .ps-soon-btn::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(13,207,180,.06), transparent);
+      animation: scanline 2.5s linear infinite;
+    }
+    .ps-google-icon { width: 38px; height: 38px; flex-shrink: 0; }
+    .ps-soon-btn-txt { text-align: left; }
+    .ps-soon-btn-top { font-size: .62rem; color: var(--muted); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+    .ps-soon-btn-main { font-size: .96rem; font-weight: 800; color: var(--text); }
+    .ps-soon-label {
+      margin-left: auto; font-size: .6rem; font-weight: 900;
+      padding: 4px 10px; border-radius: 50px; text-transform: uppercase;
+      background: linear-gradient(130deg, var(--teal), var(--purple-lt));
+      color: #060B16; letter-spacing: .06em; flex-shrink: 0;
+      animation: tagPop 2s ease-in-out infinite alternate;
+    }
+
+    /* notify form */
+    .ps-notify { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100%; }
+    .ps-notify-title { font-size: .82rem; color: var(--muted); font-weight: 600; }
+    .ps-notify-row { display: flex; gap: 8px; width: 100%; max-width: 320px; }
+    .ps-notify-row input {
+      flex: 1; padding: 10px 16px;
+      background: var(--bg3); border: 1px solid rgba(13,207,180,.2);
+      border-radius: 50px; color: var(--text); font-size: .84rem; font-family: inherit;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .ps-notify-row input:focus { border-color: var(--teal); }
+    .ps-notify-row input::placeholder { color: var(--muted); }
+    .ps-notify-row button {
+      padding: 10px 18px;
+      background: linear-gradient(130deg, var(--teal), var(--teal-dk));
+      color: #040A14; font-weight: 800; font-size: .82rem;
+      border: none; border-radius: 50px; cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      white-space: nowrap;
+    }
+    .ps-notify-row button:hover { transform: translateY(-2px); box-shadow: 0 6px 18px var(--teal-glow); }
+
+    /* ─── CTA BAND ─── */
+    .cta-band {
+      padding: 90px 6%; text-align: center;
+      background: var(--bg);
+      position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content: ''; position: absolute;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(13,207,180,.12) 0%, transparent 65%);
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      pointer-events: none;
+    }
+    .cta-band h2 { font-size: clamp(1.9rem, 3.5vw, 2.9rem); font-weight: 900; margin-bottom: 14px; letter-spacing: -.025em; }
+    .cta-band p { color: var(--muted); font-size: 1rem; margin-bottom: 36px; }
+    .cta-pills { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
+    .cta-pill {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border-radius: 50px;
+      background: var(--card); border: 1px solid var(--border);
+      font-size: .82rem; font-weight: 600; color: var(--text);
+    }
+    .cpd { width: 8px; height: 8px; border-radius: 50%; }
+    .cpd-t { background: var(--teal); }
+    .cpd-p { background: var(--purple-lt); }
+    .cpd-o { background: var(--orange); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 28px 6%; text-align: center;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+    footer p { font-size: .8rem; color: var(--muted); }
+    footer a { color: var(--teal); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ─── LIGHTBOX ─── */
+    .lightbox {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,.9); z-index: 9000;
+      align-items: center; justify-content: center;
+      padding: 20px; backdrop-filter: blur(14px);
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-height: 86vh; max-width: 92vw; border-radius: 20px; box-shadow: 0 30px 80px rgba(0,0,0,.9); }
+    .lb-close {
+      position: absolute; top: 18px; right: 22px;
+      background: rgba(255,255,255,.1); border: none; color: #fff;
+      width: 40px; height: 40px; border-radius: 50%; font-size: 1.2rem;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .lb-close:hover { background: rgba(255,255,255,.2); }
+
+    /* ─── TOAST ─── */
+    .toast {
+      position: fixed; bottom: 28px; left: 50%;
+      transform: translateX(-50%) translateY(70px);
+      background: var(--card2); border: 1px solid var(--border2);
+      color: var(--text); padding: 11px 24px; border-radius: 50px;
+      font-size: .88rem; font-weight: 600; z-index: 9999;
+      transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+      white-space: nowrap; box-shadow: 0 10px 40px rgba(0,0,0,.4);
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ─── REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 800px) {
+      .hero-inner { flex-direction: column; text-align: center; align-items: center; gap: 50px; }
+      .hero-sub { margin: 0 auto 32px; }
+      .hero-stats { justify-content: center; }
+      .top-badges { justify-content: center; }
+      .dl-wrap { display: flex; justify-content: center; }
+      .ps-soon { justify-content: center; }
+      .hero-mockup { width: 230px; }
+      .phone-shell { width: 230px; }
+      .how-row::before { display: none; }
+      .nav-ps-badge { display: none; }
+    }
+    @media (max-width: 460px) {
+      .hero { padding: 75px 5% 50px; }
+      .hero-title { font-size: 2.15rem; }
+      .dl-btn { padding: 15px 26px; font-size: .92rem; }
+      .ps-card { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="https://threadsgrab.com/tdsave/" class="nav-brand">
+    <img src="https://threadsgrab.com/threadsgrab.png" alt="Threadsgrab icon" class="app-icon-sm" />
+    <span class="nav-brand-name">ThreadsGrab</span>
+  </a>
+  <div class="nav-right">
+    <div class="nav-ps-badge">
+      <!-- Google Play icon -->
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3.18 23.66C2.47 23.28 2 22.52 2 21.64V2.36C2 1.48 2.47.72 3.18.34L13.77 12 3.18 23.66Z" fill="#0DCFB4"/>
+        <path d="M17.82 15.73L5.54 22.82 13.77 12l4.05 3.73Z" fill="#7B5CF5"/>
+        <path d="M21.26 10.45C21.74 10.74 22 11.35 22 12c0 .65-.26 1.26-.74 1.55l-3.44 1.18L13.77 12l4.05-3.73 3.44 2.18Z" fill="#FF7043"/>
+        <path d="M5.54 1.18 17.82 8.27 13.77 12 3.18.34 5.54 1.18Z" fill="#0DCFB4" opacity=".7"/>
+      </svg>
+      Coming to Play Store
+    </div>
+    <button class="nav-dl-btn" onclick="triggerInstall(event)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3m0 12-4-4m4 4 4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
+      Download APK
+    </button>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="hero-inner">
+
+    <!-- LEFT -->
+    <div class="hero-text">
+      <div class="top-badges">
+        <div class="pill pill-free pill-live"><span class="live-dot"></span>Free App</div>
+        <div class="pill pill-android">Android 8.0+</div>
+        <div class="pill pill-free">No Root</div>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="ht-line1">Save Threads</span><br/>
+        <span class="ht-line1">Videos &amp; Photos</span><br/>
+        <span class="ht-line2">with TDSave</span>
+      </h1>
+
+      <p class="hero-sub">Download any Threads video, image, carousel or profile picture directly to your Android. No watermark, no login, no limits.</p>
+
+      <!-- Download Button -->
+      <div id="dlWrap" class="dl-wrap">
+        <button class="dl-btn" id="dlBtn" onclick="triggerInstall(event)">
+          <!-- Android robot icon -->
+          <svg class="android-ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M6.18 9.75A.75.75 0 1 0 6.18 11.25.75.75 0 0 0 6.18 9.75ZM17.82 9.75A.75.75 0 1 0 17.82 11.25.75.75 0 0 0 17.82 9.75Z"/>
+            <path d="M16.04 3.28 17.6.66a.5.5 0 1 0-.86-.5L15.14 2.7A7.9 7.9 0 0 0 12 2a7.9 7.9 0 0 0-3.14.7L7.26.16a.5.5 0 1 0-.86.5l1.56 2.62A7.98 7.98 0 0 0 4 9.5v.5h16v-.5a7.98 7.98 0 0 0-3.96-6.22ZM4 11v6a2 2 0 0 0 2 2h1v2.5a1.5 1.5 0 0 0 3 0V19h4v2.5a1.5 1.5 0 0 0 3 0V19h1a2 2 0 0 0 2-2v-6H4Z"/>
+          </svg>
+          <span class="lbl">
+            <span class="lbl-top">Free Download</span>
+            <span class="lbl-main" id="btnTxt">Get APK for Android</span>
+          </span>
+          <div class="dl-progress" id="dlProg"></div>
+        </button>
+      </div>
+
+      <!-- Play Store Coming Soon -->
+      <div class="ps-soon" id="download">
+        <svg class="ps-soon-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4.64 45.54C3.64 45 3 43.92 3 42.73V5.27C3 4.08 3.64 3 4.64 2.46L26.5 24 4.64 45.54Z" fill="#0DCFB4"/>
+          <path d="M34.28 31.36L9.06 45.7 26.5 24l7.78 7.36Z" fill="#7B5CF5"/>
+          <path d="M43.1 20.16C44.18 20.8 45 22.36 45 24c0 1.64-.82 3.2-1.9 3.84l-6.82 2.52L26.5 24l9.78-7.36 6.82 3.52Z" fill="#FF7043"/>
+          <path d="M9.06 2.3 34.28 16.64 26.5 24 4.64 2.46 9.06 2.3Z" fill="#0DCFB4" opacity=".75"/>
+        </svg>
+        <div class="ps-soon-text">
+          <span class="ps-soon-top">Google Play Store</span>
+          <span class="ps-soon-main">Coming Soon on Play Store</span>
+        </div>
+        <span class="ps-soon-tag">Soon</span>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-n">150+</span><span class="stat-l">Downloads</span></div>
+        <div class="stat"><span class="stat-n">4.8 ★</span><span class="stat-l">Rating</span></div>
+        <div class="stat"><span class="stat-n">Free</span><span class="stat-l">Always</span></div>
+      </div>
+    </div>
+
+    <!-- PHONE MOCKUP -->
+    <div class="hero-mockup">
+      <div class="phone-outer">
+        <div class="phone-glow-ring"></div>
+        <!-- App icon floating above phone -->
+        <img src="https://threadsgrab.com/tdsave/Tdsave-app.png" alt="TDSave app icon" class="phone-app-icon" />
+        <div class="phone-shell">
+          <div class="phone-notch"></div>
+          <div class="screenshot-slider">
+            <img src="https://threadsgrab.com/tdsave/tdsave-home.png" alt="TDSave Home" class="active" />
+            <img src="https://threadsgrab.com/tdsave/tdsave-downloader.png" alt="TDSave Downloader" />
+            <img src="https://threadsgrab.com/tdsave/tdsave-fcounter.png" alt="Follower Counter" />
+            <img src="https://threadsgrab.com/tdsave/tdsave-setteing.png" alt="TDSave Settings" />
+          </div>
+        </div>
+      </div>
+      <div class="slide-dots">
+        <div class="dot-ind active" id="dot0"></div>
+        <div class="dot-ind" id="dot1"></div>
+        <div class="dot-ind" id="dot2"></div>
+        <div class="dot-ind" id="dot3"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FEATURES ── -->
+<section class="features">
+  <div class="sec-head reveal">
+    <div class="sec-label">Features</div>
+    <h2>Everything in One App</h2>
+    <p>Packed with tools to save all kinds of Threads content, instantly.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feat-card reveal">
+      <div class="feat-ico" style="background:rgba(13,207,180,.12);">📥</div>
+      <h3>Video Downloader</h3>
+      <p>Download Threads videos in original HD quality directly to your gallery. Fast, no quality loss.</p>
+    </div>
+    <div class="feat-card reveal">
+      <div class="feat-ico" style="background:rgba(123,92,245,.12);">🖼️</div>
+      <h3>Image &amp; Carousel Saver</h3>
+      <p>Save single photos, multi-image carousels, and GIFs from any public Threads post.</p>
+    </div>
+    <div class="feat-card reveal">
+      <div class="feat-ico" style="background:rgba(255,112,67,.1);">👤</div>
+      <h3>Profile Picture HD</h3>
+      <p>View and download full-resolution profile pictures of any Threads account.</p>
+    </div>
+    <div class="feat-card reveal">
+      <div class="feat-ico" style="background:rgba(13,207,180,.1);">📊</div>
+      <h3>Follower Counter</h3>
+      <p>Track real-time follower counts and growth stats for any public profile.</p>
+    </div>
+    <div class="feat-card reveal">
+      <div class="feat-ico" style="background:rgba(123,92,245,.1);">⚡</div>
+      <h3>Lightning Fast</h3>
+      <p>Paste a link, tap download — done. No sign-in, no waiting, no complications.</p>
+    </div>
+    <div class="feat-card reveal">
+      <div class="feat-ico" style="background:rgba(13,207,180,.08);">🆓</div>
+      <h3>100% Free Forever</h3>
+      <p>No hidden fees, no subscriptions, no watermarks. Completely free, always.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SCREENSHOTS ── -->
+<section class="screenshots">
+  <div class="sec-head reveal">
+    <div class="sec-label">Screenshots</div>
+    <h2>Beautiful, Intuitive UI</h2>
+    <p>Designed to be clean and effortless. Tap any screenshot to enlarge.</p>
+  </div>
+  <div class="ss-scroll">
+    <div class="ss-card reveal" onclick="openLb('https://threadsgrab.com/tdsave/tdsave-home.png')">
+      <img src="https://threadsgrab.com/tdsave/tdsave-home.png" alt="Home screen" loading="lazy" />
+      <div class="ss-lbl">Home</div>
+    </div>
+    <div class="ss-card reveal" onclick="openLb('https://threadsgrab.com/tdsave/tdsave-downloader.png')">
+      <img src="https://threadsgrab.com/tdsave/tdsave-downloader.png" alt="Downloader" loading="lazy" />
+      <div class="ss-lbl">Downloader</div>
+    </div>
+    <div class="ss-card reveal" onclick="openLb('https://threadsgrab.com/tdsave/tdsave-fcounter.png')">
+      <img src="https://threadsgrab.com/tdsave/tdsave-fcounter.png" alt="Follower Counter" loading="lazy" />
+      <div class="ss-lbl">Follower Counter</div>
+    </div>
+    <div class="ss-card reveal" onclick="openLb('https://threadsgrab.com/tdsave/tdsave-setteing.png')">
+      <img src="https://threadsgrab.com/tdsave/tdsave-setteing.png" alt="Settings" loading="lazy" />
+      <div class="ss-lbl">Settings</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW IT WORKS ── -->
+<section class="how">
+  <div class="sec-head reveal">
+    <div class="sec-label">How It Works</div>
+    <h2>3 Steps, That's It</h2>
+    <p>No tutorials needed — TDSave is as simple as it gets.</p>
+  </div>
+  <div class="how-row">
+    <div class="how-step reveal">
+      <div class="how-num">📲</div>
+      <h3>Install TDSave</h3>
+      <p>Download and install the free APK on your Android. Takes under 10 seconds.</p>
+    </div>
+    <div class="how-step reveal">
+      <div class="how-num">🔗</div>
+      <h3>Copy the Link</h3>
+      <p>Open Threads, tap Share on any post, and copy the post URL.</p>
+    </div>
+    <div class="how-step reveal">
+      <div class="how-num">💾</div>
+      <h3>Save &amp; Done</h3>
+      <p>Paste into TDSave, tap Download. Your file is in your gallery.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PLAY STORE SECTION ── -->
+<section class="playstore-section">
+  <div class="sec-head reveal">
+    <div class="sec-label">Coming Soon</div>
+    <h2>TDSave on Google Play</h2>
+    <p>We're working hard to bring TDSave to the Play Store. Get notified the moment it launches.</p>
+  </div>
+  <div class="ps-card reveal">
+    <!-- Google Play colourful logo -->
+    <svg class="ps-logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4.64 45.54C3.64 45 3 43.92 3 42.73V5.27C3 4.08 3.64 3 4.64 2.46L26.5 24 4.64 45.54Z" fill="#0DCFB4"/>
+      <path d="M34.28 31.36L9.06 45.7 26.5 24l7.78 7.36Z" fill="#7B5CF5"/>
+      <path d="M43.1 20.16C44.18 20.8 45 22.36 45 24c0 1.64-.82 3.2-1.9 3.84l-6.82 2.52L26.5 24l9.78-7.36 6.82 3.52Z" fill="#FF7043"/>
+      <path d="M9.06 2.3 34.28 16.64 26.5 24 4.64 2.46 9.06 2.3Z" fill="#0DCFB4" opacity=".75"/>
+    </svg>
+
+    <div class="ps-card-title">Coming to Google Play</div>
+    <p class="ps-card-sub">TDSave is currently available as a direct APK download. The Play Store version is in review — it's coming very soon!</p>
+
+    <div class="ps-soon-btn">
+      <svg class="ps-google-icon" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4.64 45.54C3.64 45 3 43.92 3 42.73V5.27C3 4.08 3.64 3 4.64 2.46L26.5 24 4.64 45.54Z" fill="#0DCFB4"/>
+        <path d="M34.28 31.36L9.06 45.7 26.5 24l7.78 7.36Z" fill="#7B5CF5"/>
+        <path d="M43.1 20.16C44.18 20.8 45 22.36 45 24c0 1.64-.82 3.2-1.9 3.84l-6.82 2.52L26.5 24l9.78-7.36 6.82 3.52Z" fill="#FF7043"/>
+        <path d="M9.06 2.3 34.28 16.64 26.5 24 4.64 2.46 9.06 2.3Z" fill="#0DCFB4" opacity=".75"/>
+      </svg>
+      <div class="ps-soon-btn-txt">
+        <div class="ps-soon-btn-top">Get it on</div>
+        <div class="ps-soon-btn-main">Google Play</div>
+      </div>
+      <span class="ps-soon-label">Soon</span>
+    </div>
+
+    <!-- Email notify -->
+    <div class="ps-notify">
+      <div class="ps-notify-title">🔔 Notify me when it launches</div>
+      <div class="ps-notify-row">
+        <input type="email" placeholder="your@email.com" id="notifyEmail" />
+        <button onclick="handleNotify()">Notify Me</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-band">
+  <h2 class="reveal">
+    Start Saving Today.<br/>
+    <span style="background:linear-gradient(130deg,var(--teal),var(--purple-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Download TDSave Free</span>
+  </h2>
+  <p class="reveal">Works on all Android 5.0+ phones. Install takes seconds.</p>
+  <div class="cta-pills reveal">
+    <div class="cta-pill"><span class="cpd cpd-t"></span>No Watermark</div>
+    <div class="cta-pill"><span class="cpd cpd-p"></span>No Login</div>
+    <div class="cta-pill"><span class="cpd cpd-t"></span>HD Quality</div>
+    <div class="cta-pill"><span class="cpd cpd-o"></span>Lightweight</div>
+    <div class="cta-pill"><span class="cpd cpd-p"></span>100% Free</div>
+  </div>
+  <div class="dl-wrap reveal">
+    <button class="dl-btn" onclick="triggerInstall(event)" style="padding:19px 42px;font-size:1.05rem;">
+      <svg class="android-ico" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M6.18 9.75A.75.75 0 1 0 6.18 11.25.75.75 0 0 0 6.18 9.75ZM17.82 9.75A.75.75 0 1 0 17.82 11.25.75.75 0 0 0 17.82 9.75Z"/>
+        <path d="M16.04 3.28 17.6.66a.5.5 0 1 0-.86-.5L15.14 2.7A7.9 7.9 0 0 0 12 2a7.9 7.9 0 0 0-3.14.7L7.26.16a.5.5 0 1 0-.86.5l1.56 2.62A7.98 7.98 0 0 0 4 9.5v.5h16v-.5a7.98 7.98 0 0 0-3.96-6.22ZM4 11v6a2 2 0 0 0 2 2h1v2.5a1.5 1.5 0 0 0 3 0V19h4v2.5a1.5 1.5 0 0 0 3 0V19h1a2 2 0 0 0 2-2v-6H4Z"/>
+      </svg>
+      <span class="lbl">
+        <span class="lbl-top">Free · No Ads</span>
+        <span class="lbl-main">Download APK Now</span>
+      </span>
+    </button>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>© 2026 <a href="https://threadsgrab.com">ThreadsGrab</a> · TDSave Android App ·
+    <a href="https://threadsgrab.com/disclaimer.html">Disclaimer</a> ·
+    <a href="https://threadsgrab.com/contact.html">Contact</a>
+  </p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLb()">
+  <button class="lb-close" onclick="closeLb()">✕</button>
+  <img id="lbImg" src="" alt="Screenshot preview" />
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+  /* ── Screenshot slider + dots ── */
+  const slides = document.querySelectorAll('.screenshot-slider img');
+  const dots   = document.querySelectorAll('.dot-ind');
+  let cur = 0;
+  function goSlide(n) {
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = n % slides.length;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+  }
+  setInterval(() => goSlide(cur + 1), 2800);
+
+  /* ── Animated download button ── */
+  function triggerInstall(e) {
+    e.preventDefault();
+    const btn  = document.getElementById('dlBtn');
+    const prog = document.getElementById('dlProg');
+    const txt  = document.getElementById('btnTxt');
+    if (!btn || btn.classList.contains('loading')) return;
+
+    btn.classList.add('loading');
+    if (txt) txt.textContent = 'Preparing…';
+    if (prog) prog.style.width = '0%';
+
+    let pct = 0;
+    const iv = setInterval(() => {
+      pct += Math.random() * 20 + 5;
+      if (pct >= 100) {
+        pct = 100;
+        clearInterval(iv);
+        if (prog) prog.style.width = '100%';
+        setTimeout(() => {
+          btn.classList.remove('loading');
+          if (txt) txt.textContent = 'Get APK for Android';
+          if (prog) {
+            prog.style.transition = 'none';
+            prog.style.width = '0%';
+            setTimeout(() => { prog.style.transition = 'width .12s linear'; }, 60);
+          }
+          showToast('✅ Download started! Check your notifications.');
+          window.location.href = 'https://threadsgrab.com/tdsave/TdSave-v-1.0.0.apk';
+        }, 350);
+        return;
+      }
+      if (prog) prog.style.width = pct + '%';
+    }, 160);
+
+    showToast('⚡ Starting download...');
+  }
+
+  /* ── Toast ── */
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3200);
+  }
+
+  /* ── Lightbox ── */
+  function openLb(src) {
+    document.getElementById('lbImg').src = src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+  /* ── Notify me ── */
+  function handleNotify() {
+    const el = document.getElementById('notifyEmail');
+    const v = el ? el.value.trim() : '';
+    if (!v || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
+      showToast('⚠️ Please enter a valid email address.');
+      return;
+    }
+    showToast('🎉 You\'ll be notified when TDSave hits Play Store!');
+    if (el) el.value = '';
+  }
+
+  /* ── Scroll reveal ── */
+  const revEls = document.querySelectorAll('.reveal');
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach((en, i) => {
+      if (en.isIntersecting) {
+        setTimeout(() => en.target.classList.add('visible'), i * 55);
+        ro.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revEls.forEach(el => ro.observe(el));
+</script>
+</body>
+</html>
