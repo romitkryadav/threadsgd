@@ -4,10 +4,6 @@
     <loc>https://threadsgrab.com/about</loc>
     <lastmod>2026-08-07</lastmod>
   </url>
-    <url>
-    <loc>https://threadsgrab.com/romitkrydav</loc>
-    <lastmod>2026-09-02</lastmod>
-  </url>
   <url>
     <loc>https://threadsgrab.com/af</loc>
     <lastmod>2026-08-07</lastmod>
@@ -499,5 +495,9 @@
   <url>
     <loc>https://threadsgrab.com/zn/threads-video-downloader</loc>
     <lastmod>2026-08-07</lastmod>
+  </url>
+   <url>
+    <loc>https://threadsgrab.com/tdsave-app</loc>
+    <lastmod>2026-09-15</lastmod>
   </url>
 </urlset>
