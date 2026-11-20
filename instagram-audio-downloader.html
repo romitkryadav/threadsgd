@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instagram MP3 Downloader - Download Reel Audio | InstaMP3</title>
+    <meta
+      name="description"
+      content="Download audio from a public Instagram Reel with this MP3 downloader. Choose 128, 192, or 320 kbps, preview the result, and save it."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/png" href="https://threadsgrab.com/threadsgrab-logo.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://threadsgrab.com/threadsgrab-logo.png" />
+    <link rel="canonical" href="https://threadsgrab.com/instagram-audio-downloader" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ThreadsGrab" />
+    <meta property="og:title" content="Instagram MP3 Downloader - Download Reel Audio " />
+    <meta
+      property="og:description"
+      content="Download audio from a public Instagram Reel as MP3. Choose a bitrate, preview the audio, and save the file."
+    />
+    <meta property="og:url" content="https://threadsgrab.com/instagram-audio-downloader" />
+    <meta property="og:image" content="https://threadsgrab.com/og-image.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Instagram MP3 Downloader - Download Reel Audio | InstaMP3" />
+    <meta
+      name="twitter:description"
+      content="Download audio from a public Instagram Reel as MP3. Choose 128, 192, or 320 kbps and preview the result before saving."
+    />
+    <meta name="twitter:image" content="https://threadsgrab.com/og-image.jpg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/romitkrweb.css" />
+    <link rel="stylesheet" href="/instamp3.css" />
+
+    <!-- Schema.org SoftwareApplication -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "InstaMP3",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Web, iOS, Android, Windows, macOS",
+        "description": "Free web tool to extract audio from publicly accessible Instagram Reels and encode genuine MP3 files directly in the browser.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <!-- Schema.org FAQPage (matches visible FAQ content below) -->
+            <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I download audio from an Instagram Reel?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Copy the link to a public Reel, paste it into the Instagram MP3 downloader, choose a bitrate, and select Download MP3. Preview the converted audio and select Save MP3 when the result is ready."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use InstaMP3 to download audio from an Insta Reel without an app?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Open this page in a browser, paste the public Instagram Reel or supported video post URL, and convert it here. You do not need to install an app or sign in to Instagram."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the Instagram audio extractor save a video or an MP3?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It prepares an audio-only MP3 from the audio track available for a supported public post. The result is an MP3 file, not a video with its extension changed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which Reel links can this Instagram MP3 downloader process?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use a public Instagram Reel or supported video post URL that can be opened without signing in. Private posts, Stories, removed content, and links that require an account cannot be processed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which quality should I choose for an Insta MP3 download?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Choose 128 kbps for a smaller file, 192 kbps for a balance of size and quality, or 320 kbps for a larger file. The bitrate sets the MP3 output size and does not improve the original recording."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is my Instagram Reel audio download not working?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Check that you copied the complete link and that the Reel is public. Instagram may temporarily limit access, and removed or restricted posts are unavailable. Check your connection and try again later."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need to enter my Instagram password?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The Instagram Reel audio downloader does not ask for your password, cookies, or account session. It works only with public links that can be retrieved without login credentials."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="header" id="siteHeader" role="banner">
+    <div class="container header-inner">
+      <a href="/" class="logo" id="siteLogo" aria-label="ThreadsGrab - Home">
+        <img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" alt="ThreadsGrab Logo" width="40" height="40" loading="eager" decoding="async" />
+        <span>ThreadsGrab</span>
+      </a>
+
+      <nav class="nav-desktop" id="desktopNav" role="navigation" aria-label="Primary Navigation">
+        <a href="/threads-video-downloader" class="nav-link" id="navVideo">Video Downloader</a>
+        <a href="/threads-image-downloader" class="nav-link" id="navImage">Image Downloader</a>
+        <a href="/threads-profile-picture-downloader" class="nav-link" id="navDp">DP Downloader</a>
+        <a href="/threads-follower-counter" class="nav-link" id="navCounter">Follower Counter</a>
+        <a href="/contact" class="nav-link" id="navContact">Contact</a>
+        <a href="/blog" class="nav-link" id="navBlog">Blog</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" id="theme-toggle" class="theme-btn" aria-label="Toggle dark or light theme">
+          <span id="theme-label">Dark</span>
+        </button>
+       <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobileNav">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="4" x2="20" y1="12" y2="12"/>
+            <line x1="4" x2="20" y1="6" y2="6"/>
+            <line x1="4" x2="20" y1="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile Navigation" hidden>
+    <a href="/" class="nav-link">Home</a>
+    <a href="/threads-video-downloader" class="nav-link">Threads Video Downloader</a>
+    <a href="/threads-audio-extractor" class="nav-link">Threads Audio Extractor</a>
+    <a href="/threads-image-downloader" class="nav-link">Threads Image Downloader</a>
+    <a href="/threads-carousel-downloader" class="nav-link">Threads Carousel Downloader</a>
+    <a href="/threads-profile-picture-downloader" class="nav-link">Threads DP Downloader</a>
+    <a href="/threads-username-checker" class="nav-link">Threads Username Checker</a>
+    <a href="/threads-font-generator" class="nav-link">Threads Font Generator</a>
+    <a href="/threads-character-counter" class="nav-link">Threads Character Counter</a>
+    <a href="/threads-engagement-calculator" class="nav-link">Threads Engagement Calculator</a>
+    <a href="/threads-follower-counter" class="nav-link">Follower Counter</a>
+    <a href="/about" class="nav-link">About Us</a>
+    <a href="/blog" class="nav-link">Blog</a>
+    <a href="/contact" class="nav-link">Contact</a>
+    <a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+  </nav>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-container">
+          <div class="hero-copy">
+            <h1>Instagram MP3 Downloader</h1>
+            <p>
+              Use this Instagram MP3 downloader to download audio from a public Instagram Reel or video post. Paste the link, choose 128, 192, or 320 kbps, then preview and save the MP3. No Instagram login is required.
+            </p>
+          </div>
+
+          <div class="converter-card">
+            <div class="converter-toolbar">
+              <div class="segmented" role="tablist" aria-label="Audio source mode">
+                <button
+                  type="button"
+                  role="tab"
+                  id="tab-url"
+                  class="seg-btn active"
+                  aria-selected="true"
+                >
+                  Public Reel URL
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  id="tab-local"
+                  class="seg-btn"
+                  aria-selected="false"
+                >
+                  Local Reel File
+                </button>
+              </div>
+
+              <div class="bitrate-group">
+                <span class="bitrate-label">MP3 Quality</span>
+                <div class="segmented" role="group" aria-label="MP3 bitrate selection">
+                  <button type="button" class="rate-btn" data-bitrate="128">128k</button>
+                  <button type="button" class="rate-btn active" data-bitrate="192">192k</button>
+                  <button type="button" class="rate-btn" data-bitrate="320">320k</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Public URL Form -->
+            <form id="download-form" class="url-form" novalidate>
+              <label for="reel-url" class="sr-only">Instagram Reel URL</label>
+              <div class="input-row">
+                <div class="input-wrap">
+                  <input
+                    id="reel-url"
+                    name="url"
+                    type="url"
+                    inputmode="url"
+                    autocomplete="off"
+                    spellcheck="false"
+                    placeholder="https://www.instagram.com/reel/EXAMPLE/"
+                  />
+                  <div class="input-actions">
+                    <button
+                      type="button"
+                      id="clear-btn"
+                      class="icon-btn hidden"
+                      aria-label="Clear URL"
+                    >
+                      &times;
+                    </button>
+                    <button type="button" id="paste-btn" class="paste-btn">Paste</button>
+                  </div>
+                </div>
+                <button type="submit" id="submit-btn" class="primary-btn">
+                  Download MP3
+                </button>
+              </div>
+              <div class="form-hint">
+                <span>Works with public Instagram Reel and video post links. Private or unavailable posts cannot be processed.</span>
+                <span id="paste-status" class="paste-status" aria-live="polite"></span>
+              </div>
+            </form>
+
+            <!-- Local Reel File Dropzone -->
+            <div id="local-panel" class="local-panel hidden">
+              <input
+                type="file"
+                id="local-file-input"
+                class="hidden"
+                accept="video/mp4,video/quicktime,video/webm,audio/mp4,audio/x-m4a,audio/aac,audio/wav,.mp4,.m4a,.mov,.webm,.wav"
+              />
+              <div id="dropzone" class="dropzone">
+                <p class="dropzone-title">Drop a saved Instagram Reel (.mp4, .m4a, .mov) here</p>
+                <p class="dropzone-sub">
+                  Decoded and encoded to real MP3 locally in your browser — files never leave your device.
+                </p>
+                <button type="button" id="choose-file-btn" class="primary-btn">
+                  Choose Video or Audio File
+                </button>
+              </div>
+            </div>
+
+            <!-- Live Progress -->
+            <div id="progress-panel" class="progress-panel hidden" role="status" aria-live="polite">
+              <div class="progress-header">
+                <span id="progress-label">Checking public Reel metadata…</span>
+                <div class="progress-right">
+                  <span id="progress-percent" class="mono">0%</span>
+                  <button type="button" id="cancel-btn" class="link-btn">Cancel</button>
+                </div>
+              </div>
+              <div class="progress-track">
+                <div id="progress-bar" class="progress-bar"></div>
+              </div>
+            </div>
+
+            <!-- Error Alert -->
+            <div id="error-panel" class="error-panel hidden" role="alert">
+              <p id="error-title" class="error-title"></p>
+              <p id="error-message" class="error-message"></p>
+              <button type="button" id="switch-local-btn" class="secondary-error-btn hidden">
+                Convert a Saved Reel File Locally Instead
+              </button>
+            </div>
+
+            <!-- Result Card -->
+            <div id="result-panel" class="result-panel hidden" aria-live="polite">
+              <div class="result-layout">
+                <div class="thumb-box" id="thumb-box">
+                  <img
+                    id="result-thumb"
+                    class="hidden"
+                    alt="Instagram Reel thumbnail"
+                    loading="lazy"
+                    referrerpolicy="no-referrer"
+                  />
+                  <div id="thumb-fallback" class="thumb-fallback">
+                    <span class="mono">MP3</span>
+                  </div>
+                </div>
+
+                <div class="result-body">
+                  <h2 id="result-title" class="result-title"></h2>
+                  <p id="result-meta" class="result-meta mono"></p>
+                  <audio id="result-audio" controls class="result-audio"></audio>
+                  <div class="result-actions">
+                    <a id="download-mp3-link" class="primary-btn" download="instamp3-reel.mp3">
+                      Download MP3
+                    </a>
+                    <button type="button" id="reset-btn" class="secondary-btn">
+                      Convert Another
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+                  <section id="how-it-works" class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>How to Download Audio from an Insta Reel</h2>
+            <p>Use the Instagram Reel audio downloader when you want the sound as an MP3 file. You only need the link to a public Reel or supported video post.</p>
+          </div>
+          <div class="steps-grid">
+            <article class="step-item">
+              <span class="step-num mono">01</span>
+              <h3>Copy the Reel or video post link</h3>
+              <p>Open the public Instagram Reel, tap Share, and choose Copy Link. You can also copy the URL from your browser. Private posts, Stories, and content that requires an Instagram login are not available to this downloader.</p>
+            </article>
+            <article class="step-item">
+              <span class="step-num mono">02</span>
+              <h3>Paste it into the Instagram MP3 downloader</h3>
+              <p>Paste the full URL in the box above. Pick 128 kbps for a smaller file, 192 kbps for a balanced everyday option, or 320 kbps for a larger MP3. Then select Download MP3 to start the conversion.</p>
+            </article>
+            <article class="step-item">
+              <span class="step-num mono">03</span>
+              <h3>Preview and save your Insta MP3 download</h3>
+              <p>Wait for the audio to process, listen to it in the result player, and check its duration and file size. Select Save MP3 when it is ready. On mobile, the browser may ask where to save the file or place it in Downloads.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+                  <section class="section section-tinted">
+        <div class="container">
+          <div class="section-head">
+            <h2>Instagram Audio Extractor for Public Reel Links</h2>
+            <p>InstaMP3 is built for a specific task: extract the available audio from a public Reel or video post and prepare it as an MP3 you can preview and save.</p>
+          </div>
+          <div class="features-grid">
+            <article class="feature-card span-7">
+              <h3>Extract audio, not the full video</h3>
+              <p>This Instagram audio extractor creates an audio-only MP3 from the source audio available for the post. It does not give you a video download in this result, and it does not simply rename an MP4 file as MP3.</p>
+            </article>
+            <article class="feature-card span-5">
+              <h3>Choose the right MP3 bitrate</h3>
+              <p>For an Insta MP3 download, select 128, 192, or 320 kbps before you convert. Lower bitrates use less storage; higher bitrates make larger files, but cannot add detail missing from the original audio.</p>
+            </article>
+            <article class="feature-card span-5">
+              <h3>Use a link anyone can access</h3>
+              <p>This Insta Reel audio downloader works with public Reel and supported video post URLs. It cannot bypass private-account settings, sign-in requirements, removed posts, or Stories.</p>
+            </article>
+            <article class="feature-card span-7">
+              <h3>Know why a conversion can fail</h3>
+              <p>A link may fail if it is incomplete, the post is private or no longer available, Instagram temporarily limits the request, or your connection drops. Check the URL, make sure the post is public, and try again later if access is temporarily unavailable.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+                  <section id="faq" class="section">
+        <div class="container narrow">
+          <div class="section-head">
+            <h2>Instagram MP3 Downloader FAQs</h2>
+            <p>Find out how to download Reel audio, choose a bitrate, and troubleshoot a link that will not convert.</p>
+          </div>
+          <div class="faq-list">
+            <details open>
+              <summary>How do I download audio from an Instagram Reel?</summary>
+              <p>Copy the link to a public Reel, paste it into the Instagram MP3 downloader, choose a bitrate, and select Download MP3. Preview the converted audio and select Save MP3 when the result is ready.</p>
+            </details>
+            <details>
+              <summary>Can I use InstaMP3 to download audio from an Insta Reel without an app?</summary>
+              <p>Yes. Open this page in a browser, paste the public Instagram Reel or supported video post URL, and convert it here. You do not need to install an app or sign in to Instagram.</p>
+            </details>
+            <details>
+              <summary>Does the Instagram audio extractor save a video or an MP3?</summary>
+              <p>It prepares an audio-only MP3 from the audio track available for a supported public post. The result is an MP3 file, not a video with its extension changed.</p>
+            </details>
+            <details>
+              <summary>Which Reel links can this Instagram MP3 downloader process?</summary>
+              <p>Use a public Instagram Reel or supported video post URL that can be opened without signing in. Private posts, Stories, removed content, and links that require an account cannot be processed.</p>
+            </details>
+            <details>
+              <summary>Which quality should I choose for an Insta MP3 download?</summary>
+              <p>Choose 128 kbps for a smaller file, 192 kbps for a balance of size and quality, or 320 kbps for a larger file. The bitrate sets the MP3 output size and does not improve the original recording.</p>
+            </details>
+            <details>
+              <summary>Why is my Instagram Reel audio download not working?</summary>
+              <p>Check that you copied the complete link and that the Reel is public. Instagram may temporarily limit access, and removed or restricted posts are unavailable. Check your connection and try again later.</p>
+            </details>
+            <details>
+              <summary>Do I need to enter my Instagram password?</summary>
+              <p>No. The Instagram Reel audio downloader does not ask for your password, cookies, or account session. It works only with public links that can be retrieved without login credentials.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+                  <section id="about" class="section section-tinted">
+        <div class="container about-grid">
+          <div>
+            <h2>Save Reel Audio with ThreadsGrab</h2>
+            <p>If you searched for an Instagram MP3 downloader or Instagram audio extractor, this page is for converting the sound from an accessible Reel or video post into MP3. Paste the public link, choose a bitrate, and preview the result before saving it to your device.</p>
+            <p>The audio source must be publicly available. ThreadsGrab cannot access private accounts, Stories, deleted posts, or other content that requires sign-in. Use audio you own or have permission to save and reuse; downloading a file does not grant reuse rights.</p>
+          </div>
+          <div class="privacy-box">
+            <h3>Before you download Instagram Reel audio</h3>
+            <ul>
+              <li><strong>Public access:</strong> The Reel or video post must be viewable without logging in.</li>
+              <li><strong>No account credentials:</strong> Paste a link; do not provide passwords, cookies, or session details.</li>
+              <li><strong>Respect creators:</strong> Follow copyright rules and get permission before reusing someone else's audio.</li>
+              <li><strong>Independent tool:</strong> ThreadsGrab is not affiliated with Instagram or Meta.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="/" class="logo" aria-label="ThreadsGrab Home">
+            <img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" alt="ThreadsGrab Logo" width="32" height="32" loading="eager" decoding="async" /><span>ThreadsGrab</span>
+          </a>
+          <p>ThreadsGrab is a free browser-based toolkit for downloading publicly available Threads videos, photos, GIFs, and profile pictures. No account or software required.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4 id="footerToolsHeading">Other Tools</h4>
+          <ul class="footer-links" aria-labelledby="footerToolsHeading">
+            <li><a href="/threads-reel-downloader.html">Reel Downloader</a></li>
+            <li><a href="/threads-audio-extractor.html">Audio Extractor</a></li>
+            <li><a href="/threads-carousel-downloader.html">Carousel Downloader</a></li>
+            <li><a href="/threads-font-generator.html">Font Generator</a></li>
+             </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 id="footerCompanyHeading">Company</h4>
+          <ul class="footer-links" aria-labelledby="footerCompanyHeading">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/romitkryadav">Developer & Creator</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 id="footerLegalHeading">Legal &amp; Support</h4>
+          <ul class="footer-links" aria-labelledby="footerLegalHeading">
+            <li><a href="/disclaimer">Disclaimer</a></li>
+              <li><a href="/privacy-policy">Privacy Policy</a></li>
+            <li>
+              <a href="mailto:contact@threadsgrab.com" class="footer-link-email">
+                <svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Contact Support
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 ThreadsGrab. All rights reserved.</div>
+        <div class="footer-disclaimer-note">
+          Disclaimer: ThreadsGrab is an independent tool and is not affiliated with, endorsed, or sponsored by Instagram, Meta Platforms, Inc., or Threads.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Legal / Contact Modal -->
+    <div id="legal-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-card">
+        <div class="modal-head">
+          <h2 id="modal-title"></h2>
+          <button type="button" id="modal-close-x" class="icon-btn" aria-label="Close dialog">&times;</button>
+        </div>
+        <div id="modal-body" class="modal-body"></div>
+        <div class="modal-foot">
+          <button type="button" id="modal-close-btn" class="primary-btn">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Self-hosted pure-JS LAME MP3 encoder (zero external CDN dependency) -->
+    <script src="/lamejs.iife.js" defer></script>
+    <script src="/instamp3.js" defer></script>
+
+    <script>
+      (() => {
+        const button = document.getElementById('hamburgerBtn');
+        const menu = document.getElementById('mobileNav');
+        if (!button || !menu) return;
+        button.addEventListener('click', () => {
+          const isOpen = menu.classList.toggle('open');
+          button.setAttribute('aria-expanded', String(isOpen));
+          button.setAttribute('aria-label', isOpen ? 'Close mobile menu' : 'Open mobile menu');
+        });
+        menu.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => {
+            menu.classList.remove('open');
+            button.setAttribute('aria-expanded', 'false');
+            button.setAttribute('aria-label', 'Open mobile menu');
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
