@@ -21,8 +21,8 @@
     <lastmod>2026-08-07</lastmod>
   </url>
   <url>
-    <loc>https://threadsgrab.com/de</loc>
-    <lastmod>2026-08-07</lastmod>
+     <loc>https://threadsgrab.com/de/</loc>
+    <lastmod>2026-11-20</lastmod>
   </url>
   <url>
     <loc>https://threadsgrab.com/disclaimer</loc>
@@ -100,6 +100,7 @@
     <loc>https://threadsgrab.com/threads-image-downloader</loc>
     <lastmod>2026-08-07</lastmod>
   </url>
+  <url><loc>https://threadsgrab.com/threads-carousel-downloader</loc><lastmod>2026-11-19</lastmod></url>
   <url>
     <loc>https://threadsgrab.com/threads-profile-picture-downloader</loc>
     <lastmod>2026-08-07</lastmod>
@@ -108,6 +109,12 @@
     <loc>https://threadsgrab.com/threads-video-downloader</loc>
     <lastmod>2026-08-07</lastmod>
   </url>
+  <url><loc>https://threadsgrab.com/threads-audio-extractor</loc><lastmod>2026-11-19</lastmod></url>
+  <url><loc>https://threadsgrab.com/threads-reel-downloader</loc><lastmod>2026-11-19</lastmod></url>
+  <url><loc>https://threadsgrab.com/threads-username-checker</loc><lastmod>2026-11-19</lastmod></url>
+  <url><loc>https://threadsgrab.com/threads-font-generator</loc><lastmod>2026-11-19</lastmod></url>
+  <url><loc>https://threadsgrab.com/threads-engagement-calculator</loc><lastmod>2026-11-19</lastmod></url>
+  <url><loc>https://threadsgrab.com/threads-character-counter</loc><lastmod>2026-11-19</lastmod></url>
   <url>
     <loc>https://threadsgrab.com/tr</loc>
     <lastmod>2026-08-07</lastmod>
@@ -500,4 +507,34 @@
     <loc>https://threadsgrab.com/tdsave-app</loc>
     <lastmod>2026-09-15</lastmod>
   </url>
+  <url><loc>https://threadsgrab.com/blog</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://threadsgrab.com/blog/how-to-download-threads-videos.html</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://threadsgrab.com/blog/download-threads-carousel-photos.html</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://threadsgrab.com/blog/extract-audio-from-threads-video.html</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://threadsgrab.com/blog/download-threads-profile-picture.html</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://threadsgrab.com/blog/check-threads-follower-count.html</loc><lastmod>2026-11-20</lastmod></url>
+
+  <url><loc>https://threadsgrab.com/blog/accessible-threads-posts.html</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://threadsgrab.com/blog/adapt-content-for-threads.html</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://threadsgrab.com/blog/choose-threads-post-format.html</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://threadsgrab.com/blog/read-threads-insights.html</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://threadsgrab.com/blog/start-better-threads-conversations.html</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://threadsgrab.com/blog/threads-content-calendar.html</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://threadsgrab.com/blog/threads-engagement-rate-explained.html</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://threadsgrab.com/blog/threads-post-character-limit.html</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://threadsgrab.com/blog/threads-topics-and-communities.html</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://threadsgrab.com/blog/write-threads-bio.html</loc><lastmod>2026-11-20</lastmod></url>
+  <url>
+    <loc>https://threadsgrab.com/romitkryadav</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://threadsgrab.com/threads-downloader-canada</loc>
+    <lastmod>2026-11-20</lastmod>
+  </url>
+  <url><loc>https://threadsgrab.com/fr/</loc><lastmod>2026-11-20</lastmod></url>
 </urlset>
+
+
+
+

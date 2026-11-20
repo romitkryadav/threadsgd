@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Threads Engagement Rate Calculator</title>
+  <meta name="description" content="Use this Threads engagement rate calculator to total likes, replies, reposts, and quotes. See engagement by followers and, when available, by post views or impressions." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#4f46e5" />
+  <link rel="canonical" href="https://threadsgrab.com/threads-engagement-calculator" />
+  <link rel="alternate" hreflang="x-default" href="https://threadsgrab.com/threads-engagement-calculator" />
+  <link rel="alternate" hreflang="en" href="https://threadsgrab.com/threads-engagement-calculator" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://threadsgrab.com/threads-engagement-calculator" />
+  <meta property="og:title" content="Threads Engagement Rate Calculator | ThreadsGrab" />
+  <meta property="og:description" content="Use this Threads engagement rate calculator to total likes, replies, reposts, and quotes. See engagement by followers and, when available, by post views or impressions." />
+  <meta property="og:image" content="https://threadsgrab.com/og-image.jpg" />
+  <meta property="og:site_name" content="ThreadsGrab" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Threads Engagement Rate Calculator | ThreadsGrab" />
+  <meta name="twitter:description" content="Use this Threads engagement rate calculator to total likes, replies, reposts, and quotes. See engagement by followers and, when available, by post views or impressions." />
+  <meta name="twitter:image" content="https://threadsgrab.com/og-image.jpg" />
+  <link rel="stylesheet" href="/romitkrweb.css" />
+  <link rel="icon" type="image/png" href="https://threadsgrab.com/threadsgrab-logo.png" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"WebPage","@id":"https://threadsgrab.com/threads-engagement-calculator/#webpage","url":"https://threadsgrab.com/threads-engagement-calculator","name":"Threads Engagement Rate Calculator","description":"Calculate a Threads post engagement rate from likes, replies, reposts, quotes, followers and views.","inLanguage":"en-US","datePublished":"2026-11-19","dateModified":"2026-11-19","isPartOf":{"@id":"https://threadsgrab.com/#website"}},
+      {"@type":"WebApplication","@id":"https://threadsgrab.com/threads-engagement-calculator/#app","name":"Threads Engagement Rate Calculator","url":"https://threadsgrab.com/threads-engagement-calculator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},
+      {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://threadsgrab.com/"},{"@type":"ListItem","position":2,"name":"Threads Engagement Calculator","item":"https://threadsgrab.com/threads-engagement-calculator"}]}
+    ]
+  }
+  </script>
+  <style>
+    .engagement-card{max-width:900px;margin:28px auto 0;text-align:left}
+    .engagement-intro{margin:0 0 20px;color:var(--color-muted,#aaa5c2);line-height:1.65}
+    .engagement-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+    .engagement-field{display:flex;flex-direction:column;gap:7px}
+    .engagement-field label{font-weight:600;color:var(--color-text,#f4f2ff)}
+    .engagement-field input{width:100%;min-height:48px;padding:11px 13px;border:1px solid rgba(255,255,255,.15);border-radius:10px;background:rgba(255,255,255,.06);color:var(--color-text,#f4f2ff);font:inherit}
+    .engagement-field input:focus{outline:2px solid #8179ff;outline-offset:2px}
+    .engagement-field small{color:var(--color-muted,#aaa5c2);font-size:.84rem;line-height:1.45}
+    .engagement-results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}
+    .engagement-result{padding:17px;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:rgba(255,255,255,.04)}
+    .engagement-result-label{display:block;color:var(--color-muted,#aaa5c2);font-size:.9rem;line-height:1.5}
+    .engagement-result-value{display:block;margin-top:7px;color:var(--color-text,#fff);font-size:clamp(1.45rem,4vw,2rem);font-weight:700;overflow-wrap:anywhere}
+    .engagement-result-help{display:block;margin-top:6px;color:var(--color-muted,#aaa5c2);font-size:.78rem;line-height:1.5}
+    .engagement-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .engagement-secondary{padding:10px 16px;border:1px solid rgba(255,255,255,.2);border-radius:10px;background:transparent;color:inherit;font:inherit;cursor:pointer}
+    .engagement-secondary:hover{border-color:#8179ff;background:rgba(129,121,255,.1)}
+    .engagement-status{min-height:1.4em;margin:10px 0 0;color:var(--color-muted,#aaa5c2);font-size:.9rem}
+    .engagement-formula{margin:18px 0 0;padding:14px 16px;border-left:3px solid #8179ff;border-radius:0 10px 10px 0;background:rgba(129,121,255,.08);line-height:1.6}
+    .engagement-guide{max-width:900px;margin-inline:auto}
+    .engagement-faq-answer{line-height:1.7}
+    @media(max-width:650px){.engagement-fields{grid-template-columns:1fr}.engagement-results{grid-template-columns:1fr}.engagement-result{padding:14px}}
+  </style>
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+  <header class="header" id="siteHeader" role="banner"><div class="container header-inner">
+    <a href="/" class="logo" id="siteLogo" aria-label="ThreadsGrab - Home"><img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" alt="" width="40" height="40" /><span>ThreadsGrab</span></a>
+    <nav class="nav-desktop" id="desktopNav" role="navigation" aria-label="Primary Navigation">
+      <a href="/threads-video-downloader" class="nav-link">Video Downloader</a><a href="/threads-image-downloader" class="nav-link">Image Downloader</a><a href="/threads-profile-picture-downloader" class="nav-link">DP Downloader</a><a href="/threads-follower-counter" class="nav-link">Follower Counter</a><a href="/contact" class="nav-link">Contact</a>
+    </nav>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobileNav"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+  </div></header>
+  <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile Navigation" hidden>
+    <a href="/" class="nav-link">Home</a><a href="/threads-video-downloader" class="nav-link">Threads Video Downloader</a><a href="/threads-image-downloader" class="nav-link">Threads Image Downloader</a><a href="/threads-carousel-downloader" class="nav-link">Threads Carousel Downloader</a><a href="/threads-font-generator" class="nav-link">Threads Font Generator</a><a href="/threads-engagement-calculator" class="nav-link active" aria-current="page">Threads Engagement Calculator</a><a href="/threads-profile-picture-downloader" class="nav-link">Threads DP Downloader</a><a href="/threads-follower-counter" class="nav-link">Follower Counter</a><a href="/about" class="nav-link">About Us</a><a href="/contact" class="nav-link">Contact</a><a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+  </nav>
+  <main id="mainContent" role="main">
+    <section class="hero-section" aria-labelledby="heroHeading"><div class="container">
+      <h1 class="hero-title" id="heroHeading">Threads Engagement Rate Calculator</h1>
+      <p class="hero-subtitle hero-subtitle-sm">Use this Threads engagement rate calculator to see how a post's likes, replies, reposts, and quotes compare with its follower count. Add views or impressions to calculate a second rate.</p>
+      <div class="downloader-card engagement-card" aria-label="Threads engagement rate calculator">
+        <p class="engagement-intro">Enter counts from the same post or reporting period. The calculator updates as you type; it does not fetch data from your Threads account.</p>
+        <div class="engagement-fields">
+          <div class="engagement-field"><label for="followerCount">Account followers</label><input id="followerCount" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 12000" /><small>Used as the denominator for engagement by followers.</small></div>
+          <div class="engagement-field"><label for="postViews">Post views or impressions <span>(optional)</span></label><input id="postViews" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 3500" /><small>Add this if you have a view or impression count.</small></div>
+          <div class="engagement-field"><label for="likeCount">Likes</label><input id="likeCount" type="number" min="0" step="1" inputmode="numeric" placeholder="0" value="0" /></div>
+          <div class="engagement-field"><label for="replyCount">Replies</label><input id="replyCount" type="number" min="0" step="1" inputmode="numeric" placeholder="0" value="0" /></div>
+          <div class="engagement-field"><label for="repostCount">Reposts</label><input id="repostCount" type="number" min="0" step="1" inputmode="numeric" placeholder="0" value="0" /></div>
+          <div class="engagement-field"><label for="quoteCount">Quotes</label><input id="quoteCount" type="number" min="0" step="1" inputmode="numeric" placeholder="0" value="0" /></div>
+        </div>
+        <div class="engagement-results" aria-live="polite" aria-atomic="true">
+          <div class="engagement-result"><span class="engagement-result-label">Total interactions</span><output class="engagement-result-value" id="totalInteractions">0</output><span class="engagement-result-help">Likes + replies + reposts + quotes</span></div>
+          <div class="engagement-result"><span class="engagement-result-label">Engagement by followers</span><output class="engagement-result-value" id="followerRate">—</output><span class="engagement-result-help" id="followerRateHelp">Add the account's follower count.</span></div>
+          <div class="engagement-result"><span class="engagement-result-label">Engagement by views</span><output class="engagement-result-value" id="viewRate">—</output><span class="engagement-result-help" id="viewRateHelp">Optional: add post views or impressions.</span></div>
+        </div>
+        <div class="engagement-actions"><button type="button" class="btn-primary" id="copySummary">Copy results</button><button type="button" class="engagement-secondary" id="resetCalculator">Reset</button></div>
+        <p class="engagement-status" id="calculatorStatus" role="status" aria-live="polite"></p>
+        <p class="engagement-formula"><strong>Formula:</strong> engagement rate = total interactions ÷ followers or views × 100. This calculator reports both denominators separately when the needed count is entered.</p>
+      </div>
+    </div></section>
+   
+    <section class="info-section" aria-labelledby="guideHeading"><div class="container"><article class="info-content engagement-guide">
+      <h2 id="guideHeading">Calculate a Threads Engagement Rate</h2>
+      <p>Use this Threads engagement rate calculator to see how a post's interactions compare with its audience or its views. Enter the likes, replies, reposts, and quotes, then add the follower count to calculate engagement by followers. If you have a view or impression count, the tool calculates that rate separately.</p>
+      <p>The calculator uses this formula: <strong>(likes + replies + reposts + quotes) ÷ followers or views × 100</strong>. For example, 120 interactions divided by 4,000 followers gives a 3% follower-based rate. Using 2,000 views as the denominator gives a 6% view-based rate. Keep the denominator clear when you compare or share results.</p>
+      <h2>Engagement by Followers and Engagement by Views</h2>
+      <p>A follower-based rate compares interactions with the account's follower count. A view-based rate compares those interactions with a post's views or impressions. These rates answer different questions and should not be treated as interchangeable. If you use impressions, label the result as impression-based in your notes.</p>
+      <p>Views or impressions may not be available for every post. Leave that field blank if you do not have a reliable count; the calculator will still show the follower-based rate. A zero or missing denominator cannot produce a meaningful percentage.</p>
+      <h2>Use Counts from the Same Post or Period</h2>
+      <p>For a single-post calculation, use that post's interactions and the follower or view count you want to compare them with. For a reporting period, total the interactions for that same period and apply a consistent denominator. Avoid combining one post's interactions with view counts from a different post or time window.</p>
+      <h2>What the Calculator Includes</h2>
+      <p>The interaction total includes likes, replies, reposts, and quotes. It does not add other actions such as profile visits or link clicks. Counts are entered manually, so you can use figures from a post or report you already have without giving the tool access to your account.</p>
+      <h2>Use Your Own Baseline</h2>
+      <p>There is no single engagement percentage that defines a successful Threads post for every account. Audience size, content, and the measurement method all affect the result. Compare posts using the same interactions, denominator, and reporting window to understand changes in your own account.</p>
+    </article></div></section>
+    <section class="faq-section" id="faq" aria-labelledby="faqHeading"><div class="container"><div class="section-header"><h2 class="section-title" id="faqHeading">Threads Engagement Calculator FAQs</h2><p class="section-subtitle">Formula details, included interactions, and which counts to use.</p></div><div class="faq-list" role="list">
+      <div class="faq-item active" role="listitem"><button class="faq-question" type="button" aria-expanded="true" aria-controls="faqAnswer1" id="faqQuestion1"><span>How do I calculate my Threads engagement rate?</span><svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer engagement-faq-answer" id="faqAnswer1" role="region" aria-labelledby="faqQuestion1"><p>Add likes, replies, reposts, and quotes. Divide the total by followers or by views, then multiply by 100. This calculator shows each rate separately when you enter the matching count.</p></div></div>
+      <div class="faq-item" role="listitem"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer2" id="faqQuestion2"><span>Which interactions count in the calculator?</span><svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer engagement-faq-answer" id="faqAnswer2" role="region" aria-labelledby="faqQuestion2" hidden><p>The total is likes + replies + reposts + quotes. It does not include other actions such as profile visits or link clicks.</p></div></div>
+      <div class="faq-item" role="listitem"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer3" id="faqQuestion3"><span>What is the difference between engagement by followers and engagement by views?</span><svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer engagement-faq-answer" id="faqAnswer3" role="region" aria-labelledby="faqQuestion3" hidden><p>The follower-based rate divides interactions by the account follower count. The view-based rate divides them by post views or impressions. They use different denominators, so label and compare them separately.</p></div></div>
+      <div class="faq-item" role="listitem"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer4" id="faqQuestion4"><span>Does the Threads engagement calculator fetch my analytics?</span><svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer engagement-faq-answer" id="faqAnswer4" role="region" aria-labelledby="faqQuestion4" hidden><p>No. Enter the counts yourself. The calculator works in your browser and does not connect to your Threads account or request your password.</p></div></div>
+      <div class="faq-item" role="listitem"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer5" id="faqQuestion5"><span>Why might my Threads engagement rate differ from another calculator?</span><svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer engagement-faq-answer" id="faqAnswer5" role="region" aria-labelledby="faqQuestion5" hidden><p>Different calculators may include different interactions or use followers, reach, views, or impressions as the denominator. Check each formula and compare results that use the same inputs.</p></div></div>
+    </div></div></section>
+  </main>
+  <footer class="footer" role="contentinfo"><div class="container"><div class="footer-grid">
+    <div class="footer-col"><a href="/" class="logo" aria-label="ThreadsGrab - Home"><img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" alt="" width="40" height="40" loading="lazy" /><span>ThreadsGrab</span></a><p>Calculate interaction rates for a Threads post using the counts you provide.</p></div>
+    <div class="footer-col"><h4>Other Tools</h4><ul class="footer-links">
+            <li><a href="/threads-reel-downloader.html">Reel Downloader</a></li>
+            <li><a href="/threads-audio-extractor.html">Audio Extractor</a></li>
+            <li><a href="/threads-carousel-downloader.html">Carousel Downloader</a></li>
+            <li><a href="/threads-font-generator.html">Font Generator</a></li>
+             </ul></div>
+    <div class="footer-col"><h4>Company</h4><ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/romitkryadav">Developer & Creator</a></li>
+          </ul></div>
+    <div class="footer-col"><h4>Legal &amp; Support</h4><ul class="footer-links">
+            <li><a href="/disclaimer">Disclaimer</a></li>
+              <li><a href="/privacy-policy">Privacy Policy</a></li>
+            <li>
+              <a href="mailto:contact@threadsgrab.com" class="footer-link-email">
+                <svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Contact Support
+              </a>
+            </li>
+          </ul></div>
+  </div><div class="footer-bottom"><div>&copy; 2026 ThreadsGrab. All rights reserved.</div></div></div></footer>
+  <script defer src="/romitp.js"></script>
+  <script defer src="/threads-engagement-calculator.js?v=1"></script>
+</body>
+</html>
+

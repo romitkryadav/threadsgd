@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Threads Character Counter - Count Post Characters </title>
+  <meta name="description" content="Use this Threads character counter to check post length as you write. Count characters, words, and lines, and track the 500-character post or 10,000-character attachment target." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#4f46e5" />
+  <link rel="canonical" href="https://threadsgrab.com/threads-character-counter" />
+  <link rel="alternate" hreflang="x-default" href="https://threadsgrab.com/threads-character-counter" />
+  <link rel="alternate" hreflang="en" href="https://threadsgrab.com/threads-character-counter" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://threadsgrab.com/threads-character-counter" />
+  <meta property="og:title" content="Threads Character Counter - Count Post Characters | ThreadsGrab" />
+  <meta property="og:description" content="Use this Threads character counter to check post length as you write. Count characters, words, and lines, and track the 500-character post or 10,000-character attachment target." />
+  <meta property="og:image" content="https://threadsgrab.com/og-image.jpg" />
+  <meta property="og:site_name" content="ThreadsGrab" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Threads Character Counter - Count Post Characters | ThreadsGrab" />
+  <meta name="twitter:description" content="Use this Threads character counter to check post length as you write. Count characters, words, and lines, and track the 500-character post or 10,000-character attachment target." />
+  <meta name="twitter:image" content="https://threadsgrab.com/og-image.jpg" />
+  <link rel="stylesheet" href="/romitkrweb.css" />
+  <link rel="icon" type="image/png" href="https://threadsgrab.com/threadsgrab-logo.png" />
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"WebPage","@id":"https://threadsgrab.com/threads-character-counter/#webpage","url":"https://threadsgrab.com/threads-character-counter","name":"Threads Character Counter","description":"Use this Threads character counter to check post length as you write. Count characters, words, and lines, and track the 500-character post or 10,000-character attachment target.","inLanguage":"en-US","datePublished":"2026-11-19","dateModified":"2026-11-19","isPartOf":{"@id":"https://threadsgrab.com/#website"}},
+      {"@type":"WebApplication","@id":"https://threadsgrab.com/threads-character-counter/#app","name":"Threads Character Counter","url":"https://threadsgrab.com/threads-character-counter","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},
+      {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://threadsgrab.com/"},{"@type":"ListItem","position":2,"name":"Threads Character Counter","item":"https://threadsgrab.com/threads-character-counter"}]}
+    ]
+  }
+  </script>
+  <style>
+    .character-card{max-width:900px;margin:28px auto 0;text-align:left}
+    .character-intro{margin:0 0 18px;color:var(--color-muted,#aaa5c2);line-height:1.65}
+    .character-mode-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+    .character-mode-row label{font-weight:600;color:var(--color-text,#f4f2ff)}
+    .character-mode{min-height:42px;padding:8px 12px;border:1px solid rgba(255,255,255,.16);border-radius:9px;background:#171620;color:var(--color-text,#f4f2ff);font:inherit}
+    .character-mode:focus,.character-input:focus{outline:2px solid #8179ff;outline-offset:2px}
+    .character-input{display:block;width:100%;min-height:185px;padding:16px;border:1px solid rgba(255,255,255,.15);border-radius:14px;background:rgba(255,255,255,.06);color:var(--color-text,#f4f2ff);font:inherit;line-height:1.65;resize:vertical}
+    .character-input::placeholder{color:var(--color-muted,#aaa5c2)}
+    .character-progress-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;font-size:.92rem}
+    .character-progress-head strong{font-variant-numeric:tabular-nums}
+    .character-track{height:8px;margin-top:8px;overflow:hidden;border-radius:999px;background:rgba(255,255,255,.12)}
+    .character-track-fill{width:0;height:100%;border-radius:inherit;background:#8179ff;transition:width .16s ease,background-color .16s ease}
+    .character-track-fill.over-limit{background:#f07474}
+    .character-status{min-height:1.4em;margin:8px 0 0;color:var(--color-muted,#aaa5c2);font-size:.9rem}
+    .character-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin-top:18px}
+    .character-stat{padding:15px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:rgba(255,255,255,.04)}
+    .character-stat-label{display:block;color:var(--color-muted,#aaa5c2);font-size:.85rem;line-height:1.5}
+    .character-stat-value{display:block;margin-top:6px;color:var(--color-text,#fff);font-size:1.5rem;font-weight:700;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+    .character-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:17px}
+    .character-secondary{padding:10px 16px;border:1px solid rgba(255,255,255,.2);border-radius:10px;background:transparent;color:inherit;font:inherit;cursor:pointer}
+    .character-secondary:hover{border-color:#8179ff;background:rgba(129,121,255,.1)}
+    .character-note{margin:14px 0 0;color:var(--color-muted,#aaa5c2);font-size:.9rem;line-height:1.65}
+    .character-guide{max-width:900px;margin-inline:auto}
+    .character-faq-answer{line-height:1.7}
+    @media(max-width:700px){.character-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:440px){.character-stats{grid-template-columns:1fr 1fr}.character-stat{padding:12px}.character-mode-row{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+  <header class="header" id="siteHeader" role="banner"><div class="container header-inner">
+    <a href="/" class="logo" id="siteLogo" aria-label="ThreadsGrab - Home"><img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" alt="" width="40" height="40" /><span>ThreadsGrab</span></a>
+    <nav class="nav-desktop" id="desktopNav" role="navigation" aria-label="Primary Navigation">
+      <a href="/threads-video-downloader" class="nav-link">Video Downloader</a><a href="/threads-image-downloader" class="nav-link">Image Downloader</a><a href="/threads-carousel-downloader" class="nav-link">Carousel Downloader</a><a href="/threads-font-generator" class="nav-link">Font Generator</a><a href="/threads-character-counter" class="nav-link active" aria-current="page">Character Counter</a><a href="/threads-engagement-calculator" class="nav-link">Engagement Calculator</a><a href="/threads-profile-picture-downloader" class="nav-link">DP Downloader</a><a href="/threads-follower-counter" class="nav-link">Follower Counter</a><a href="/contact" class="nav-link">Contact</a>
+    </nav>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobileNav"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+  </div></header>
+  <nav class="mobile-nav" id="mobileNav" role="navigation" aria-label="Mobile Navigation" hidden>
+    <a href="/" class="nav-link">Home</a><a href="/threads-video-downloader" class="nav-link">Threads Video Downloader</a><a href="/threads-image-downloader" class="nav-link">Threads Image Downloader</a><a href="/threads-carousel-downloader" class="nav-link">Threads Carousel Downloader</a><a href="/threads-font-generator" class="nav-link">Threads Font Generator</a><a href="/threads-character-counter" class="nav-link active" aria-current="page">Threads Character Counter</a><a href="/threads-engagement-calculator" class="nav-link">Threads Engagement Calculator</a><a href="/threads-profile-picture-downloader" class="nav-link">Threads DP Downloader</a><a href="/threads-follower-counter" class="nav-link">Follower Counter</a><a href="/about" class="nav-link">About Us</a><a href="/contact" class="nav-link">Contact</a><a href="/privacy-policy" class="nav-link">Privacy Policy</a>
+  </nav>
+  <main id="mainContent" role="main">
+    <section class="hero-section" aria-labelledby="heroHeading"><div class="container">
+      <h1 class="hero-title" id="heroHeading">Threads Character Counter</h1>
+      <p class="hero-subtitle hero-subtitle-sm">Use this Threads post character counter to check your draft as you write. Choose a post or attachment target, see characters and words, and know how much room remains before you copy it.</p>
+      <div class="downloader-card character-card" aria-label="Threads character counter">
+        <p class="character-intro">Type or paste your draft below. The counter updates in your browser; it does not post your text to Threads.</p>
+        <div class="character-mode-row"><label for="lengthMode">Count for</label><select id="lengthMode" class="character-mode"><option value="500">Standard Threads post — 500 characters</option><option value="10000">Long-text attachment — up to 10,000 characters</option></select></div>
+        <label for="draftText" class="visually-hidden">Text to count</label>
+        <textarea id="draftText" class="character-input" placeholder="Write or paste your Threads text here..." spellcheck="true" aria-describedby="counterHelp"></textarea>
+        <div class="character-progress-head"><span id="counterHelp">Character limit progress</span><strong><span id="usedCount">0</span> / <span id="limitCount">500</span></strong></div>
+        <div class="character-track" id="characterTrack" role="progressbar" aria-label="Character limit used" aria-valuemin="0" aria-valuemax="500" aria-valuenow="0"><div class="character-track-fill" id="characterTrackFill"></div></div>
+        <p class="character-status" id="counterStatus" role="status" aria-live="polite">0 characters remaining.</p>
+        <div class="character-stats" aria-live="polite" aria-atomic="true">
+          <div class="character-stat"><span class="character-stat-label">Characters</span><output class="character-stat-value" id="characters">0</output></div>
+          <div class="character-stat"><span class="character-stat-label">Characters without spaces</span><output class="character-stat-value" id="charactersNoSpaces">0</output></div>
+          <div class="character-stat"><span class="character-stat-label">Words</span><output class="character-stat-value" id="words">0</output></div>
+          <div class="character-stat"><span class="character-stat-label">Lines</span><output class="character-stat-value" id="lines">0</output></div>
+        </div>
+        <div class="character-actions"><button type="button" class="btn-primary" id="copyDraft">Copy text</button><button type="button" class="character-secondary" id="clearDraft">Clear</button></div>
+        <p class="character-note">This tool counts visible Unicode characters, so many emoji sequences count as one character. Threads may count links or some text differently; use the count as a guide and check the composer before posting.</p>
+      </div>
+    </div></section>
+    <section class="steps-section" aria-labelledby="stepsHeading"><div class="container"><div class="section-header"><h2 class="section-title" id="stepsHeading">How to Use the Threads Character Counter</h2><p class="section-subtitle">See whether your draft fits the selected Threads text limit.</p></div>
+      <div class="steps-grid"><article class="step-card"><div class="step-icon"><span aria-hidden="true">1</span></div><h3>Choose a text length</h3><p>Choose the 500-character standard post target or the 10,000-character attachment target.</p></article><article class="step-card"><div class="step-icon"><span aria-hidden="true">2</span></div><h3>Enter your draft</h3><p>Type or paste the text to see characters, words, lines, and remaining space update instantly.</p></article><article class="step-card"><div class="step-icon"><span aria-hidden="true">3</span></div><h3>Copy and review it</h3><p>Copy your text when it is ready. Check the count in Threads before publishing, since links and some symbols may be counted differently.</p></article></div>
+    </div></section>
+    <section class="info-section" aria-labelledby="guideHeading"><div class="container"><article class="info-content character-guide">
+      <h2 id="guideHeading">Count Characters in a Threads Post as You Write</h2>
+      <p>Use this Threads character counter to check a draft before you publish it. Type or paste your text to see the character count, characters without spaces, word count, and number of lines. The progress indicator shows how much room remains—or how far your draft is over the target.</p>
+      <h2>Choose a Threads Post or Text Attachment</h2>
+      <p>A standard Threads post has a 500-character limit, according to Meta's launch announcement. Meta later announced text attachments of up to 10,000 characters for longer passages. Availability may depend on the current Threads experience, so confirm the option in your composer. See <a href="https://about.fb.com/news/2023/07/introducing-threads-new-app-text-sharing/" target="_blank" rel="noopener noreferrer">Meta's Threads launch announcement</a> and its <a href="https://about.fb.com/news/2025/09/attach-text-threads-posts-share-longer-perspectives/" target="_blank" rel="noopener noreferrer">text attachment announcement</a>.</p>
+      <h2>How This Character Counter Counts</h2>
+      <p>The counter uses visible Unicode graphemes when your browser supports them. It counts spaces, punctuation, and line breaks in the main total, and shows a separate count without whitespace. Many emoji joined into a single symbol count as one visible character in modern browsers; older browsers may count some combined symbols differently. Words are separated by whitespace, and each new line is counted separately.</p>
+      <h2>Check the Threads Composer Before Posting</h2>
+      <p>This page is a drafting aid, not an official Threads validator. Threads may process links, line breaks, or combined Unicode characters differently from this counter. Paste the final text into the Threads composer and use its displayed count as the final check.</p>
+      <h2>Keep Your Draft in Your Browser</h2>
+      <p>Character counting happens on this page in your browser. The tool does not connect to your Threads account or publish the text. Use Copy text to move your draft into Threads when you are ready.</p>
+    </article></div></section>
+    <section class="faq-section" id="faq" aria-labelledby="faqHeading"><div class="container"><div class="section-header"><h2 class="section-title" id="faqHeading">Threads Character Counter FAQs</h2><p class="section-subtitle">Post length targets, character counting, and using your draft.</p></div><div class="faq-list" role="list">
+      <div class="faq-item active" role="listitem"><button class="faq-question" type="button" aria-expanded="true" aria-controls="faqAnswer1" id="faqQuestion1"><span>What is the Threads post character limit?</span><svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer character-faq-answer" id="faqAnswer1" role="region" aria-labelledby="faqQuestion1"><p>Meta has described standard Threads posts as up to 500 characters and later announced text attachments of up to 10,000 characters. Check your composer because attachment availability can vary.</p></div></div>
+      <div class="faq-item" role="listitem"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer2" id="faqQuestion2"><span>Does this Threads character counter include spaces and line breaks?</span><svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer character-faq-answer" id="faqAnswer2" role="region" aria-labelledby="faqQuestion2" hidden><p>Yes. The main character count includes spaces, punctuation, and line breaks. A separate number shows characters without whitespace.</p></div></div>
+      <div class="faq-item" role="listitem"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer3" id="faqQuestion3"><span>How are emoji counted?</span><svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer character-faq-answer" id="faqAnswer3" role="region" aria-labelledby="faqQuestion3" hidden><p>In browsers with grapheme counting, a combined emoji sequence generally counts as one visible character. Older browsers may count some emoji sequences differently, so verify the final count in Threads.</p></div></div>
+      <div class="faq-item" role="listitem"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer4" id="faqQuestion4"><span>Is my draft uploaded when I use the character counter?</span><svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer character-faq-answer" id="faqAnswer4" role="region" aria-labelledby="faqQuestion4" hidden><p>No. Counting runs in your browser. The tool does not connect to your Threads account or publish your text.</p></div></div>
+      <div class="faq-item" role="listitem"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faqAnswer5" id="faqQuestion5"><span>Why does the Threads composer show a different character count?</span><svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer character-faq-answer" id="faqAnswer5" role="region" aria-labelledby="faqQuestion5" hidden><p>Threads may process links, line breaks, or combined Unicode symbols differently. Use the number in the Threads composer as the final check.</p></div></div>
+    </div></div></section>
+  </main>
+  <footer class="footer" role="contentinfo"><div class="container"><div class="footer-grid">
+    <div class="footer-col"><a href="/" class="logo" aria-label="ThreadsGrab - Home"><img class="logo-icon" src="https://threadsgrab.com/threadsgrab.png" alt="" width="40" height="40" loading="lazy" /><span>ThreadsGrab</span></a><p>Check the length of a Threads post or text attachment before publishing.</p></div>
+    <div class="footer-col"><h4>Other Tools</h4><ul class="footer-links">
+            <li><a href="/threads-reel-downloader.html">Reel Downloader</a></li>
+            <li><a href="/threads-audio-extractor.html">Audio Extractor</a></li>
+            <li><a href="/threads-carousel-downloader.html">Carousel Downloader</a></li>
+            <li><a href="/threads-font-generator.html">Font Generator</a></li>
+             </ul></div>
+    <div class="footer-col"><h4>Company</h4><ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/romitkryadav">Developer & Creator</a></li>
+          </ul></div>
+    <div class="footer-col"><h4>Legal &amp; Support</h4><ul class="footer-links">
+            <li><a href="/disclaimer">Disclaimer</a></li>
+              <li><a href="/privacy-policy">Privacy Policy</a></li>
+            <li>
+              <a href="mailto:contact@threadsgrab.com" class="footer-link-email">
+                <svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Contact Support
+              </a>
+            </li>
+          </ul></div>
+  </div><div class="footer-bottom"><div>&copy; 2026 ThreadsGrab. All rights reserved.</div></div></div></footer>
+  <script defer src="/romitp.js"></script>
+  <script defer src="/threads-character-counter.js?v=1"></script>
+</body>
+</html>
+

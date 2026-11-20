@@ -209,19 +209,10 @@ function initDownloaderTool() {
   const pasteBtn = document.getElementById('pasteBtn');
   const clearBtn = document.getElementById('clearBtn');
   const downloadBtn = document.getElementById('downloadBtn');
-  const toolVideoTab = document.getElementById('toolVideoTab');
-  const toolImageTab = document.getElementById('toolImageTab');
   const sampleVideoBtn = document.getElementById('sampleVideoBtn');
   const sampleImageBtn = document.getElementById('sampleImageBtn');
   const sampleCarouselBtn = document.getElementById('sampleCarouselBtn');
   const sampleDpBtn = document.getElementById('sampleDpBtn');
-  const toolDpTab = document.getElementById('toolDpTab');
-
-  if (toolVideoTab && toolImageTab) {
-    toolVideoTab.addEventListener('click', () => setToolMode('video'));
-    toolImageTab.addEventListener('click', () => setToolMode('image'));
-    if (toolDpTab) toolDpTab.addEventListener('click', () => setToolMode('dp'));
-  }
 
   if (pasteBtn && urlInput) {
     pasteBtn.addEventListener('click', async () => {
@@ -613,6 +604,51 @@ function attachMediaFallbackChain(el, mediaUrl, filename, isVideo) {
   tryNext();
 }
 
+function safeHttpUrl(value) {
+  if (typeof value !== 'string' || !value.trim()) return '';
+  try {
+    const url = new URL(value, window.location.href);
+    if (!['http:', 'https:'].includes(url.protocol) || url.username || url.password) return '';
+    return url.href;
+  } catch {
+    return '';
+  }
+}
+
+function getMediaExtension(mediaUrl, isVideo) {
+  if (isVideo) return 'mp4';
+  try {
+    const path = new URL(mediaUrl).pathname;
+    const match = path.match(/\.([a-z0-9]+)$/i);
+    const extension = match ? match[1].toLowerCase() : '';
+    if (extension === 'jpeg') return 'jpg';
+    if (['jpg', 'png', 'webp', 'avif', 'gif'].includes(extension)) return extension;
+  } catch {
+    // The media URL was already checked before rendering; use the safe default.
+  }
+  return 'jpg';
+}
+
+function filenameForMime(filename, mimeType) {
+  const extensions = {
+    'image/jpeg': 'jpg',
+    'image/png': 'png',
+    'image/webp': 'webp',
+    'image/avif': 'avif',
+    'image/gif': 'gif',
+    'video/mp4': 'mp4',
+    'video/webm': 'webm'
+  };
+  const extension = extensions[String(mimeType || '').split(';')[0].trim().toLowerCase()];
+  if (!extension) return filename;
+  return `${filename.replace(/\.[^./\\]+$/, '')}.${extension}`;
+}
+
+function safeFilenamePart(value) {
+  const cleaned = String(value || '').replace(/^@+/, '').replace(/[^a-z0-9._-]/gi, '').slice(0, 48);
+  return cleaned || 'user';
+}
+
 function renderResult(data) {
   const resultBox = document.getElementById('resultBox');
   const previewContainer = document.getElementById('mediaPreviewContainer');
@@ -630,7 +666,7 @@ function renderResult(data) {
   previewContainer.innerHTML = '';
 
   // Get list of media items
-  const mediaList = data.mediaList && data.mediaList.length > 0 ? data.mediaList : [
+  const sourceMediaList = Array.isArray(data.mediaList) && data.mediaList.length > 0 ? data.mediaList : [
     {
       type: data.type || 'video',
       mediaUrl: data.mediaUrl,
@@ -639,6 +675,21 @@ function renderResult(data) {
       qualities: data.qualities
     }
   ];
+  const mediaList = sourceMediaList.map(item => {
+    if (!item || typeof item !== 'object') return null;
+    const mediaUrl = safeHttpUrl(item.mediaUrl);
+    if (!mediaUrl) return null;
+    const thumbnail = item.thumbnail ? safeHttpUrl(item.thumbnail) : '';
+    const qualities = Array.isArray(item.qualities)
+      ? item.qualities.map(option => ({ ...option, url: safeHttpUrl(option.url) })).filter(option => option.url)
+      : [];
+    return { ...item, mediaUrl, thumbnail, qualities };
+  }).filter(Boolean);
+
+  if (!mediaList.length) {
+    showError('Media link unavailable', 'The server returned a media link that cannot be opened safely. Please try another public Threads link.');
+    return;
+  }
 
   const totalItems = mediaList.length;
   const isMulti = totalItems > 1;
@@ -658,7 +709,7 @@ function renderResult(data) {
   // Header Badge
   if (resultTypeBadge) {
     if (isProfile) {
-      resultTypeBadge.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Profile DP (HD)`;
+      resultTypeBadge.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Profile DP`;
     } else if (isMulti) {
       resultTypeBadge.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg> Multi-Media Post (${totalItems} Files)`;
     } else {
@@ -686,7 +737,16 @@ function renderResult(data) {
 
       const cardHeader = document.createElement('div');
       cardHeader.className = 'media-card-header';
-      cardHeader.innerHTML = `<span class="card-num-badge">#${index + 1} ${item.type === 'video' ? 'Video' : 'Image'}</span><span class="card-quality-badge">${item.quality || 'HD'}</span>`;
+      const itemBadge = document.createElement('span');
+      itemBadge.className = 'card-num-badge';
+      itemBadge.textContent = `#${index + 1} ${item.type === 'video' ? 'Video' : 'Image'}`;
+      cardHeader.appendChild(itemBadge);
+      if (typeof item.quality === 'string' && item.quality.trim()) {
+        const qualityBadge = document.createElement('span');
+        qualityBadge.className = 'card-quality-badge';
+        qualityBadge.textContent = item.quality.trim().slice(0, 40);
+        cardHeader.appendChild(qualityBadge);
+      }
 
       const cardPreview = document.createElement('div');
       cardPreview.className = 'media-card-preview';
@@ -719,7 +779,7 @@ function renderResult(data) {
 
         img.addEventListener('error', () => {
           console.warn(`Direct image loading blocked for item #${index + 1}. Switching to proxy fallback chain...`);
-          attachMediaFallbackChain(img, item.mediaUrl, `threads-image-${index + 1}.jpg`, false);
+          attachMediaFallbackChain(img, item.mediaUrl, `threads-image-${index + 1}.${getMediaExtension(item.mediaUrl, false)}`, false);
         }, { once: true });
 
         // Auto scroll to media when loaded
@@ -741,7 +801,7 @@ function renderResult(data) {
 
       dBtn.onclick = (e) => {
         e.preventDefault();
-        const filename = `threads-${item.type}-${index + 1}.${isVid ? 'mp4' : 'jpg'}`;
+        const filename = `threads-${item.type}-${index + 1}.${getMediaExtension(item.mediaUrl, isVid)}`;
         triggerDownload(currentMediaUrl, filename, dBtn);
       };
 
@@ -814,7 +874,7 @@ function renderResult(data) {
         if (!fallbackTried) {
           fallbackTried = true;
           console.warn('Direct image loading blocked. Switching to proxy fallback chain...');
-          attachMediaFallbackChain(imgElem, item.mediaUrl, 'threads-image.jpg', false);
+          attachMediaFallbackChain(imgElem, item.mediaUrl, `threads-image.${getMediaExtension(item.mediaUrl, false)}`, false);
           return;
         }
         console.warn('All proxy attempts failed, providing direct image link');
@@ -825,13 +885,23 @@ function renderResult(data) {
         fallbackBox.style.background = 'var(--bg-glass)';
         fallbackBox.style.borderRadius = 'var(--radius-md)';
         fallbackBox.style.border = '1px solid var(--border)';
-        fallbackBox.innerHTML = `
-          <p style="color:var(--text-secondary); font-size: 0.95rem; margin-bottom: 0.75rem;">Image preview restricted by CDN headers.</p>
-          <a href="${item.mediaUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="display:inline-flex; align-items:center; gap:0.5rem; text-decoration:none;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
-            View / Download Original DP Image
-          </a>
-        `;
+        const fallbackMessage = document.createElement('p');
+        fallbackMessage.textContent = 'Image preview is restricted by the media server.';
+        fallbackMessage.style.color = 'var(--text-secondary)';
+        fallbackMessage.style.fontSize = '0.95rem';
+        fallbackMessage.style.marginBottom = '0.75rem';
+
+        const fallbackLink = document.createElement('a');
+        fallbackLink.href = item.mediaUrl;
+        fallbackLink.target = '_blank';
+        fallbackLink.rel = 'noopener noreferrer';
+        fallbackLink.className = 'btn-secondary';
+        fallbackLink.style.display = 'inline-flex';
+        fallbackLink.style.alignItems = 'center';
+        fallbackLink.style.gap = '0.5rem';
+        fallbackLink.style.textDecoration = 'none';
+        fallbackLink.textContent = 'View or download the original image';
+        fallbackBox.append(fallbackMessage, fallbackLink);
         previewContainer.appendChild(fallbackBox);
       });
 
@@ -851,7 +921,7 @@ function renderResult(data) {
         item.qualities.forEach((q, index) => {
           const qBtn = document.createElement('button');
           qBtn.className = `quality-btn ${index === 0 ? 'active' : ''}`;
-          qBtn.textContent = q.label || 'HD';
+          qBtn.textContent = q.label || 'Available option';
           qBtn.addEventListener('click', () => {
             document.querySelectorAll('.quality-btn').forEach(b => b.classList.remove('active'));
             qBtn.classList.add('active');
@@ -862,7 +932,7 @@ function renderResult(data) {
                 vid.load();
               }
             }
-            setupDownloadButton(q.url, isVideo ? 'threads-video.mp4' : 'threads-image.jpg');
+            setupDownloadButton(q.url, isVideo ? 'threads-video.mp4' : `threads-image.${getMediaExtension(q.url, false)}`);
           });
           qualityPills.appendChild(qBtn);
         });
@@ -874,8 +944,9 @@ function renderResult(data) {
     // Setup Single Download Button
     if (downloadDirectBtn) {
       const isProf = isProfile || data.type === 'profile';
-      const cleanUser = (data.author || 'user').replace('@', '').trim();
-      const defaultFilename = isProf ? `threads-dp-${cleanUser}.jpg` : (isVideo ? 'threads-video.mp4' : 'threads-image.jpg');
+      const cleanUser = safeFilenamePart(data.author);
+      const imageExtension = getMediaExtension(item.mediaUrl, false);
+      const defaultFilename = isProf ? `threads-dp-${cleanUser}.${imageExtension}` : (isVideo ? 'threads-video.mp4' : `threads-image.${imageExtension}`);
       
       let singleIcon = '';
       if (isProf) {
@@ -886,7 +957,7 @@ function renderResult(data) {
         singleIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>';
       }
 
-      downloadDirectBtn.innerHTML = `${singleIcon} ${isProf ? 'Download HD Profile Picture (DP)' : 'Download File Now'}`;
+      downloadDirectBtn.innerHTML = `${singleIcon} ${isProf ? 'Download Profile Picture (DP)' : 'Download File Now'}`;
       setupDownloadButton(item.mediaUrl, defaultFilename);
     }
 
@@ -954,12 +1025,13 @@ async function triggerDownload(mediaUrl, filename, btnElem) {
   for (const base of bases) {
     try {
       const blob = await fetchBlobFromBase(base, mediaUrl, filename);
+      const resolvedFilename = filenameForMime(filename, blob.type);
       const blobUrl = URL.createObjectURL(blob);
 
       const a = document.createElement('a');
       a.style.display = 'none';
       a.href = blobUrl;
-      a.download = filename;
+      a.download = resolvedFilename;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -998,7 +1070,7 @@ function downloadAllMedia(mediaList) {
   const downloadDirectBtn = document.getElementById('downloadDirectBtn');
   mediaList.forEach((item, idx) => {
     setTimeout(() => {
-      const filename = `threads-${item.type}-${idx + 1}.${item.type === 'video' ? 'mp4' : 'jpg'}`;
+      const filename = `threads-${item.type}-${idx + 1}.${getMediaExtension(item.mediaUrl, item.type === 'video')}`;
       triggerDownload(item.mediaUrl, filename, idx === 0 ? downloadDirectBtn : null);
     }, idx * 800);
   });
@@ -1018,18 +1090,32 @@ function setupDownloadButton(mediaUrl, filename) {
    6. FAQ Accordion Handler
    ========================================================================== */
 function initFaqAccordion() {
-  const faqItems = document.querySelectorAll('.faq-item');
+  const faqItems = [...document.querySelectorAll('.faq-item')];
+
+  const setExpanded = (item, expanded) => {
+    const question = item.querySelector('.faq-question');
+    const answerId = question?.getAttribute('aria-controls');
+    const answer = answerId ? document.getElementById(answerId) : null;
+    item.classList.toggle('active', expanded);
+    question?.setAttribute('aria-expanded', String(expanded));
+    if (answer) answer.hidden = !expanded;
+  };
+
   faqItems.forEach(item => {
     const question = item.querySelector('.faq-question');
-    if (question) {
-      question.addEventListener('click', () => {
-        const isActive = item.classList.contains('active');
-        faqItems.forEach(i => i.classList.remove('active'));
-        if (!isActive) {
-          item.classList.add('active');
-        }
-      });
-    }
+    if (!question) return;
+
+    const answerId = question.getAttribute('aria-controls');
+    const answer = answerId ? document.getElementById(answerId) : null;
+    const startsExpanded = item.classList.contains('active');
+    question.setAttribute('aria-expanded', String(startsExpanded));
+    if (answer) answer.hidden = !startsExpanded;
+
+    question.addEventListener('click', () => {
+      const wasExpanded = question.getAttribute('aria-expanded') === 'true';
+      faqItems.forEach(other => setExpanded(other, false));
+      if (!wasExpanded) setExpanded(item, true);
+    });
   });
 }
 
